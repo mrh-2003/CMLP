@@ -35,7 +35,7 @@ namespace Presentacion
         void limpiar()
         {
             txtDni.Clear();
-            txtNombres.Clear();
+            txtApellidosNombres.Clear();
             cbxGrado.SelectedIndex = -1;
             cbxSeccion.SelectedIndex = -1;
             txtEmail.Clear();
@@ -49,7 +49,7 @@ namespace Presentacion
 
         private void mantenimiento(string opcion)
         {
-            if (txtDni.Text != "" && txtNombres.Text != "" && cbxGrado.SelectedIndex != -1 && 
+            if (txtDni.Text != "" && txtApellidosNombres.Text != "" && cbxGrado.SelectedIndex != -1 && 
                 cbxSeccion.SelectedIndex != -1 && txtEmail.Text != "" && txtCelular.Text != "" && 
                 txtCelularMa.Text != "" && txtCelularPa.Text != "" && cbxDescuento.SelectedIndex != -1 && 
                 dtpVencimiento.Value != null)
@@ -57,7 +57,7 @@ namespace Presentacion
                 EAlumno eAlumno = new EAlumno()
                 {
                     Dni = txtDni.Text,
-                    ApellidosNombres = txtNombres.Text,
+                    ApellidosNombres = txtApellidosNombres.Text,
                     Grado = Convert.ToInt32(cbxGrado.SelectedItem),
                     Seccion = Convert.ToChar(cbxSeccion.SelectedItem),
                     Email = txtEmail.Text,
@@ -82,7 +82,7 @@ namespace Presentacion
             if (e.RowIndex != -1)
             {
                 txtDni.Text = dgvListar.Rows[e.RowIndex].Cells[0].Value.ToString();
-                txtNombres.Text = dgvListar.Rows[e.RowIndex].Cells[1].Value.ToString();
+                txtApellidosNombres.Text = dgvListar.Rows[e.RowIndex].Cells[1].Value.ToString();
                 cbxGrado.Text = dgvListar.Rows[e.RowIndex].Cells[2].Value.ToString();
                 cbxSeccion.Text = dgvListar.Rows[e.RowIndex].Cells[3].Value.ToString();
                 txtEmail.Text = dgvListar.Rows[e.RowIndex].Cells[4].Value.ToString();
