@@ -8,6 +8,7 @@ namespace Entidades
 {
     public class EBoleta
     {
+        public int Id { get; set; }
         public string Codigo { get; set; }
         public string AlumnoDNI { get; set; }
         public decimal Monto { get; set; }
@@ -18,8 +19,9 @@ namespace Entidades
         {
         }
 
-        public EBoleta(string codigo, string alumnoDNI, decimal monto, DateTime fecha, int conceptoCodigo)
+        public EBoleta(int id, string codigo, string alumnoDNI, decimal monto, DateTime fecha, int conceptoCodigo)
         {
+            Id = id;
             Codigo = codigo;
             AlumnoDNI = alumnoDNI;
             Monto = monto;

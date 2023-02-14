@@ -45,6 +45,7 @@ namespace Presentacion
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtId = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +55,7 @@ namespace Presentacion
             this.txtCodigo.Location = new System.Drawing.Point(130, 114);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(145, 24);
-            this.txtCodigo.TabIndex = 0;
+            this.txtCodigo.TabIndex = 1;
             // 
             // txtDni
             // 
@@ -62,7 +63,7 @@ namespace Presentacion
             this.txtDni.Location = new System.Drawing.Point(130, 172);
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(145, 24);
-            this.txtDni.TabIndex = 1;
+            this.txtDni.TabIndex = 2;
             // 
             // txtMonto
             // 
@@ -70,7 +71,7 @@ namespace Presentacion
             this.txtMonto.Location = new System.Drawing.Point(130, 230);
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(145, 24);
-            this.txtMonto.TabIndex = 2;
+            this.txtMonto.TabIndex = 3;
             // 
             // dtpFecha
             // 
@@ -78,7 +79,7 @@ namespace Presentacion
             this.dtpFecha.Location = new System.Drawing.Point(616, 171);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(200, 24);
-            this.dtpFecha.TabIndex = 3;
+            this.dtpFecha.TabIndex = 5;
             // 
             // txtConcepto
             // 
@@ -98,7 +99,7 @@ namespace Presentacion
             this.btnEliminar.Location = new System.Drawing.Point(748, 283);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(125, 35);
-            this.btnEliminar.TabIndex = 7;
+            this.btnEliminar.TabIndex = 8;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -113,7 +114,7 @@ namespace Presentacion
             this.btnActualizar.Location = new System.Drawing.Point(434, 283);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(121, 35);
-            this.btnActualizar.TabIndex = 6;
+            this.btnActualizar.TabIndex = 7;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
@@ -128,7 +129,7 @@ namespace Presentacion
             this.btnAgregar.Location = new System.Drawing.Point(112, 283);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(121, 35);
-            this.btnAgregar.TabIndex = 5;
+            this.btnAgregar.TabIndex = 6;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -146,7 +147,7 @@ namespace Presentacion
             this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListar.Size = new System.Drawing.Size(908, 288);
-            this.dgvListar.TabIndex = 8;
+            this.dgvListar.TabIndex = 9;
             this.dgvListar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellClick);
             // 
             // label9
@@ -226,12 +227,20 @@ namespace Presentacion
             this.label4.TabIndex = 61;
             this.label4.Text = "Fecha:";
             // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(159, 80);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(100, 20);
+            this.txtId.TabIndex = 0;
+            // 
             // MBoleta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(65)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(976, 642);
+            this.Controls.Add(this.txtId);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label4);
@@ -275,5 +284,6 @@ namespace Presentacion
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtId;
     }
 }

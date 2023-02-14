@@ -40,8 +40,8 @@ namespace Presentacion
             cbxSeccion.SelectedIndex = -1;
             txtEmail.Clear();
             txtCelular.Clear();
-            txtCelularMa.Clear();
-            txtCelularPa.Clear();
+            txtCelulcarAp.Clear();
+            txtEmailAp.Clear();
             cbxDescuento.SelectedIndex = -1;
             dtpVencimiento.Value = DateTime.Now;
             txtDni.Focus();
@@ -51,7 +51,7 @@ namespace Presentacion
         {
             if (txtDni.Text != "" && txtApellidosNombres.Text != "" && cbxGrado.SelectedIndex != -1 && 
                 cbxSeccion.SelectedIndex != -1 && txtEmail.Text != "" && txtCelular.Text != "" && 
-                txtCelularMa.Text != "" && txtCelularPa.Text != "" && cbxDescuento.SelectedIndex != -1 && 
+                txtCelulcarAp.Text != "" && txtEmailAp.Text != "" && cbxDescuento.SelectedIndex != -1 && 
                 dtpVencimiento.Value != null)
             {
                 EAlumno eAlumno = new EAlumno()
@@ -61,9 +61,9 @@ namespace Presentacion
                     Grado = Convert.ToInt32(cbxGrado.SelectedItem),
                     Seccion = Convert.ToChar(cbxSeccion.SelectedItem),
                     Email = txtEmail.Text,
+                    EmailApoderado = txtEmailAp.Text,
                     Celular = Convert.ToInt32(txtCelular.Text),
-                    CelularMama = Convert.ToInt32(txtCelularMa.Text),
-                    CelularPapa = Convert.ToInt32(txtCelularPa.Text),
+                    CelularApoderado = Convert.ToInt32(txtCelulcarAp.Text),
                     Descuento = cbxDescuento.SelectedItem.ToString(),
                     FinDescuento = dtpVencimiento.Value
                 };
@@ -86,9 +86,9 @@ namespace Presentacion
                 cbxGrado.Text = dgvListar.Rows[e.RowIndex].Cells[2].Value.ToString();
                 cbxSeccion.Text = dgvListar.Rows[e.RowIndex].Cells[3].Value.ToString();
                 txtEmail.Text = dgvListar.Rows[e.RowIndex].Cells[4].Value.ToString();
-                txtCelular.Text = dgvListar.Rows[e.RowIndex].Cells[5].Value.ToString();
-                txtCelularMa.Text = dgvListar.Rows[e.RowIndex].Cells[6].Value.ToString();
-                txtCelularPa.Text = dgvListar.Rows[e.RowIndex].Cells[7].Value.ToString();
+                txtEmailAp.Text = dgvListar.Rows[e.RowIndex].Cells[5].Value.ToString();
+                txtCelular.Text = dgvListar.Rows[e.RowIndex].Cells[6].Value.ToString();
+                txtCelulcarAp.Text = dgvListar.Rows[e.RowIndex].Cells[7].Value.ToString();
                 cbxDescuento.Text = dgvListar.Rows[e.RowIndex].Cells[8].Value.ToString();
                 dtpVencimiento.Value = Convert.ToDateTime(dgvListar.Rows[e.RowIndex].Cells[9].Value);
             }

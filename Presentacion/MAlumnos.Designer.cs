@@ -39,8 +39,8 @@ namespace Presentacion
             this.cbxSeccion = new System.Windows.Forms.ComboBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtCelular = new System.Windows.Forms.TextBox();
-            this.txtCelularMa = new System.Windows.Forms.TextBox();
-            this.txtCelularPa = new System.Windows.Forms.TextBox();
+            this.txtCelulcarAp = new System.Windows.Forms.TextBox();
+            this.txtEmailAp = new System.Windows.Forms.TextBox();
             this.cbxDescuento = new System.Windows.Forms.ComboBox();
             this.dtpVencimiento = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -182,21 +182,21 @@ namespace Presentacion
             this.txtCelular.Size = new System.Drawing.Size(154, 23);
             this.txtCelular.TabIndex = 6;
             // 
-            // txtCelularMa
+            // txtCelulcarAp
             // 
-            this.txtCelularMa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCelularMa.Location = new System.Drawing.Point(760, 189);
-            this.txtCelularMa.Name = "txtCelularMa";
-            this.txtCelularMa.Size = new System.Drawing.Size(154, 23);
-            this.txtCelularMa.TabIndex = 7;
+            this.txtCelulcarAp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCelulcarAp.Location = new System.Drawing.Point(760, 189);
+            this.txtCelulcarAp.Name = "txtCelulcarAp";
+            this.txtCelulcarAp.Size = new System.Drawing.Size(154, 23);
+            this.txtCelulcarAp.TabIndex = 8;
             // 
-            // txtCelularPa
+            // txtEmailAp
             // 
-            this.txtCelularPa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCelularPa.Location = new System.Drawing.Point(760, 143);
-            this.txtCelularPa.Name = "txtCelularPa";
-            this.txtCelularPa.Size = new System.Drawing.Size(154, 23);
-            this.txtCelularPa.TabIndex = 8;
+            this.txtEmailAp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmailAp.Location = new System.Drawing.Point(760, 143);
+            this.txtEmailAp.Name = "txtEmailAp";
+            this.txtEmailAp.Size = new System.Drawing.Size(154, 23);
+            this.txtEmailAp.TabIndex = 7;
             // 
             // cbxDescuento
             // 
@@ -294,9 +294,9 @@ namespace Presentacion
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(612, 143);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(107, 17);
+            this.label7.Size = new System.Drawing.Size(134, 17);
             this.label7.TabIndex = 57;
-            this.label7.Text = "Celular-Padre:";
+            this.label7.Text = "Email-Apoderado:";
             // 
             // label8
             // 
@@ -305,9 +305,9 @@ namespace Presentacion
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(612, 191);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(110, 17);
+            this.label8.Size = new System.Drawing.Size(145, 17);
             this.label8.TabIndex = 58;
-            this.label8.Text = "Celular-Madre:";
+            this.label8.Text = "Celular-Apoderado:";
             // 
             // label9
             // 
@@ -373,8 +373,8 @@ namespace Presentacion
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpVencimiento);
             this.Controls.Add(this.cbxDescuento);
-            this.Controls.Add(this.txtCelularPa);
-            this.Controls.Add(this.txtCelularMa);
+            this.Controls.Add(this.txtEmailAp);
+            this.Controls.Add(this.txtCelulcarAp);
             this.Controls.Add(this.txtCelular);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.cbxSeccion);
@@ -407,8 +407,8 @@ namespace Presentacion
         private System.Windows.Forms.ComboBox cbxSeccion;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtCelular;
-        private System.Windows.Forms.TextBox txtCelularMa;
-        private System.Windows.Forms.TextBox txtCelularPa;
+        private System.Windows.Forms.TextBox txtCelulcarAp;
+        private System.Windows.Forms.TextBox txtEmailAp;
         private System.Windows.Forms.ComboBox cbxDescuento;
         private System.Windows.Forms.DateTimePicker dtpVencimiento;
         private System.Windows.Forms.Label label1;

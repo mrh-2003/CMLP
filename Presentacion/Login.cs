@@ -28,7 +28,10 @@ namespace Presentacion
             //};
             //MessageBox.Show(dUsuario.Mantenimiento(user, "insert"));
             if (dUsuario.Login(txtUsuario.Text, txtContrasenia.Text))
+            {
+                this.Hide();
                 (new Home()).ShowDialog();
+            }
             else
                 MessageBox.Show("Credenciales incompletas o incorrectas");
         }

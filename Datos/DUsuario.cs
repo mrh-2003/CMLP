@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Entidades;
 using Npgsql;
+using System.Data;
 
 namespace Datos
 {
@@ -24,11 +25,12 @@ namespace Datos
                         if (opcion == "insert")
                             query = "INSERT INTO usuarios (usuario, contrasenia) VALUES (@usuario, @contrasenia)";
                         else if (opcion == "update")
-                            query = "UPDATE usuarios SET contrasenia = @contrasenia WHERE usuario = @usuario";
+                            query = "UPDATE usuarios SET usuario = @usuario, contrasenia = @contrasenia WHERE id = @id";
                         else
-                            query = "DELETE FROM usuarios WHERE usuario = @usuario";
+                            query = "DELETE FROM usuarios WHERE id = @id";
                         using (var cmd = new NpgsqlCommand(query, conn, trans))
                         {
+                            cmd.Parameters.AddWithValue("@id", usuario.Id);
                             cmd.Parameters.AddWithValue("@usuario", usuario.Usuario);
                             cmd.Parameters.AddWithValue("@contrasenia", usuario.Contrasenia);
                             cmd.ExecuteNonQuery();
@@ -70,6 +72,22 @@ namespace Datos
                 }
             }
             return false;
+        }
+        public DataTable Listar()
+        {
+            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM usuarios", connection))
+                {
+                    NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    return dt;
+                }
+            }
         }
 
     }

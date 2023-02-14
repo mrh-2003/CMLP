@@ -466,7 +466,9 @@ namespace Presentacion
             this.ClientSize = new System.Drawing.Size(1184, 681);
             this.Controls.Add(this.panelEscritorio);
             this.Controls.Add(this.panelMenu);
+            this.MaximizeBox = false;
             this.Name = "Home";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.panelMenu.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

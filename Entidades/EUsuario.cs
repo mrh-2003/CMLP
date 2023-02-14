@@ -8,14 +8,16 @@ namespace Entidades
 {
     public class EUsuario
     {
+        public int Id { get; set; }
         public string Usuario { get; set; }
         public string Contrasenia { get; set; }
         public EUsuario()
         {
 
         }
-        public EUsuario(string usuario, string contrasenia)
+        public EUsuario(int id, string usuario, string contrasenia)
         {
+            Id = id;
             Usuario = usuario;
             Contrasenia = contrasenia;
         }

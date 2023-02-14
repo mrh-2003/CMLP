@@ -23,9 +23,9 @@ namespace Datos
                     {
                         string query;
                         if (opcion == "insert")
-                            query = "INSERT INTO alumnos (dni, apellidos_nombres, grado, seccion, email, celular, celular_mama, celular_papa, descuento, fin_descuento) VALUES (@dni, @apellidos_nombres, @grado, @seccion, @email, @celular, @celular_mama, @celular_papa, @descuento, @fin_descuento)";
+                            query = "INSERT INTO alumnos (dni, apellidos_nombres, grado, seccion, email,  email_apoderado, celular, celular_apoderado, descuento, fin_descuento) VALUES (@dni, @apellidos_nombres, @grado, @seccion, @email, @email_apoderado, @celular, @celular_apoderado, @descuento, @fin_descuento)";
                         else if (opcion == "update")
-                            query = "UPDATE alumnos SET apellidos_nombres = @apellidos_nombres, grado = @grado, seccion = @seccion, email = @email, celular = @celular, celular_mama = @celular_mama, celular_papa = @celular_papa, descuento = @descuento, fin_descuento = @fin_descuento WHERE dni = @dni";
+                            query = "UPDATE alumnos SET apellidos_nombres = @apellidos_nombres, grado = @grado, seccion = @seccion, email = @email, email_apoderado = @email_apoderado, celular = @celular, celular_apoderado = @celular_apoderado, descuento = @descuento, fin_descuento = @fin_descuento WHERE dni = @dni";
                         else
                             query = "DELETE FROM alumnos WHERE dni = @dni";
                         using (var cmd = new NpgsqlCommand(query, conn, trans))
@@ -35,9 +35,9 @@ namespace Datos
                             cmd.Parameters.AddWithValue("@grado", alumno.Grado);
                             cmd.Parameters.AddWithValue("@seccion", alumno.Seccion);
                             cmd.Parameters.AddWithValue("@email", alumno.Email);
+                            cmd.Parameters.AddWithValue("@email_apoderado", alumno.EmailApoderado);
                             cmd.Parameters.AddWithValue("@celular", alumno.Celular);
-                            cmd.Parameters.AddWithValue("@celular_mama", alumno.CelularMama);
-                            cmd.Parameters.AddWithValue("@celular_papa", alumno.CelularPapa);
+                            cmd.Parameters.AddWithValue("@celular_apoderado", alumno.CelularApoderado);
                             cmd.Parameters.AddWithValue("@descuento", alumno.Descuento);
                             cmd.Parameters.AddWithValue("@fin_descuento", alumno.FinDescuento);
                             cmd.ExecuteNonQuery();
@@ -94,7 +94,7 @@ namespace Datos
         //                            alumno.Seccion = reader.GetChar(3);
         //                            alumno.Email = reader.GetString(4);
         //                            alumno.Celular = reader.GetInt32(5);
-        //                            alumno.CelularMama = reader.GetInt32(6);
+        //                            alumno.CelularApoderado = reader.GetInt32(6);
         //                            alumno.CelularPapa = reader.GetInt32(7);
         //                            alumno.Descuento = reader.GetString(8);
         //                            alumno.FinDescuento = reader.GetDateTime(9);
