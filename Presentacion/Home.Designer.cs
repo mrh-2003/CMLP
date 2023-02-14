@@ -51,10 +51,14 @@ namespace Presentacion
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.panelEscritorio = new System.Windows.Forms.Panel();
-            this.rjDropdownMenu1 = new CustomControls.RJControls.RJDropdownMenu(this.components);
+            this.menuKardex = new CustomControls.RJControls.RJDropdownMenu(this.components);
+            this.subMenukardexAlumno = new System.Windows.Forms.ToolStripMenuItem();
+            this.subMenukardexGrado = new System.Windows.Forms.ToolStripMenuItem();
+            this.subMenukardexResumenDeGrado = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.menuKardex.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -302,6 +306,7 @@ namespace Presentacion
             this.btnKardex.Text = "Kardex";
             this.btnKardex.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnKardex.UseVisualStyleBackColor = true;
+            this.btnKardex.Click += new System.EventHandler(this.btnKardex_Click);
             // 
             // btnMantAlumnos
             // 
@@ -450,14 +455,44 @@ namespace Presentacion
             this.panelEscritorio.Size = new System.Drawing.Size(992, 681);
             this.panelEscritorio.TabIndex = 4;
             // 
-            // rjDropdownMenu1
+            // menuKardex
             // 
-            this.rjDropdownMenu1.IsMainMenu = false;
-            this.rjDropdownMenu1.MenuItemHeight = 25;
-            this.rjDropdownMenu1.MenuItemTextColor = System.Drawing.Color.Empty;
-            this.rjDropdownMenu1.Name = "rjDropdownMenu1";
-            this.rjDropdownMenu1.PrimaryColor = System.Drawing.Color.Empty;
-            this.rjDropdownMenu1.Size = new System.Drawing.Size(61, 4);
+            this.menuKardex.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(19)))));
+            this.menuKardex.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuKardex.IsMainMenu = false;
+            this.menuKardex.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.subMenukardexAlumno,
+            this.subMenukardexGrado,
+            this.subMenukardexResumenDeGrado});
+            this.menuKardex.MenuItemHeight = 25;
+            this.menuKardex.MenuItemTextColor = System.Drawing.Color.Empty;
+            this.menuKardex.Name = "rjDropdownMenu1";
+            this.menuKardex.PrimaryColor = System.Drawing.Color.Empty;
+            this.menuKardex.Size = new System.Drawing.Size(250, 70);
+            // 
+            // subMenukardexAlumno
+            // 
+            this.subMenukardexAlumno.ForeColor = System.Drawing.Color.White;
+            this.subMenukardexAlumno.Name = "subMenukardexAlumno";
+            this.subMenukardexAlumno.Size = new System.Drawing.Size(249, 22);
+            this.subMenukardexAlumno.Text = "Kardex Alumno";
+            this.subMenukardexAlumno.Click += new System.EventHandler(this.subMenukardexAlumno_Click);
+            // 
+            // subMenukardexGrado
+            // 
+            this.subMenukardexGrado.ForeColor = System.Drawing.Color.White;
+            this.subMenukardexGrado.Name = "subMenukardexGrado";
+            this.subMenukardexGrado.Size = new System.Drawing.Size(249, 22);
+            this.subMenukardexGrado.Text = "Kardex Grado";
+            this.subMenukardexGrado.Click += new System.EventHandler(this.subMenukardexGrado_Click);
+            // 
+            // subMenukardexResumenDeGrado
+            // 
+            this.subMenukardexResumenDeGrado.ForeColor = System.Drawing.Color.White;
+            this.subMenukardexResumenDeGrado.Name = "subMenukardexResumenDeGrado";
+            this.subMenukardexResumenDeGrado.Size = new System.Drawing.Size(249, 22);
+            this.subMenukardexResumenDeGrado.Text = "Kardex Resumen de Grado";
+            this.subMenukardexResumenDeGrado.Click += new System.EventHandler(this.subMenukardexResumenDeGrado_Click);
             // 
             // Home
             // 
@@ -473,6 +508,7 @@ namespace Presentacion
             this.panelMenu.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.menuKardex.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -499,7 +535,10 @@ namespace Presentacion
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.Panel panelEscritorio;
-        private CustomControls.RJControls.RJDropdownMenu rjDropdownMenu1;
+        private CustomControls.RJControls.RJDropdownMenu menuKardex;
+        private System.Windows.Forms.ToolStripMenuItem subMenukardexAlumno;
+        private System.Windows.Forms.ToolStripMenuItem subMenukardexGrado;
+        private System.Windows.Forms.ToolStripMenuItem subMenukardexResumenDeGrado;
     }
 }
 
