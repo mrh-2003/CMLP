@@ -12,12 +12,12 @@ using Datos;
 
 namespace Presentacion
 {
-    public partial class MUsuarios : Form
+    public partial class MUsuariosAdmin : Form
     {
         DUsuario dUsuario = new DUsuario();
         string aux = "";
         int index = -1;
-        public MUsuarios()
+        public MUsuariosAdmin()
         {
             InitializeComponent();
         }
