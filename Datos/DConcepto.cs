@@ -47,22 +47,62 @@ namespace Datos
             }
         }
 
-
-        public DataTable Listar()
+        public List<EConcepto> Listar()
         {
-            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+            List<EConcepto> lista = new List<EConcepto>();
+
+            using (var conn = new NpgsqlConnection(connectionString))
             {
-                connection.Open();
-
-                using (NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM conceptos", connection))
+                try
                 {
-                    NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
+                    conn.Open();
+                    using (var trans = conn.BeginTransaction())
+                    {
+                        string query = "SELECT * FROM conceptos";
+                        using (var cmd = new NpgsqlCommand(query, conn, trans))
+                        {
+                            using (var reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    EConcepto concepto = new EConcepto();
+                                    concepto.Codigo = reader.GetInt32(0);
+                                    concepto.Concepto = reader.GetString(1);
+                                    concepto.Importe = reader.GetDecimal(2);
 
-                    return dt;
+                                    lista.Add(concepto);
+                                }
+                            }
+                        }
+                        trans.Commit();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
                 }
             }
+            return lista;
         }
+
+
+        //public DataTable Listar()
+        //{
+        //    using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+        //    {
+        //        connection.Open();
+
+        //        using (NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM conceptos", connection))
+        //        {
+        //            NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
+        //            DataTable dt = new DataTable();
+        //            adapter.Fill(dt);
+
+        //            return dt;
+        //        }
+        //    }
+        //}
+
+
     }
 }

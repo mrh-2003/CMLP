@@ -33,7 +33,6 @@ namespace Presentacion
             this.txtDni = new System.Windows.Forms.TextBox();
             this.txtMonto = new System.Windows.Forms.TextBox();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
-            this.txtConcepto = new System.Windows.Forms.TextBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -44,8 +43,8 @@ namespace Presentacion
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.cbxConcepto = new System.Windows.Forms.ComboBox();
+            this.lbNombre = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,6 +63,7 @@ namespace Presentacion
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(145, 24);
             this.txtDni.TabIndex = 2;
+            this.txtDni.TextChanged += new System.EventHandler(this.txtDni_TextChanged);
             // 
             // txtMonto
             // 
@@ -216,44 +216,42 @@ namespace Presentacion
             this.label4.TabIndex = 61;
             this.label4.Text = "Fecha:";
             // 
-            // txtId
+            // cbxConcepto
             // 
-            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtId.Location = new System.Drawing.Point(130, 74);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(145, 23);
-            this.txtId.TabIndex = 0;
+            this.cbxConcepto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxConcepto.FormattingEnabled = true;
+            this.cbxConcepto.Location = new System.Drawing.Point(616, 117);
+            this.cbxConcepto.Name = "cbxConcepto";
+            this.cbxConcepto.Size = new System.Drawing.Size(121, 21);
+            this.cbxConcepto.TabIndex = 65;
             // 
-            // label5
+            // lbNombre
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(58, 76);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(28, 17);
-            this.label5.TabIndex = 61;
-            this.label5.Text = "Id:";
+            this.lbNombre.AutoSize = true;
+            this.lbNombre.Location = new System.Drawing.Point(127, 214);
+            this.lbNombre.Name = "lbNombre";
+            this.lbNombre.Size = new System.Drawing.Size(50, 13);
+            this.lbNombre.TabIndex = 66;
+            this.lbNombre.Text = "Nombre: ";
             // 
             // MBoleta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(65)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(992, 681);
-            this.Controls.Add(this.txtId);
+            this.ClientSize = new System.Drawing.Size(976, 642);
+            this.Controls.Add(this.lbNombre);
+            this.Controls.Add(this.cbxConcepto);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.dgvListar);
-            this.Controls.Add(this.txtConcepto);
             this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.txtMonto);
             this.Controls.Add(this.txtDni);
@@ -274,7 +272,6 @@ namespace Presentacion
         private System.Windows.Forms.TextBox txtDni;
         private System.Windows.Forms.TextBox txtMonto;
         private System.Windows.Forms.DateTimePicker dtpFecha;
-        private System.Windows.Forms.TextBox txtConcepto;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnAgregar;
@@ -285,7 +282,7 @@ namespace Presentacion
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtId;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cbxConcepto;
+        private System.Windows.Forms.Label lbNombre;
     }
 }

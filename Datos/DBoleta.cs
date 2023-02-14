@@ -27,5 +27,25 @@ namespace Datos
                 }
             }
         }
+        public DataTable ListarPorFecha(DateTime fechaInicio, DateTime fechaFin)
+        {
+            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM boletas WHERE fecha BETWEEN @fechaInicio AND @fechaFin", connection))
+                {
+                    command.Parameters.AddWithValue("fechaInicio", fechaInicio);
+                    command.Parameters.AddWithValue("fechaFin", fechaFin);
+
+                    NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    return dt;
+                }
+            }
+        }
+
     }
 }

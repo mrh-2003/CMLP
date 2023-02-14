@@ -28,7 +28,12 @@ namespace Presentacion
         {
             dgvListar.DataSource = dConcepto.Listar();
             dgvListar.ClearSelection();
+            //dgvListar.EnableHeadersVisualStyles = false;
+            //dgvListar.ColumnHeadersDefaultCellStyle.BackColor = Color.Cyan;
+            //dgvListar.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            //dgvListar.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.Gray;
             limpiar();
+
         }
 
         void limpiar()
