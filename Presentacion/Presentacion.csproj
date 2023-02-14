@@ -74,23 +74,23 @@
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="KardexAlumno.cs">
+    <Compile Include="KAlumno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KardexAlumno.Designer.cs">
-      <DependentUpon>KardexAlumno.cs</DependentUpon>
+    <Compile Include="KAlumno.Designer.cs">
+      <DependentUpon>KAlumno.cs</DependentUpon>
     </Compile>
-    <Compile Include="KardexGrado.cs">
+    <Compile Include="KGrado.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KardexGrado.Designer.cs">
-      <DependentUpon>KardexGrado.cs</DependentUpon>
+    <Compile Include="KGrado.Designer.cs">
+      <DependentUpon>KGrado.cs</DependentUpon>
     </Compile>
-    <Compile Include="KardexResumenGrado.cs">
+    <Compile Include="KResumenGrado.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KardexResumenGrado.Designer.cs">
-      <DependentUpon>KardexResumenGrado.cs</DependentUpon>
+    <Compile Include="KResumenGrado.Designer.cs">
+      <DependentUpon>KResumenGrado.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -132,14 +132,14 @@
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KardexAlumno.resx">
-      <DependentUpon>KardexAlumno.cs</DependentUpon>
+    <EmbeddedResource Include="KAlumno.resx">
+      <DependentUpon>KAlumno.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KardexGrado.resx">
-      <DependentUpon>KardexGrado.cs</DependentUpon>
+    <EmbeddedResource Include="KGrado.resx">
+      <DependentUpon>KGrado.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KardexResumenGrado.resx">
-      <DependentUpon>KardexResumenGrado.cs</DependentUpon>
+    <EmbeddedResource Include="KResumenGrado.resx">
+      <DependentUpon>KResumenGrado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

@@ -1,7 +1,7 @@
 ﻿
 namespace Presentacion
 {
-    partial class KardexAlumno
+    partial class KAlumno
     {
         /// <summary>
         /// Required designer variable.

@@ -1,7 +1,7 @@
 ﻿
 namespace Presentacion
 {
-    partial class KardexResumenGrado
+    partial class KResumenGrado
     {
         /// <summary>
         /// Required designer variable.

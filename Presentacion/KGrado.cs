@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Presentacion
 {
-    public partial class KardexGrado : Form
+    public partial class KGrado : Form
     {
-        public KardexGrado()
+        public KGrado()
         {
             InitializeComponent();
         }

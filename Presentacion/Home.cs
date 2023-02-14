@@ -39,17 +39,17 @@ namespace Presentacion
 
         private void subMenukardexAlumno_Click(object sender, EventArgs e)
         {
-            abrirFormHija(new KardexAlumno());
+            abrirFormHija(new KAlumno());
         }
 
         private void subMenukardexGrado_Click(object sender, EventArgs e)
         {
-            abrirFormHija(new KardexGrado());
+            abrirFormHija(new KGrado());
         }
 
         private void subMenukardexResumenDeGrado_Click(object sender, EventArgs e)
         {
-            abrirFormHija(new KardexResumenGrado());
+            abrirFormHija(new KResumenGrado());
         }
     }
 }
