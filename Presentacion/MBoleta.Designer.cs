@@ -52,7 +52,7 @@ namespace Presentacion
             // txtCodigo
             // 
             this.txtCodigo.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigo.Location = new System.Drawing.Point(130, 114);
+            this.txtCodigo.Location = new System.Drawing.Point(130, 129);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(145, 24);
             this.txtCodigo.TabIndex = 1;
@@ -60,7 +60,7 @@ namespace Presentacion
             // txtDni
             // 
             this.txtDni.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDni.Location = new System.Drawing.Point(130, 172);
+            this.txtDni.Location = new System.Drawing.Point(130, 186);
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(145, 24);
             this.txtDni.TabIndex = 2;
@@ -148,7 +148,7 @@ namespace Presentacion
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(58, 117);
+            this.label9.Location = new System.Drawing.Point(58, 132);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(63, 17);
             this.label9.TabIndex = 61;
@@ -159,18 +159,18 @@ namespace Presentacion
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(367, 59);
+            this.label11.Location = new System.Drawing.Point(456, 44);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(209, 18);
+            this.label11.Size = new System.Drawing.Size(60, 18);
             this.label11.TabIndex = 64;
-            this.label11.Text = "Mantenimiento - Alumno";
+            this.label11.Text = "Boleta";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(154, 23);
+            this.label12.Location = new System.Drawing.Point(153, 9);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(663, 25);
             this.label12.TabIndex = 63;
@@ -181,7 +181,7 @@ namespace Presentacion
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(58, 174);
+            this.label1.Location = new System.Drawing.Point(58, 188);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 17);
             this.label1.TabIndex = 61;
@@ -238,6 +238,17 @@ namespace Presentacion
             this.lbNombre.TabIndex = 66;
             this.lbNombre.Text = "Nombre: ";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(58, 80);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(28, 17);
+            this.label5.TabIndex = 61;
+            this.label5.Text = "Id:";
+            // 
             // MBoleta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -252,6 +263,7 @@ namespace Presentacion
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnActualizar);

@@ -41,6 +41,8 @@ namespace Presentacion
             this.dgvListar = new System.Windows.Forms.DataGridView();
             this.txtId = new System.Windows.Forms.TextBox();
             this.cbxRol = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +57,7 @@ namespace Presentacion
             // txtContrasenia
             // 
             this.txtContrasenia.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContrasenia.Location = new System.Drawing.Point(716, 149);
+            this.txtContrasenia.Location = new System.Drawing.Point(716, 154);
             this.txtContrasenia.Name = "txtContrasenia";
             this.txtContrasenia.Size = new System.Drawing.Size(195, 24);
             this.txtContrasenia.TabIndex = 2;
@@ -143,7 +145,7 @@ namespace Presentacion
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(613, 151);
+            this.label1.Location = new System.Drawing.Point(613, 156);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 17);
             this.label1.TabIndex = 68;
@@ -167,25 +169,49 @@ namespace Presentacion
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(210, 113);
+            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtId.Location = new System.Drawing.Point(131, 109);
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
-            this.txtId.Size = new System.Drawing.Size(100, 20);
+            this.txtId.Size = new System.Drawing.Size(121, 23);
             this.txtId.TabIndex = 0;
             // 
             // cbxRol
             // 
             this.cbxRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxRol.FormattingEnabled = true;
             this.cbxRol.Items.AddRange(new object[] {
             "Administrador",
             "Tesorero",
             "Secretario",
             "Invitado"});
-            this.cbxRol.Location = new System.Drawing.Point(772, 87);
+            this.cbxRol.Location = new System.Drawing.Point(716, 109);
             this.cbxRol.Name = "cbxRol";
-            this.cbxRol.Size = new System.Drawing.Size(121, 21);
+            this.cbxRol.Size = new System.Drawing.Size(159, 24);
             this.cbxRol.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(54, 112);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(28, 17);
+            this.label2.TabIndex = 68;
+            this.label2.Text = "Id:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(613, 113);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(36, 17);
+            this.label3.TabIndex = 68;
+            this.label3.Text = "Rol:";
             // 
             // MUsuarios
             // 
@@ -197,6 +223,8 @@ namespace Presentacion
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.dgvListar);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
@@ -231,5 +259,7 @@ namespace Presentacion
         private System.Windows.Forms.DataGridView dgvListar;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.ComboBox cbxRol;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
