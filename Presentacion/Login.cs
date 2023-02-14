@@ -14,6 +14,7 @@ namespace Presentacion
     public partial class Login : Form
     {
         DUsuario dUsuario = new DUsuario();
+        public static int id;
         public Login()
         {
             InitializeComponent();
@@ -27,10 +28,11 @@ namespace Presentacion
             //    Contrasenia = Utilidades.GetSHA256(txtContrasenia.Text)
             //};
             //MessageBox.Show(dUsuario.Mantenimiento(user, "insert"));
-            if (dUsuario.Login(txtUsuario.Text, txtContrasenia.Text))
+            id = dUsuario.Login(txtUsuario.Text, txtContrasenia.Text);
+            if (id != 0)
             {
                 this.Hide();
-                (new Home()).ShowDialog();
+                (new MUsuario()).ShowDialog();
             }
             else
                 MessageBox.Show("Credenciales incompletas o incorrectas");

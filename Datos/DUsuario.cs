@@ -46,14 +46,14 @@ namespace Datos
                 }
             }
         }
-        public bool Login(string usuario, string contrasenia)
+        public int Login(string usuario, string contrasenia)
         {
             using (var conn = new NpgsqlConnection(connectionString))
             {
                 try
                 {
                     conn.Open();
-                    using (var cmd = new NpgsqlCommand("SELECT contrasenia FROM usuarios WHERE usuario = @usuario", conn))
+                    using (var cmd = new NpgsqlCommand("SELECT id, contrasenia FROM usuarios WHERE usuario = @usuario", conn))
                     {
                         cmd.Parameters.AddWithValue("@usuario", usuario);
                         using (var reader = cmd.ExecuteReader())
@@ -62,7 +62,7 @@ namespace Datos
                             {
                                 reader.Read();
                                 if (Utilidades.GetSHA256(contrasenia) == reader["contrasenia"].ToString())
-                                    return true;
+                                    return Convert.ToInt32(reader["id"].ToString());
                             }
                         }
                     }
@@ -72,7 +72,7 @@ namespace Datos
                     Console.WriteLine(ex.Message);
                 }
             }
-            return false;
+            return 0;
         }
         public DataTable Listar()
         {
@@ -87,6 +87,37 @@ namespace Datos
                     adapter.Fill(dt);
 
                     return dt;
+                }
+            }
+        }
+        public EUsuario getUsuario(int id)
+        {
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    using (var cmd = new NpgsqlCommand("SELECT * FROM usuarios WHERE id = @id", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            reader.Read();
+                            EUsuario eUsuario = new EUsuario()
+                            {
+                                Id = reader.GetInt32(0),
+                                Usuario = reader.GetString(1),
+                                Contrasenia = reader.GetString(2),
+                                Rol = reader.GetString(3)
+                            };
+                            return eUsuario;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return null;
                 }
             }
         }

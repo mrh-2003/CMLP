@@ -1,7 +1,7 @@
 ﻿
 namespace Presentacion
 {
-    partial class MUsuarios
+    partial class MUsuariosAdmin
     {
         /// <summary>
         /// Required designer variable.

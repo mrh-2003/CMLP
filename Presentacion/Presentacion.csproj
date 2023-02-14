@@ -116,11 +116,17 @@
     <Compile Include="MConceptos.Designer.cs">
       <DependentUpon>MConceptos.cs</DependentUpon>
     </Compile>
-    <Compile Include="MUsuarios.cs">
+    <Compile Include="MUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MUsuarios.Designer.cs">
-      <DependentUpon>MUsuarios.cs</DependentUpon>
+    <Compile Include="MUsuario.Designer.cs">
+      <DependentUpon>MUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MUsuariosAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MUsuariosAdmin.Designer.cs">
+      <DependentUpon>MUsuariosAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -153,8 +159,11 @@
     <EmbeddedResource Include="MConceptos.resx">
       <DependentUpon>MConceptos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MUsuarios.resx">
-      <DependentUpon>MUsuarios.cs</DependentUpon>
+    <EmbeddedResource Include="MUsuario.resx">
+      <DependentUpon>MUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MUsuariosAdmin.resx">
+      <DependentUpon>MUsuariosAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
