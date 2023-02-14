@@ -31,5 +31,25 @@ namespace Presentacion
         {
             abrirFormHija(new MAlumnos());
         }
+
+        private void btnKardex_Click(object sender, EventArgs e)//btn Kardex
+        {
+            menuKardex.Show(btnKardex, btnKardex.Width, 4);
+        }
+
+        private void subMenukardexAlumno_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new KardexAlumno());
+        }
+
+        private void subMenukardexGrado_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new KardexGrado());
+        }
+
+        private void subMenukardexResumenDeGrado_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new KardexResumenGrado());
+        }
     }
 }
