@@ -39,6 +39,8 @@ namespace Presentacion
             this.label10 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvListar = new System.Windows.Forms.DataGridView();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.cbxRol = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,7 +50,7 @@ namespace Presentacion
             this.txtUsuario.Location = new System.Drawing.Point(131, 148);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(390, 24);
-            this.txtUsuario.TabIndex = 0;
+            this.txtUsuario.TabIndex = 1;
             // 
             // txtContrasenia
             // 
@@ -56,7 +58,7 @@ namespace Presentacion
             this.txtContrasenia.Location = new System.Drawing.Point(716, 149);
             this.txtContrasenia.Name = "txtContrasenia";
             this.txtContrasenia.Size = new System.Drawing.Size(195, 24);
-            this.txtContrasenia.TabIndex = 1;
+            this.txtContrasenia.TabIndex = 2;
             // 
             // btnAgregar
             // 
@@ -68,9 +70,10 @@ namespace Presentacion
             this.btnAgregar.Location = new System.Drawing.Point(96, 221);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(121, 35);
-            this.btnAgregar.TabIndex = 2;
+            this.btnAgregar.TabIndex = 4;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnModificar
             // 
@@ -82,9 +85,10 @@ namespace Presentacion
             this.btnModificar.Location = new System.Drawing.Point(445, 221);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(121, 35);
-            this.btnModificar.TabIndex = 3;
+            this.btnModificar.TabIndex = 5;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
@@ -96,9 +100,10 @@ namespace Presentacion
             this.btnEliminar.Location = new System.Drawing.Point(782, 221);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(121, 35);
-            this.btnEliminar.TabIndex = 4;
+            this.btnEliminar.TabIndex = 6;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // label11
             // 
@@ -157,7 +162,30 @@ namespace Presentacion
             this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListar.Size = new System.Drawing.Size(941, 372);
-            this.dgvListar.TabIndex = 69;
+            this.dgvListar.TabIndex = 7;
+            this.dgvListar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellClick);
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(210, 113);
+            this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
+            this.txtId.Size = new System.Drawing.Size(100, 20);
+            this.txtId.TabIndex = 0;
+            // 
+            // cbxRol
+            // 
+            this.cbxRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxRol.FormattingEnabled = true;
+            this.cbxRol.Items.AddRange(new object[] {
+            "Administrador",
+            "Tesorero",
+            "Secretario",
+            "Invitado"});
+            this.cbxRol.Location = new System.Drawing.Point(772, 87);
+            this.cbxRol.Name = "cbxRol";
+            this.cbxRol.Size = new System.Drawing.Size(121, 21);
+            this.cbxRol.TabIndex = 3;
             // 
             // MUsuarios
             // 
@@ -165,6 +193,8 @@ namespace Presentacion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(65)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(992, 681);
+            this.Controls.Add(this.cbxRol);
+            this.Controls.Add(this.txtId);
             this.Controls.Add(this.dgvListar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label10);
@@ -199,5 +229,7 @@ namespace Presentacion
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvListar;
+        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.ComboBox cbxRol;
     }
 }

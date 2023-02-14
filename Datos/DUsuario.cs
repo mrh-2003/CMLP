@@ -23,9 +23,9 @@ namespace Datos
                     {
                         string query;
                         if (opcion == "insert")
-                            query = "INSERT INTO usuarios (usuario, contrasenia) VALUES (@usuario, @contrasenia)";
+                            query = "INSERT INTO usuarios (usuario, contrasenia, rol) VALUES (@usuario, @contrasenia, @rol)";
                         else if (opcion == "update")
-                            query = "UPDATE usuarios SET usuario = @usuario, contrasenia = @contrasenia WHERE id = @id";
+                            query = "UPDATE usuarios SET usuario = @usuario, contrasenia = @contrasenia, rol = @rol WHERE id = @id";
                         else
                             query = "DELETE FROM usuarios WHERE id = @id";
                         using (var cmd = new NpgsqlCommand(query, conn, trans))
@@ -33,6 +33,7 @@ namespace Datos
                             cmd.Parameters.AddWithValue("@id", usuario.Id);
                             cmd.Parameters.AddWithValue("@usuario", usuario.Usuario);
                             cmd.Parameters.AddWithValue("@contrasenia", usuario.Contrasenia);
+                            cmd.Parameters.AddWithValue("@rol", usuario.Rol);
                             cmd.ExecuteNonQuery();
                         }
                         trans.Commit();

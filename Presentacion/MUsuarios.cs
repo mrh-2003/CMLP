@@ -15,6 +15,8 @@ namespace Presentacion
     public partial class MUsuarios : Form
     {
         DUsuario dUsuario = new DUsuario();
+        string aux = "";
+        int index = -1;
         public MUsuarios()
         {
             InitializeComponent();
@@ -22,7 +24,93 @@ namespace Presentacion
 
         private void MUsuarios_Load(object sender, EventArgs e)
         {
+            mostrar();
+        }
+        void mostrar()
+        {
             dgvListar.DataSource = dUsuario.Listar();
+            dgvListar.ClearSelection();
+            limpiar();
+        }
+        void limpiar()
+        {
+            txtId.Clear();
+            txtUsuario.Clear();
+            txtContrasenia.Clear();
+            cbxRol.SelectedIndex = -1;
+            txtUsuario.Focus();
+        }
+        void mantenimiento(string opcion)
+        {
+            if (txtId.Text!=""  && txtUsuario.Text != "" && txtContrasenia.Text != "" && cbxRol.Text != "")
+            {
+                EUsuario eUsuario = new EUsuario()
+                {
+                    Id = Convert.ToInt32(txtId.Text),
+                    Usuario = txtUsuario.Text,
+                    Contrasenia = txtContrasenia.Text,
+                    Rol = cbxRol.Text
+                };
+                MessageBox.Show(dUsuario.Mantenimiento(eUsuario, opcion));
+                mostrar();
+            }
+            else
+            {
+                MessageBox.Show("Todos los campos deben estar llenos");
+            }
+        }
+        bool existeUsuario()
+        {
+            for (int i = 0; i < dgvListar.Rows.Count; i++)
+                if(index != i && dgvListar.Rows[i].Cells[1].Value.ToString() == txtUsuario.Text)
+                {
+                     MessageBox.Show("No se puede registrar dos usuarios iguales");
+                     return true;
+                }
+            return false;
+        }
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow item in dgvListar.Rows)
+                if(txtUsuario.Text == item.Cells[1].Value.ToString())
+                {
+                    MessageBox.Show("No se puede registrar dos usuarios iguales");
+                    return;
+                }
+            txtId.Text = "0";
+            if(txtContrasenia.Text != "")
+                txtContrasenia.Text = Utilidades.GetSHA256(txtContrasenia.Text);
+            mantenimiento("insert");
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (!existeUsuario())
+            {
+                if (txtContrasenia.Text == "")
+                    txtContrasenia.Text = aux;
+                else
+                    txtContrasenia.Text = Utilidades.GetSHA256(txtContrasenia.Text);
+                mantenimiento("update");
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            txtContrasenia.Text = aux;
+            mantenimiento("delete");
+        }
+
+        private void dgvListar_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            index = e.RowIndex;
+            if (index != -1)
+            {
+                txtId.Text = dgvListar.Rows[index].Cells[0].Value.ToString();
+                txtUsuario.Text = dgvListar.Rows[index].Cells[1].Value.ToString();
+                aux = dgvListar.Rows[index].Cells[2].Value.ToString();
+                cbxRol.Text = dgvListar.Rows[index].Cells[3].Value.ToString();
+            }
         }
     }
 }

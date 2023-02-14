@@ -11,15 +11,6 @@ namespace Entidades
         public int Id { get; set; }
         public string Usuario { get; set; }
         public string Contrasenia { get; set; }
-        public EUsuario()
-        {
-
-        }
-        public EUsuario(int id, string usuario, string contrasenia)
-        {
-            Id = id;
-            Usuario = usuario;
-            Contrasenia = contrasenia;
-        }
+        public string Rol { get; set;  }
     }
 }
