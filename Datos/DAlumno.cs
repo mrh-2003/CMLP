@@ -113,6 +113,43 @@ namespace Datos
         //    }
         //    return lista;
         //}
+        public EAlumno getAlumno(string dni)
+        {
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    using (var cmd = new NpgsqlCommand("SELECT * FROM alumnos WHERE dni = @dni", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@dni", dni);
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            reader.Read();
+                            EAlumno eAlumno = new EAlumno()
+                            {
+                                Dni = reader.GetString(0),
+                                ApellidosNombres = reader.GetString(1),
+                                Grado = reader.GetInt32(2),
+                                Seccion = reader.GetChar(3),
+                                Email = reader.GetString(4),
+                                EmailApoderado = reader.GetString(5),
+                                Celular = reader.GetInt32(6),
+                                CelularApoderado = reader.GetInt32(7),
+                                Descuento = reader.GetString(8),
+                                FinDescuento = reader.GetDateTime(9)
+                            };
+                            return eAlumno;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return null;
+                }
+            }
+        }
 
     }
 }

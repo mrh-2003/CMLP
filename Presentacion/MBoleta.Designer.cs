@@ -33,7 +33,6 @@ namespace Presentacion
             this.txtDni = new System.Windows.Forms.TextBox();
             this.txtMonto = new System.Windows.Forms.TextBox();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
-            this.txtConcepto = new System.Windows.Forms.TextBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -45,7 +44,8 @@ namespace Presentacion
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
+            this.cbxConcepto = new System.Windows.Forms.ComboBox();
+            this.lbNombre = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,6 +64,7 @@ namespace Presentacion
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(145, 24);
             this.txtDni.TabIndex = 2;
+            this.txtDni.TextChanged += new System.EventHandler(this.txtDni_TextChanged);
             // 
             // txtMonto
             // 
@@ -80,14 +81,6 @@ namespace Presentacion
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(200, 24);
             this.dtpFecha.TabIndex = 5;
-            // 
-            // txtConcepto
-            // 
-            this.txtConcepto.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConcepto.Location = new System.Drawing.Point(616, 115);
-            this.txtConcepto.Name = "txtConcepto";
-            this.txtConcepto.Size = new System.Drawing.Size(280, 24);
-            this.txtConcepto.TabIndex = 4;
             // 
             // btnEliminar
             // 
@@ -227,12 +220,23 @@ namespace Presentacion
             this.label4.TabIndex = 61;
             this.label4.Text = "Fecha:";
             // 
-            // txtId
+            // cbxConcepto
             // 
-            this.txtId.Location = new System.Drawing.Point(159, 80);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(100, 20);
-            this.txtId.TabIndex = 0;
+            this.cbxConcepto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxConcepto.FormattingEnabled = true;
+            this.cbxConcepto.Location = new System.Drawing.Point(616, 117);
+            this.cbxConcepto.Name = "cbxConcepto";
+            this.cbxConcepto.Size = new System.Drawing.Size(121, 21);
+            this.cbxConcepto.TabIndex = 65;
+            // 
+            // lbNombre
+            // 
+            this.lbNombre.AutoSize = true;
+            this.lbNombre.Location = new System.Drawing.Point(130, 203);
+            this.lbNombre.Name = "lbNombre";
+            this.lbNombre.Size = new System.Drawing.Size(50, 13);
+            this.lbNombre.TabIndex = 66;
+            this.lbNombre.Text = "Nombre: ";
             // 
             // MBoleta
             // 
@@ -240,7 +244,8 @@ namespace Presentacion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(65)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(976, 642);
-            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.lbNombre);
+            this.Controls.Add(this.cbxConcepto);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label4);
@@ -252,7 +257,6 @@ namespace Presentacion
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.dgvListar);
-            this.Controls.Add(this.txtConcepto);
             this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.txtMonto);
             this.Controls.Add(this.txtDni);
@@ -272,7 +276,6 @@ namespace Presentacion
         private System.Windows.Forms.TextBox txtDni;
         private System.Windows.Forms.TextBox txtMonto;
         private System.Windows.Forms.DateTimePicker dtpFecha;
-        private System.Windows.Forms.TextBox txtConcepto;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnAgregar;
@@ -284,6 +287,7 @@ namespace Presentacion
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.ComboBox cbxConcepto;
+        private System.Windows.Forms.Label lbNombre;
     }
 }

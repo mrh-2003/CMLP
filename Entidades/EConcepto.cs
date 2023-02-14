@@ -20,5 +20,9 @@ namespace Entidades
             Concepto = concepto;
             Importe = importe;
         }
+        public override string ToString()
+        {
+            return Codigo + " - " + Concepto;
+        }
     }
 }
