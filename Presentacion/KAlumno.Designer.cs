@@ -40,7 +40,6 @@ namespace Presentacion
             this.txbTelefono = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.lblSeccion = new System.Windows.Forms.Label();
             this.lblAnio = new System.Windows.Forms.Label();
             this.txbDireccion = new System.Windows.Forms.TextBox();
@@ -57,7 +56,6 @@ namespace Presentacion
             this.lblHora = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.fechahora = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -164,17 +162,6 @@ namespace Presentacion
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(0, 18);
             this.label6.TabIndex = 50;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(354, 13);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(341, 18);
-            this.label5.TabIndex = 94;
-            this.label5.Text = "(KARDEX´s de un Determinado Alumno)";
             // 
             // lblSeccion
             // 
@@ -340,29 +327,17 @@ namespace Presentacion
             this.label2.TabIndex = 79;
             this.label2.Text = "COLEGIO MILITAR \"LEONCIO PRADO\"";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(184, -12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(663, 25);
-            this.label1.TabIndex = 77;
-            this.label1.Text = "Sistema Integrado de Información Computarizada del CMLP (SICC)";
-            // 
             // fechahora
             // 
             this.fechahora.Enabled = true;
             this.fechahora.Tick += new System.EventHandler(this.fechahora_Tick);
             // 
-            // KardexAlumno
+            // KAlumno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(65)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(976, 642);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.lblSeccion);
             this.Controls.Add(this.lblAnio);
             this.Controls.Add(this.txbDireccion);
@@ -379,7 +354,6 @@ namespace Presentacion
             this.Controls.Add(this.lblHora);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txbPendiente);
@@ -391,7 +365,7 @@ namespace Presentacion
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label6);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "KardexAlumno";
+            this.Name = "KAlumno";
             this.Text = "KardexAlumno";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -411,7 +385,6 @@ namespace Presentacion
         private System.Windows.Forms.TextBox txbTelefono;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblSeccion;
         private System.Windows.Forms.Label lblAnio;
         private System.Windows.Forms.TextBox txbDireccion;
@@ -428,7 +401,6 @@ namespace Presentacion
         private System.Windows.Forms.Label lblHora;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer fechahora;
     }
 }
