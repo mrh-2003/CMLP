@@ -83,8 +83,9 @@ namespace Presentacion
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.ForeColor = System.Drawing.Color.White;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelMenu.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(192, 681);
+            this.panelMenu.Size = new System.Drawing.Size(192, 649);
             this.panelMenu.TabIndex = 2;
             // 
             // iconButton13
@@ -101,8 +102,9 @@ namespace Presentacion
             this.iconButton13.IconSize = 25;
             this.iconButton13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton13.Location = new System.Drawing.Point(0, 546);
+            this.iconButton13.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.iconButton13.Name = "iconButton13";
-            this.iconButton13.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
+            this.iconButton13.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
             this.iconButton13.Size = new System.Drawing.Size(192, 30);
             this.iconButton13.TabIndex = 15;
             this.iconButton13.Text = "Recaudación";
@@ -123,8 +125,9 @@ namespace Presentacion
             this.iconButton14.IconSize = 25;
             this.iconButton14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton14.Location = new System.Drawing.Point(0, 516);
+            this.iconButton14.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.iconButton14.Name = "iconButton14";
-            this.iconButton14.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
+            this.iconButton14.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
             this.iconButton14.Size = new System.Drawing.Size(192, 30);
             this.iconButton14.TabIndex = 14;
             this.iconButton14.Text = "Recaudación";
@@ -145,6 +148,7 @@ namespace Presentacion
             this.iconButton15.IconSize = 35;
             this.iconButton15.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton15.Location = new System.Drawing.Point(0, 478);
+            this.iconButton15.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.iconButton15.Name = "iconButton15";
             this.iconButton15.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.iconButton15.Size = new System.Drawing.Size(192, 38);
@@ -167,8 +171,9 @@ namespace Presentacion
             this.iconButton8.IconSize = 25;
             this.iconButton8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton8.Location = new System.Drawing.Point(0, 448);
+            this.iconButton8.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.iconButton8.Name = "iconButton8";
-            this.iconButton8.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
+            this.iconButton8.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
             this.iconButton8.Size = new System.Drawing.Size(192, 30);
             this.iconButton8.TabIndex = 12;
             this.iconButton8.Text = "Recaudación";
@@ -189,8 +194,9 @@ namespace Presentacion
             this.iconButton9.IconSize = 25;
             this.iconButton9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton9.Location = new System.Drawing.Point(0, 418);
+            this.iconButton9.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.iconButton9.Name = "iconButton9";
-            this.iconButton9.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
+            this.iconButton9.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
             this.iconButton9.Size = new System.Drawing.Size(192, 30);
             this.iconButton9.TabIndex = 11;
             this.iconButton9.Text = "Recaudación";
@@ -211,8 +217,9 @@ namespace Presentacion
             this.iconButton10.IconSize = 25;
             this.iconButton10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton10.Location = new System.Drawing.Point(0, 388);
+            this.iconButton10.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.iconButton10.Name = "iconButton10";
-            this.iconButton10.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
+            this.iconButton10.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
             this.iconButton10.Size = new System.Drawing.Size(192, 30);
             this.iconButton10.TabIndex = 10;
             this.iconButton10.Text = "Recaudación";
@@ -233,6 +240,7 @@ namespace Presentacion
             this.iconButton11.IconSize = 35;
             this.iconButton11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton11.Location = new System.Drawing.Point(0, 350);
+            this.iconButton11.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.iconButton11.Name = "iconButton11";
             this.iconButton11.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.iconButton11.Size = new System.Drawing.Size(192, 38);
@@ -255,8 +263,9 @@ namespace Presentacion
             this.iconButton4.IconSize = 25;
             this.iconButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton4.Location = new System.Drawing.Point(0, 320);
+            this.iconButton4.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.iconButton4.Name = "iconButton4";
-            this.iconButton4.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
+            this.iconButton4.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
             this.iconButton4.Size = new System.Drawing.Size(192, 30);
             this.iconButton4.TabIndex = 8;
             this.iconButton4.Text = "X";
@@ -277,8 +286,9 @@ namespace Presentacion
             this.iconButton5.IconSize = 25;
             this.iconButton5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton5.Location = new System.Drawing.Point(0, 290);
+            this.iconButton5.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.iconButton5.Name = "iconButton5";
-            this.iconButton5.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
+            this.iconButton5.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
             this.iconButton5.Size = new System.Drawing.Size(192, 30);
             this.iconButton5.TabIndex = 7;
             this.iconButton5.Text = "Deudores";
@@ -299,8 +309,9 @@ namespace Presentacion
             this.btnKardex.IconSize = 25;
             this.btnKardex.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnKardex.Location = new System.Drawing.Point(0, 260);
+            this.btnKardex.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnKardex.Name = "btnKardex";
-            this.btnKardex.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
+            this.btnKardex.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
             this.btnKardex.Size = new System.Drawing.Size(192, 30);
             this.btnKardex.TabIndex = 6;
             this.btnKardex.Text = "Kardex";
@@ -322,6 +333,7 @@ namespace Presentacion
             this.btnMantAlumnos.IconSize = 35;
             this.btnMantAlumnos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMantAlumnos.Location = new System.Drawing.Point(0, 222);
+            this.btnMantAlumnos.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnMantAlumnos.Name = "btnMantAlumnos";
             this.btnMantAlumnos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnMantAlumnos.Size = new System.Drawing.Size(192, 38);
@@ -345,8 +357,9 @@ namespace Presentacion
             this.iconButton3.IconSize = 25;
             this.iconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton3.Location = new System.Drawing.Point(0, 192);
+            this.iconButton3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
+            this.iconButton3.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
             this.iconButton3.Size = new System.Drawing.Size(192, 30);
             this.iconButton3.TabIndex = 4;
             this.iconButton3.Text = "Recaudación";
@@ -367,8 +380,9 @@ namespace Presentacion
             this.iconButton2.IconSize = 25;
             this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton2.Location = new System.Drawing.Point(0, 162);
+            this.iconButton2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
+            this.iconButton2.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
             this.iconButton2.Size = new System.Drawing.Size(192, 30);
             this.iconButton2.TabIndex = 3;
             this.iconButton2.Text = "Recaudación";
@@ -389,8 +403,9 @@ namespace Presentacion
             this.iconButton1.IconSize = 25;
             this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton1.Location = new System.Drawing.Point(0, 132);
+            this.iconButton1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
+            this.iconButton1.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
             this.iconButton1.Size = new System.Drawing.Size(192, 30);
             this.iconButton1.TabIndex = 2;
             this.iconButton1.Text = "Recaudación";
@@ -411,6 +426,7 @@ namespace Presentacion
             this.btnRecaudacion.IconSize = 35;
             this.btnRecaudacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRecaudacion.Location = new System.Drawing.Point(0, 94);
+            this.btnRecaudacion.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnRecaudacion.Name = "btnRecaudacion";
             this.btnRecaudacion.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnRecaudacion.Size = new System.Drawing.Size(192, 38);
@@ -426,6 +442,7 @@ namespace Presentacion
             this.panel1.Controls.Add(this.panelLogo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(192, 94);
             this.panel1.TabIndex = 0;
@@ -433,7 +450,8 @@ namespace Presentacion
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 1);
+            this.pictureBox1.Location = new System.Drawing.Point(2, 1);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(186, 90);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -443,6 +461,7 @@ namespace Presentacion
             // panelLogo
             // 
             this.panelLogo.Location = new System.Drawing.Point(26, 12);
+            this.panelLogo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panelLogo.Name = "panelLogo";
             this.panelLogo.Size = new System.Drawing.Size(0, 0);
             this.panelLogo.TabIndex = 0;
@@ -451,8 +470,9 @@ namespace Presentacion
             // 
             this.panelEscritorio.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEscritorio.Location = new System.Drawing.Point(192, 0);
+            this.panelEscritorio.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panelEscritorio.Name = "panelEscritorio";
-            this.panelEscritorio.Size = new System.Drawing.Size(992, 681);
+            this.panelEscritorio.Size = new System.Drawing.Size(836, 649);
             this.panelEscritorio.TabIndex = 4;
             // 
             // menuKardex
@@ -498,9 +518,11 @@ namespace Presentacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 681);
+            this.ClientSize = new System.Drawing.Size(1028, 649);
             this.Controls.Add(this.panelEscritorio);
             this.Controls.Add(this.panelMenu);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.MaximizeBox = false;
             this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

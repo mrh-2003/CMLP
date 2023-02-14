@@ -41,7 +41,6 @@ namespace Presentacion
             this.lblHora = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.fechahora = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -53,7 +52,7 @@ namespace Presentacion
             this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConsultar.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultar.ForeColor = System.Drawing.Color.White;
-            this.btnConsultar.Location = new System.Drawing.Point(440, 210);
+            this.btnConsultar.Location = new System.Drawing.Point(446, 190);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(129, 44);
             this.btnConsultar.TabIndex = 49;
@@ -65,27 +64,27 @@ namespace Presentacion
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(32, 270);
+            this.dataGridView1.Location = new System.Drawing.Point(32, 249);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(913, 348);
+            this.dataGridView1.Size = new System.Drawing.Size(934, 409);
             this.dataGridView1.TabIndex = 48;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(351, 50);
+            this.label5.Location = new System.Drawing.Point(299, 11);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(328, 18);
+            this.label5.Size = new System.Drawing.Size(426, 25);
             this.label5.TabIndex = 59;
-            this.label5.Text = "(KARDEX´s de un Determinado Grado)";
+            this.label5.Text = "KARDEX´s de un Determinado Grado";
             // 
             // cmbAnio
             // 
             this.cmbAnio.FormattingEnabled = true;
-            this.cmbAnio.Location = new System.Drawing.Point(335, 166);
+            this.cmbAnio.Location = new System.Drawing.Point(341, 144);
             this.cmbAnio.Name = "cmbAnio";
             this.cmbAnio.Size = new System.Drawing.Size(121, 21);
             this.cmbAnio.TabIndex = 57;
@@ -93,7 +92,7 @@ namespace Presentacion
             // cmbSeccion
             // 
             this.cmbSeccion.FormattingEnabled = true;
-            this.cmbSeccion.Location = new System.Drawing.Point(589, 165);
+            this.cmbSeccion.Location = new System.Drawing.Point(595, 143);
             this.cmbSeccion.Name = "cmbSeccion";
             this.cmbSeccion.Size = new System.Drawing.Size(121, 21);
             this.cmbSeccion.TabIndex = 58;
@@ -103,7 +102,7 @@ namespace Presentacion
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Verdana", 11F);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(515, 166);
+            this.label7.Location = new System.Drawing.Point(521, 144);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(72, 18);
             this.label7.TabIndex = 56;
@@ -114,7 +113,7 @@ namespace Presentacion
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 11F);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(288, 167);
+            this.label4.Location = new System.Drawing.Point(294, 145);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(44, 18);
             this.label4.TabIndex = 55;
@@ -125,7 +124,7 @@ namespace Presentacion
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 11F);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(70, 139);
+            this.label3.Location = new System.Drawing.Point(76, 117);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(201, 18);
             this.label3.TabIndex = 54;
@@ -136,7 +135,7 @@ namespace Presentacion
             this.lblHora.AutoSize = true;
             this.lblHora.Font = new System.Drawing.Font("Verdana", 11F);
             this.lblHora.ForeColor = System.Drawing.Color.White;
-            this.lblHora.Location = new System.Drawing.Point(791, 139);
+            this.lblHora.Location = new System.Drawing.Point(797, 117);
             this.lblHora.Name = "lblHora";
             this.lblHora.Size = new System.Drawing.Size(42, 18);
             this.lblHora.TabIndex = 53;
@@ -147,7 +146,7 @@ namespace Presentacion
             this.lblFecha.AutoSize = true;
             this.lblFecha.Font = new System.Drawing.Font("Verdana", 11F);
             this.lblFecha.ForeColor = System.Drawing.Color.White;
-            this.lblFecha.Location = new System.Drawing.Point(791, 96);
+            this.lblFecha.Location = new System.Drawing.Point(797, 74);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(48, 18);
             this.lblFecha.TabIndex = 52;
@@ -158,34 +157,23 @@ namespace Presentacion
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 11F);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(70, 96);
+            this.label2.Location = new System.Drawing.Point(76, 74);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(285, 18);
             this.label2.TabIndex = 51;
             this.label2.Text = "COLEGIO MILITAR \"LEONCIO PRADO\"";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(163, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(663, 25);
-            this.label1.TabIndex = 50;
-            this.label1.Text = "Sistema Integrado de Información Computarizada del CMLP (SICC)";
             // 
             // fechahora
             // 
             this.fechahora.Enabled = true;
             this.fechahora.Tick += new System.EventHandler(this.fechahora_Tick);
             // 
-            // KardexGrado
+            // KGrado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(65)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(976, 642);
+            this.ClientSize = new System.Drawing.Size(992, 681);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cmbAnio);
             this.Controls.Add(this.cmbSeccion);
@@ -195,11 +183,10 @@ namespace Presentacion
             this.Controls.Add(this.lblHora);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "KardexGrado";
+            this.Name = "KGrado";
             this.Text = "KardexGrado";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -220,7 +207,6 @@ namespace Presentacion
         private System.Windows.Forms.Label lblHora;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer fechahora;
     }
 }
