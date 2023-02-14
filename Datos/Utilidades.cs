@@ -23,7 +23,7 @@ namespace Datos
             //{
             //    return null;
             //}
-            return "Host=localhost:5432;Username=postgres;Passwor=Barrientos;Database=CMLP";
+            return "Host=localhost:5432;Username=postgres;Password=Barrientos123;Database=CMLP";
         }
         public static string GetSHA256(string str)
         {

@@ -85,7 +85,7 @@ namespace Presentacion
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(192, 649);
+            this.panelMenu.Size = new System.Drawing.Size(192, 681);
             this.panelMenu.TabIndex = 2;
             // 
             // iconButton13
@@ -472,7 +472,7 @@ namespace Presentacion
             this.panelEscritorio.Location = new System.Drawing.Point(192, 0);
             this.panelEscritorio.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panelEscritorio.Name = "panelEscritorio";
-            this.panelEscritorio.Size = new System.Drawing.Size(836, 649);
+            this.panelEscritorio.Size = new System.Drawing.Size(992, 681);
             this.panelEscritorio.TabIndex = 4;
             // 
             // menuKardex
@@ -518,7 +518,7 @@ namespace Presentacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1028, 649);
+            this.ClientSize = new System.Drawing.Size(1184, 681);
             this.Controls.Add(this.panelEscritorio);
             this.Controls.Add(this.panelMenu);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
