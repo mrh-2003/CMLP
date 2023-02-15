@@ -31,14 +31,14 @@ namespace Presentacion
         {
             this.SuspendLayout();
             // 
-            // KardexResumenGrado
+            // KResumenGrado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(65)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(976, 642);
+            this.ClientSize = new System.Drawing.Size(992, 681);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "KardexResumenGrado";
+            this.Name = "KResumenGrado";
             this.Text = "KardexResumenGrado";
             this.ResumeLayout(false);
 
