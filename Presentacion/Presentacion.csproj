@@ -85,6 +85,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CAlumnos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CAlumnos.Designer.cs">
+      <DependentUpon>CAlumnos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CBecarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CBecarios.Designer.cs">
+      <DependentUpon>CBecarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="CBoletas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +151,12 @@
     <Compile Include="MBoleta.Designer.cs">
       <DependentUpon>MBoleta.cs</DependentUpon>
     </Compile>
+    <Compile Include="MCalendarioPagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MCalendarioPagos.Designer.cs">
+      <DependentUpon>MCalendarioPagos.cs</DependentUpon>
+    </Compile>
     <Compile Include="MConceptos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +194,12 @@
     <Compile Include="RJControls\RJDropdownMenu.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="CAlumnos.resx">
+      <DependentUpon>CAlumnos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CBecarios.resx">
+      <DependentUpon>CBecarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CBoletas.resx">
       <DependentUpon>CBoletas.cs</DependentUpon>
     </EmbeddedResource>

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Npgsql;
 using Entidades;
 using System.Data;
+using System.Reflection;
 
 namespace Datos
 {
@@ -150,6 +151,36 @@ namespace Datos
                 }
             }
         }
+        public DataTable listObjectToDataTable(List<EAlumno> list)
+        {
+            DataTable dataTable = new DataTable();
 
+            if (list.Count > 0)
+            {
+                // Obtener información de la clase del primer objeto en la lista
+                Type objectType = list[0].GetType();
+                PropertyInfo[] properties = objectType.GetProperties();
+
+                // Agregar las columnas al DataTable
+                foreach (PropertyInfo property in properties)
+                {
+                    dataTable.Columns.Add(property.Name, property.PropertyType);
+                }
+                foreach (object obj in list)
+                {
+                    DataRow dataRow = dataTable.NewRow();
+
+                    // Asignar los valores de cada propiedad al DataRow
+                    foreach (DataColumn column in dataTable.Columns)
+                    {
+                        object value = obj.GetType().GetProperty(column.ColumnName).GetValue(obj, null);
+                        dataRow[column] = value;
+                    }
+
+                    dataTable.Rows.Add(dataRow);
+                }
+            }
+            return dataTable;
+        }
     }
 }

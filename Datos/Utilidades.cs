@@ -23,7 +23,7 @@ namespace Datos
             //{
             //    return null;
             //}
-            return "Host=localhost:5432;Username=postgres;Password=Barrientos123;Database=CMLP";
+            return "Host=localhost:5432;Username=postgres;Password=74143981;Database=CMLP";
         }
         public static string GetSHA256(string str)
         {
@@ -35,5 +35,6 @@ namespace Datos
             for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
             return sb.ToString();
         }
+        
     }
 }

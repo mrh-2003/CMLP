@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="EAlumno.cs" />
     <Compile Include="EBoleta.cs" />
+    <Compile Include="ECalendario.cs" />
     <Compile Include="EConcepto.cs" />
     <Compile Include="EUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
