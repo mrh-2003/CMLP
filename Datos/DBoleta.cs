@@ -47,5 +47,26 @@ namespace Datos
             }
         }
 
+        public DataTable ListarPorConceptos(DateTime fechaInicio, DateTime fechaFin, int concepto)
+        {
+            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM boletas WHERE fecha BETWEEN @fechaInicio AND @fechaFin and concepto_codigo = @concepto", connection))
+                {
+                    command.Parameters.AddWithValue("fechaInicio", fechaInicio);
+                    command.Parameters.AddWithValue("fechaFin", fechaFin);
+                    command.Parameters.AddWithValue("concepto", concepto);
+
+                    NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    return dt;
+                }
+            }
+        }
+
     }
 }
