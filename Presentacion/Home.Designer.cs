@@ -211,7 +211,7 @@ namespace Presentacion
             this.iconButton10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton10.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButton10.ForeColor = System.Drawing.Color.White;
-            this.iconButton10.IconChar = FontAwesome.Sharp.IconChar.Brush;
+            this.iconButton10.IconChar = FontAwesome.Sharp.IconChar.Paypal;
             this.iconButton10.IconColor = System.Drawing.Color.White;
             this.iconButton10.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton10.IconSize = 25;
