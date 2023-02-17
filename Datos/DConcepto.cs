@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 using Entidades;
 using Npgsql;
 using System.Data;
-
 namespace Datos
 {
     public class DConcepto
     {
         private readonly string connectionString = Utilidades.cadena();
-
         public string Mantenimiento(EConcepto concepto, string opcion)
         {
             using (var conn = new NpgsqlConnection(connectionString))
@@ -46,7 +44,6 @@ namespace Datos
                 }
             }
         }
-
         public List<EConcepto> Listar()
         {
             List<EConcepto> lista = new List<EConcepto>();

@@ -53,7 +53,6 @@ namespace Datos
                 }
             }
         }
-
         public DataTable Listar()
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
