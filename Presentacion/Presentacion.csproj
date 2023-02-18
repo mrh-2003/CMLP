@@ -227,6 +227,9 @@
     <EmbeddedResource Include="MBoleta.resx">
       <DependentUpon>MBoleta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MCalendarioPagos.resx">
+      <DependentUpon>MCalendarioPagos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MConceptos.resx">
       <DependentUpon>MConceptos.cs</DependentUpon>
     </EmbeddedResource>

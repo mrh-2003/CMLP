@@ -14,6 +14,7 @@ namespace Presentacion
 {
     public partial class MAlumnos : Form
     {
+        private const string TITULO_ALERTA = "Error de Entrada";
         DAlumno dAlumno = new DAlumno();
         public MAlumnos()
         {
@@ -107,6 +108,41 @@ namespace Presentacion
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             mantenimiento("delete");
+        }
+
+        private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Este campo solo acepta numeros. Introduce un valor válido", TITULO_ALERTA, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void txtApellidosNombres_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Este campo solo acepta letras. Introduce un nombre válido", TITULO_ALERTA, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            }
+        }
+        private void txtCelular_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Este campo solo acepta numeros. Introduce un valor válido", TITULO_ALERTA, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+        private void txtCelulcarAp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Este campo solo acepta numeros. Introduce un valor válido", TITULO_ALERTA, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }

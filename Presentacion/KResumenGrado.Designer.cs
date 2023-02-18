@@ -39,6 +39,7 @@ namespace Presentacion
             this.ClientSize = new System.Drawing.Size(992, 681);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "KResumenGrado";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KardexResumenGrado";
             this.ResumeLayout(false);
 

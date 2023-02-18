@@ -223,6 +223,7 @@ namespace Presentacion
             this.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MUsuariosAdmin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MUsuarios";
             this.Load += new System.EventHandler(this.MUsuarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).EndInit();

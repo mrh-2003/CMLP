@@ -14,6 +14,7 @@ namespace Presentacion
 {
     public partial class MBoleta : Form
     {
+        private const string TITULO_ALERTA = "Error de Entrada";
         DBoleta dBoleta = new DBoleta();
         DConcepto dConcepto = new DConcepto();
         DAlumno dAlumno = new DAlumno();
@@ -54,6 +55,24 @@ namespace Presentacion
         {
             if(txtDni.Text.Length == 8 && dAlumno.getAlumno(txtDni.Text) != null)
                 lbNombre.Text =  "Nombre: " + dAlumno.getAlumno(txtDni.Text).ApellidosNombres;
+        }
+        private void txtMonto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+                MessageBox.Show("Este campo solo acepta numeros. Introduce un valor válido", TITULO_ALERTA, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            }
+        }
+        private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Este campo solo acepta numeros. Introduce un valor válido", TITULO_ALERTA, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }

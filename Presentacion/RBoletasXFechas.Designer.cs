@@ -41,18 +41,20 @@ namespace Presentacion
             // 
             // dtpInicio
             // 
+            this.dtpInicio.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpInicio.Location = new System.Drawing.Point(213, 120);
+            this.dtpInicio.Location = new System.Drawing.Point(213, 117);
             this.dtpInicio.Name = "dtpInicio";
-            this.dtpInicio.Size = new System.Drawing.Size(200, 20);
+            this.dtpInicio.Size = new System.Drawing.Size(200, 24);
             this.dtpInicio.TabIndex = 0;
             // 
             // dtpFinal
             // 
+            this.dtpFinal.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFinal.Location = new System.Drawing.Point(689, 120);
+            this.dtpFinal.Location = new System.Drawing.Point(689, 119);
             this.dtpFinal.Name = "dtpFinal";
-            this.dtpFinal.Size = new System.Drawing.Size(200, 20);
+            this.dtpFinal.Size = new System.Drawing.Size(200, 24);
             this.dtpFinal.TabIndex = 1;
             // 
             // btnAceptar
@@ -134,6 +136,7 @@ namespace Presentacion
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RBoletasXFechas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RBoletasXFechas";
             this.Load += new System.EventHandler(this.RBoletasXFechas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).EndInit();

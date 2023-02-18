@@ -46,7 +46,6 @@ namespace Datos
                 }
             }
         }
-
         public DataTable ListarPorConceptos(DateTime fechaInicio, DateTime fechaFin, int concepto)
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))

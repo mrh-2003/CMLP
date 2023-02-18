@@ -15,6 +15,7 @@ namespace Presentacion
 {
     public partial class CBecarios : Form
     {
+        private const string TITULO_ALERTA = "Error de Entrada";
         DAlumno dAlumno = new DAlumno();
         List<EAlumno> listaAlumnos = new List<EAlumno>();
         public CBecarios()
@@ -148,6 +149,16 @@ namespace Presentacion
             {
                 txtDni.Text = dgvListar.Rows[e.RowIndex].Cells[0].Value.ToString();
                 cbxBeca.Text = dgvListar.Rows[e.RowIndex].Cells[8].Value.ToString();
+            }
+        }
+
+        private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Este campo solo acepta numeros. Introduce un valor válido", TITULO_ALERTA, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
             }
         }
     }

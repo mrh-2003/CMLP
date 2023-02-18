@@ -74,6 +74,7 @@ namespace Presentacion
             this.txtConcepto.Name = "txtConcepto";
             this.txtConcepto.Size = new System.Drawing.Size(286, 24);
             this.txtConcepto.TabIndex = 2;
+            this.txtConcepto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtConcepto_KeyPress);
             // 
             // txtImporte
             // 
@@ -82,6 +83,7 @@ namespace Presentacion
             this.txtImporte.Name = "txtImporte";
             this.txtImporte.Size = new System.Drawing.Size(133, 24);
             this.txtImporte.TabIndex = 3;
+            this.txtImporte.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImporte_KeyPress);
             // 
             // btnAgregar
             // 
@@ -191,6 +193,7 @@ namespace Presentacion
             this.Controls.Add(this.dgvListar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MConceptos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MConceptos";
             this.Load += new System.EventHandler(this.MConceptos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).EndInit();

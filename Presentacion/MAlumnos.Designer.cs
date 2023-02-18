@@ -122,9 +122,11 @@ namespace Presentacion
             // 
             this.txtDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDni.Location = new System.Drawing.Point(222, 72);
+            this.txtDni.MaxLength = 8;
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(145, 23);
             this.txtDni.TabIndex = 1;
+            this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
             // 
             // txtApellidosNombres
             // 
@@ -133,6 +135,7 @@ namespace Presentacion
             this.txtApellidosNombres.Name = "txtApellidosNombres";
             this.txtApellidosNombres.Size = new System.Drawing.Size(343, 23);
             this.txtApellidosNombres.TabIndex = 2;
+            this.txtApellidosNombres.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellidosNombres_KeyPress);
             // 
             // cbxGrado
             // 
@@ -177,9 +180,11 @@ namespace Presentacion
             // 
             this.txtCelular.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCelular.Location = new System.Drawing.Point(761, 74);
+            this.txtCelular.MaxLength = 9;
             this.txtCelular.Name = "txtCelular";
             this.txtCelular.Size = new System.Drawing.Size(154, 23);
             this.txtCelular.TabIndex = 6;
+            this.txtCelular.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCelular_KeyPress);
             // 
             // txtCelulcarAp
             // 
@@ -188,6 +193,7 @@ namespace Presentacion
             this.txtCelulcarAp.Name = "txtCelulcarAp";
             this.txtCelulcarAp.Size = new System.Drawing.Size(154, 23);
             this.txtCelulcarAp.TabIndex = 8;
+            this.txtCelulcarAp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCelulcarAp_KeyPress);
             // 
             // txtEmailAp
             // 
@@ -374,6 +380,7 @@ namespace Presentacion
             this.Controls.Add(this.dgvListar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MAlumnos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "0";
             this.Load += new System.EventHandler(this.MAlumnos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).EndInit();

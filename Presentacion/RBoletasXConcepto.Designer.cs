@@ -173,6 +173,7 @@ namespace Presentacion
             this.Controls.Add(this.dtpInicio);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RBoletasXConcepto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RBoletasXConcepto";
             this.Load += new System.EventHandler(this.RBoletasXConcepto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).EndInit();

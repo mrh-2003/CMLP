@@ -62,11 +62,11 @@ namespace Presentacion
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(332, -14);
+            this.label11.Location = new System.Drawing.Point(455, 6);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(289, 25);
+            this.label11.Size = new System.Drawing.Size(98, 25);
             this.label11.TabIndex = 87;
-            this.label11.Text = "Mantenimiento - Alumno";
+            this.label11.Text = "Alumno";
             // 
             // label10
             // 
@@ -216,14 +216,17 @@ namespace Presentacion
             this.txtCelulcarAp.Name = "txtCelulcarAp";
             this.txtCelulcarAp.Size = new System.Drawing.Size(154, 23);
             this.txtCelulcarAp.TabIndex = 70;
+            this.txtCelulcarAp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCelulcarAp_KeyPress);
             // 
             // txtCelular
             // 
             this.txtCelular.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCelular.Location = new System.Drawing.Point(754, 51);
+            this.txtCelular.MaxLength = 9;
             this.txtCelular.Name = "txtCelular";
             this.txtCelular.Size = new System.Drawing.Size(154, 23);
             this.txtCelular.TabIndex = 68;
+            this.txtCelular.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCelular_KeyPress);
             // 
             // txtEmail
             // 
@@ -271,14 +274,17 @@ namespace Presentacion
             this.txtApellidosNombres.Name = "txtApellidosNombres";
             this.txtApellidosNombres.Size = new System.Drawing.Size(343, 23);
             this.txtApellidosNombres.TabIndex = 64;
+            this.txtApellidosNombres.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellidosNombres_KeyPress);
             // 
             // txtDni
             // 
             this.txtDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDni.Location = new System.Drawing.Point(215, 49);
+            this.txtDni.MaxLength = 8;
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(145, 23);
             this.txtDni.TabIndex = 63;
+            this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
             // 
             // btnEliminar
             // 
@@ -342,7 +348,7 @@ namespace Presentacion
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(65)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(979, 622);
+            this.ClientSize = new System.Drawing.Size(992, 681);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -368,7 +374,9 @@ namespace Presentacion
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.dgvListar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CAlumnos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CAlumnos";
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).EndInit();
             this.ResumeLayout(false);

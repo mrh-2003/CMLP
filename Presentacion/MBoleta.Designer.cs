@@ -60,10 +60,12 @@ namespace Presentacion
             // 
             this.txtDni.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDni.Location = new System.Drawing.Point(181, 152);
+            this.txtDni.MaxLength = 8;
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(145, 24);
             this.txtDni.TabIndex = 2;
             this.txtDni.TextChanged += new System.EventHandler(this.txtDni_TextChanged);
+            this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
             // 
             // txtMonto
             // 
@@ -72,6 +74,7 @@ namespace Presentacion
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(145, 24);
             this.txtMonto.TabIndex = 3;
+            this.txtMonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMonto_KeyPress);
             // 
             // dtpFecha
             // 
@@ -213,7 +216,7 @@ namespace Presentacion
             this.cbxConcepto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxConcepto.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxConcepto.FormattingEnabled = true;
-            this.cbxConcepto.Location = new System.Drawing.Point(677, 98);
+            this.cbxConcepto.Location = new System.Drawing.Point(677, 94);
             this.cbxConcepto.Name = "cbxConcepto";
             this.cbxConcepto.Size = new System.Drawing.Size(154, 24);
             this.cbxConcepto.TabIndex = 65;
@@ -253,6 +256,7 @@ namespace Presentacion
             this.Controls.Add(this.txtCodigo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MBoleta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MBoleta";
             this.Load += new System.EventHandler(this.MBoleta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).EndInit();

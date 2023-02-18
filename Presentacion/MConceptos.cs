@@ -5,15 +5,17 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Datos;
 using Entidades;
 
 namespace Presentacion
-{
+{  
     public partial class MConceptos : Form
     {
+        private const string TITULO_ALERTA = "Error de Entrada";
         DConcepto dConcepto = new DConcepto();
         public MConceptos()
         {
@@ -84,6 +86,24 @@ namespace Presentacion
                 txtCodigo.Text = dgvListar.Rows[e.RowIndex].Cells[0].Value.ToString();
                 txtConcepto.Text = dgvListar.Rows[e.RowIndex].Cells[1].Value.ToString();
                 txtImporte.Text = dgvListar.Rows[e.RowIndex].Cells[2].Value.ToString();
+            }
+        }
+
+        private void txtConcepto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Este campo solo acepta letras. Introduce un nombre válido",TITULO_ALERTA, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void txtImporte_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+                MessageBox.Show("Este campo solo acepta numeros. Introduce un valor válido", TITULO_ALERTA, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }
