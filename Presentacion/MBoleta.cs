@@ -25,30 +25,73 @@ namespace Presentacion
 
         private void MBoleta_Load(object sender, EventArgs e)
         {
-            dgvListar.DataSource = dBoleta.Listar();
+            mostrar();
             cbxConcepto.DataSource = dConcepto.Listar();
         }
+        void mostrar()
+        {
+            dgvListar.DataSource = dBoleta.Listar();
+            dgvListar.ClearSelection();
+            limpiar();
+        }
 
+        private void limpiar()
+        {
+            txtCodigo.Clear();
+            txtDni.Clear();
+            txtMonto.Clear();
+            dtpFecha.Value = DateTime.Now;
+            cbxConcepto.SelectedIndex = -1;
+            lbNombre.Text = "Nombre: ";
+            txtCodigo.Focus();
+        }
+        private void mantenimiento(string opcion)
+        {
+            if (txtCodigo.Text != "" && txtDni.Text != "" && txtMonto.Text != "" && dtpFecha.Value != null && cbxConcepto.SelectedIndex != -1)
+            {
+                EConcepto eConcepto = cbxConcepto.SelectedItem as EConcepto;
+                EBoleta eBoleta = new EBoleta()
+                {
+                    Codigo = txtCodigo.Text,
+                    AlumnoDNI = txtDni.Text,
+                    Monto = Convert.ToDecimal(txtMonto.Text),
+                    Fecha = dtpFecha.Value,
+                    ConceptoCodigo = eConcepto.Codigo
+                };
+                MessageBox.Show(dBoleta.Mantenimiento(eBoleta, opcion));
+                mostrar();
+            }
+            else
+                MessageBox.Show("Todos los campos deben estar llenos");
+        }
 
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-
+            mantenimiento("insert");
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-
+            mantenimiento("update");
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-
+            mantenimiento("delete");
         }
 
         private void dgvListar_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (e.RowIndex != -1)
+            {
+                txtCodigo.Text = dgvListar.Rows[e.RowIndex].Cells[0].Value.ToString();
+                txtDni.Text = dgvListar.Rows[e.RowIndex].Cells[1].Value.ToString();
+                txtMonto.Text = dgvListar.Rows[e.RowIndex].Cells[2].Value.ToString();
+                dtpFecha.Value = Convert.ToDateTime(dgvListar.Rows[e.RowIndex].Cells[3].Value);
+                EConcepto eConcepto = dConcepto.Listar().Find(x=> x.Codigo == Convert.ToInt32(dgvListar.Rows[e.RowIndex].Cells[4].Value.ToString()));
+                cbxConcepto.Text = eConcepto.Codigo + " - " + eConcepto.Concepto;
+            }
         }
 
         private void txtDni_TextChanged(object sender, EventArgs e)

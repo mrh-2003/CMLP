@@ -91,6 +91,8 @@
   <ItemGroup>
     <Compile Include="DAlumno.cs" />
     <Compile Include="DBoleta.cs" />
+    <Compile Include="DCalendario.cs" />
+    <Compile Include="DHistorial.cs" />
     <Compile Include="DUsuario.cs" />
     <Compile Include="Utilidades.cs" />
     <Compile Include="DConcepto.cs" />

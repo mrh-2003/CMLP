@@ -25,12 +25,14 @@ namespace Presentacion
         {
             dgvListar.DataSource = dBoleta.Listar();
             cbxConcepto.DataSource = dConcepto.Listar();
+            txtTotal.Text = "Total: " + dBoleta.Total();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             EConcepto eConcepto = cbxConcepto.SelectedItem as EConcepto;
             dgvListar.DataSource = dBoleta.ListarPorConceptos(dtpInicio.Value, dtpFinal.Value, eConcepto.Codigo);
+            txtTotal.Text = "Total: " + dBoleta.TotalPorConceptos(dtpInicio.Value, dtpFinal.Value, eConcepto.Codigo);
         }
     }
 }

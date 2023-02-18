@@ -7,14 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Datos;
 
 namespace Presentacion
 {
     public partial class Historial : Form
     {
+        DHistorial dHistorial = new DHistorial();
         public Historial()
         {
             InitializeComponent();
+        }
+
+        private void Historial_Load(object sender, EventArgs e)
+        {
+            dgvListar.DataSource = dHistorial.Listar();
         }
     }
 }
