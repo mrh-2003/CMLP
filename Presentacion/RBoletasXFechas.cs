@@ -23,11 +23,13 @@ namespace Presentacion
         private void RBoletasXFechas_Load(object sender, EventArgs e)
         {
             dgvListar.DataSource = dBoleta.Listar();
+            txtTotal.Text = "Total: " + dBoleta.Total();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             dgvListar.DataSource = dBoleta.ListarPorFecha(dtpInicio.Value, dtpFinal.Value);
+            txtTotal.Text = "Total: " + dBoleta.TotalPorFecha(dtpInicio.Value, dtpFinal.Value);
         }
     }
 }
