@@ -111,11 +111,11 @@ namespace Presentacion
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(355, 9);
+            this.label11.Location = new System.Drawing.Point(259, 3);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(301, 25);
+            this.label11.Size = new System.Drawing.Size(457, 25);
             this.label11.TabIndex = 66;
-            this.label11.Text = "Mantenimiento - Usuarios";
+            this.label11.Text = "Mantenimiento - Usuario Administrador";
             // 
             // label10
             // 

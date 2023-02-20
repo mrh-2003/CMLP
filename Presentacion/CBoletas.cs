@@ -23,7 +23,7 @@ namespace Presentacion
 
         private void btnAbrir_Click(object sender, EventArgs e)
         {
-            openFile.InitialDirectory = "C:\\Users\\JonasBen\\Downloads";
+            openFile.InitialDirectory = "C:\\Users\\Jonas\\Downloads";
             openFile.Filter = "xlsx (*.xlsx)|*.xlsx";
             if (openFile.ShowDialog() == DialogResult.OK)
             {
@@ -54,14 +54,12 @@ namespace Presentacion
 
         private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
                 MessageBox.Show("Este campo solo acepta numeros. Introduce un valor válido", TITULO_ALERTA, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
             }
         }
-
         private void txtMonto_KeyPress(object sender, KeyPressEventArgs e)
         {
             if(!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')

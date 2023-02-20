@@ -64,9 +64,9 @@ namespace Presentacion
             this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(455, 6);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(98, 25);
+            this.label11.Size = new System.Drawing.Size(110, 25);
             this.label11.TabIndex = 87;
-            this.label11.Text = "Alumno";
+            this.label11.Text = "Alumnos";
             // 
             // label10
             // 

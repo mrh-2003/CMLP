@@ -45,6 +45,7 @@ namespace Presentacion
             this.label4 = new System.Windows.Forms.Label();
             this.cbxConcepto = new System.Windows.Forms.ComboBox();
             this.lbNombre = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,7 +80,7 @@ namespace Presentacion
             // dtpFecha
             // 
             this.dtpFecha.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFecha.Location = new System.Drawing.Point(677, 209);
+            this.dtpFecha.Location = new System.Drawing.Point(660, 211);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(200, 24);
             this.dtpFecha.TabIndex = 5;
@@ -161,18 +162,18 @@ namespace Presentacion
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(452, 17);
+            this.label11.Location = new System.Drawing.Point(370, 4);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(83, 25);
+            this.label11.Size = new System.Drawing.Size(286, 25);
             this.label11.TabIndex = 64;
-            this.label11.Text = "Boleta";
+            this.label11.Text = "Mantenimiento - Boletas";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(109, 154);
+            this.label1.Location = new System.Drawing.Point(109, 156);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 17);
             this.label1.TabIndex = 61;
@@ -183,7 +184,7 @@ namespace Presentacion
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(109, 214);
+            this.label2.Location = new System.Drawing.Point(109, 215);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 17);
             this.label2.TabIndex = 61;
@@ -194,7 +195,7 @@ namespace Presentacion
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(573, 98);
+            this.label3.Location = new System.Drawing.Point(573, 97);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 17);
             this.label3.TabIndex = 61;
@@ -216,7 +217,7 @@ namespace Presentacion
             this.cbxConcepto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxConcepto.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxConcepto.FormattingEnabled = true;
-            this.cbxConcepto.Location = new System.Drawing.Point(677, 94);
+            this.cbxConcepto.Location = new System.Drawing.Point(660, 95);
             this.cbxConcepto.Name = "cbxConcepto";
             this.cbxConcepto.Size = new System.Drawing.Size(154, 24);
             this.cbxConcepto.TabIndex = 65;
@@ -232,12 +233,24 @@ namespace Presentacion
             this.lbNombre.TabIndex = 66;
             this.lbNombre.Text = "Nombre";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(329, 215);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(46, 17);
+            this.label5.TabIndex = 78;
+            this.label5.Text = "Soles";
+            // 
             // MBoleta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(65)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(992, 681);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.lbNombre);
             this.Controls.Add(this.cbxConcepto);
             this.Controls.Add(this.label11);
@@ -283,5 +296,6 @@ namespace Presentacion
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbxConcepto;
         private System.Windows.Forms.Label lbNombre;
+        private System.Windows.Forms.Label label5;
     }
 }
