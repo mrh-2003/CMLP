@@ -32,16 +32,16 @@ namespace Presentacion
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.iconButton13 = new FontAwesome.Sharp.IconButton();
-            this.iconButton14 = new FontAwesome.Sharp.IconButton();
-            this.iconButton15 = new FontAwesome.Sharp.IconButton();
-            this.iconButton8 = new FontAwesome.Sharp.IconButton();
-            this.iconButton9 = new FontAwesome.Sharp.IconButton();
-            this.iconButton10 = new FontAwesome.Sharp.IconButton();
-            this.iconButton11 = new FontAwesome.Sharp.IconButton();
-            this.iconButton4 = new FontAwesome.Sharp.IconButton();
-            this.iconButton5 = new FontAwesome.Sharp.IconButton();
+            this.btnUsuarios = new FontAwesome.Sharp.IconButton();
+            this.btnHistorial = new FontAwesome.Sharp.IconButton();
+            this.btnRBoletas = new FontAwesome.Sharp.IconButton();
+            this.btnCargarBol = new FontAwesome.Sharp.IconButton();
+            this.btnConceptos = new FontAwesome.Sharp.IconButton();
+            this.btnBoleta = new FontAwesome.Sharp.IconButton();
+            this.btnRAlumnos = new FontAwesome.Sharp.IconButton();
+            this.btnCalendario = new FontAwesome.Sharp.IconButton();
             this.btnKardex = new FontAwesome.Sharp.IconButton();
+            this.btnCargarAlum = new FontAwesome.Sharp.IconButton();
             this.btnMantAlumnos = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
@@ -55,25 +55,33 @@ namespace Presentacion
             this.subMenukardexAlumno = new System.Windows.Forms.ToolStripMenuItem();
             this.subMenukardexGrado = new System.Windows.Forms.ToolStripMenuItem();
             this.subMenukardexResumenDeGrado = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuCAlumnos = new CustomControls.RJControls.RJDropdownMenu(this.components);
+            this.submenuCAlum = new System.Windows.Forms.ToolStripMenuItem();
+            this.submenuCBecarios = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuRBoleta = new CustomControls.RJControls.RJDropdownMenu(this.components);
+            this.submenuRBConcepto = new System.Windows.Forms.ToolStripMenuItem();
+            this.submenuRBFecha = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuKardex.SuspendLayout();
+            this.menuCAlumnos.SuspendLayout();
+            this.menuRBoleta.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(19)))));
-            this.panelMenu.Controls.Add(this.iconButton13);
-            this.panelMenu.Controls.Add(this.iconButton14);
-            this.panelMenu.Controls.Add(this.iconButton15);
-            this.panelMenu.Controls.Add(this.iconButton8);
-            this.panelMenu.Controls.Add(this.iconButton9);
-            this.panelMenu.Controls.Add(this.iconButton10);
-            this.panelMenu.Controls.Add(this.iconButton11);
-            this.panelMenu.Controls.Add(this.iconButton4);
-            this.panelMenu.Controls.Add(this.iconButton5);
+            this.panelMenu.Controls.Add(this.btnUsuarios);
+            this.panelMenu.Controls.Add(this.btnHistorial);
+            this.panelMenu.Controls.Add(this.btnRBoletas);
+            this.panelMenu.Controls.Add(this.btnCargarBol);
+            this.panelMenu.Controls.Add(this.btnConceptos);
+            this.panelMenu.Controls.Add(this.btnBoleta);
+            this.panelMenu.Controls.Add(this.btnRAlumnos);
+            this.panelMenu.Controls.Add(this.btnCalendario);
             this.panelMenu.Controls.Add(this.btnKardex);
+            this.panelMenu.Controls.Add(this.btnCargarAlum);
             this.panelMenu.Controls.Add(this.btnMantAlumnos);
             this.panelMenu.Controls.Add(this.iconButton3);
             this.panelMenu.Controls.Add(this.iconButton2);
@@ -88,212 +96,195 @@ namespace Presentacion
             this.panelMenu.Size = new System.Drawing.Size(192, 681);
             this.panelMenu.TabIndex = 2;
             // 
-            // iconButton13
+            // btnUsuarios
             // 
-            this.iconButton13.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton13.FlatAppearance.BorderSize = 0;
-            this.iconButton13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton13.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton13.ForeColor = System.Drawing.Color.White;
-            this.iconButton13.IconChar = FontAwesome.Sharp.IconChar.BugSlash;
-            this.iconButton13.IconColor = System.Drawing.Color.White;
-            this.iconButton13.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton13.IconSize = 25;
-            this.iconButton13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton13.Location = new System.Drawing.Point(0, 546);
-            this.iconButton13.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.iconButton13.Name = "iconButton13";
-            this.iconButton13.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
-            this.iconButton13.Size = new System.Drawing.Size(192, 30);
-            this.iconButton13.TabIndex = 15;
-            this.iconButton13.Text = "Recaudación";
-            this.iconButton13.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton13.UseVisualStyleBackColor = true;
+            this.btnUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnUsuarios.FlatAppearance.BorderSize = 0;
+            this.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsuarios.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsuarios.ForeColor = System.Drawing.Color.White;
+            this.btnUsuarios.IconChar = FontAwesome.Sharp.IconChar.Tools;
+            this.btnUsuarios.IconColor = System.Drawing.Color.White;
+            this.btnUsuarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnUsuarios.IconSize = 35;
+            this.btnUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUsuarios.Location = new System.Drawing.Point(0, 546);
+            this.btnUsuarios.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnUsuarios.Name = "btnUsuarios";
+            this.btnUsuarios.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnUsuarios.Size = new System.Drawing.Size(192, 38);
+            this.btnUsuarios.TabIndex = 32;
+            this.btnUsuarios.Text = "Usuarios";
+            this.btnUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUsuarios.UseVisualStyleBackColor = true;
             // 
-            // iconButton14
+            // btnHistorial
             // 
-            this.iconButton14.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton14.FlatAppearance.BorderSize = 0;
-            this.iconButton14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton14.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton14.ForeColor = System.Drawing.Color.White;
-            this.iconButton14.IconChar = FontAwesome.Sharp.IconChar.Broom;
-            this.iconButton14.IconColor = System.Drawing.Color.White;
-            this.iconButton14.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton14.IconSize = 25;
-            this.iconButton14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton14.Location = new System.Drawing.Point(0, 516);
-            this.iconButton14.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.iconButton14.Name = "iconButton14";
-            this.iconButton14.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
-            this.iconButton14.Size = new System.Drawing.Size(192, 30);
-            this.iconButton14.TabIndex = 14;
-            this.iconButton14.Text = "Recaudación";
-            this.iconButton14.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton14.UseVisualStyleBackColor = true;
+            this.btnHistorial.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHistorial.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnHistorial.FlatAppearance.BorderSize = 0;
+            this.btnHistorial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHistorial.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHistorial.ForeColor = System.Drawing.Color.White;
+            this.btnHistorial.IconChar = FontAwesome.Sharp.IconChar.Tools;
+            this.btnHistorial.IconColor = System.Drawing.Color.White;
+            this.btnHistorial.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnHistorial.IconSize = 35;
+            this.btnHistorial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHistorial.Location = new System.Drawing.Point(0, 508);
+            this.btnHistorial.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnHistorial.Name = "btnHistorial";
+            this.btnHistorial.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnHistorial.Size = new System.Drawing.Size(192, 38);
+            this.btnHistorial.TabIndex = 31;
+            this.btnHistorial.Text = "Historial ";
+            this.btnHistorial.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnHistorial.UseVisualStyleBackColor = true;
             // 
-            // iconButton15
+            // btnRBoletas
             // 
-            this.iconButton15.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton15.FlatAppearance.BorderSize = 0;
-            this.iconButton15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton15.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton15.ForeColor = System.Drawing.Color.White;
-            this.iconButton15.IconChar = FontAwesome.Sharp.IconChar.Tools;
-            this.iconButton15.IconColor = System.Drawing.Color.White;
-            this.iconButton15.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton15.IconSize = 35;
-            this.iconButton15.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton15.Location = new System.Drawing.Point(0, 478);
-            this.iconButton15.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.iconButton15.Name = "iconButton15";
-            this.iconButton15.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.iconButton15.Size = new System.Drawing.Size(192, 38);
-            this.iconButton15.TabIndex = 13;
-            this.iconButton15.Text = "Mantenimiento";
-            this.iconButton15.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton15.UseVisualStyleBackColor = true;
+            this.btnRBoletas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRBoletas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRBoletas.FlatAppearance.BorderSize = 0;
+            this.btnRBoletas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRBoletas.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRBoletas.ForeColor = System.Drawing.Color.White;
+            this.btnRBoletas.IconChar = FontAwesome.Sharp.IconChar.Building;
+            this.btnRBoletas.IconColor = System.Drawing.Color.White;
+            this.btnRBoletas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnRBoletas.IconSize = 25;
+            this.btnRBoletas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRBoletas.Location = new System.Drawing.Point(0, 478);
+            this.btnRBoletas.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnRBoletas.Name = "btnRBoletas";
+            this.btnRBoletas.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
+            this.btnRBoletas.Size = new System.Drawing.Size(192, 30);
+            this.btnRBoletas.TabIndex = 30;
+            this.btnRBoletas.Text = "Reportes";
+            this.btnRBoletas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRBoletas.UseVisualStyleBackColor = true;
+            this.btnRBoletas.Click += new System.EventHandler(this.btnRBoletas_Click);
             // 
-            // iconButton8
+            // btnCargarBol
             // 
-            this.iconButton8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton8.FlatAppearance.BorderSize = 0;
-            this.iconButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton8.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton8.ForeColor = System.Drawing.Color.White;
-            this.iconButton8.IconChar = FontAwesome.Sharp.IconChar.Building;
-            this.iconButton8.IconColor = System.Drawing.Color.White;
-            this.iconButton8.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton8.IconSize = 25;
-            this.iconButton8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton8.Location = new System.Drawing.Point(0, 448);
-            this.iconButton8.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.iconButton8.Name = "iconButton8";
-            this.iconButton8.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
-            this.iconButton8.Size = new System.Drawing.Size(192, 30);
-            this.iconButton8.TabIndex = 12;
-            this.iconButton8.Text = "Recaudación";
-            this.iconButton8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton8.UseVisualStyleBackColor = true;
+            this.btnCargarBol.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCargarBol.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCargarBol.FlatAppearance.BorderSize = 0;
+            this.btnCargarBol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCargarBol.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCargarBol.ForeColor = System.Drawing.Color.White;
+            this.btnCargarBol.IconChar = FontAwesome.Sharp.IconChar.BridgeCircleExclamation;
+            this.btnCargarBol.IconColor = System.Drawing.Color.White;
+            this.btnCargarBol.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCargarBol.IconSize = 25;
+            this.btnCargarBol.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCargarBol.Location = new System.Drawing.Point(0, 448);
+            this.btnCargarBol.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnCargarBol.Name = "btnCargarBol";
+            this.btnCargarBol.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
+            this.btnCargarBol.Size = new System.Drawing.Size(192, 30);
+            this.btnCargarBol.TabIndex = 29;
+            this.btnCargarBol.Text = "Cargar boletas";
+            this.btnCargarBol.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCargarBol.UseVisualStyleBackColor = true;
+            this.btnCargarBol.Click += new System.EventHandler(this.btnCargarBol_Click);
             // 
-            // iconButton9
+            // btnConceptos
             // 
-            this.iconButton9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton9.FlatAppearance.BorderSize = 0;
-            this.iconButton9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton9.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton9.ForeColor = System.Drawing.Color.White;
-            this.iconButton9.IconChar = FontAwesome.Sharp.IconChar.BridgeCircleExclamation;
-            this.iconButton9.IconColor = System.Drawing.Color.White;
-            this.iconButton9.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton9.IconSize = 25;
-            this.iconButton9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton9.Location = new System.Drawing.Point(0, 418);
-            this.iconButton9.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.iconButton9.Name = "iconButton9";
-            this.iconButton9.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
-            this.iconButton9.Size = new System.Drawing.Size(192, 30);
-            this.iconButton9.TabIndex = 11;
-            this.iconButton9.Text = "Recaudación";
-            this.iconButton9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton9.UseVisualStyleBackColor = true;
+            this.btnConceptos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConceptos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnConceptos.FlatAppearance.BorderSize = 0;
+            this.btnConceptos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConceptos.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConceptos.ForeColor = System.Drawing.Color.White;
+            this.btnConceptos.IconChar = FontAwesome.Sharp.IconChar.Paypal;
+            this.btnConceptos.IconColor = System.Drawing.Color.White;
+            this.btnConceptos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnConceptos.IconSize = 25;
+            this.btnConceptos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConceptos.Location = new System.Drawing.Point(0, 418);
+            this.btnConceptos.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnConceptos.Name = "btnConceptos";
+            this.btnConceptos.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
+            this.btnConceptos.Size = new System.Drawing.Size(192, 30);
+            this.btnConceptos.TabIndex = 28;
+            this.btnConceptos.Text = "Conceptos";
+            this.btnConceptos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnConceptos.UseVisualStyleBackColor = true;
+            this.btnConceptos.Click += new System.EventHandler(this.btnConceptos_Click);
             // 
-            // iconButton10
+            // btnBoleta
             // 
-            this.iconButton10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton10.FlatAppearance.BorderSize = 0;
-            this.iconButton10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton10.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton10.ForeColor = System.Drawing.Color.White;
-            this.iconButton10.IconChar = FontAwesome.Sharp.IconChar.Paypal;
-            this.iconButton10.IconColor = System.Drawing.Color.White;
-            this.iconButton10.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton10.IconSize = 25;
-            this.iconButton10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton10.Location = new System.Drawing.Point(0, 388);
-            this.iconButton10.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.iconButton10.Name = "iconButton10";
-            this.iconButton10.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
-            this.iconButton10.Size = new System.Drawing.Size(192, 30);
-            this.iconButton10.TabIndex = 10;
-            this.iconButton10.Text = "Recaudación";
-            this.iconButton10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton10.UseVisualStyleBackColor = true;
+            this.btnBoleta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBoleta.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnBoleta.FlatAppearance.BorderSize = 0;
+            this.btnBoleta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBoleta.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBoleta.ForeColor = System.Drawing.Color.White;
+            this.btnBoleta.IconChar = FontAwesome.Sharp.IconChar.MailBulk;
+            this.btnBoleta.IconColor = System.Drawing.Color.White;
+            this.btnBoleta.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBoleta.IconSize = 35;
+            this.btnBoleta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBoleta.Location = new System.Drawing.Point(0, 380);
+            this.btnBoleta.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnBoleta.Name = "btnBoleta";
+            this.btnBoleta.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnBoleta.Size = new System.Drawing.Size(192, 38);
+            this.btnBoleta.TabIndex = 27;
+            this.btnBoleta.Text = "Boleta";
+            this.btnBoleta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBoleta.UseVisualStyleBackColor = true;
+            this.btnBoleta.Click += new System.EventHandler(this.btnBoleta_Click);
             // 
-            // iconButton11
+            // btnRAlumnos
             // 
-            this.iconButton11.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton11.FlatAppearance.BorderSize = 0;
-            this.iconButton11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton11.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton11.ForeColor = System.Drawing.Color.White;
-            this.iconButton11.IconChar = FontAwesome.Sharp.IconChar.MailBulk;
-            this.iconButton11.IconColor = System.Drawing.Color.White;
-            this.iconButton11.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton11.IconSize = 35;
-            this.iconButton11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton11.Location = new System.Drawing.Point(0, 350);
-            this.iconButton11.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.iconButton11.Name = "iconButton11";
-            this.iconButton11.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.iconButton11.Size = new System.Drawing.Size(192, 38);
-            this.iconButton11.TabIndex = 9;
-            this.iconButton11.Text = " Gestión";
-            this.iconButton11.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton11.UseVisualStyleBackColor = true;
+            this.btnRAlumnos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRAlumnos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRAlumnos.FlatAppearance.BorderSize = 0;
+            this.btnRAlumnos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRAlumnos.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRAlumnos.ForeColor = System.Drawing.Color.White;
+            this.btnRAlumnos.IconChar = FontAwesome.Sharp.IconChar.ShoppingBasket;
+            this.btnRAlumnos.IconColor = System.Drawing.Color.White;
+            this.btnRAlumnos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnRAlumnos.IconSize = 25;
+            this.btnRAlumnos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRAlumnos.Location = new System.Drawing.Point(0, 350);
+            this.btnRAlumnos.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnRAlumnos.Name = "btnRAlumnos";
+            this.btnRAlumnos.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
+            this.btnRAlumnos.Size = new System.Drawing.Size(192, 30);
+            this.btnRAlumnos.TabIndex = 26;
+            this.btnRAlumnos.Text = "Reportes";
+            this.btnRAlumnos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRAlumnos.UseVisualStyleBackColor = true;
+            this.btnRAlumnos.Click += new System.EventHandler(this.btnRAlumnos_Click);
             // 
-            // iconButton4
+            // btnCalendario
             // 
-            this.iconButton4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton4.FlatAppearance.BorderSize = 0;
-            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton4.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton4.ForeColor = System.Drawing.Color.White;
-            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.ShoppingBasket;
-            this.iconButton4.IconColor = System.Drawing.Color.White;
-            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton4.IconSize = 25;
-            this.iconButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton4.Location = new System.Drawing.Point(0, 320);
-            this.iconButton4.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.iconButton4.Name = "iconButton4";
-            this.iconButton4.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
-            this.iconButton4.Size = new System.Drawing.Size(192, 30);
-            this.iconButton4.TabIndex = 8;
-            this.iconButton4.Text = "X";
-            this.iconButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton4.UseVisualStyleBackColor = true;
-            // 
-            // iconButton5
-            // 
-            this.iconButton5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton5.FlatAppearance.BorderSize = 0;
-            this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton5.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton5.ForeColor = System.Drawing.Color.White;
-            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.MoneyBillTrendUp;
-            this.iconButton5.IconColor = System.Drawing.Color.White;
-            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton5.IconSize = 25;
-            this.iconButton5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton5.Location = new System.Drawing.Point(0, 290);
-            this.iconButton5.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.iconButton5.Name = "iconButton5";
-            this.iconButton5.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
-            this.iconButton5.Size = new System.Drawing.Size(192, 30);
-            this.iconButton5.TabIndex = 7;
-            this.iconButton5.Text = "Deudores";
-            this.iconButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton5.UseVisualStyleBackColor = true;
+            this.btnCalendario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCalendario.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCalendario.FlatAppearance.BorderSize = 0;
+            this.btnCalendario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCalendario.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCalendario.ForeColor = System.Drawing.Color.White;
+            this.btnCalendario.IconChar = FontAwesome.Sharp.IconChar.MoneyBillTrendUp;
+            this.btnCalendario.IconColor = System.Drawing.Color.White;
+            this.btnCalendario.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCalendario.IconSize = 25;
+            this.btnCalendario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCalendario.Location = new System.Drawing.Point(0, 320);
+            this.btnCalendario.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnCalendario.Name = "btnCalendario";
+            this.btnCalendario.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
+            this.btnCalendario.Size = new System.Drawing.Size(192, 30);
+            this.btnCalendario.TabIndex = 25;
+            this.btnCalendario.Text = "Calendario";
+            this.btnCalendario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCalendario.UseVisualStyleBackColor = true;
+            this.btnCalendario.Click += new System.EventHandler(this.btnCalendario_Click);
             // 
             // btnKardex
             // 
@@ -308,16 +299,40 @@ namespace Presentacion
             this.btnKardex.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnKardex.IconSize = 25;
             this.btnKardex.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnKardex.Location = new System.Drawing.Point(0, 260);
+            this.btnKardex.Location = new System.Drawing.Point(0, 290);
             this.btnKardex.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnKardex.Name = "btnKardex";
             this.btnKardex.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
             this.btnKardex.Size = new System.Drawing.Size(192, 30);
-            this.btnKardex.TabIndex = 6;
+            this.btnKardex.TabIndex = 24;
             this.btnKardex.Text = "Kardex";
             this.btnKardex.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnKardex.UseVisualStyleBackColor = true;
             this.btnKardex.Click += new System.EventHandler(this.btnKardex_Click);
+            // 
+            // btnCargarAlum
+            // 
+            this.btnCargarAlum.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCargarAlum.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCargarAlum.FlatAppearance.BorderSize = 0;
+            this.btnCargarAlum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCargarAlum.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCargarAlum.ForeColor = System.Drawing.Color.White;
+            this.btnCargarAlum.IconChar = FontAwesome.Sharp.IconChar.Building;
+            this.btnCargarAlum.IconColor = System.Drawing.Color.White;
+            this.btnCargarAlum.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCargarAlum.IconSize = 25;
+            this.btnCargarAlum.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCargarAlum.Location = new System.Drawing.Point(0, 260);
+            this.btnCargarAlum.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnCargarAlum.Name = "btnCargarAlum";
+            this.btnCargarAlum.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
+            this.btnCargarAlum.Size = new System.Drawing.Size(192, 30);
+            this.btnCargarAlum.TabIndex = 6;
+            this.btnCargarAlum.Text = "Cargar Alumnos";
+            this.btnCargarAlum.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCargarAlum.UseVisualStyleBackColor = true;
+            this.btnCargarAlum.Click += new System.EventHandler(this.btnCargarAlum_Click);
             // 
             // btnMantAlumnos
             // 
@@ -514,6 +529,66 @@ namespace Presentacion
             this.subMenukardexResumenDeGrado.Text = "Kardex Resumen de Grado";
             this.subMenukardexResumenDeGrado.Click += new System.EventHandler(this.subMenukardexResumenDeGrado_Click);
             // 
+            // menuCAlumnos
+            // 
+            this.menuCAlumnos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(19)))));
+            this.menuCAlumnos.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuCAlumnos.IsMainMenu = false;
+            this.menuCAlumnos.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.submenuCAlum,
+            this.submenuCBecarios});
+            this.menuCAlumnos.MenuItemHeight = 25;
+            this.menuCAlumnos.MenuItemTextColor = System.Drawing.Color.Empty;
+            this.menuCAlumnos.Name = "rjDropdownMenu1";
+            this.menuCAlumnos.PrimaryColor = System.Drawing.Color.Empty;
+            this.menuCAlumnos.Size = new System.Drawing.Size(132, 48);
+            // 
+            // submenuCAlum
+            // 
+            this.submenuCAlum.ForeColor = System.Drawing.Color.White;
+            this.submenuCAlum.Name = "submenuCAlum";
+            this.submenuCAlum.Size = new System.Drawing.Size(131, 22);
+            this.submenuCAlum.Text = "Alumnos";
+            this.submenuCAlum.Click += new System.EventHandler(this.submenuCAlum_Click);
+            // 
+            // submenuCBecarios
+            // 
+            this.submenuCBecarios.ForeColor = System.Drawing.Color.White;
+            this.submenuCBecarios.Name = "submenuCBecarios";
+            this.submenuCBecarios.Size = new System.Drawing.Size(131, 22);
+            this.submenuCBecarios.Text = "Becarios";
+            this.submenuCBecarios.Click += new System.EventHandler(this.submenuCBecarios_Click);
+            // 
+            // menuRBoleta
+            // 
+            this.menuRBoleta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(19)))));
+            this.menuRBoleta.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuRBoleta.IsMainMenu = false;
+            this.menuRBoleta.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.submenuRBConcepto,
+            this.submenuRBFecha});
+            this.menuRBoleta.MenuItemHeight = 25;
+            this.menuRBoleta.MenuItemTextColor = System.Drawing.Color.Empty;
+            this.menuRBoleta.Name = "rjDropdownMenu1";
+            this.menuRBoleta.PrimaryColor = System.Drawing.Color.Empty;
+            this.menuRBoleta.Size = new System.Drawing.Size(181, 70);
+            // 
+            // submenuRBConcepto
+            // 
+            this.submenuRBConcepto.ForeColor = System.Drawing.Color.White;
+            this.submenuRBConcepto.Name = "submenuRBConcepto";
+            this.submenuRBConcepto.Size = new System.Drawing.Size(180, 22);
+            this.submenuRBConcepto.Text = "Por Concepto";
+            this.submenuRBConcepto.Click += new System.EventHandler(this.submenuRBConcepto_Click);
+            // 
+            // submenuRBFecha
+            // 
+            this.submenuRBFecha.ForeColor = System.Drawing.Color.White;
+            this.submenuRBFecha.Name = "submenuRBFecha";
+            this.submenuRBFecha.Size = new System.Drawing.Size(180, 22);
+            this.submenuRBFecha.Text = "Por Fecha";
+            this.submenuRBFecha.Click += new System.EventHandler(this.submenuRBFecha_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -531,6 +606,8 @@ namespace Presentacion
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuKardex.ResumeLayout(false);
+            this.menuCAlumnos.ResumeLayout(false);
+            this.menuRBoleta.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -538,16 +615,6 @@ namespace Presentacion
         #endregion
 
         private System.Windows.Forms.Panel panelMenu;
-        private FontAwesome.Sharp.IconButton iconButton13;
-        private FontAwesome.Sharp.IconButton iconButton14;
-        private FontAwesome.Sharp.IconButton iconButton15;
-        private FontAwesome.Sharp.IconButton iconButton8;
-        private FontAwesome.Sharp.IconButton iconButton9;
-        private FontAwesome.Sharp.IconButton iconButton10;
-        private FontAwesome.Sharp.IconButton iconButton11;
-        private FontAwesome.Sharp.IconButton iconButton4;
-        private FontAwesome.Sharp.IconButton iconButton5;
-        private FontAwesome.Sharp.IconButton btnKardex;
         private FontAwesome.Sharp.IconButton btnMantAlumnos;
         private FontAwesome.Sharp.IconButton iconButton3;
         private FontAwesome.Sharp.IconButton iconButton2;
@@ -561,6 +628,22 @@ namespace Presentacion
         private System.Windows.Forms.ToolStripMenuItem subMenukardexAlumno;
         private System.Windows.Forms.ToolStripMenuItem subMenukardexGrado;
         private System.Windows.Forms.ToolStripMenuItem subMenukardexResumenDeGrado;
+        private FontAwesome.Sharp.IconButton btnUsuarios;
+        private FontAwesome.Sharp.IconButton btnHistorial;
+        private FontAwesome.Sharp.IconButton btnRBoletas;
+        private FontAwesome.Sharp.IconButton btnCargarBol;
+        private FontAwesome.Sharp.IconButton btnConceptos;
+        private FontAwesome.Sharp.IconButton btnBoleta;
+        private FontAwesome.Sharp.IconButton btnRAlumnos;
+        private FontAwesome.Sharp.IconButton btnCalendario;
+        private FontAwesome.Sharp.IconButton btnKardex;
+        private FontAwesome.Sharp.IconButton btnCargarAlum;
+        private CustomControls.RJControls.RJDropdownMenu menuCAlumnos;
+        private System.Windows.Forms.ToolStripMenuItem submenuCAlum;
+        private System.Windows.Forms.ToolStripMenuItem submenuCBecarios;
+        private CustomControls.RJControls.RJDropdownMenu menuRBoleta;
+        private System.Windows.Forms.ToolStripMenuItem submenuRBConcepto;
+        private System.Windows.Forms.ToolStripMenuItem submenuRBFecha;
     }
 }
 
