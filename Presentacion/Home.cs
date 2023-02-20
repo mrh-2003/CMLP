@@ -32,11 +32,6 @@ namespace Presentacion
             abrirFormHija(new MAlumnos());
         }
 
-        private void btnKardex_Click(object sender, EventArgs e)//btn Kardex
-        {
-            menuKardex.Show(btnKardex, btnKardex.Width, 4);
-        }
-
         private void subMenukardexAlumno_Click(object sender, EventArgs e)
         {
             abrirFormHija(new KAlumno());
@@ -50,6 +45,66 @@ namespace Presentacion
         private void subMenukardexResumenDeGrado_Click(object sender, EventArgs e)
         {
             abrirFormHija(new KResumenGrado());
+        }
+
+        private void btnCargarAlum_Click(object sender, EventArgs e)
+        {
+            menuCAlumnos.Show(btnCargarAlum, btnCargarAlum.Width, 4);
+        }
+
+        private void btnKardex_Click(object sender, EventArgs e)
+        {
+            menuKardex.Show(btnKardex, btnKardex.Width, 4);
+        }
+
+        private void btnCalendario_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new MCalendarioPagos());
+        }
+
+        private void btnRAlumnos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBoleta_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new MBoleta());
+        }
+
+        private void btnCargarBol_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new CBoletas());
+        }
+
+        private void btnConceptos_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new MConceptos());
+        }
+
+        private void btnRBoletas_Click(object sender, EventArgs e)
+        {
+            menuRBoleta.Show(btnRBoletas, btnRBoletas.Width, 4);
+        }
+
+        private void submenuCAlum_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new CAlumnos());
+        }
+
+        private void submenuCBecarios_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new CBecarios());
+        }
+
+        private void submenuRBConcepto_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new RBoletasXConcepto());
+        }
+
+        private void submenuRBFecha_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new RBoletasXFechas());
         }
     }
 }
