@@ -99,7 +99,23 @@ namespace Datos
         //        }
         //    }
         //}
+        public DataTable BuscarPorConcepto(string valorBuscado)
+        {
+            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+            {
+                connection.Open();
 
+                using (NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM conceptos WHERE LOWER(concepto) LIKE LOWER(@valor_buscado)", connection))
+                {
+                    command.Parameters.AddWithValue("@valor_buscado", "%" + valorBuscado.ToLower() + "%");
+                    NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    return dt;
+                }
+            }
+        }
 
     }
 }

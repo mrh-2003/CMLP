@@ -84,7 +84,7 @@ namespace Presentacion
             // cmbAnio
             // 
             this.cmbAnio.FormattingEnabled = true;
-            this.cmbAnio.Location = new System.Drawing.Point(341, 149);
+            this.cmbAnio.Location = new System.Drawing.Point(329, 149);
             this.cmbAnio.Name = "cmbAnio";
             this.cmbAnio.Size = new System.Drawing.Size(121, 21);
             this.cmbAnio.TabIndex = 57;
@@ -92,7 +92,7 @@ namespace Presentacion
             // cmbSeccion
             // 
             this.cmbSeccion.FormattingEnabled = true;
-            this.cmbSeccion.Location = new System.Drawing.Point(595, 148);
+            this.cmbSeccion.Location = new System.Drawing.Point(583, 148);
             this.cmbSeccion.Name = "cmbSeccion";
             this.cmbSeccion.Size = new System.Drawing.Size(121, 21);
             this.cmbSeccion.TabIndex = 58;
@@ -102,7 +102,7 @@ namespace Presentacion
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Verdana", 11F);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(521, 149);
+            this.label7.Location = new System.Drawing.Point(509, 149);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(72, 18);
             this.label7.TabIndex = 56;
@@ -113,7 +113,7 @@ namespace Presentacion
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 11F);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(294, 150);
+            this.label4.Location = new System.Drawing.Point(282, 150);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(44, 18);
             this.label4.TabIndex = 55;

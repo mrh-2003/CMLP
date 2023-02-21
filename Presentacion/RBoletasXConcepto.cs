@@ -33,6 +33,7 @@ namespace Presentacion
             EConcepto eConcepto = cbxConcepto.SelectedItem as EConcepto;
             dgvListar.DataSource = dBoleta.ListarPorConceptos(dtpInicio.Value, dtpFinal.Value, eConcepto.Codigo);
             txtTotal.Text = "Total: " + dBoleta.TotalPorConceptos(dtpInicio.Value, dtpFinal.Value, eConcepto.Codigo);
+
         }
     }
 }

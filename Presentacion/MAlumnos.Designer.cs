@@ -55,6 +55,7 @@ namespace Presentacion
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -191,6 +192,7 @@ namespace Presentacion
             // 
             this.txtCelulcarAp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCelulcarAp.Location = new System.Drawing.Point(760, 161);
+            this.txtCelulcarAp.MaxLength = 9;
             this.txtCelulcarAp.Name = "txtCelulcarAp";
             this.txtCelulcarAp.Size = new System.Drawing.Size(154, 23);
             this.txtCelulcarAp.TabIndex = 8;
@@ -350,11 +352,23 @@ namespace Presentacion
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(277, 348);
+            this.txtBuscar.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.Location = new System.Drawing.Point(420, 341);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(375, 20);
+            this.txtBuscar.Size = new System.Drawing.Size(337, 24);
             this.txtBuscar.TabIndex = 63;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(219, 345);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(193, 17);
+            this.label12.TabIndex = 55;
+            this.label12.Text = "Buscar por Nombre o Dni:";
             // 
             // MAlumnos
             // 
@@ -369,6 +383,7 @@ namespace Presentacion
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -427,5 +442,6 @@ namespace Presentacion
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.Label label12;
     }
 }
