@@ -106,5 +106,15 @@ namespace Presentacion
         {
             abrirFormHija(new RBoletasXFechas());
         }
+
+        private void btnHistorial_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new Historial());
+        }
+
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new MUsuariosAdmin());
+        }
     }
 }

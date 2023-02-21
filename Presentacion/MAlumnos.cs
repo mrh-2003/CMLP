@@ -144,5 +144,10 @@ namespace Presentacion
                 MessageBox.Show("Este campo solo acepta numeros. Introduce un valor válido", TITULO_ALERTA, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            dgvListar.DataSource = dAlumno.BuscarPorNombreODNI(txtBuscar.Text);
+        }
     }
 }
