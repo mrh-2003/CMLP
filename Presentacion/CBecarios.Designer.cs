@@ -41,6 +41,7 @@ namespace Presentacion
             this.dgvListar = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -197,12 +198,24 @@ namespace Presentacion
             this.label2.TabIndex = 16;
             this.label2.Text = "Beca:";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(404, 2);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(189, 25);
+            this.label11.TabIndex = 88;
+            this.label11.Text = "Cargar Becarios";
+            // 
             // CBecarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(65)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(992, 681);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.dgvListar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.btnCargar);
@@ -239,5 +252,6 @@ namespace Presentacion
         private System.Windows.Forms.DataGridView dgvListar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label11;
     }
 }

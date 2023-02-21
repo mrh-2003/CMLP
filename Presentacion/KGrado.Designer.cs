@@ -75,11 +75,11 @@ namespace Presentacion
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(299, 11);
+            this.label5.Location = new System.Drawing.Point(301, 4);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(426, 25);
+            this.label5.Size = new System.Drawing.Size(399, 25);
             this.label5.TabIndex = 59;
-            this.label5.Text = "KARDEX´s de un Determinado Grado";
+            this.label5.Text = "Karde´x de un Determinado Grado";
             // 
             // cmbAnio
             // 

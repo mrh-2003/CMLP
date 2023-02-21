@@ -17,7 +17,6 @@ namespace Presentacion
         {
             InitializeComponent();
         }
-
         private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar))
