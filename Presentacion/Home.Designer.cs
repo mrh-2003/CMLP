@@ -118,6 +118,7 @@ namespace Presentacion
             this.btnUsuarios.Text = "Usuarios";
             this.btnUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnUsuarios.UseVisualStyleBackColor = true;
+            this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
             // 
             // btnHistorial
             // 
@@ -141,6 +142,7 @@ namespace Presentacion
             this.btnHistorial.Text = "Historial ";
             this.btnHistorial.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnHistorial.UseVisualStyleBackColor = true;
+            this.btnHistorial.Click += new System.EventHandler(this.btnHistorial_Click);
             // 
             // btnRBoletas
             // 
@@ -571,13 +573,13 @@ namespace Presentacion
             this.menuRBoleta.MenuItemTextColor = System.Drawing.Color.Empty;
             this.menuRBoleta.Name = "rjDropdownMenu1";
             this.menuRBoleta.PrimaryColor = System.Drawing.Color.Empty;
-            this.menuRBoleta.Size = new System.Drawing.Size(181, 70);
+            this.menuRBoleta.Size = new System.Drawing.Size(163, 48);
             // 
             // submenuRBConcepto
             // 
             this.submenuRBConcepto.ForeColor = System.Drawing.Color.White;
             this.submenuRBConcepto.Name = "submenuRBConcepto";
-            this.submenuRBConcepto.Size = new System.Drawing.Size(180, 22);
+            this.submenuRBConcepto.Size = new System.Drawing.Size(162, 22);
             this.submenuRBConcepto.Text = "Por Concepto";
             this.submenuRBConcepto.Click += new System.EventHandler(this.submenuRBConcepto_Click);
             // 
@@ -585,7 +587,7 @@ namespace Presentacion
             // 
             this.submenuRBFecha.ForeColor = System.Drawing.Color.White;
             this.submenuRBFecha.Name = "submenuRBFecha";
-            this.submenuRBFecha.Size = new System.Drawing.Size(180, 22);
+            this.submenuRBFecha.Size = new System.Drawing.Size(162, 22);
             this.submenuRBFecha.Text = "Por Fecha";
             this.submenuRBFecha.Click += new System.EventHandler(this.submenuRBFecha_Click);
             // 
