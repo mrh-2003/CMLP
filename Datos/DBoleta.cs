@@ -151,13 +151,15 @@ namespace Datos
                         {
                             if (!reader.IsDBNull(0))
                             {
-                                total = reader.GetDecimal(0);
+                                if (!reader.IsDBNull(0))
+                                {
+                                    total = reader.GetDecimal(0);
+                                }
                             }
                         }
                     }
                 }
             }
-
             return total;
         }
         public decimal Total()
@@ -175,13 +177,14 @@ namespace Datos
                     {
                         if (reader.Read())
                         {
-                            total = reader.GetDecimal(0);
+                            if (!reader.IsDBNull(0))
+                            {
+                                total = reader.GetDecimal(0);
+                            }
                         }
                     }
                 }
             }
-
-
 
             return total;
         }

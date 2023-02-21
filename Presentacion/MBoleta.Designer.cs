@@ -80,9 +80,9 @@ namespace Presentacion
             // dtpFecha
             // 
             this.dtpFecha.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFecha.Location = new System.Drawing.Point(660, 211);
+            this.dtpFecha.Location = new System.Drawing.Point(615, 211);
             this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(200, 24);
+            this.dtpFecha.Size = new System.Drawing.Size(284, 24);
             this.dtpFecha.TabIndex = 5;
             // 
             // btnEliminar
@@ -195,7 +195,7 @@ namespace Presentacion
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(573, 97);
+            this.label3.Location = new System.Drawing.Point(528, 97);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 17);
             this.label3.TabIndex = 61;
@@ -206,7 +206,7 @@ namespace Presentacion
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(573, 212);
+            this.label4.Location = new System.Drawing.Point(528, 212);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 17);
             this.label4.TabIndex = 61;
@@ -217,9 +217,9 @@ namespace Presentacion
             this.cbxConcepto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxConcepto.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxConcepto.FormattingEnabled = true;
-            this.cbxConcepto.Location = new System.Drawing.Point(660, 95);
+            this.cbxConcepto.Location = new System.Drawing.Point(615, 95);
             this.cbxConcepto.Name = "cbxConcepto";
-            this.cbxConcepto.Size = new System.Drawing.Size(154, 24);
+            this.cbxConcepto.Size = new System.Drawing.Size(284, 24);
             this.cbxConcepto.TabIndex = 65;
             // 
             // lbNombre
