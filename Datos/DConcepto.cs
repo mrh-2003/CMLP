@@ -17,16 +17,30 @@ namespace Datos
             {
                 try
                 {
+                    string mensaje;
+                    EConcepto eConcepto = null;
+                    if (opcion != "insert")
+                        eConcepto = getConcepto(concepto.Codigo);
                     conn.Open();
                     using (var trans = conn.BeginTransaction())
                     {
                         string query;
                         if (opcion == "insert")
+                        { 
                             query = "INSERT INTO conceptos (codigo, concepto, importe) VALUES (@codigo, @concepto, @importe)";
+                            mensaje = "Se inserto correctamente el Concepto" + concepto.Codigo + "-" + concepto.Concepto +" cuyo Importe es " + concepto.Importe + " y vence el " + calendario.Vencimiento.ToString();
+
+                        }
                         else if (opcion == "update")
+                        {
                             query = "UPDATE conceptos SET concepto = @concepto, importe = @importe WHERE codigo = @codigo";
+                            mensaje = "Se actualizo correctamente el Concepto" + concepto.Codigo  + " ANTES: " +eConcepto.Concepto+ " - " + eConcepto.Importe + "AHORA: " + concepto.Concepto + " - " + concepto.Importe;
+
+                        }
                         else
+                        {
                             query = "DELETE FROM conceptos WHERE codigo = @codigo";
+                            mensaje = "Se elimno correctamente el Concpeto " + concepto.Codigo + " con datos: " + concepto.Concepto + "-" + concepto.Importe;                        }
                         using (var cmd = new NpgsqlCommand(query, conn, trans))
                         {
                             cmd.Parameters.AddWithValue("@codigo", concepto.Codigo);
@@ -36,7 +50,7 @@ namespace Datos
                         }
                         trans.Commit();
                     }
-                    return "Tarea realizada exitosamente";
+                    return mensaje;
                 }
                 catch (Exception ex)
                 {
@@ -113,6 +127,36 @@ namespace Datos
                     adapter.Fill(dt);
 
                     return dt;
+                }
+            }
+        }
+        public EConcepto getConcepto(int codigo)
+        {
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    using (var cmd = new NpgsqlCommand("SELECT * FROM conceptos WHERE codigo = @id", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", codigo);
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            reader.Read();
+                            EConcepto eConcepto = new EConcepto()
+                            {
+                                Codigo = reader.GetInt32(0),
+                                Concepto = reader.GetString(1),
+                                Importe = reader.GetInt32(2),
+                            };
+                            return eConcepto;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return null;
                 }
             }
         }

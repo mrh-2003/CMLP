@@ -18,11 +18,12 @@ namespace Presentacion
         DCalendario dCalendario = new DCalendario();
         DPago dPago = new DPago();
         EPago ePago = null;
+        DHistorial dHistorial = new DHistorial();
+        int id = Login.id;
         public MCalendarioPagos()
         {
             InitializeComponent();
         }
-
         private void MCalendarioPagos_Load(object sender, EventArgs e)
         {
             cbxDescripcion.DataSource = dPago.Listar();
@@ -56,7 +57,15 @@ namespace Presentacion
                     Vencimiento = dtpVencimiento.Value,
                     AlumnoDNI = txtDni.Text
                 };
-                MessageBox.Show(dCalendario.Mantenimiento(eCalendario, opcion));
+                string mensaje = dCalendario.Mantenimiento(eCalendario, opcion);
+                MessageBox.Show(mensaje);
+                EHistorial historial = new EHistorial()
+                {
+                    Descripcion = mensaje,
+                    Usuario = (new DUsuario()).getUsuario(id).Usuario,
+                    Fecha = DateTime.Now
+                };
+                dHistorial.Insertar(historial);
                 mostrar();
             }
             else

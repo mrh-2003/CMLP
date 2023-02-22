@@ -18,11 +18,12 @@ namespace Presentacion
         DBoleta dBoleta = new DBoleta();
         DConcepto dConcepto = new DConcepto();
         DAlumno dAlumno = new DAlumno();
+        DHistorial dHistorial = new DHistorial();
+        int id = Login.id;
         public MBoleta()
         {
             InitializeComponent();
         }
-
         private void MBoleta_Load(object sender, EventArgs e)
         {
             mostrar();
@@ -58,7 +59,15 @@ namespace Presentacion
                     Fecha = dtpFecha.Value,
                     ConceptoCodigo = eConcepto.Codigo
                 };
-                MessageBox.Show(dBoleta.Mantenimiento(eBoleta, opcion));
+                string mensaje = dBoleta.Mantenimiento(eBoleta, opcion);
+                MessageBox.Show(mensaje);
+                EHistorial historial = new EHistorial()
+                {
+                    Descripcion = mensaje,
+                    Usuario = (new DUsuario()).getUsuario(id).Usuario,
+                    Fecha = DateTime.Now
+                };
+                dHistorial.Insertar(historial);
                 mostrar();
             }
             else

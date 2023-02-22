@@ -14,6 +14,8 @@ namespace Presentacion
     public partial class MPagos : Form
     {
         DPago dPago = new DPago();
+        DHistorial dHistorial = new DHistorial();
+        int id = Login.id;
         public MPagos()
         {
             InitializeComponent();
@@ -48,7 +50,15 @@ namespace Presentacion
                     Monto = Convert.ToDecimal(txtMonto.Text),
                     Vencimiento = dtpVencimiento.Value
                 };
-                MessageBox.Show(dPago.Mantenimiento(ePago, opcion));
+                string mensaje = dPago.Mantenimiento(ePago, opcion);
+                MessageBox.Show(mensaje);
+                EHistorial historial = new EHistorial()
+                {
+                    Descripcion = mensaje,
+                    Usuario = (new DUsuario()).getUsuario(id).Usuario,
+                    Fecha = DateTime.Now
+                };
+                dHistorial.Insertar(historial);
                 mostrar();
             }
             else
