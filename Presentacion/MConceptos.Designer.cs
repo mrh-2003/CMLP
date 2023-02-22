@@ -43,6 +43,8 @@ namespace Presentacion
             this.label5 = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmbxBuscarXConcepto = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -191,9 +193,9 @@ namespace Presentacion
             // txtBuscar
             // 
             this.txtBuscar.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.Location = new System.Drawing.Point(393, 208);
+            this.txtBuscar.Location = new System.Drawing.Point(211, 208);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(369, 24);
+            this.txtBuscar.Size = new System.Drawing.Size(178, 24);
             this.txtBuscar.TabIndex = 80;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
@@ -202,11 +204,32 @@ namespace Presentacion
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(224, 212);
+            this.label12.Location = new System.Drawing.Point(62, 211);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(163, 17);
+            this.label12.Size = new System.Drawing.Size(145, 17);
             this.label12.TabIndex = 79;
-            this.label12.Text = "Buscar por Concepto:";
+            this.label12.Text = "Buscar por Código:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(500, 211);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(163, 17);
+            this.label3.TabIndex = 81;
+            this.label3.Text = "Buscar por Concepto:";
+            // 
+            // cmbxBuscarXConcepto
+            // 
+            this.cmbxBuscarXConcepto.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbxBuscarXConcepto.FormattingEnabled = true;
+            this.cmbxBuscarXConcepto.Location = new System.Drawing.Point(667, 208);
+            this.cmbxBuscarXConcepto.Name = "cmbxBuscarXConcepto";
+            this.cmbxBuscarXConcepto.Size = new System.Drawing.Size(257, 24);
+            this.cmbxBuscarXConcepto.TabIndex = 82;
+            this.cmbxBuscarXConcepto.SelectedIndexChanged += new System.EventHandler(this.cmbxBuscarXConcepto_SelectedIndexChanged);
             // 
             // MConceptos
             // 
@@ -214,6 +237,8 @@ namespace Presentacion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(65)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(992, 681);
+            this.Controls.Add(this.cmbxBuscarXConcepto);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label5);
@@ -255,5 +280,7 @@ namespace Presentacion
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cmbxBuscarXConcepto;
     }
 }
