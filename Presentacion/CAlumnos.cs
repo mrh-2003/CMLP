@@ -7,47 +7,69 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Datos;
+using Entidades;
+using SpreadsheetLight;
 
 namespace Presentacion
 {
     public partial class CAlumnos : Form
     {
-        private const string TITULO_ALERTA = "Error de Entrada";
+        DAlumno dAlumno = new DAlumno();
+        List<EAlumno> listaAlumnos = new List<EAlumno>();
         public CAlumnos()
         {
             InitializeComponent();
         }
-        private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
+
+        private void btnCargar_Click(object sender, EventArgs e)
         {
-            if (!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-                MessageBox.Show("Este campo solo acepta numeros. Introduce un valor válido", TITULO_ALERTA, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+            foreach (EAlumno item in listaAlumnos)
+                dAlumno.Mantenimiento(item, "insert");
+            MessageBox.Show("Tarea realizada exitosamente");
         }
 
-        private void txtApellidosNombres_KeyPress(object sender, KeyPressEventArgs e)
+        private void btnAbrir_Click(object sender, EventArgs e)
         {
-            if (char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar))
+            openFile.InitialDirectory = "C:\\Users\\Hub CJ Technology\\Downloads";
+            openFile.Filter = "xlsx (*.xlsx)|*.xlsx";
+            if (openFile.ShowDialog() == DialogResult.OK)
             {
-                e.Handled = true;
-                MessageBox.Show("Este campo solo acepta letras. Introduce un nombre válido válido", TITULO_ALERTA, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                cargarBoletas();
             }
+
         }
-        private void txtCelular_KeyPress(object sender, KeyPressEventArgs e)
+        private void cargarBoletas()
         {
-            if (!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar))
+            string directionFile = openFile.FileName;
+            string fallo = "";
+            SLDocument sd = new SLDocument(directionFile);
+            int irow = 1;
+            while (!string.IsNullOrEmpty(sd.GetCellValueAsString(irow, 1)))
             {
-                e.Handled = true;
-                MessageBox.Show("Este campo solo acepta numeros. Introduce un valor válido", TITULO_ALERTA, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                string dni = sd.GetCellValueAsString(irow, 1);
+                string nombre = sd.GetCellValueAsString(irow, 2);
+                string beneficio = sd.GetCellValueAsString(irow, 3);
+                if (!listaAlumnos.Exists(x => x.Dni == dni))
+                {
+                    EAlumno eAlumno = dAlumno.getAlumno(dni);
+                    if (eAlumno != null)
+                    {
+                        eAlumno.Descuento = beneficio;
+                        eAlumno.FinDescuento = DateTime.Now.AddMonths(2);
+                        listaAlumnos.Add(eAlumno);
+                    }
+                    else
+                    {
+                        fallo += dni + " " + nombre + " " + beneficio + "\n";
+                    }
+                }
+                irow++;
             }
-        }
-        private void txtCelulcarAp_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (fallo.Length > 0)
             {
-                e.Handled = true;
-                MessageBox.Show("Este campo solo acepta numeros. Introduce un valor válido", TITULO_ALERTA, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Existen alumnos que no se pudieron registrar, informacion copiada al portapapeles");
+                Clipboard.SetText(fallo);
             }
         }
     }
