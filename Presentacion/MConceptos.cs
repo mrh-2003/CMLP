@@ -108,11 +108,7 @@ namespace Presentacion
         }
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            dgvListar.DataSource = dConcepto.BuscarPorCodigo(txtBuscar.Text);
-        }
-        private void cmbxBuscarXConcepto_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            dgvListar.DataSource = dConcepto.BuscarPorConcepto(cmbxBuscarXConcepto.Text);
+            dgvListar.DataSource = dConcepto.BuscarPorConcepto(txtBuscar.Text);
         }
     }
 }

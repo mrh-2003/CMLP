@@ -16,6 +16,8 @@ namespace Presentacion
     {
         private const string TITULO_ALERTA = "Error de Entrada";
         DAlumno dAlumno = new DAlumno();
+        DHistorial dHistorial = new DHistorial();
+        int id = Login.id;
         public MAlumnos()
         {
             InitializeComponent();
@@ -64,7 +66,15 @@ namespace Presentacion
                     Descuento = cbxDescuento.SelectedItem.ToString(),
                     FinDescuento = dtpVencimiento.Value
                 };
-                MessageBox.Show(dAlumno.Mantenimiento(eAlumno, opcion));
+                string mensaje = dAlumno.Mantenimiento(eAlumno, opcion);
+                MessageBox.Show(mensaje);
+                EHistorial historial = new EHistorial()
+                {
+                    Descripcion = mensaje,
+                    Usuario = (new DUsuario()).getUsuario(id).Usuario,
+                    Fecha = DateTime.Now
+                };
+                dHistorial.Insertar(historial);
                 mostrar();
             }
             else

@@ -194,7 +194,7 @@ namespace Datos
             {
                 connection.Open();
 
-                using (NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM boletas WHERE LOWER(dni) LIKE LOWER(@valor_buscado) OR LOWER(codigo) LIKE LOWER(@valor_buscado)", connection))
+                using (NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM boletas WHERE LOWER(alumno_dni) LIKE LOWER(@valor_buscado) OR LOWER(codigo) LIKE LOWER(@valor_buscado)", connection))
                 {
                     command.Parameters.AddWithValue("@valor_buscado", "%" + valorBuscado.ToLower() + "%");
                     NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
@@ -205,23 +205,7 @@ namespace Datos
                 }
             }
         }
-        public DataTable BuscarPorConcepto(string valorBuscado)
-        {
-            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
-            {
-                connection.Open();
-
-                using (NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM boletas WHERE concepto_codigo=@valor_buscado", connection))
-                {
-                    command.Parameters.AddWithValue("@valor_buscado", valorBuscado);
-                    NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-
-                    return dt;
-                }
-            }
-        }
+        
         //public DataTable BuscarBoletasPorConcepto(string valorBuscado)
         //{
         //    if (string.IsNullOrWhiteSpace(valorBuscado))

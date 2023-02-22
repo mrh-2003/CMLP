@@ -16,6 +16,8 @@ namespace Presentacion
     {
         private const string TITULO_ALERTA = "Error de Entrada";
         DCalendario dCalendario = new DCalendario();
+        DPago dPago = new DPago();
+        EPago ePago = null;
         public MCalendarioPagos()
         {
             InitializeComponent();
@@ -23,6 +25,7 @@ namespace Presentacion
 
         private void MCalendarioPagos_Load(object sender, EventArgs e)
         {
+            cbxDescripcion.DataSource = dPago.Listar();
             mostrar();
         }
         void limpiar()
@@ -43,7 +46,7 @@ namespace Presentacion
         }
         private void mantenimiento(string opcion)
         {
-            if (txtDni.Text != "" && cbxDescripcion.SelectedIndex != -1 && txtMonto.Text != "" && dtpVencimiento.Value != null)
+            if (txtDni.Text != "" /*&& cbxDescripcion.SelectedIndex != -1*/ && txtMonto.Text != "" && dtpVencimiento.Value != null)
             {
                 ECalendario eCalendario = new ECalendario()
                 {
@@ -63,7 +66,14 @@ namespace Presentacion
         }
         private void dgvListar_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (e.RowIndex != -1)
+            {
+                txtId.Text = dgvListar.Rows[e.RowIndex].Cells[0].Value.ToString();
+                cbxDescripcion.Text = dgvListar.Rows[e.RowIndex].Cells[1].Value.ToString();
+                txtMonto.Text = dgvListar.Rows[e.RowIndex].Cells[2].Value.ToString();
+                dtpVencimiento.Value = Convert.ToDateTime(dgvListar.Rows[e.RowIndex].Cells[3].Value);
+                txtDni.Text = dgvListar.Rows[e.RowIndex].Cells[4].Value.ToString();
+            }
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -97,7 +107,14 @@ namespace Presentacion
         }
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            dgvListar.DataSource = dCalendario.BuscarPorIdODni(txtBuscar.Text);
+            dgvListar.DataSource = dCalendario.BuscarPorDniODescripcion(txtBuscar.Text);
+        }
+
+        private void cbxDescripcion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ePago = cbxDescripcion.SelectedItem as EPago;
+            if(ePago != null)
+                txtMonto.Text = ePago.Monto.ToString();
         }
     }
 }

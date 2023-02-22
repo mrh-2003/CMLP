@@ -77,12 +77,14 @@ namespace Presentacion
             // 
             // cbxDescripcion
             // 
+            this.cbxDescripcion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxDescripcion.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxDescripcion.FormattingEnabled = true;
             this.cbxDescripcion.Location = new System.Drawing.Point(557, 91);
             this.cbxDescripcion.Name = "cbxDescripcion";
             this.cbxDescripcion.Size = new System.Drawing.Size(297, 24);
             this.cbxDescripcion.TabIndex = 1;
+            this.cbxDescripcion.SelectedIndexChanged += new System.EventHandler(this.cbxDescripcion_SelectedIndexChanged);
             // 
             // txtMonto
             // 
@@ -258,11 +260,11 @@ namespace Presentacion
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(331, 264);
+            this.label12.Location = new System.Drawing.Point(243, 264);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(152, 17);
+            this.label12.Size = new System.Drawing.Size(218, 17);
             this.label12.TabIndex = 81;
-            this.label12.Text = "Buscar por Id o Dni:";
+            this.label12.Text = "Buscar por Descripcion o Dni:";
             // 
             // MCalendarioPagos
             // 

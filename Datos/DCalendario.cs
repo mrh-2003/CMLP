@@ -64,13 +64,13 @@ namespace Datos
                 }
             }
         }
-        public DataTable BuscarPorIdODni(string valorBuscado)
+        public DataTable BuscarPorDniODescripcion(string valorBuscado)
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
                 connection.Open();
 
-                using (NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM calendario WHERE LOWER(dni) LIKE LOWER(@valor_buscado) OR LOWER(id) LIKE LOWER(@valor_buscado)", connection))
+                using (NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM calendarios WHERE LOWER(alumno_dni) LIKE LOWER(@valor_buscado) OR LOWER(descripcion) LIKE LOWER(@valor_buscado)", connection))
                 {
                     command.Parameters.AddWithValue("@valor_buscado", "%" + valorBuscado.ToLower() + "%");
                     NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
