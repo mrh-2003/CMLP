@@ -20,14 +20,12 @@ namespace Presentacion
         {
             InitializeComponent();
         }
-
         private void RBoletasXConcepto_Load(object sender, EventArgs e)
         {
             dgvListar.DataSource = dBoleta.Listar();
             cbxConcepto.DataSource = dConcepto.Listar();
             txtTotal.Text = "Total: " + dBoleta.Total();
         }
-
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             EConcepto eConcepto = cbxConcepto.SelectedItem as EConcepto;

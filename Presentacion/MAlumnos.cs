@@ -20,19 +20,16 @@ namespace Presentacion
         {
             InitializeComponent();
         }
-
         private void MAlumnos_Load(object sender, EventArgs e)
         {
             mostrar();
         }
-
         void mostrar()
         {
             dgvListar.DataSource = dAlumno.Listar();
             dgvListar.ClearSelection();
             limpiar();
         }
-
         void limpiar()
         {
             txtDni.Clear();
@@ -47,7 +44,6 @@ namespace Presentacion
             dtpVencimiento.Value = DateTime.Now;
             txtDni.Focus();
         }
-
         private void mantenimiento(string opcion)
         {
             if (txtDni.Text != "" && txtApellidosNombres.Text != "" && cbxGrado.SelectedIndex != -1 && 
@@ -76,8 +72,6 @@ namespace Presentacion
                 MessageBox.Show("Todos los campos deben estar llenos");
             }
         }
-
-
         private void dgvListar_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1)
@@ -94,22 +88,18 @@ namespace Presentacion
                 dtpVencimiento.Value = Convert.ToDateTime(dgvListar.Rows[e.RowIndex].Cells[9].Value);
             }
         }
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             mantenimiento("insert");
         }
-
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             mantenimiento("update");
         }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             mantenimiento("delete");
         }
-
         private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
         {
             if(!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar))
@@ -118,7 +108,6 @@ namespace Presentacion
                 MessageBox.Show("Este campo solo acepta numeros. Introduce un valor válido", TITULO_ALERTA, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-
         private void txtApellidosNombres_KeyPress(object sender, KeyPressEventArgs e)
         {
             if(char.IsNumber(e.KeyChar))
@@ -138,13 +127,12 @@ namespace Presentacion
         }
         private void txtCelulcarAp_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsNumber(e.KeyChar))
+            if (!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
                 MessageBox.Show("Este campo solo acepta numeros. Introduce un valor válido", TITULO_ALERTA, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             dgvListar.DataSource = dAlumno.BuscarPorNombreODNI(txtBuscar.Text);

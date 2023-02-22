@@ -151,13 +151,15 @@ namespace Datos
                         {
                             if (!reader.IsDBNull(0))
                             {
-                                total = reader.GetDecimal(0);
+                                if (!reader.IsDBNull(0))
+                                {
+                                    total = reader.GetDecimal(0);
+                                }
                             }
                         }
                     }
                 }
             }
-
             return total;
         }
         public decimal Total()
@@ -175,15 +177,82 @@ namespace Datos
                     {
                         if (reader.Read())
                         {
-                            total = reader.GetDecimal(0);
+                            if (!reader.IsDBNull(0))
+                            {
+                                total = reader.GetDecimal(0);
+                            }
                         }
                     }
                 }
             }
 
-
-
             return total;
         }
+        public DataTable BuscarPorCodigoOdni(string valorBuscado)
+        {
+            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM boletas WHERE LOWER(dni) LIKE LOWER(@valor_buscado) OR LOWER(codigo) LIKE LOWER(@valor_buscado)", connection))
+                {
+                    command.Parameters.AddWithValue("@valor_buscado", "%" + valorBuscado.ToLower() + "%");
+                    NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    return dt;
+                }
+            }
+        }
+        public DataTable BuscarPorConcepto(string valorBuscado)
+        {
+            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM boletas WHERE concepto_codigo=@valor_buscado", connection))
+                {
+                    command.Parameters.AddWithValue("@valor_buscado", valorBuscado);
+                    NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    return dt;
+                }
+            }
+        }
+        //public DataTable BuscarBoletasPorConcepto(string valorBuscado)
+        //{
+        //    if (string.IsNullOrWhiteSpace(valorBuscado))
+        //    {
+        //        throw new ArgumentException("El valor del concepto no puede estar vacío", nameof(valorBuscado));
+        //    }
+
+        //    using (var connection = new NpgsqlConnection(connectionString))
+        //    {
+        //        connection.Open();
+
+        //        var query = "SELECT * FROM boletas WHERE concepto_codigo ILIKE @concepto";
+        //        using (var command = new NpgsqlCommand(query, connection))
+        //        {
+        //            command.Parameters.AddWithValue("@concepto", $"%{valorBuscado.ToLower()}%");
+
+        //            try
+        //            {
+        //                var adapter = new NpgsqlDataAdapter(command);
+        //                var dataTable = new DataTable();
+        //                adapter.Fill(dataTable);
+
+        //                return dataTable;
+        //            }
+        //            catch (Exception ex)
+        //            {
+        //                // Manejar el error adecuadamente
+        //                throw new Exception("Ocurrió un error al buscar las boletas por concepto", ex);
+        //            }
+        //        }
+        //    }
+        //}
     }
 }

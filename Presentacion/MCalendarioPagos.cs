@@ -14,6 +14,7 @@ namespace Presentacion
 {
     public partial class MCalendarioPagos : Form
     {
+        private const string TITULO_ALERTA = "Error de Entrada";
         DCalendario dCalendario = new DCalendario();
         public MCalendarioPagos()
         {
@@ -60,28 +61,43 @@ namespace Presentacion
                 MessageBox.Show("Todos los campos deben estar llenos");
             }
         }
-
-
         private void dgvListar_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             mantenimiento("insert");
         }
-
         private void btnModificar_Click(object sender, EventArgs e)
         {
             if(txtId.Text != "")
                 mantenimiento("update");
         }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (txtId.Text != "")
                 mantenimiento("delete");
+        }
+        private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Este campo solo acepta numeros. Introduce un valor válido", TITULO_ALERTA, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+        private void txtMonto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar!='.')
+            {
+                e.Handled = true;
+                MessageBox.Show("Este campo solo acepta numeros. Introduce un valor válido", TITULO_ALERTA, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            dgvListar.DataSource = dCalendario.BuscarPorIdODni(txtBuscar.Text);
         }
     }
 }

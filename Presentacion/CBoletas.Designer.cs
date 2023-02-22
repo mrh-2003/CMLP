@@ -54,9 +54,9 @@ namespace Presentacion
             this.cbxConcepto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxConcepto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxConcepto.FormattingEnabled = true;
-            this.cbxConcepto.Location = new System.Drawing.Point(676, 61);
+            this.cbxConcepto.Location = new System.Drawing.Point(583, 61);
             this.cbxConcepto.Name = "cbxConcepto";
-            this.cbxConcepto.Size = new System.Drawing.Size(252, 24);
+            this.cbxConcepto.Size = new System.Drawing.Size(279, 24);
             this.cbxConcepto.TabIndex = 80;
             // 
             // label4
@@ -64,7 +64,7 @@ namespace Presentacion
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(574, 115);
+            this.label4.Location = new System.Drawing.Point(481, 115);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 17);
             this.label4.TabIndex = 75;
@@ -75,7 +75,7 @@ namespace Presentacion
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(574, 64);
+            this.label3.Location = new System.Drawing.Point(481, 64);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 17);
             this.label3.TabIndex = 76;
@@ -175,9 +175,9 @@ namespace Presentacion
             // dtpFecha
             // 
             this.dtpFecha.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFecha.Location = new System.Drawing.Point(676, 111);
+            this.dtpFecha.Location = new System.Drawing.Point(583, 111);
             this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(200, 24);
+            this.dtpFecha.Size = new System.Drawing.Size(279, 24);
             this.dtpFecha.TabIndex = 70;
             // 
             // txtMonto
