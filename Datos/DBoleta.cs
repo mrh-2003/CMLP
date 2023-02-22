@@ -18,16 +18,29 @@ namespace Datos
             {
                 try
                 {
+                    string mensaje;
+                    EBoleta eBoleta = null;
+                    if (opcion != "insert")
+                        eBoleta =getBoleta(boleta.Codigo);
                     conn.Open();
                     using (var trans = conn.BeginTransaction())
                     {
                         string query;
                         if (opcion == "insert")
+                        {
                             query = "INSERT INTO boletas (codigo, alumno_dni, monto, fecha, concepto_codigo) VALUES (@codigo, @alumno_dni, @monto, @fecha, @concepto_codigo)";
+                            mensaje = "Se inserto correctamente la Boleta" + boleta.Codigo + " del alumno"+boleta.AlumnoDNI+ "cuyo monto es" + boleta.Monto + "-Fecha:  " + boleta.Fecha.ToString();
+                        }
                         else if (opcion == "update")
+                        {
                             query = "UPDATE boletas SET alumno_dni =@alumno_dni, monto = @monto, fecha = @fecha, concepto_codigo = @concepto_codigo WHERE codigo = @codigo";
+                            mensaje = "Se actualizo correctamente la Boleta " + boleta.Codigo + " ANTES: " + eBoleta.Codigo + " - " + eBoleta.Fecha.ToString() + " AHORA: " + boleta.Codigo + " - " + boleta.Fecha.ToString();
+                        }
                         else
+                        {
                             query = "DELETE FROM boletas WHERE codigo = @codigo";
+                            mensaje = "Se elimno correctamente la Boleta " + boleta.Codigo + " con datos: " + boleta.AlumnoDNI + " - " + boleta.Monto + "-"+boleta.Fecha.ToString();
+                        }
                         using (var cmd = new NpgsqlCommand(query, conn, trans))
                         {
                             cmd.Parameters.AddWithValue("@codigo", boleta.Codigo);
@@ -39,7 +52,7 @@ namespace Datos
                         }
                         trans.Commit();
                     }
-                    return "Tarea realizada exitosamente";
+                    return mensaje;
                 }
                 catch (Exception ex)
                 {
@@ -205,38 +218,38 @@ namespace Datos
                 }
             }
         }
-        
-        //public DataTable BuscarBoletasPorConcepto(string valorBuscado)
-        //{
-        //    if (string.IsNullOrWhiteSpace(valorBuscado))
-        //    {
-        //        throw new ArgumentException("El valor del concepto no puede estar vacío", nameof(valorBuscado));
-        //    }
 
-        //    using (var connection = new NpgsqlConnection(connectionString))
-        //    {
-        //        connection.Open();
-
-        //        var query = "SELECT * FROM boletas WHERE concepto_codigo ILIKE @concepto";
-        //        using (var command = new NpgsqlCommand(query, connection))
-        //        {
-        //            command.Parameters.AddWithValue("@concepto", $"%{valorBuscado.ToLower()}%");
-
-        //            try
-        //            {
-        //                var adapter = new NpgsqlDataAdapter(command);
-        //                var dataTable = new DataTable();
-        //                adapter.Fill(dataTable);
-
-        //                return dataTable;
-        //            }
-        //            catch (Exception ex)
-        //            {
-        //                // Manejar el error adecuadamente
-        //                throw new Exception("Ocurrió un error al buscar las boletas por concepto", ex);
-        //            }
-        //        }
-        //    }
-        //}
+        public EBoleta getBoleta(string codigo)
+        {
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    using (var cmd = new NpgsqlCommand("SELECT * FROM boletas WHERE codigo = @codigo", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@codigo", codigo);
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            reader.Read();
+                            EBoleta eBoleta = new EBoleta()
+                            {
+                                Codigo = reader.GetString(0),
+                                AlumnoDNI = reader.GetString(1),
+                                Monto = reader.GetInt32(2),
+                                Fecha = reader.GetDateTime(3),
+                                ConceptoCodigo = reader.GetInt32(4),
+                            };
+                            return eBoleta;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return null;
+                }
+            }
+        }
     }
 }

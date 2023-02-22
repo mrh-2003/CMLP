@@ -18,16 +18,30 @@ namespace Datos
             {
                 try
                 {
+                    string mensaje;
+                    EUsuario eUsuario = null;
+                    if (opcion != "insert")
+                        eUsuario = getUsuario(usuario.Id);
                     conn.Open();
                     using (var trans = conn.BeginTransaction())
                     {
                         string query;
                         if (opcion == "insert")
+                        {
                             query = "INSERT INTO usuarios (usuario, contrasenia, rol) VALUES (@usuario, @contrasenia, @rol)";
+                            mensaje = "Se inserto correctamente el Usuario " + usuario.Id + " - " + usuario.Usuario + " con rol: " + usuario.Rol;
+                        }
                         else if (opcion == "update")
+                        {
                             query = "UPDATE usuarios SET usuario = @usuario, contrasenia = @contrasenia, rol = @rol WHERE id = @id";
+                            mensaje = "Se actualizo correctamente el Usuario " + usuario.Id + " ANTES: " + eUsuario.Usuario + " - " + eUsuario.Rol + " AHORA: " + usuario.Usuario + " - " + usuario.Rol;
+                        }
                         else
+                        {
                             query = "DELETE FROM usuarios WHERE id = @id";
+                            mensaje = "Se elimno correctamente al Usuario " + usuario.Id + " cuyos datos son: " + usuario.Usuario + " - " + usuario.Rol;
+
+                        }
                         using (var cmd = new NpgsqlCommand(query, conn, trans))
                         {
                             cmd.Parameters.AddWithValue("@id", usuario.Id);
@@ -38,7 +52,7 @@ namespace Datos
                         }
                         trans.Commit();
                     }
-                    return "Tarea realizada exitosamente";
+                    return mensaje;
                 }
                 catch (Exception ex)
                 {

@@ -17,6 +17,8 @@ namespace Presentacion
         DUsuario dUsuario = new DUsuario();
         string aux = "";
         int index = -1;
+        DHistorial dHistorial = new DHistorial();
+        int id = Login.id;
         public MUsuariosAdmin()
         {
             InitializeComponent();
@@ -51,7 +53,15 @@ namespace Presentacion
                     Contrasenia = txtContrasenia.Text,
                     Rol = cbxRol.Text
                 };
-                MessageBox.Show(dUsuario.Mantenimiento(eUsuario, opcion));
+                string mensaje = dUsuario.Mantenimiento(eUsuario, opcion);
+                MessageBox.Show(mensaje);
+                EHistorial historial = new EHistorial()
+                {
+                    Descripcion = mensaje,
+                    Usuario = (new DUsuario()).getUsuario(id).Usuario,
+                    Fecha = DateTime.Now
+                };
+                dHistorial.Insertar(historial);
                 mostrar();
             }
             else

@@ -51,7 +51,7 @@ namespace Presentacion
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(326, -43);
+            this.label11.Location = new System.Drawing.Point(301, 21);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(431, 25);
             this.label11.TabIndex = 99;
@@ -62,7 +62,7 @@ namespace Presentacion
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(176, 165);
+            this.label2.Location = new System.Drawing.Point(126, 197);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 17);
             this.label2.TabIndex = 96;
@@ -73,7 +73,7 @@ namespace Presentacion
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(176, 47);
+            this.label1.Location = new System.Drawing.Point(175, 111);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(28, 17);
             this.label1.TabIndex = 95;
@@ -84,7 +84,7 @@ namespace Presentacion
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(512, 165);
+            this.label4.Location = new System.Drawing.Point(462, 197);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(165, 17);
             this.label4.TabIndex = 94;
@@ -95,7 +95,7 @@ namespace Presentacion
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(509, 47);
+            this.label9.Location = new System.Drawing.Point(508, 111);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(94, 17);
             this.label9.TabIndex = 98;
@@ -108,7 +108,7 @@ namespace Presentacion
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(824, 258);
+            this.btnEliminar.Location = new System.Drawing.Point(772, 258);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(121, 35);
             this.btnEliminar.TabIndex = 92;
@@ -123,7 +123,7 @@ namespace Presentacion
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.Color.White;
-            this.btnModificar.Location = new System.Drawing.Point(493, 258);
+            this.btnModificar.Location = new System.Drawing.Point(441, 258);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(121, 35);
             this.btnModificar.TabIndex = 91;
@@ -138,7 +138,7 @@ namespace Presentacion
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
-            this.btnAgregar.Location = new System.Drawing.Point(150, 258);
+            this.btnAgregar.Location = new System.Drawing.Point(98, 258);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(121, 35);
             this.btnAgregar.TabIndex = 90;
@@ -151,7 +151,7 @@ namespace Presentacion
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(384, 165);
+            this.label5.Location = new System.Drawing.Point(334, 197);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 17);
             this.label5.TabIndex = 89;
@@ -160,7 +160,7 @@ namespace Presentacion
             // dtpVencimiento
             // 
             this.dtpVencimiento.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpVencimiento.Location = new System.Drawing.Point(687, 163);
+            this.dtpVencimiento.Location = new System.Drawing.Point(637, 195);
             this.dtpVencimiento.Name = "dtpVencimiento";
             this.dtpVencimiento.Size = new System.Drawing.Size(220, 24);
             this.dtpVencimiento.TabIndex = 86;
@@ -168,7 +168,7 @@ namespace Presentacion
             // txtMonto
             // 
             this.txtMonto.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMonto.Location = new System.Drawing.Point(235, 162);
+            this.txtMonto.Location = new System.Drawing.Point(185, 194);
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(147, 24);
             this.txtMonto.TabIndex = 85;
@@ -177,7 +177,7 @@ namespace Presentacion
             // 
             this.txtId.Enabled = false;
             this.txtId.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtId.Location = new System.Drawing.Point(235, 46);
+            this.txtId.Location = new System.Drawing.Point(234, 110);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(147, 24);
             this.txtId.TabIndex = 83;
@@ -188,20 +188,20 @@ namespace Presentacion
             this.dgvListar.AllowUserToResizeRows = false;
             this.dgvListar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListar.Location = new System.Drawing.Point(12, 299);
+            this.dgvListar.Location = new System.Drawing.Point(29, 310);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.ReadOnly = true;
             this.dgvListar.RowHeadersVisible = false;
             this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListar.Size = new System.Drawing.Size(943, 270);
+            this.dgvListar.Size = new System.Drawing.Size(932, 347);
             this.dgvListar.TabIndex = 93;
             this.dgvListar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellClick);
             // 
             // txtDescripcion
             // 
             this.txtDescripcion.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcion.Location = new System.Drawing.Point(609, 46);
+            this.txtDescripcion.Location = new System.Drawing.Point(608, 110);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(147, 24);
             this.txtDescripcion.TabIndex = 100;
@@ -211,7 +211,7 @@ namespace Presentacion
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(65)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(1105, 581);
+            this.ClientSize = new System.Drawing.Size(992, 681);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label2);
@@ -226,6 +226,7 @@ namespace Presentacion
             this.Controls.Add(this.txtMonto);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.dgvListar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MPagos";
             this.Text = "MPagos";
             this.Load += new System.EventHandler(this.MPagos_Load);

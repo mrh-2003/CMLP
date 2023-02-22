@@ -17,6 +17,8 @@ namespace Presentacion
     {
         private const string TITULO_ALERTA = "Error de Entrada";
         DConcepto dConcepto = new DConcepto();
+        DHistorial dHistorial = new DHistorial();
+        int id = Login.id;
         public MConceptos()
         {
             InitializeComponent();
@@ -56,29 +58,33 @@ namespace Presentacion
                     Concepto = txtConcepto.Text,
                     Importe = Convert.ToDecimal(txtImporte.Text)
                 };
-                MessageBox.Show(dConcepto.Mantenimiento(eConcepto, opcion));
+                string mensaje = dConcepto.Mantenimiento(eConcepto, opcion);
+                MessageBox.Show(mensaje);
+                EHistorial historial = new EHistorial()
+                {
+                    Descripcion = mensaje,
+                    Usuario = (new DUsuario()).getUsuario(id).Usuario,
+                    Fecha = DateTime.Now
+                };
+                dHistorial.Insertar(historial);
                 mostrar();
             } else
             {
                 MessageBox.Show("Todos los campos deben estar llenos");
             }
         }
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             mantenimiento("insert");
         }
-
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             mantenimiento("update");
         }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             mantenimiento("delete");
         }
-
         private void dgvListar_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1)
@@ -88,7 +94,6 @@ namespace Presentacion
                 txtImporte.Text = dgvListar.Rows[e.RowIndex].Cells[2].Value.ToString();
             }
         }
-
         private void txtConcepto_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsNumber(e.KeyChar))
@@ -97,7 +102,6 @@ namespace Presentacion
                 MessageBox.Show("Este campo solo acepta letras. Introduce un nombre válido",TITULO_ALERTA, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-
         private void txtImporte_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
