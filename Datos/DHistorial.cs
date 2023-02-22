@@ -18,7 +18,7 @@ namespace Datos
             {
                 connection.Open();
 
-                using (NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM historial", connection))
+                using (NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM historial ORDER BY fecha", connection))
                 {
                     NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
                     DataTable dt = new DataTable();

@@ -19,16 +19,29 @@ namespace Datos
             {
                 try
                 {
+                    string mensaje;
+                    EAlumno eAlumno = null;
+                    if (opcion != "insert")
+                        eAlumno = getAlumno(alumno.Dni);
                     conn.Open();
                     using (var trans = conn.BeginTransaction())
                     {
                         string query;
                         if (opcion == "insert")
+                        {
                             query = "INSERT INTO alumnos (dni, apellidos_nombres, grado, seccion, email,  email_apoderado, celular, celular_apoderado, descuento, fin_descuento) VALUES (@dni, @apellidos_nombres, @grado, @seccion, @email, @email_apoderado, @celular, @celular_apoderado, @descuento, @fin_descuento)";
+                            mensaje = "Se inserto correctamente el Alumno " + alumno.Dni + " y se le asigno " + alumno.Descuento + " y vence el " + alumno.FinDescuento.ToString();
+                        }
                         else if (opcion == "update")
+                        {
                             query = "UPDATE alumnos SET apellidos_nombres = @apellidos_nombres, grado = @grado, seccion = @seccion, email = @email, email_apoderado = @email_apoderado, celular = @celular, celular_apoderado = @celular_apoderado, descuento = @descuento, fin_descuento = @fin_descuento WHERE dni = @dni";
+                            mensaje = "Se actualizo correctamente el Alumno " + alumno.Dni + " ANTES: " + eAlumno.Descuento + " - " + eAlumno.FinDescuento.ToString() + " AHORA: " + alumno.Descuento + " - " + alumno.FinDescuento.ToString();
+                        }
                         else
+                        {
                             query = "DELETE FROM alumnos WHERE dni = @dni";
+                            mensaje = "Se elimno correctamente el Alumno " + alumno.Dni + " con datos: " + alumno.Descuento + " - " + alumno.FinDescuento.ToString();
+                        }
                         using (var cmd = new NpgsqlCommand(query, conn, trans))
                         {
                             cmd.Parameters.AddWithValue("@dni", alumno.Dni);
@@ -45,7 +58,7 @@ namespace Datos
                         }
                         trans.Commit();
                     }
-                    return "Tarea realizada exitosamente";
+                    return mensaje;
                 }
                 catch (Exception ex)
                 {

@@ -93,6 +93,7 @@
     <Compile Include="DBoleta.cs" />
     <Compile Include="DCalendario.cs" />
     <Compile Include="DHistorial.cs" />
+    <Compile Include="DPago.cs" />
     <Compile Include="DUsuario.cs" />
     <Compile Include="Utilidades.cs" />
     <Compile Include="DConcepto.cs" />

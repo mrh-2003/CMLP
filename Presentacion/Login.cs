@@ -32,7 +32,7 @@ namespace Presentacion
             if (id != 0)
             {
                 this.Hide();
-                (new MUsuario()).ShowDialog();
+                (new Home()).ShowDialog();
             }
             else
                 MessageBox.Show("Credenciales incompletas o incorrectas");

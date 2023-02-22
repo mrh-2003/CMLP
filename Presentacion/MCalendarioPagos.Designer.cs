@@ -77,12 +77,14 @@ namespace Presentacion
             // 
             // cbxDescripcion
             // 
+            this.cbxDescripcion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxDescripcion.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxDescripcion.FormattingEnabled = true;
             this.cbxDescripcion.Location = new System.Drawing.Point(557, 91);
             this.cbxDescripcion.Name = "cbxDescripcion";
             this.cbxDescripcion.Size = new System.Drawing.Size(297, 24);
             this.cbxDescripcion.TabIndex = 1;
+            this.cbxDescripcion.SelectedIndexChanged += new System.EventHandler(this.cbxDescripcion_SelectedIndexChanged);
             // 
             // txtMonto
             // 

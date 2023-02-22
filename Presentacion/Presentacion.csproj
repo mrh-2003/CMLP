@@ -163,6 +163,12 @@
     <Compile Include="MConceptos.Designer.cs">
       <DependentUpon>MConceptos.cs</DependentUpon>
     </Compile>
+    <Compile Include="MPagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MPagos.Designer.cs">
+      <DependentUpon>MPagos.cs</DependentUpon>
+    </Compile>
     <Compile Include="MUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -238,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MConceptos.resx">
       <DependentUpon>MConceptos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MPagos.resx">
+      <DependentUpon>MPagos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MUsuario.resx">
       <DependentUpon>MUsuario.cs</DependentUpon>
