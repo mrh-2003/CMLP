@@ -119,7 +119,7 @@ namespace Presentacion
         }
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            dgvListar.DataSource = dBoleta.BuscarPorCodigoOdniOConcepto(txtBuscar.Text);
+            dgvListar.DataSource = dBoleta.BuscarPorCodigoOdni(txtBuscar.Text);
         }
     }
 }

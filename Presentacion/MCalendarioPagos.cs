@@ -97,7 +97,7 @@ namespace Presentacion
         }
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            dgvListar.DataSource = dCalendario.BuscarPorIdODni(txtBuscar.Text);
+            dgvListar.DataSource = dCalendario.BuscarPorDniODescripcion(txtBuscar.Text);
         }
     }
 }

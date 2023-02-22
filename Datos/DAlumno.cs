@@ -199,7 +199,27 @@ namespace Datos
                 }
             }
         }
+        public DataTable FiltrarGradoSeccion(int grado, string seccion)
+        {
+            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+            {
+                connection.Open();
 
+                string query = "SELECT * FROM alumnos WHERE grado = @grado OR seccion =@seccion";
+                if(grado != 0 && seccion != "")
+                    query = "SELECT * FROM alumnos WHERE grado = @grado AND seccion =@seccion";
+                using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@grado", grado);
+                    command.Parameters.AddWithValue("@seccion", seccion.ToUpper());
+                    NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    return dt;
+                }
+            }
+        }
 
     }
 }
