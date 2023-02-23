@@ -18,10 +18,13 @@ namespace Presentacion
         {
             InitializeComponent();
         }
-
         private void Historial_Load(object sender, EventArgs e)
         {
             dgvListar.DataSource = dHistorial.Listar();
+        }
+        private void txtBuscarPorUsuarioOdescripcion_TextChanged(object sender, EventArgs e)
+        {
+            dgvListar.DataSource = dHistorial.BuscarPorUsuarioOdescripcion(txtBuscarPorUsuarioOdescripcion.Text);
         }
     }
 }

@@ -19,13 +19,13 @@ namespace Presentacion
         {
             InitializeComponent();
         }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             //EUsuario user = new EUsuario()
             //{
             //    Usuario = txtUsuario.Text,
-            //    Contrasenia = Utilidades.GetSHA256(txtContrasenia.Text)
+            //    Contrasenia = Utilidades.GetSHA256(txtContrasenia.Text),
+            //    Rol = "Administrador"
             //};
             //MessageBox.Show(dUsuario.Mantenimiento(user, "insert"));
             id = dUsuario.Login(txtUsuario.Text, txtContrasenia.Text);

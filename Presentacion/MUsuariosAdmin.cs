@@ -14,6 +14,7 @@ namespace Presentacion
 {
     public partial class MUsuariosAdmin : Form
     {
+        private const string TITULO_ALERTA = "Error de Entrada";
         DUsuario dUsuario = new DUsuario();
         string aux = "";
         int index = -1;
@@ -23,7 +24,6 @@ namespace Presentacion
         {
             InitializeComponent();
         }
-
         private void MUsuarios_Load(object sender, EventArgs e)
         {
             mostrar();
@@ -92,7 +92,6 @@ namespace Presentacion
                 txtContrasenia.Text = Utilidades.GetSHA256(txtContrasenia.Text);
             mantenimiento("insert");
         }
-
         private void btnModificar_Click(object sender, EventArgs e)
         {
             if (!existeUsuario())
@@ -104,13 +103,11 @@ namespace Presentacion
                 mantenimiento("update");
             }
         }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             txtContrasenia.Text = aux;
             mantenimiento("delete");
         }
-
         private void dgvListar_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             index = e.RowIndex;
