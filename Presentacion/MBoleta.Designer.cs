@@ -145,7 +145,7 @@ namespace Presentacion
             this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListar.Size = new System.Drawing.Size(924, 325);
-            this.dgvListar.TabIndex = 9;
+            this.dgvListar.TabIndex = 10;
             this.dgvListar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellClick);
             // 
             // label9
@@ -222,7 +222,7 @@ namespace Presentacion
             this.cbxConcepto.Location = new System.Drawing.Point(609, 81);
             this.cbxConcepto.Name = "cbxConcepto";
             this.cbxConcepto.Size = new System.Drawing.Size(284, 24);
-            this.cbxConcepto.TabIndex = 65;
+            this.cbxConcepto.TabIndex = 4;
             // 
             // lbNombre
             // 
@@ -252,7 +252,7 @@ namespace Presentacion
             this.txtBuscar.Location = new System.Drawing.Point(445, 302);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(211, 24);
-            this.txtBuscar.TabIndex = 80;
+            this.txtBuscar.TabIndex = 9;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // label12

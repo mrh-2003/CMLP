@@ -51,7 +51,7 @@ namespace Presentacion
             this.txtUsuario.Location = new System.Drawing.Point(192, 119);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(229, 24);
-            this.txtUsuario.TabIndex = 1;
+            this.txtUsuario.TabIndex = 2;
             // 
             // txtContrasenia
             // 
@@ -59,7 +59,7 @@ namespace Presentacion
             this.txtContrasenia.Location = new System.Drawing.Point(716, 125);
             this.txtContrasenia.Name = "txtContrasenia";
             this.txtContrasenia.Size = new System.Drawing.Size(159, 24);
-            this.txtContrasenia.TabIndex = 2;
+            this.txtContrasenia.TabIndex = 4;
             // 
             // btnAgregar
             // 
@@ -71,7 +71,7 @@ namespace Presentacion
             this.btnAgregar.Location = new System.Drawing.Point(96, 178);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(121, 35);
-            this.btnAgregar.TabIndex = 4;
+            this.btnAgregar.TabIndex = 5;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -86,7 +86,7 @@ namespace Presentacion
             this.btnModificar.Location = new System.Drawing.Point(445, 178);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(121, 35);
-            this.btnModificar.TabIndex = 5;
+            this.btnModificar.TabIndex = 6;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
@@ -101,7 +101,7 @@ namespace Presentacion
             this.btnEliminar.Location = new System.Drawing.Point(782, 178);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(121, 35);
-            this.btnEliminar.TabIndex = 6;
+            this.btnEliminar.TabIndex = 7;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -152,17 +152,18 @@ namespace Presentacion
             this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListar.Size = new System.Drawing.Size(941, 421);
-            this.dgvListar.TabIndex = 7;
+            this.dgvListar.TabIndex = 8;
             this.dgvListar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellClick);
             // 
             // txtId
             // 
+            this.txtId.Enabled = false;
             this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtId.Location = new System.Drawing.Point(192, 80);
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(121, 23);
-            this.txtId.TabIndex = 0;
+            this.txtId.TabIndex = 1;
             // 
             // cbxRol
             // 

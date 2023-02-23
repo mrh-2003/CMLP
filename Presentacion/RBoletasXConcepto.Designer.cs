@@ -56,7 +56,7 @@ namespace Presentacion
             this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListar.Size = new System.Drawing.Size(939, 448);
-            this.dgvListar.TabIndex = 5;
+            this.dgvListar.TabIndex = 6;
             // 
             // btnAceptar
             // 
@@ -166,7 +166,7 @@ namespace Presentacion
             this.btnLimpiar.Location = new System.Drawing.Point(512, 166);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(129, 44);
-            this.btnLimpiar.TabIndex = 86;
+            this.btnLimpiar.TabIndex = 5;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = false;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);

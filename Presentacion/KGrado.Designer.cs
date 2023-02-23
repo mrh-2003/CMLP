@@ -52,10 +52,10 @@ namespace Presentacion
             this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConsultar.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultar.ForeColor = System.Drawing.Color.White;
-            this.btnConsultar.Location = new System.Drawing.Point(446, 195);
+            this.btnConsultar.Location = new System.Drawing.Point(438, 195);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(129, 44);
-            this.btnConsultar.TabIndex = 49;
+            this.btnConsultar.TabIndex = 3;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = false;
             // 
@@ -68,7 +68,7 @@ namespace Presentacion
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(934, 409);
-            this.dataGridView1.TabIndex = 48;
+            this.dataGridView1.TabIndex = 4;
             // 
             // label5
             // 
@@ -83,26 +83,29 @@ namespace Presentacion
             // 
             // cmbAnio
             // 
+            this.cmbAnio.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbAnio.FormattingEnabled = true;
-            this.cmbAnio.Location = new System.Drawing.Point(329, 149);
+            this.cmbAnio.Location = new System.Drawing.Point(323, 149);
             this.cmbAnio.Name = "cmbAnio";
-            this.cmbAnio.Size = new System.Drawing.Size(121, 21);
-            this.cmbAnio.TabIndex = 57;
+            this.cmbAnio.Size = new System.Drawing.Size(121, 24);
+            this.cmbAnio.TabIndex = 1;
             // 
             // cmbSeccion
             // 
+            this.cmbSeccion.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSeccion.FormattingEnabled = true;
-            this.cmbSeccion.Location = new System.Drawing.Point(583, 148);
+            this.cmbSeccion.Location = new System.Drawing.Point(577, 148);
             this.cmbSeccion.Name = "cmbSeccion";
-            this.cmbSeccion.Size = new System.Drawing.Size(121, 21);
-            this.cmbSeccion.TabIndex = 58;
+            this.cmbSeccion.Size = new System.Drawing.Size(121, 24);
+            this.cmbSeccion.TabIndex = 2;
+            this.cmbSeccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbSeccion_KeyPress);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Verdana", 11F);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(509, 149);
+            this.label7.Location = new System.Drawing.Point(503, 151);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(72, 18);
             this.label7.TabIndex = 56;
@@ -113,7 +116,7 @@ namespace Presentacion
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 11F);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(282, 150);
+            this.label4.Location = new System.Drawing.Point(276, 152);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(44, 18);
             this.label4.TabIndex = 55;

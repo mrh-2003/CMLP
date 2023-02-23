@@ -57,7 +57,7 @@ namespace Presentacion
             this.cbxConcepto.Location = new System.Drawing.Point(583, 61);
             this.cbxConcepto.Name = "cbxConcepto";
             this.cbxConcepto.Size = new System.Drawing.Size(279, 24);
-            this.cbxConcepto.TabIndex = 80;
+            this.cbxConcepto.TabIndex = 4;
             // 
             // label4
             // 
@@ -124,7 +124,7 @@ namespace Presentacion
             this.btnEliminar.Location = new System.Drawing.Point(723, 229);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(125, 35);
-            this.btnEliminar.TabIndex = 73;
+            this.btnEliminar.TabIndex = 8;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             // 
@@ -138,7 +138,7 @@ namespace Presentacion
             this.btnActualizar.Location = new System.Drawing.Point(409, 229);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(121, 35);
-            this.btnActualizar.TabIndex = 72;
+            this.btnActualizar.TabIndex = 7;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = false;
             // 
@@ -152,7 +152,7 @@ namespace Presentacion
             this.btnAbrir.Location = new System.Drawing.Point(87, 229);
             this.btnAbrir.Name = "btnAbrir";
             this.btnAbrir.Size = new System.Drawing.Size(121, 35);
-            this.btnAbrir.TabIndex = 71;
+            this.btnAbrir.TabIndex = 6;
             this.btnAbrir.Text = "Abrir";
             this.btnAbrir.UseVisualStyleBackColor = false;
             this.btnAbrir.Click += new System.EventHandler(this.btnAbrir_Click);
@@ -170,7 +170,7 @@ namespace Presentacion
             this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListar.Size = new System.Drawing.Size(970, 397);
-            this.dgvListar.TabIndex = 74;
+            this.dgvListar.TabIndex = 9;
             // 
             // dtpFecha
             // 
@@ -178,7 +178,7 @@ namespace Presentacion
             this.dtpFecha.Location = new System.Drawing.Point(583, 111);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(279, 24);
-            this.dtpFecha.TabIndex = 70;
+            this.dtpFecha.TabIndex = 5;
             // 
             // txtMonto
             // 
@@ -186,7 +186,7 @@ namespace Presentacion
             this.txtMonto.Location = new System.Drawing.Point(191, 162);
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(145, 24);
-            this.txtMonto.TabIndex = 69;
+            this.txtMonto.TabIndex = 3;
             this.txtMonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMonto_KeyPress);
             // 
             // txtDni
@@ -196,7 +196,7 @@ namespace Presentacion
             this.txtDni.MaxLength = 8;
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(145, 24);
-            this.txtDni.TabIndex = 68;
+            this.txtDni.TabIndex = 2;
             this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
             // 
             // txtCodigo
@@ -205,7 +205,7 @@ namespace Presentacion
             this.txtCodigo.Location = new System.Drawing.Point(191, 61);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(145, 24);
-            this.txtCodigo.TabIndex = 67;
+            this.txtCodigo.TabIndex = 1;
             // 
             // openFile
             // 

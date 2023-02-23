@@ -52,7 +52,7 @@ namespace Presentacion
             this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListar.Size = new System.Drawing.Size(938, 465);
-            this.dgvListar.TabIndex = 15;
+            this.dgvListar.TabIndex = 4;
             // 
             // cbxSeccion
             // 
@@ -69,8 +69,9 @@ namespace Presentacion
             this.cbxSeccion.Location = new System.Drawing.Point(671, 83);
             this.cbxSeccion.Name = "cbxSeccion";
             this.cbxSeccion.Size = new System.Drawing.Size(150, 24);
-            this.cbxSeccion.TabIndex = 17;
+            this.cbxSeccion.TabIndex = 2;
             this.cbxSeccion.SelectedIndexChanged += new System.EventHandler(this.cbxSeccion_SelectedIndexChanged);
+            this.cbxSeccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbxSeccion_KeyPress);
             // 
             // cbxGrado
             // 
@@ -84,7 +85,7 @@ namespace Presentacion
             this.cbxGrado.Location = new System.Drawing.Point(219, 83);
             this.cbxGrado.Name = "cbxGrado";
             this.cbxGrado.Size = new System.Drawing.Size(146, 24);
-            this.cbxGrado.TabIndex = 16;
+            this.cbxGrado.TabIndex = 1;
             this.cbxGrado.SelectedIndexChanged += new System.EventHandler(this.cbxGrado_SelectedIndexChanged);
             // 
             // btnClear
@@ -97,7 +98,7 @@ namespace Presentacion
             this.btnClear.Location = new System.Drawing.Point(420, 123);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(129, 44);
-            this.btnClear.TabIndex = 18;
+            this.btnClear.TabIndex = 3;
             this.btnClear.Text = "Limpiar";
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);

@@ -43,5 +43,15 @@ namespace Presentacion
             cbxSeccion.SelectedIndex = -1;
             dgvListar.DataSource = dAlumno.Listar();
         }
+
+        private void cbxSeccion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+
+                btnClear.PerformClick();
+            }
+        }
     }
 }
