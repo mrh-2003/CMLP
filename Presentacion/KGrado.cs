@@ -22,5 +22,14 @@ namespace Presentacion
             lblHora.Text = DateTime.Now.ToString("HH:mm:ss");
             lblFecha.Text = DateTime.Now.ToShortDateString();
         }
+        private void cmbSeccion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+
+                btnConsultar.PerformClick();
+            }
+        }
     }
 }

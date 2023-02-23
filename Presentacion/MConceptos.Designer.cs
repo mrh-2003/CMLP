@@ -59,7 +59,7 @@ namespace Presentacion
             this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListar.Size = new System.Drawing.Size(926, 409);
-            this.dgvListar.TabIndex = 0;
+            this.dgvListar.TabIndex = 8;
             this.dgvListar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellClick);
             // 
             // txtCodigo
@@ -194,7 +194,7 @@ namespace Presentacion
             this.txtBuscar.Location = new System.Drawing.Point(487, 205);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(178, 24);
-            this.txtBuscar.TabIndex = 80;
+            this.txtBuscar.TabIndex = 7;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // label12

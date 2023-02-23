@@ -45,5 +45,13 @@ namespace Presentacion
                 MessageBox.Show("Todos los campos deben estar llenos");
             }
         }
+        private void txtConfContNuev_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                btnAceptar.PerformClick();
+            }
+        }
     }
 }

@@ -60,59 +60,60 @@ namespace Presentacion
             this.dgvListar.AllowUserToResizeRows = false;
             this.dgvListar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListar.Location = new System.Drawing.Point(28, 355);
+            this.dgvListar.Location = new System.Drawing.Point(28, 364);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.ReadOnly = true;
             this.dgvListar.RowHeadersVisible = false;
             this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListar.Size = new System.Drawing.Size(943, 314);
-            this.dgvListar.TabIndex = 9;
+            this.dgvListar.Size = new System.Drawing.Size(943, 305);
+            this.dgvListar.TabIndex = 11;
             this.dgvListar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellClick);
             // 
             // txtId
             // 
+            this.txtId.Enabled = false;
             this.txtId.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtId.Location = new System.Drawing.Point(182, 92);
+            this.txtId.Location = new System.Drawing.Point(241, 70);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(147, 24);
-            this.txtId.TabIndex = 0;
+            this.txtId.TabIndex = 1;
             // 
             // cbxDescripcion
             // 
             this.cbxDescripcion.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxDescripcion.FormattingEnabled = true;
-            this.cbxDescripcion.Location = new System.Drawing.Point(557, 91);
+            this.cbxDescripcion.Location = new System.Drawing.Point(634, 69);
             this.cbxDescripcion.Name = "cbxDescripcion";
-            this.cbxDescripcion.Size = new System.Drawing.Size(297, 24);
-            this.cbxDescripcion.TabIndex = 1;
+            this.cbxDescripcion.Size = new System.Drawing.Size(290, 24);
+            this.cbxDescripcion.TabIndex = 5;
             this.cbxDescripcion.SelectedIndexChanged += new System.EventHandler(this.cbxDescripcion_SelectedIndexChanged);
             // 
             // txtMontoPagado
             // 
             this.txtMontoPagado.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMontoPagado.Location = new System.Drawing.Point(182, 208);
+            this.txtMontoPagado.Location = new System.Drawing.Point(241, 183);
             this.txtMontoPagado.Name = "txtMontoPagado";
             this.txtMontoPagado.Size = new System.Drawing.Size(147, 24);
-            this.txtMontoPagado.TabIndex = 2;
+            this.txtMontoPagado.TabIndex = 3;
             this.txtMontoPagado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMonto_KeyPress);
             // 
             // dtpVencimiento
             // 
             this.dtpVencimiento.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpVencimiento.Location = new System.Drawing.Point(634, 209);
+            this.dtpVencimiento.Location = new System.Drawing.Point(634, 239);
             this.dtpVencimiento.Name = "dtpVencimiento";
-            this.dtpVencimiento.Size = new System.Drawing.Size(220, 24);
-            this.dtpVencimiento.TabIndex = 3;
+            this.dtpVencimiento.Size = new System.Drawing.Size(290, 24);
+            this.dtpVencimiento.TabIndex = 6;
             // 
             // txtDni
             // 
             this.txtDni.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDni.Location = new System.Drawing.Point(182, 150);
+            this.txtDni.Location = new System.Drawing.Point(241, 126);
             this.txtDni.MaxLength = 8;
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(147, 24);
-            this.txtDni.TabIndex = 4;
+            this.txtDni.TabIndex = 2;
             this.txtDni.TextChanged += new System.EventHandler(this.txtDni_TextChanged);
             this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
             // 
@@ -121,7 +122,7 @@ namespace Presentacion
             this.lbNombre.AutoSize = true;
             this.lbNombre.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNombre.ForeColor = System.Drawing.Color.White;
-            this.lbNombre.Location = new System.Drawing.Point(330, 155);
+            this.lbNombre.Location = new System.Drawing.Point(391, 130);
             this.lbNombre.Name = "lbNombre";
             this.lbNombre.Size = new System.Drawing.Size(63, 17);
             this.lbNombre.TabIndex = 5;
@@ -134,10 +135,10 @@ namespace Presentacion
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
-            this.btnAgregar.Location = new System.Drawing.Point(97, 304);
+            this.btnAgregar.Location = new System.Drawing.Point(97, 322);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(121, 35);
-            this.btnAgregar.TabIndex = 6;
+            this.btnAgregar.TabIndex = 8;
             this.btnAgregar.Text = "Registrar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -149,10 +150,10 @@ namespace Presentacion
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.Color.White;
-            this.btnModificar.Location = new System.Drawing.Point(440, 304);
+            this.btnModificar.Location = new System.Drawing.Point(440, 322);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(121, 35);
-            this.btnModificar.TabIndex = 7;
+            this.btnModificar.TabIndex = 9;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
@@ -164,10 +165,10 @@ namespace Presentacion
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(771, 304);
+            this.btnEliminar.Location = new System.Drawing.Point(771, 322);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(121, 35);
-            this.btnEliminar.TabIndex = 8;
+            this.btnEliminar.TabIndex = 10;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -177,7 +178,7 @@ namespace Presentacion
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(456, 93);
+            this.label9.Location = new System.Drawing.Point(470, 72);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(94, 17);
             this.label9.TabIndex = 62;
@@ -188,7 +189,7 @@ namespace Presentacion
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(123, 93);
+            this.label1.Location = new System.Drawing.Point(123, 75);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(28, 17);
             this.label1.TabIndex = 62;
@@ -199,18 +200,18 @@ namespace Presentacion
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(123, 211);
+            this.label2.Location = new System.Drawing.Point(123, 186);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 17);
+            this.label2.Size = new System.Drawing.Size(114, 17);
             this.label2.TabIndex = 62;
-            this.label2.Text = "Monto:";
+            this.label2.Text = "Monto Pagado:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(123, 153);
+            this.label3.Location = new System.Drawing.Point(123, 131);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 17);
             this.label3.TabIndex = 62;
@@ -221,7 +222,7 @@ namespace Presentacion
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(459, 211);
+            this.label4.Location = new System.Drawing.Point(470, 241);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(165, 17);
             this.label4.TabIndex = 62;
@@ -232,7 +233,7 @@ namespace Presentacion
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(331, 211);
+            this.label5.Location = new System.Drawing.Point(390, 186);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 17);
             this.label5.TabIndex = 5;
@@ -243,7 +244,7 @@ namespace Presentacion
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(273, 3);
+            this.label11.Location = new System.Drawing.Point(280, 3);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(431, 25);
             this.label11.TabIndex = 65;
@@ -252,10 +253,10 @@ namespace Presentacion
             // txtBuscar
             // 
             this.txtBuscar.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.Location = new System.Drawing.Point(486, 261);
+            this.txtBuscar.Location = new System.Drawing.Point(419, 287);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(178, 24);
-            this.txtBuscar.TabIndex = 82;
+            this.txtBuscar.Size = new System.Drawing.Size(361, 24);
+            this.txtBuscar.TabIndex = 7;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // label12
@@ -263,7 +264,7 @@ namespace Presentacion
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(243, 264);
+            this.label12.Location = new System.Drawing.Point(200, 290);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(218, 17);
             this.label12.TabIndex = 81;
@@ -274,18 +275,18 @@ namespace Presentacion
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(123, 241);
+            this.label6.Location = new System.Drawing.Point(123, 242);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 17);
+            this.label6.Size = new System.Drawing.Size(96, 17);
             this.label6.TabIndex = 85;
-            this.label6.Text = "Monto:";
+            this.label6.Text = "Monto Total:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(331, 241);
+            this.label7.Location = new System.Drawing.Point(390, 241);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(46, 17);
             this.label7.TabIndex = 84;
@@ -294,10 +295,11 @@ namespace Presentacion
             // txtMontoTotal
             // 
             this.txtMontoTotal.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMontoTotal.Location = new System.Drawing.Point(182, 238);
+            this.txtMontoTotal.Location = new System.Drawing.Point(241, 238);
             this.txtMontoTotal.Name = "txtMontoTotal";
             this.txtMontoTotal.Size = new System.Drawing.Size(147, 24);
-            this.txtMontoTotal.TabIndex = 83;
+            this.txtMontoTotal.TabIndex = 4;
+            this.txtMontoTotal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMontoTotal_KeyPress);
             // 
             // MCalendarioPagos
             // 

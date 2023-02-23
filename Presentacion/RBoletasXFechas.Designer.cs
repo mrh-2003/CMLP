@@ -48,7 +48,7 @@ namespace Presentacion
             this.dtpInicio.Location = new System.Drawing.Point(205, 83);
             this.dtpInicio.Name = "dtpInicio";
             this.dtpInicio.Size = new System.Drawing.Size(200, 24);
-            this.dtpInicio.TabIndex = 0;
+            this.dtpInicio.TabIndex = 1;
             // 
             // dtpFinal
             // 
@@ -57,7 +57,7 @@ namespace Presentacion
             this.dtpFinal.Location = new System.Drawing.Point(693, 83);
             this.dtpFinal.Name = "dtpFinal";
             this.dtpFinal.Size = new System.Drawing.Size(200, 24);
-            this.dtpFinal.TabIndex = 1;
+            this.dtpFinal.TabIndex = 2;
             // 
             // btnAceptar
             // 
@@ -87,7 +87,7 @@ namespace Presentacion
             this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListar.Size = new System.Drawing.Size(933, 431);
-            this.dgvListar.TabIndex = 15;
+            this.dgvListar.TabIndex = 5;
             // 
             // label4
             // 
@@ -143,7 +143,7 @@ namespace Presentacion
             this.btnLimpiar.Location = new System.Drawing.Point(533, 158);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(129, 44);
-            this.btnLimpiar.TabIndex = 86;
+            this.btnLimpiar.TabIndex = 4;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = false;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);

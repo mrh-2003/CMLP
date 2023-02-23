@@ -49,7 +49,7 @@ namespace Presentacion
             this.txtUsuario.Location = new System.Drawing.Point(294, 70);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(146, 24);
-            this.txtUsuario.TabIndex = 0;
+            this.txtUsuario.TabIndex = 1;
             // 
             // txtContraAnt
             // 
@@ -58,7 +58,7 @@ namespace Presentacion
             this.txtContraAnt.Name = "txtContraAnt";
             this.txtContraAnt.PasswordChar = '*';
             this.txtContraAnt.Size = new System.Drawing.Size(146, 24);
-            this.txtContraAnt.TabIndex = 1;
+            this.txtContraAnt.TabIndex = 2;
             // 
             // txtContraNuev
             // 
@@ -67,7 +67,7 @@ namespace Presentacion
             this.txtContraNuev.Name = "txtContraNuev";
             this.txtContraNuev.PasswordChar = '*';
             this.txtContraNuev.Size = new System.Drawing.Size(146, 24);
-            this.txtContraNuev.TabIndex = 2;
+            this.txtContraNuev.TabIndex = 3;
             // 
             // txtConfContNuev
             // 
@@ -76,7 +76,8 @@ namespace Presentacion
             this.txtConfContNuev.Name = "txtConfContNuev";
             this.txtConfContNuev.PasswordChar = '*';
             this.txtConfContNuev.Size = new System.Drawing.Size(146, 24);
-            this.txtConfContNuev.TabIndex = 3;
+            this.txtConfContNuev.TabIndex = 4;
+            this.txtConfContNuev.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtConfContNuev_KeyPress);
             // 
             // btnAceptar
             // 
@@ -88,7 +89,7 @@ namespace Presentacion
             this.btnAceptar.Location = new System.Drawing.Point(663, 110);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(177, 67);
-            this.btnAceptar.TabIndex = 4;
+            this.btnAceptar.TabIndex = 5;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = false;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);

@@ -147,7 +147,6 @@ namespace Presentacion
             {
                 e.Handled = true;
                 MessageBox.Show("Este campo solo acepta letras. Introduce un nombre válido", TITULO_ALERTA, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
             }
         }
         private void txtCelular_KeyPress(object sender, KeyPressEventArgs e)

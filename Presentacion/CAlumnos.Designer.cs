@@ -58,7 +58,7 @@ namespace Presentacion
             this.btnCargar.Location = new System.Drawing.Point(751, 73);
             this.btnCargar.Name = "btnCargar";
             this.btnCargar.Size = new System.Drawing.Size(121, 35);
-            this.btnCargar.TabIndex = 74;
+            this.btnCargar.TabIndex = 2;
             this.btnCargar.Text = "Cargar";
             this.btnCargar.UseVisualStyleBackColor = false;
             this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
@@ -73,7 +73,7 @@ namespace Presentacion
             this.btnAbrir.Location = new System.Drawing.Point(155, 73);
             this.btnAbrir.Name = "btnAbrir";
             this.btnAbrir.Size = new System.Drawing.Size(121, 35);
-            this.btnAbrir.TabIndex = 73;
+            this.btnAbrir.TabIndex = 1;
             this.btnAbrir.Text = "Abrir";
             this.btnAbrir.UseVisualStyleBackColor = false;
             this.btnAbrir.Click += new System.EventHandler(this.btnAbrir_Click);
@@ -91,7 +91,7 @@ namespace Presentacion
             this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListar.Size = new System.Drawing.Size(932, 512);
-            this.dgvListar.TabIndex = 76;
+            this.dgvListar.TabIndex = 3;
             // 
             // openFile
             // 
@@ -111,6 +111,7 @@ namespace Presentacion
             this.Name = "CAlumnos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CAlumnos";
+           // this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CAlumnos_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

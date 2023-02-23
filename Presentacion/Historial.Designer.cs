@@ -60,7 +60,7 @@ namespace Presentacion
             this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListar.Size = new System.Drawing.Size(926, 496);
-            this.dgvListar.TabIndex = 81;
+            this.dgvListar.TabIndex = 2;
             // 
             // txtBuscarPorUsuarioOdescripcion
             // 
@@ -68,7 +68,7 @@ namespace Presentacion
             this.txtBuscarPorUsuarioOdescripcion.Location = new System.Drawing.Point(455, 83);
             this.txtBuscarPorUsuarioOdescripcion.Name = "txtBuscarPorUsuarioOdescripcion";
             this.txtBuscarPorUsuarioOdescripcion.Size = new System.Drawing.Size(307, 24);
-            this.txtBuscarPorUsuarioOdescripcion.TabIndex = 82;
+            this.txtBuscarPorUsuarioOdescripcion.TabIndex = 1;
             this.txtBuscarPorUsuarioOdescripcion.TextChanged += new System.EventHandler(this.txtBuscarPorUsuarioOdescripcion_TextChanged);
             // 
             // label2

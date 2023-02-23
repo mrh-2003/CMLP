@@ -73,7 +73,7 @@ namespace Presentacion
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(167, 85);
+            this.label1.Location = new System.Drawing.Point(118, 90);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(28, 17);
             this.label1.TabIndex = 95;
@@ -95,7 +95,7 @@ namespace Presentacion
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(500, 85);
+            this.label9.Location = new System.Drawing.Point(453, 83);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(94, 17);
             this.label9.TabIndex = 98;
@@ -108,10 +108,10 @@ namespace Presentacion
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(772, 258);
+            this.btnEliminar.Location = new System.Drawing.Point(772, 239);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(121, 35);
-            this.btnEliminar.TabIndex = 92;
+            this.btnEliminar.TabIndex = 7;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -123,10 +123,10 @@ namespace Presentacion
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.Color.White;
-            this.btnModificar.Location = new System.Drawing.Point(441, 258);
+            this.btnModificar.Location = new System.Drawing.Point(441, 239);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(121, 35);
-            this.btnModificar.TabIndex = 91;
+            this.btnModificar.TabIndex = 6;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
@@ -138,10 +138,10 @@ namespace Presentacion
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
-            this.btnAgregar.Location = new System.Drawing.Point(98, 258);
+            this.btnAgregar.Location = new System.Drawing.Point(98, 239);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(121, 35);
-            this.btnAgregar.TabIndex = 90;
+            this.btnAgregar.TabIndex = 5;
             this.btnAgregar.Text = "Registrar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -160,10 +160,10 @@ namespace Presentacion
             // dtpVencimiento
             // 
             this.dtpVencimiento.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpVencimiento.Location = new System.Drawing.Point(629, 169);
+            this.dtpVencimiento.Location = new System.Drawing.Point(620, 168);
             this.dtpVencimiento.Name = "dtpVencimiento";
-            this.dtpVencimiento.Size = new System.Drawing.Size(220, 24);
-            this.dtpVencimiento.TabIndex = 86;
+            this.dtpVencimiento.Size = new System.Drawing.Size(248, 24);
+            this.dtpVencimiento.TabIndex = 4;
             // 
             // txtMonto
             // 
@@ -171,16 +171,16 @@ namespace Presentacion
             this.txtMonto.Location = new System.Drawing.Point(177, 168);
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(147, 24);
-            this.txtMonto.TabIndex = 85;
+            this.txtMonto.TabIndex = 2;
             // 
             // txtId
             // 
             this.txtId.Enabled = false;
             this.txtId.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtId.Location = new System.Drawing.Point(226, 81);
+            this.txtId.Location = new System.Drawing.Point(177, 85);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(147, 24);
-            this.txtId.TabIndex = 83;
+            this.txtId.TabIndex = 1;
             // 
             // dgvListar
             // 
@@ -188,23 +188,23 @@ namespace Presentacion
             this.dgvListar.AllowUserToResizeRows = false;
             this.dgvListar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListar.Location = new System.Drawing.Point(29, 310);
+            this.dgvListar.Location = new System.Drawing.Point(29, 297);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.ReadOnly = true;
             this.dgvListar.RowHeadersVisible = false;
             this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListar.Size = new System.Drawing.Size(932, 347);
-            this.dgvListar.TabIndex = 93;
+            this.dgvListar.Size = new System.Drawing.Size(932, 360);
+            this.dgvListar.TabIndex = 8;
             this.dgvListar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellClick);
             // 
             // txtDescripcion
             // 
             this.txtDescripcion.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcion.Location = new System.Drawing.Point(600, 82);
+            this.txtDescripcion.Location = new System.Drawing.Point(616, 78);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(147, 24);
-            this.txtDescripcion.TabIndex = 100;
+            this.txtDescripcion.Size = new System.Drawing.Size(252, 24);
+            this.txtDescripcion.TabIndex = 3;
             // 
             // MPagos
             // 

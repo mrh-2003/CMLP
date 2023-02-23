@@ -18,8 +18,7 @@ namespace Datos
             {
                 connection.Open();
 
-                using (NpgsqlCommand command = new NpgsqlCommand(@"SELECT c.id, c.descripcion, a.dni, c.monto_pagado, c.monto_total, c.vencimiento 
-FROM calendarios c inner join alumnos a on a.id = c.alumno_id", connection))
+                using (NpgsqlCommand command = new NpgsqlCommand(@"SELECT c.id, c.descripcion, a.dni, c.monto_pagado, c.monto_total, c.vencimiento FROM calendarios c inner join alumnos a on a.id = c.alumno_id", connection))
                 {
                     NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
                     DataTable dt = new DataTable();

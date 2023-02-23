@@ -52,7 +52,7 @@ namespace Presentacion
             this.txtDni.MaxLength = 8;
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(147, 23);
-            this.txtDni.TabIndex = 0;
+            this.txtDni.TabIndex = 1;
             this.txtDni.TextChanged += new System.EventHandler(this.txtDNI_TextChanged);
             this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
             // 
@@ -68,7 +68,7 @@ namespace Presentacion
             this.cbxBeca.Location = new System.Drawing.Point(705, 68);
             this.cbxBeca.Name = "cbxBeca";
             this.cbxBeca.Size = new System.Drawing.Size(186, 24);
-            this.cbxBeca.TabIndex = 1;
+            this.cbxBeca.TabIndex = 2;
             // 
             // lbNombre
             // 
@@ -91,7 +91,7 @@ namespace Presentacion
             this.btnRegistrar.Location = new System.Drawing.Point(80, 137);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(125, 35);
-            this.btnRegistrar.TabIndex = 2;
+            this.btnRegistrar.TabIndex = 3;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
@@ -106,7 +106,7 @@ namespace Presentacion
             this.btnModificar.Location = new System.Drawing.Point(257, 137);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(125, 35);
-            this.btnModificar.TabIndex = 3;
+            this.btnModificar.TabIndex = 4;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
@@ -121,7 +121,7 @@ namespace Presentacion
             this.btnEliminar.Location = new System.Drawing.Point(433, 137);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(125, 35);
-            this.btnEliminar.TabIndex = 4;
+            this.btnEliminar.TabIndex = 5;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -136,7 +136,7 @@ namespace Presentacion
             this.btnCargar.Location = new System.Drawing.Point(609, 137);
             this.btnCargar.Name = "btnCargar";
             this.btnCargar.Size = new System.Drawing.Size(125, 35);
-            this.btnCargar.TabIndex = 5;
+            this.btnCargar.TabIndex = 6;
             this.btnCargar.Text = "Cargar Datos";
             this.btnCargar.UseVisualStyleBackColor = false;
             this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
@@ -151,7 +151,7 @@ namespace Presentacion
             this.btnAceptar.Location = new System.Drawing.Point(784, 137);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(125, 35);
-            this.btnAceptar.TabIndex = 6;
+            this.btnAceptar.TabIndex = 7;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = false;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
@@ -173,7 +173,7 @@ namespace Presentacion
             this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListar.Size = new System.Drawing.Size(943, 467);
-            this.dgvListar.TabIndex = 17;
+            this.dgvListar.TabIndex = 8;
             this.dgvListar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellClick);
             // 
             // label1
