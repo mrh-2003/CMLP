@@ -31,5 +31,12 @@ namespace Presentacion
             dgvListar.DataSource = dBoleta.ListarPorFecha(dtpInicio.Value, dtpFinal.Value);
             txtTotal.Text = "Total: " + dBoleta.TotalPorFecha(dtpInicio.Value, dtpFinal.Value);
         }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            dgvListar.DataSource = dBoleta.Listar();
+            txtTotal.Text = "Total: " + dBoleta.Total();
+            dtpFinal.Value = dtpInicio.Value = DateTime.Now;
+        }
     }
 }

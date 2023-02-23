@@ -26,8 +26,8 @@ namespace Presentacion
         }
         private void MBoleta_Load(object sender, EventArgs e)
         {
-            mostrar();
             cbxConcepto.DataSource = dConcepto.Listar();
+            mostrar();
         }
         void mostrar()
         {
@@ -51,24 +51,30 @@ namespace Presentacion
             if (txtCodigo.Text != "" && txtDni.Text != "" && txtMonto.Text != "" && dtpFecha.Value != null && cbxConcepto.SelectedIndex != -1)
             {
                 EConcepto eConcepto = cbxConcepto.SelectedItem as EConcepto;
-                EBoleta eBoleta = new EBoleta()
+                EAlumno eAlumno = dAlumno.getAlumno(txtDni.Text);
+                if (eAlumno != null)
                 {
-                    Codigo = txtCodigo.Text,
-                    AlumnoDNI = txtDni.Text,
-                    Monto = Convert.ToDecimal(txtMonto.Text),
-                    Fecha = dtpFecha.Value,
-                    ConceptoCodigo = eConcepto.Codigo
-                };
-                string mensaje = dBoleta.Mantenimiento(eBoleta, opcion);
-                MessageBox.Show(mensaje);
-                EHistorial historial = new EHistorial()
-                {
-                    Descripcion = mensaje,
-                    Usuario = (new DUsuario()).getUsuario(id).Usuario,
-                    Fecha = DateTime.Now
-                };
-                dHistorial.Insertar(historial);
-                mostrar();
+                    EBoleta eBoleta = new EBoleta()
+                    {
+                        Codigo = txtCodigo.Text,
+                        AlumnoId = eAlumno.Id,
+                        Monto = Convert.ToDecimal(txtMonto.Text),
+                        Fecha = dtpFecha.Value,
+                        ConceptoCodigo = eConcepto.Codigo
+                    };
+                    string mensaje = dBoleta.Mantenimiento(eBoleta, opcion);
+                    MessageBox.Show(mensaje);
+                    //EHistorial historial = new EHistorial()
+                    //{
+                    //    Descripcion = mensaje,
+                    //    Usuario = (new DUsuario()).getUsuario(id).Usuario,
+                    //    Fecha = DateTime.Now
+                    //};
+                    //dHistorial.Insertar(historial);
+                    mostrar();
+                }
+                else
+                    MessageBox.Show("El alumno no existe");
             }
             else
                 MessageBox.Show("Todos los campos deben estar llenos");
@@ -82,7 +88,12 @@ namespace Presentacion
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            mantenimiento("update");
+            EAlumno eAlumno = dAlumno.getAlumno(txtDni.Text);
+            EBoleta eBoleta = dBoleta.getBoleta(txtCodigo.Text);
+            if (eBoleta != null && eAlumno != null && eBoleta.AlumnoId == eAlumno.Id)
+                mantenimiento("update");
+            else
+                MessageBox.Show("No se puede modificar esos datos");
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -105,8 +116,10 @@ namespace Presentacion
 
         private void txtDni_TextChanged(object sender, EventArgs e)
         {
-            if(txtDni.Text.Length == 8 && dAlumno.getAlumno(txtDni.Text) != null)
-                lbNombre.Text =  "Nombre: " + dAlumno.getAlumno(txtDni.Text).ApellidosNombres;
+            if (txtDni.Text.Length == 8 && dAlumno.getAlumno(txtDni.Text) != null)
+                lbNombre.Text = "Nombre: " + dAlumno.getAlumno(txtDni.Text).ApellidosNombres;
+            else
+                lbNombre.Text = "Nombre: ";
         }
         private void txtMonto_KeyPress(object sender, KeyPressEventArgs e)
         {

@@ -10,8 +10,9 @@ namespace Entidades
     {
         public int Id { get; set; }
         public string Descripcion { get; set; }
-	    public decimal Monto { get; set; }
+	    public decimal MontoTotal { get; set; }
+	    public decimal MontoPagado { get; set; }
         public DateTime Vencimiento { get; set; }
-        public string AlumnoDNI { get; set; }
+        public int AlumnoId { get; set; }
     }
 }

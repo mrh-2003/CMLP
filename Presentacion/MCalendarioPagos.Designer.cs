@@ -32,7 +32,7 @@ namespace Presentacion
             this.dgvListar = new System.Windows.Forms.DataGridView();
             this.txtId = new System.Windows.Forms.TextBox();
             this.cbxDescripcion = new System.Windows.Forms.ComboBox();
-            this.txtMonto = new System.Windows.Forms.TextBox();
+            this.txtMontoPagado = new System.Windows.Forms.TextBox();
             this.dtpVencimiento = new System.Windows.Forms.DateTimePicker();
             this.txtDni = new System.Windows.Forms.TextBox();
             this.lbNombre = new System.Windows.Forms.Label();
@@ -48,6 +48,9 @@ namespace Presentacion
             this.label11 = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtMontoTotal = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,7 +80,6 @@ namespace Presentacion
             // 
             // cbxDescripcion
             // 
-            this.cbxDescripcion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxDescripcion.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxDescripcion.FormattingEnabled = true;
             this.cbxDescripcion.Location = new System.Drawing.Point(557, 91);
@@ -86,14 +88,14 @@ namespace Presentacion
             this.cbxDescripcion.TabIndex = 1;
             this.cbxDescripcion.SelectedIndexChanged += new System.EventHandler(this.cbxDescripcion_SelectedIndexChanged);
             // 
-            // txtMonto
+            // txtMontoPagado
             // 
-            this.txtMonto.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMonto.Location = new System.Drawing.Point(182, 208);
-            this.txtMonto.Name = "txtMonto";
-            this.txtMonto.Size = new System.Drawing.Size(147, 24);
-            this.txtMonto.TabIndex = 2;
-            this.txtMonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMonto_KeyPress);
+            this.txtMontoPagado.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMontoPagado.Location = new System.Drawing.Point(182, 208);
+            this.txtMontoPagado.Name = "txtMontoPagado";
+            this.txtMontoPagado.Size = new System.Drawing.Size(147, 24);
+            this.txtMontoPagado.TabIndex = 2;
+            this.txtMontoPagado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMonto_KeyPress);
             // 
             // dtpVencimiento
             // 
@@ -111,6 +113,7 @@ namespace Presentacion
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(147, 24);
             this.txtDni.TabIndex = 4;
+            this.txtDni.TextChanged += new System.EventHandler(this.txtDni_TextChanged);
             this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
             // 
             // lbNombre
@@ -266,12 +269,45 @@ namespace Presentacion
             this.label12.TabIndex = 81;
             this.label12.Text = "Buscar por Descripcion o Dni:";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(123, 241);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(58, 17);
+            this.label6.TabIndex = 85;
+            this.label6.Text = "Monto:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(331, 241);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(46, 17);
+            this.label7.TabIndex = 84;
+            this.label7.Text = "Soles";
+            // 
+            // txtMontoTotal
+            // 
+            this.txtMontoTotal.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMontoTotal.Location = new System.Drawing.Point(182, 238);
+            this.txtMontoTotal.Name = "txtMontoTotal";
+            this.txtMontoTotal.Size = new System.Drawing.Size(147, 24);
+            this.txtMontoTotal.TabIndex = 83;
+            // 
             // MCalendarioPagos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(65)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(992, 681);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtMontoTotal);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -287,7 +323,7 @@ namespace Presentacion
             this.Controls.Add(this.lbNombre);
             this.Controls.Add(this.txtDni);
             this.Controls.Add(this.dtpVencimiento);
-            this.Controls.Add(this.txtMonto);
+            this.Controls.Add(this.txtMontoPagado);
             this.Controls.Add(this.cbxDescripcion);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.dgvListar);
@@ -307,7 +343,7 @@ namespace Presentacion
         private System.Windows.Forms.DataGridView dgvListar;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.ComboBox cbxDescripcion;
-        private System.Windows.Forms.TextBox txtMonto;
+        private System.Windows.Forms.TextBox txtMontoPagado;
         private System.Windows.Forms.DateTimePicker dtpVencimiento;
         private System.Windows.Forms.TextBox txtDni;
         private System.Windows.Forms.Label lbNombre;
@@ -323,5 +359,8 @@ namespace Presentacion
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtMontoTotal;
     }
 }

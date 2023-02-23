@@ -20,6 +20,7 @@ namespace Datos
                 {
                     string mensaje;
                     EBoleta eBoleta = null;
+                    EAlumno eAlumno = (new DAlumno()).getAlumnoById(boleta.AlumnoId);
                     if (opcion != "insert")
                         eBoleta =getBoleta(boleta.Codigo);
                     conn.Open();
@@ -28,23 +29,23 @@ namespace Datos
                         string query;
                         if (opcion == "insert")
                         {
-                            query = "INSERT INTO boletas (codigo, alumno_dni, monto, fecha, concepto_codigo) VALUES (@codigo, @alumno_dni, @monto, @fecha, @concepto_codigo)";
-                            mensaje = "Se inserto correctamente la Boleta" + boleta.Codigo + " del alumno"+boleta.AlumnoDNI+ "cuyo monto es" + boleta.Monto + "-Fecha:  " + boleta.Fecha.ToString();
+                            query = "INSERT INTO boletas (codigo, alumno_id, monto, fecha, concepto_codigo) VALUES (@codigo, @alumno_id, @monto, @fecha, @concepto_codigo)";
+                            mensaje = "Se inserto correctamente la Boleta" + boleta.Codigo + " del alumno "+eAlumno.Dni+ " cuyo monto es " + boleta.Monto + " - Fecha: " + boleta.Fecha.ToString();
                         }
                         else if (opcion == "update")
                         {
-                            query = "UPDATE boletas SET alumno_dni =@alumno_dni, monto = @monto, fecha = @fecha, concepto_codigo = @concepto_codigo WHERE codigo = @codigo";
-                            mensaje = "Se actualizo correctamente la Boleta " + boleta.Codigo + " ANTES: " + eBoleta.Codigo + " - " + eBoleta.Fecha.ToString() + " AHORA: " + boleta.Codigo + " - " + boleta.Fecha.ToString();
+                            query = "UPDATE boletas SET monto = @monto, fecha = @fecha, concepto_codigo = @concepto_codigo WHERE codigo = @codigo";
+                            mensaje = "Se actualizo correctamente la Boleta " + boleta.Codigo + " ANTES: " + eAlumno.Dni + " - " + eBoleta.Monto + " - " + eBoleta.Fecha.ToString() + " AHORA: " + boleta.Monto + " - " + boleta.Fecha.ToString();
                         }
                         else
                         {
                             query = "DELETE FROM boletas WHERE codigo = @codigo";
-                            mensaje = "Se elimno correctamente la Boleta " + boleta.Codigo + " con datos: " + boleta.AlumnoDNI + " - " + boleta.Monto + "-"+boleta.Fecha.ToString();
+                            mensaje = "Se elimno correctamente la Boleta " + boleta.Codigo + " con datos: " + eAlumno.Dni + " - " + boleta.Monto + " - "+boleta.Fecha.ToString();
                         }
                         using (var cmd = new NpgsqlCommand(query, conn, trans))
                         {
                             cmd.Parameters.AddWithValue("@codigo", boleta.Codigo);
-                            cmd.Parameters.AddWithValue("@alumno_dni", boleta.AlumnoDNI);
+                            cmd.Parameters.AddWithValue("@alumno_id", boleta.AlumnoId);
                             cmd.Parameters.AddWithValue("@monto", boleta.Monto);
                             cmd.Parameters.AddWithValue("@fecha", boleta.Fecha);
                             cmd.Parameters.AddWithValue("@concepto_codigo", boleta.ConceptoCodigo);
@@ -67,7 +68,7 @@ namespace Datos
             {
                 connection.Open();
 
-                using (NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM boletas", connection))
+                using (NpgsqlCommand command = new NpgsqlCommand("SELECT b.codigo, a.dni, b.monto, b.fecha, b.concepto_codigo FROM boletas b INNER JOIN alumnos a ON a.id = b.alumno_id", connection))
                 {
                     NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
                     DataTable dt = new DataTable();
@@ -83,7 +84,8 @@ namespace Datos
             {
                 connection.Open();
 
-                using (NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM boletas WHERE fecha BETWEEN @fechaInicio AND @fechaFin", connection))
+                using (NpgsqlCommand command = new NpgsqlCommand(@"SELECT b.codigo, a.dni, b.monto, b.fecha, b.concepto_codigo FROM boletas b INNER JOIN 
+                    alumnos a ON a.id = b.alumno_id WHERE fecha BETWEEN @fechaInicio AND @fechaFin", connection))
                 {
                     command.Parameters.AddWithValue("fechaInicio", fechaInicio);
                     command.Parameters.AddWithValue("fechaFin", fechaFin);
@@ -102,7 +104,8 @@ namespace Datos
             {
                 connection.Open();
 
-                using (NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM boletas WHERE fecha BETWEEN @fechaInicio AND @fechaFin and concepto_codigo = @concepto", connection))
+                using (NpgsqlCommand command = new NpgsqlCommand(@"SELECT b.codigo, a.dni, b.monto, b.fecha, b.concepto_codigo FROM boletas b INNER JOIN 
+                    alumnos a ON a.id = b.alumno_id WHERE b.fecha BETWEEN @fechaInicio AND @fechaFin and b.concepto_codigo = @concepto", connection))
                 {
                     command.Parameters.AddWithValue("fechaInicio", fechaInicio);
                     command.Parameters.AddWithValue("fechaFin", fechaFin);
@@ -113,6 +116,59 @@ namespace Datos
                     adapter.Fill(dt);
 
                     return dt;
+                }
+            }
+        }
+        public DataTable BuscarPorCodigoOdni(string valorBuscado)
+        {
+            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (NpgsqlCommand command = new NpgsqlCommand(
+                    @"SELECT b.codigo, a.dni, b.monto, b.fecha, b.concepto_codigo FROM boletas b INNER JOIN 
+                    alumnos a ON a.id = b.alumno_id WHERE LOWER(a.dni) LIKE 
+                    LOWER(@valor_buscado) OR LOWER(b.codigo) LIKE LOWER(@valor_buscado)", connection))
+                {
+                    command.Parameters.AddWithValue("@valor_buscado", "%" + valorBuscado.ToLower() + "%");
+                    NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    return dt;
+                }
+            }
+        }
+
+        public EBoleta getBoleta(string codigo)
+        {
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    using (var cmd = new NpgsqlCommand("SELECT * FROM boletas WHERE codigo=@codigo", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@codigo", codigo);
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            reader.Read();
+                            EBoleta eBoleta = new EBoleta()
+                            {
+                                Codigo = reader.GetString(0),
+                                AlumnoId = reader.GetInt32(1),
+                                Monto = reader.GetDecimal(2),
+                                Fecha = reader.GetDateTime(3),
+                                ConceptoCodigo = reader.GetInt32(4),
+                            };
+                            return eBoleta;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return null;
                 }
             }
         }
@@ -200,56 +256,6 @@ namespace Datos
             }
 
             return total;
-        }
-        public DataTable BuscarPorCodigoOdni(string valorBuscado)
-        {
-            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
-            {
-                connection.Open();
-
-                using (NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM boletas WHERE LOWER(alumno_dni) LIKE LOWER(@valor_buscado) OR LOWER(codigo) LIKE LOWER(@valor_buscado)", connection))
-                {
-                    command.Parameters.AddWithValue("@valor_buscado", "%" + valorBuscado.ToLower() + "%");
-                    NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-
-                    return dt;
-                }
-            }
-        }
-
-        public EBoleta getBoleta(string codigo)
-        {
-            using (var conn = new NpgsqlConnection(connectionString))
-            {
-                try
-                {
-                    conn.Open();
-                    using (var cmd = new NpgsqlCommand("SELECT * FROM boletas WHERE codigo = @codigo", conn))
-                    {
-                        cmd.Parameters.AddWithValue("@codigo", codigo);
-                        using (var reader = cmd.ExecuteReader())
-                        {
-                            reader.Read();
-                            EBoleta eBoleta = new EBoleta()
-                            {
-                                Codigo = reader.GetString(0),
-                                AlumnoDNI = reader.GetString(1),
-                                Monto = reader.GetInt32(2),
-                                Fecha = reader.GetDateTime(3),
-                                ConceptoCodigo = reader.GetInt32(4),
-                            };
-                            return eBoleta;
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                    return null;
-                }
-            }
         }
     }
 }

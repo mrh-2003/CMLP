@@ -56,6 +56,8 @@ namespace Presentacion
             this.label11 = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.txtAnio = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -370,12 +372,34 @@ namespace Presentacion
             this.label12.TabIndex = 55;
             this.label12.Text = "Buscar por Nombre o Dni:";
             // 
+            // txtId
+            // 
+            this.txtId.Enabled = false;
+            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtId.Location = new System.Drawing.Point(222, 43);
+            this.txtId.MaxLength = 8;
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(145, 23);
+            this.txtId.TabIndex = 64;
+            // 
+            // txtAnio
+            // 
+            this.txtAnio.Enabled = false;
+            this.txtAnio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAnio.Location = new System.Drawing.Point(698, 279);
+            this.txtAnio.MaxLength = 8;
+            this.txtAnio.Name = "txtAnio";
+            this.txtAnio.Size = new System.Drawing.Size(145, 23);
+            this.txtAnio.TabIndex = 65;
+            // 
             // MAlumnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(65)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(992, 681);
+            this.Controls.Add(this.txtAnio);
+            this.Controls.Add(this.txtId);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -443,5 +467,7 @@ namespace Presentacion
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.TextBox txtAnio;
     }
 }

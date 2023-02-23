@@ -17,6 +17,7 @@ namespace Presentacion
         private const string TITULO_ALERTA = "Error de Entrada";
         DCalendario dCalendario = new DCalendario();
         DPago dPago = new DPago();
+        DAlumno dAlumno = new DAlumno();
         EPago ePago = null;
         DHistorial dHistorial = new DHistorial();
         int id = Login.id;
@@ -32,8 +33,9 @@ namespace Presentacion
         void limpiar()
         {
             txtId.Clear();
-            cbxDescripcion.SelectedIndex = -1;
-            txtMonto.Clear();
+            cbxDescripcion.Text = "";
+            txtMontoPagado.Clear();
+            txtMontoTotal.Clear();
             dtpVencimiento.Value = DateTime.Now;
             txtDni.Clear();
             lbNombre.Text = "Nombre: ";
@@ -47,26 +49,33 @@ namespace Presentacion
         }
         private void mantenimiento(string opcion)
         {
-            if (txtDni.Text != "" /*&& cbxDescripcion.SelectedIndex != -1*/ && txtMonto.Text != "" && dtpVencimiento.Value != null)
+            if (txtDni.Text != "" && cbxDescripcion.Text != "" && txtMontoPagado.Text != "" && txtMontoTotal.Text != "" && dtpVencimiento.Value != null)
             {
-                ECalendario eCalendario = new ECalendario()
+                EAlumno eAlumno = dAlumno.getAlumno(txtDni.Text);
+                if (eAlumno != null)
                 {
-                    Id = txtId.Text != "" ? Convert.ToInt32(txtId.Text) : 0,
-                    Descripcion = cbxDescripcion.Text,
-                    Monto = Convert.ToDecimal(txtMonto.Text),
-                    Vencimiento = dtpVencimiento.Value,
-                    AlumnoDNI = txtDni.Text
-                };
-                string mensaje = dCalendario.Mantenimiento(eCalendario, opcion);
-                MessageBox.Show(mensaje);
-                EHistorial historial = new EHistorial()
-                {
-                    Descripcion = mensaje,
-                    Usuario = (new DUsuario()).getUsuario(id).Usuario,
-                    Fecha = DateTime.Now
-                };
-                dHistorial.Insertar(historial);
-                mostrar();
+                    ECalendario eCalendario = new ECalendario()
+                    {
+                        Id = txtId.Text != "" ? Convert.ToInt32(txtId.Text) : 0,
+                        Descripcion = cbxDescripcion.Text,
+                        MontoTotal = Convert.ToDecimal(txtMontoTotal.Text),
+                        MontoPagado = Convert.ToDecimal(txtMontoPagado.Text),
+                        Vencimiento = dtpVencimiento.Value,
+                        AlumnoId = eAlumno.Id
+                    };
+                    string mensaje = dCalendario.Mantenimiento(eCalendario, opcion);
+                    MessageBox.Show(mensaje);
+                    //EHistorial historial = new EHistorial()
+                    //{
+                    //    Descripcion = mensaje,
+                    //    Usuario = (new DUsuario()).getUsuario(id).Usuario,
+                    //    Fecha = DateTime.Now
+                    //};
+                    //dHistorial.Insertar(historial);
+                    mostrar();
+                }
+                else
+                    MessageBox.Show("El alumno no existe");
             }
             else
             {
@@ -79,9 +88,10 @@ namespace Presentacion
             {
                 txtId.Text = dgvListar.Rows[e.RowIndex].Cells[0].Value.ToString();
                 cbxDescripcion.Text = dgvListar.Rows[e.RowIndex].Cells[1].Value.ToString();
-                txtMonto.Text = dgvListar.Rows[e.RowIndex].Cells[2].Value.ToString();
-                dtpVencimiento.Value = Convert.ToDateTime(dgvListar.Rows[e.RowIndex].Cells[3].Value);
-                txtDni.Text = dgvListar.Rows[e.RowIndex].Cells[4].Value.ToString();
+                txtDni.Text = dgvListar.Rows[e.RowIndex].Cells[2].Value.ToString();
+                txtMontoPagado.Text = dgvListar.Rows[e.RowIndex].Cells[3].Value.ToString();
+                txtMontoTotal.Text = dgvListar.Rows[e.RowIndex].Cells[4].Value.ToString();
+                dtpVencimiento.Value = Convert.ToDateTime(dgvListar.Rows[e.RowIndex].Cells[5].Value);
             }
         }
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -123,7 +133,15 @@ namespace Presentacion
         {
             ePago = cbxDescripcion.SelectedItem as EPago;
             if(ePago != null)
-                txtMonto.Text = ePago.Monto.ToString();
+                txtMontoPagado.Text = ePago.Monto.ToString();
+        }
+
+        private void txtDni_TextChanged(object sender, EventArgs e)
+        {
+            if (txtDni.Text.Length == 8 && dAlumno.getAlumno(txtDni.Text) != null)
+                lbNombre.Text = "Nombre: " + dAlumno.getAlumno(txtDni.Text).ApellidosNombres;
+            else
+                lbNombre.Text = "Nombre: ";
         }
     }
 }

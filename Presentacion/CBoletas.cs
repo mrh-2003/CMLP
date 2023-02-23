@@ -41,7 +41,7 @@ namespace Presentacion
                 EBoleta eBoleta = new EBoleta()
                 {
                     Codigo = sd.GetCellValueAsString(irow, 1),
-                    AlumnoDNI = sd.GetCellValueAsString(irow, 2).Split('-')[0].Trim(),
+                    //AlumnoId = sd.GetCellValueAsString(irow, 2).Split('-')[0].Trim(),
                     Monto = sd.GetCellValueAsDecimal(irow, 3),
                     Fecha = sd.GetCellValueAsDateTime(irow, 4),
                     ConceptoCodigo = sd.GetCellValueAsInt32(irow, 5)

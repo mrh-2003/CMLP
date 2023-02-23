@@ -29,21 +29,22 @@ namespace Datos
                         string query;
                         if (opcion == "insert")
                         {
-                            query = "INSERT INTO alumnos (dni, apellidos_nombres, grado, seccion, email,  email_apoderado, celular, celular_apoderado, descuento, fin_descuento) VALUES (@dni, @apellidos_nombres, @grado, @seccion, @email, @email_apoderado, @celular, @celular_apoderado, @descuento, @fin_descuento)";
-                            mensaje = "Se inserto correctamente el Alumno " + alumno.Dni + " y se le asigno " + alumno.Descuento + " y vence el " + alumno.FinDescuento.ToString();
+                            query = "INSERT INTO alumnos (dni, apellidos_nombres, grado, seccion, email, email_apoderado, celular, celular_apoderado, descuento, fin_descuento, anio_registro) VALUES (@dni, @apellidos_nombres, @grado, @seccion, @email, @email_apoderado, @celular, @celular_apoderado, @descuento, @fin_descuento, @anio_registro)";
+                            mensaje = "Se insertó correctamente el Alumno " + alumno.Dni + " y se le asignó " + alumno.Descuento + " y vence el " + alumno.FinDescuento.ToString();
                         }
                         else if (opcion == "update")
                         {
-                            query = "UPDATE alumnos SET apellidos_nombres = @apellidos_nombres, grado = @grado, seccion = @seccion, email = @email, email_apoderado = @email_apoderado, celular = @celular, celular_apoderado = @celular_apoderado, descuento = @descuento, fin_descuento = @fin_descuento WHERE dni = @dni";
-                            mensaje = "Se actualizo correctamente el Alumno " + alumno.Dni + " ANTES: " + eAlumno.Descuento + " - " + eAlumno.FinDescuento.ToString() + " AHORA: " + alumno.Descuento + " - " + alumno.FinDescuento.ToString();
+                            query = "UPDATE alumnos SET dni = @dni, apellidos_nombres = @apellidos_nombres, grado = @grado, seccion = @seccion, email = @email, email_apoderado = @email_apoderado, celular = @celular, celular_apoderado = @celular_apoderado, descuento = @descuento, fin_descuento = @fin_descuento, anio_registro = @anio_registro WHERE id = @id";
+                            mensaje = "Se actualizó correctamente el Alumno " + alumno.Dni + " ANTES: " + eAlumno.Descuento + " - " + eAlumno.FinDescuento.ToString() + " AHORA: " + alumno.Descuento + " - " + alumno.FinDescuento.ToString();
                         }
                         else
                         {
-                            query = "DELETE FROM alumnos WHERE dni = @dni";
-                            mensaje = "Se elimno correctamente el Alumno " + alumno.Dni + " con datos: " + alumno.Descuento + " - " + alumno.FinDescuento.ToString();
+                            query = "DELETE FROM alumnos WHERE id = @id";
+                            mensaje = "Se eliminó correctamente el Alumno " + alumno.Dni + " con datos: " + alumno.Descuento + " - " + alumno.FinDescuento.ToString();
                         }
                         using (var cmd = new NpgsqlCommand(query, conn, trans))
                         {
+                            cmd.Parameters.AddWithValue("@id", alumno.Id);
                             cmd.Parameters.AddWithValue("@dni", alumno.Dni);
                             cmd.Parameters.AddWithValue("@apellidos_nombres", alumno.ApellidosNombres);
                             cmd.Parameters.AddWithValue("@grado", alumno.Grado);
@@ -54,6 +55,7 @@ namespace Datos
                             cmd.Parameters.AddWithValue("@celular_apoderado", alumno.CelularApoderado);
                             cmd.Parameters.AddWithValue("@descuento", alumno.Descuento);
                             cmd.Parameters.AddWithValue("@fin_descuento", alumno.FinDescuento);
+                            cmd.Parameters.AddWithValue("@anio_registro", alumno.AnioRegistro);
                             cmd.ExecuteNonQuery();
                         }
                         trans.Commit();
@@ -66,6 +68,7 @@ namespace Datos
                 }
             }
         }
+
         public DataTable Listar()
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
@@ -133,24 +136,66 @@ namespace Datos
                 try
                 {
                     conn.Open();
-                    using (var cmd = new NpgsqlCommand("SELECT * FROM alumnos WHERE dni = @dni", conn))
+                    using (var cmd = new NpgsqlCommand("SELECT * FROM alumnos WHERE dni = @dni and anio_registro = @anio_registro", conn))
                     {
                         cmd.Parameters.AddWithValue("@dni", dni);
+                        cmd.Parameters.AddWithValue("@anio_registro", DateTime.Now.Year);
                         using (var reader = cmd.ExecuteReader())
                         {
                             reader.Read();
                             EAlumno eAlumno = new EAlumno()
                             {
-                                Dni = reader.GetString(0),
-                                ApellidosNombres = reader.GetString(1),
-                                Grado = reader.GetInt32(2),
-                                Seccion = reader.GetChar(3),
-                                Email = reader.GetString(4),
-                                EmailApoderado = reader.GetString(5),
-                                Celular = reader.GetInt32(6),
-                                CelularApoderado = reader.GetInt32(7),
-                                Descuento = reader.GetString(8),
-                                FinDescuento = reader.GetDateTime(9)
+                                Id = reader.GetInt32(0),
+                                Dni = reader.GetString(1),
+                                ApellidosNombres = reader.GetString(2),
+                                Grado = reader.GetInt32(3),
+                                Seccion = reader.GetChar(4),
+                                Email = reader.GetString(5),
+                                EmailApoderado = reader.GetString(6),
+                                Celular = reader.GetInt32(7),
+                                CelularApoderado = reader.GetInt32(8),
+                                Descuento = reader.GetString(9),
+                                FinDescuento = reader.GetDateTime(10),
+                                AnioRegistro = reader.GetInt32(11)
+                            };
+                            return eAlumno;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return null;
+                }
+            }
+        }
+        public EAlumno getAlumnoById(int id)
+        {
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    using (var cmd = new NpgsqlCommand("SELECT * FROM alumnos WHERE id = @id", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            reader.Read();
+                            EAlumno eAlumno = new EAlumno()
+                            {
+                                Id = reader.GetInt32(0),
+                                Dni = reader.GetString(1),
+                                ApellidosNombres = reader.GetString(2),
+                                Grado = reader.GetInt32(3),
+                                Seccion = reader.GetChar(4),
+                                Email = reader.GetString(5),
+                                EmailApoderado = reader.GetString(6),
+                                Celular = reader.GetInt32(7),
+                                CelularApoderado = reader.GetInt32(8),
+                                Descuento = reader.GetString(9),
+                                FinDescuento = reader.GetDateTime(10),
+                                AnioRegistro = reader.GetInt32(11)
                             };
                             return eAlumno;
                         }

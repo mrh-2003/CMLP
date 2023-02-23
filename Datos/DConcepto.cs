@@ -28,7 +28,7 @@ namespace Datos
                         if (opcion == "insert")
                         { 
                             query = "INSERT INTO conceptos (codigo, concepto, importe) VALUES (@codigo, @concepto, @importe)";
-                            mensaje = "Se inserto correctamente el Concepto" + concepto.Codigo + "-" + concepto.Concepto +" cuyo Importe es " + concepto.Importe + " y vence el " + calendario.Vencimiento.ToString();
+                            mensaje = "Se inserto correctamente el Concepto" + concepto.Codigo + "-" + concepto.Concepto +" cuyo Importe es " + concepto.Importe;
 
                         }
                         else if (opcion == "update")

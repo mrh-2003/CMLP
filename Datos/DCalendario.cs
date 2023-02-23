@@ -18,7 +18,8 @@ namespace Datos
             {
                 connection.Open();
 
-                using (NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM calendarios", connection))
+                using (NpgsqlCommand command = new NpgsqlCommand(@"SELECT c.id, c.descripcion, a.dni, c.monto_pagado, c.monto_total, c.vencimiento 
+FROM calendarios c inner join alumnos a on a.id = c.alumno_id", connection))
                 {
                     NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
                     DataTable dt = new DataTable();
@@ -37,6 +38,7 @@ namespace Datos
                 {
                     string mensaje;
                     ECalendario eCalendario = null;
+                    EAlumno eAlumno = (new DAlumno()).getAlumnoById(calendario.AlumnoId);
                     if (opcion != "insert")
                         eCalendario = getCalendario(calendario.Id);
                     conn.Open();
@@ -45,29 +47,27 @@ namespace Datos
                         string query;
                         if (opcion == "insert")
                         {
-                            query = "INSERT INTO calendarios (descripcion, monto, vencimiento, alumno_dni) VALUES (@descripcion, @monto, @vencimiento, @alumno_dni)";
-                            mensaje = "Se inserto correctamente el Calendario de Pago " + calendario.Id + "del alumno "+calendario.AlumnoDNI+" cuyo monto es " +calendario.Monto + " y vence el " + calendario.Vencimiento.ToString();
-
+                            query = "INSERT INTO calendarios (descripcion, monto_total, monto_pagado, vencimiento, alumno_id) VALUES (@descripcion, @monto_total, @monto_pagado, @vencimiento, @alumno_id)";
+                            mensaje = "Se insertó correctamente el Calendario de Pago del alumno " + eAlumno.Dni + " cuyo monto es " + calendario.MontoTotal + " y vence el " + calendario.Vencimiento.ToString();
                         }
                         else if (opcion == "update")
                         {
-                            query = "UPDATE calendarios SET descripcion = @descripcion, monto = @monto, vencimiento = @vencimiento, alumno_dni = @alumno_dni WHERE id = @id";
-                            mensaje = "Se actualizo correctamente el Calendario de Pago " + "del alumno " +calendario.AlumnoDNI+ "ANTES: "+eCalendario.Monto + " - " + eCalendario.Vencimiento.ToString() + "AHORA: " + calendario.Monto + " - " + calendario.Vencimiento.ToString();
-
+                            query = "UPDATE calendarios SET descripcion = @descripcion, monto_total = @monto_total, monto_pagado = @monto_pagado, vencimiento = @vencimiento, alumno_id = @alumno_id WHERE id = @id";
+                            mensaje = "Se actualizó correctamente el Calendario de Pago del alumno " + eAlumno.Dni + " ANTES: " + eCalendario.MontoTotal + " - " + eCalendario.Vencimiento.ToString() + " AHORA: " + calendario.MontoTotal + " - " + calendario.Vencimiento.ToString();
                         }
                         else
                         {
                             query = "DELETE FROM calendarios WHERE id = @id";
-                            mensaje = "Se elimno correctamente el Calendario " + calendario.Id + " con datos: " +calendario.AlumnoDNI +"-"+ calendario.Monto + " - " + calendario.Vencimiento.ToString();
-
+                            mensaje = "Se eliminó correctamente el Calendario con datos: " + eAlumno.Dni + "-" + calendario.MontoTotal + " - " + calendario.Vencimiento.ToString();
                         }
                         using (var cmd = new NpgsqlCommand(query, conn, trans))
                         {
                             cmd.Parameters.AddWithValue("@id", calendario.Id);
                             cmd.Parameters.AddWithValue("@descripcion", calendario.Descripcion);
-                            cmd.Parameters.AddWithValue("@monto", calendario.Monto);
+                            cmd.Parameters.AddWithValue("@monto_total", calendario.MontoTotal);
+                            cmd.Parameters.AddWithValue("@monto_pagado", calendario.MontoPagado);
                             cmd.Parameters.AddWithValue("@vencimiento", calendario.Vencimiento);
-                            cmd.Parameters.AddWithValue("@alumno_dni", calendario.AlumnoDNI);
+                            cmd.Parameters.AddWithValue("@alumno_id", calendario.AlumnoId);
                             cmd.ExecuteNonQuery();
                         }
                         trans.Commit();
@@ -80,13 +80,16 @@ namespace Datos
                 }
             }
         }
+
         public DataTable BuscarPorDniODescripcion(string valorBuscado)
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
                 connection.Open();
 
-                using (NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM calendarios WHERE LOWER(alumno_dni) LIKE LOWER(@valor_buscado) OR LOWER(descripcion) LIKE LOWER(@valor_buscado)", connection))
+                using (NpgsqlCommand command = new NpgsqlCommand(@"SELECT c.id, c.descripcion, a.dni, c.monto_pagado, c.monto_total, c.vencimiento 
+                FROM calendarios c inner join alumnos a on a.id = c.alumno_id
+                WHERE LOWER(a.dni) LIKE LOWER(@valor_buscado) OR LOWER(c.descripcion) LIKE LOWER(@valor_buscado)", connection))
                 {
                     command.Parameters.AddWithValue("@valor_buscado", "%" + valorBuscado.ToLower() + "%");
                     NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
@@ -114,9 +117,10 @@ namespace Datos
                             {
                                 Id = reader.GetInt32(0),
                                 Descripcion = reader.GetString(1),
-                                Monto = reader.GetInt32(2),
-                                Vencimiento = reader.GetDateTime(3),
-                                AlumnoDNI = reader.GetString(4),
+                                MontoTotal = reader.GetDecimal(2),
+                                MontoPagado = reader.GetDecimal(3),
+                                Vencimiento = reader.GetDateTime(4),
+                                AlumnoId = reader.GetInt32(5),
                             };
                             return eCalendario;
                         }

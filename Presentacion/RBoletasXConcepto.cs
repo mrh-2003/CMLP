@@ -32,5 +32,12 @@ namespace Presentacion
             dgvListar.DataSource = dBoleta.ListarPorConceptos(dtpInicio.Value, dtpFinal.Value, eConcepto.Codigo);
             txtTotal.Text = "Total: " + dBoleta.TotalPorConceptos(dtpInicio.Value, dtpFinal.Value, eConcepto.Codigo);
         }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            dgvListar.DataSource = dBoleta.Listar();
+            txtTotal.Text = "Total: " + dBoleta.Total();
+            dtpFinal.Value = dtpInicio.Value = DateTime.Now;
+        }
     }
 }
