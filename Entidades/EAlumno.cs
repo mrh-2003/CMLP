@@ -18,9 +18,7 @@ namespace Entidades
         public int CelularApoderado { get; set; }
         public string Descuento { get; set; }
         public DateTime FinDescuento { get; set; }
-
         public EAlumno() { }
-
         public EAlumno(string dni, string nombres, int grado, char seccion, string email, string emailApoderado, int celular, int celularApoderado,  string descuento, DateTime finDescuento)
         {
             Dni = dni;

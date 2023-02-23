@@ -37,5 +37,14 @@ namespace Presentacion
             else
                 MessageBox.Show("Credenciales incompletas o incorrectas");
         }
+        private void txtContrasenia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+
+                btnLogin.PerformClick();
+            }
+        }
     }
 }
