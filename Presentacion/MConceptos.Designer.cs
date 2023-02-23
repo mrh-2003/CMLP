@@ -191,7 +191,7 @@ namespace Presentacion
             // txtBuscar
             // 
             this.txtBuscar.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.Location = new System.Drawing.Point(231, 211);
+            this.txtBuscar.Location = new System.Drawing.Point(487, 205);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(178, 24);
             this.txtBuscar.TabIndex = 80;
@@ -202,7 +202,7 @@ namespace Presentacion
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(62, 211);
+            this.label12.Location = new System.Drawing.Point(318, 208);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(163, 17);
             this.label12.TabIndex = 79;

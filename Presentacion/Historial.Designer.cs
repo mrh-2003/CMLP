@@ -31,6 +31,8 @@ namespace Presentacion
         {
             this.label1 = new System.Windows.Forms.Label();
             this.dgvListar = new System.Windows.Forms.DataGridView();
+            this.txtBuscarPorUsuarioOdescripcion = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,14 +53,34 @@ namespace Presentacion
             this.dgvListar.AllowUserToResizeRows = false;
             this.dgvListar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListar.Location = new System.Drawing.Point(33, 49);
+            this.dgvListar.Location = new System.Drawing.Point(33, 152);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.ReadOnly = true;
             this.dgvListar.RowHeadersVisible = false;
             this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListar.Size = new System.Drawing.Size(926, 599);
+            this.dgvListar.Size = new System.Drawing.Size(926, 496);
             this.dgvListar.TabIndex = 81;
+            // 
+            // txtBuscarPorUsuarioOdescripcion
+            // 
+            this.txtBuscarPorUsuarioOdescripcion.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscarPorUsuarioOdescripcion.Location = new System.Drawing.Point(455, 83);
+            this.txtBuscarPorUsuarioOdescripcion.Name = "txtBuscarPorUsuarioOdescripcion";
+            this.txtBuscarPorUsuarioOdescripcion.Size = new System.Drawing.Size(307, 24);
+            this.txtBuscarPorUsuarioOdescripcion.TabIndex = 82;
+            this.txtBuscarPorUsuarioOdescripcion.TextChanged += new System.EventHandler(this.txtBuscarPorUsuarioOdescripcion_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(198, 87);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(248, 17);
+            this.label2.TabIndex = 83;
+            this.label2.Text = "Buscar por Usuario o Descripción:";
             // 
             // Historial
             // 
@@ -66,6 +88,8 @@ namespace Presentacion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(65)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(992, 681);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtBuscarPorUsuarioOdescripcion);
             this.Controls.Add(this.dgvListar);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -82,5 +106,7 @@ namespace Presentacion
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvListar;
+        private System.Windows.Forms.TextBox txtBuscarPorUsuarioOdescripcion;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -64,6 +64,7 @@ namespace Presentacion
             this.txtContrasenia.PasswordChar = '*';
             this.txtContrasenia.Size = new System.Drawing.Size(209, 16);
             this.txtContrasenia.TabIndex = 1;
+            this.txtContrasenia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContrasenia_KeyPress);
             // 
             // panel1
             // 
