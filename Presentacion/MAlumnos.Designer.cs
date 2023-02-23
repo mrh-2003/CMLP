@@ -380,7 +380,7 @@ namespace Presentacion
             this.txtId.MaxLength = 8;
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(145, 23);
-            this.txtId.TabIndex = 64;
+            this.txtId.TabIndex = 0;
             // 
             // txtAnio
             // 

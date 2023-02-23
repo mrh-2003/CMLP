@@ -16,17 +16,83 @@ namespace Presentacion
     public partial class CAlumnos : Form
     {
         DAlumno dAlumno = new DAlumno();
+        DCalendario dCalendario = new DCalendario();
+        DPago dPago = new DPago();
         List<EAlumno> listaAlumnos = new List<EAlumno>();
         public CAlumnos()
         {
             InitializeComponent();
         }
 
+        void mostrar()
+        {
+            dgvListar.DataSource = dAlumno.listObjectToDataTable(listaAlumnos); ;
+            dgvListar.ClearSelection();
+        }
+
         private void btnCargar_Click(object sender, EventArgs e)
         {
+            string fallo = "";
+            List<EPago> pagos = dPago.Listar();
             foreach (EAlumno item in listaAlumnos)
-                dAlumno.Mantenimiento(item, "insert");
-            MessageBox.Show("Tarea realizada exitosamente");
+            {
+                if (dAlumno.getAlumno(item.Dni) == null)
+                {
+                    dAlumno.Mantenimiento(item, "insert");
+                    EAlumno alumno = dAlumno.getAlumno(item.Dni);
+                    foreach (EPago pago in pagos)
+                    {
+                        ECalendario eCalendario;
+                        if (pago.Descripcion == "Alimnetacion" && alumno.Descuento != "Ninguna")
+                        {
+                            if(alumno.Descuento == "Beca")
+                            {
+                                eCalendario = new ECalendario()
+                                {
+                                    Descripcion = pago.Descripcion,
+                                    MontoPagado = 0,
+                                    MontoTotal = 0,
+                                    Vencimiento = pago.Vencimiento,
+                                    AlumnoId = alumno.Id
+                                };
+                            }
+                            else
+                            {
+                                eCalendario = new ECalendario()
+                                {
+                                    Descripcion = pago.Descripcion,
+                                    MontoPagado = 0,
+                                    MontoTotal = pago.Monto / 2,
+                                    Vencimiento = pago.Vencimiento,
+                                    AlumnoId = alumno.Id
+                                };
+                            }
+                        }
+                        else
+                        {
+                            eCalendario = new ECalendario()
+                            {
+                                Descripcion = pago.Descripcion,
+                                MontoPagado = 0,
+                                MontoTotal = pago.Monto,
+                                Vencimiento = pago.Vencimiento,
+                                AlumnoId = alumno.Id
+                            };
+                        }
+                        dCalendario.Mantenimiento(eCalendario, "insert");
+                    }
+                }
+                else
+                    fallo += item.Dni + " - " + item.ApellidosNombres + "\n";
+            }
+            if (fallo.Length > 0)
+            {
+                MessageBox.Show("Estos alumnos ya fueron registrados antes :\n" + fallo);
+                Clipboard.SetText(fallo);
+                MessageBox.Show("Los alumnos existentes fueron copiados al portapapeles");
+            }
+            else
+                MessageBox.Show("Tarea realizada exitosamente");
         }
 
         private void btnAbrir_Click(object sender, EventArgs e)
@@ -41,36 +107,49 @@ namespace Presentacion
         }
         private void cargarBoletas()
         {
-            string directionFile = openFile.FileName;
-            string fallo = "";
-            SLDocument sd = new SLDocument(directionFile);
-            int irow = 1;
-            while (!string.IsNullOrEmpty(sd.GetCellValueAsString(irow, 1)))
+            try
             {
-                string dni = sd.GetCellValueAsString(irow, 1);
-                string nombre = sd.GetCellValueAsString(irow, 2);
-                string beneficio = sd.GetCellValueAsString(irow, 3);
-                if (!listaAlumnos.Exists(x => x.Dni == dni))
+                string directionFile = openFile.FileName;
+                string fallo = "";
+                SLDocument sd = new SLDocument(directionFile);
+                int irow = 1;
+                while (!string.IsNullOrEmpty(sd.GetCellValueAsString(irow, 1)))
                 {
-                    EAlumno eAlumno = dAlumno.getAlumno(dni);
-                    if (eAlumno != null)
+                    string dni = sd.GetCellValueAsString(irow, 1);
+                    if (!listaAlumnos.Exists(x => x.Dni == dni))
                     {
-                        eAlumno.Descuento = beneficio;
-                        eAlumno.FinDescuento = DateTime.Now.AddMonths(2);
+                        EAlumno eAlumno = new EAlumno()
+                        {
+                            Dni = dni,
+                            ApellidosNombres = sd.GetCellValueAsString(irow, 2),
+                            Grado = sd.GetCellValueAsInt32(irow, 3),
+                            Seccion = Convert.ToChar(sd.GetCellValueAsString(irow, 4)),
+                            Email = sd.GetCellValueAsString(irow, 5),
+                            EmailApoderado = sd.GetCellValueAsString(irow, 6),
+                            Celular = sd.GetCellValueAsInt32(irow, 7),
+                            CelularApoderado = sd.GetCellValueAsInt32(irow, 8),
+                            Descuento = sd.GetCellValueAsString(irow, 9),
+                            FinDescuento = DateTime.Now.AddMonths(2),
+                            AnioRegistro = DateTime.Now.Year //Esto tambien se podria leer
+                        };
                         listaAlumnos.Add(eAlumno);
                     }
                     else
-                    {
-                        fallo += dni + " " + nombre + " " + beneficio + "\n";
-                    }
+                        fallo += dni + "\n";
+                    irow++;
                 }
-                irow++;
+                mostrar();
+                if (fallo.Length > 0)
+                {
+                    MessageBox.Show("Los DNIs de alumnos repetidos fueron copiados al portapapeles");
+                    Clipboard.SetText(fallo);
+                }
             }
-            if (fallo.Length > 0)
+            catch (Exception ex)
             {
-                MessageBox.Show("Existen alumnos que no se pudieron registrar, informacion copiada al portapapeles");
-                Clipboard.SetText(fallo);
+                MessageBox.Show($"Se produjo un error al cargar las boletas: {ex.Message}");
             }
         }
+
     }
 }

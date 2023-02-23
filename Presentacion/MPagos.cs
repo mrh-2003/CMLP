@@ -52,13 +52,13 @@ namespace Presentacion
                 };
                 string mensaje = dPago.Mantenimiento(ePago, opcion);
                 MessageBox.Show(mensaje);
-                EHistorial historial = new EHistorial()
-                {
-                    Descripcion = mensaje,
-                    Usuario = (new DUsuario()).getUsuario(id).Usuario,
-                    Fecha = DateTime.Now
-                };
-                dHistorial.Insertar(historial);
+                //EHistorial historial = new EHistorial()
+                //{
+                //    Descripcion = mensaje,
+                //    Usuario = (new DUsuario()).getUsuario(id).Usuario,
+                //    Fecha = DateTime.Now
+                //};
+                //dHistorial.Insertar(historial);
                 mostrar();
             }
             else
