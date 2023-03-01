@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -11,19 +12,19 @@ namespace Datos
     {
         public static string cadena()
         {
-            //string line;
-            //try
-            //{
-            //    StreamReader sr = new StreamReader("1.txt");
-            //    line = sr.ReadLine();
-            //    sr.Close();
-            //    return line;
-            //}
-            //catch (Exception e)
-            //{
-            //    return null;
-            //}
-            return "Host=localhost:5432;Username=postgres;Password=Barrientos123;Database=CMLP";
+            string line;
+            try
+            {
+                string downloadsFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Downloads";
+                StreamReader sr = new StreamReader(downloadsFolder + "\\1.txt");
+                line = sr.ReadLine();
+                sr.Close();
+                return line;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
         }
         public static string GetSHA256(string str)
         {

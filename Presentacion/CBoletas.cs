@@ -23,7 +23,8 @@ namespace Presentacion
 
         private void btnAbrir_Click(object sender, EventArgs e)
         {
-            openFile.InitialDirectory = "C:\\Users\\Jonas\\Descargas";
+            string downloadsFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Downloads";
+            openFile.InitialDirectory = downloadsFolder;
             openFile.Filter = "xlsx (*.xlsx)|*.xlsx";
             if (openFile.ShowDialog() == DialogResult.OK)
             {
