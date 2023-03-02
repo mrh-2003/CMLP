@@ -55,10 +55,9 @@ namespace Presentacion
             List<ECalendarioDTO> deudores = dCalendario.PagosPendientes();
             foreach (ECalendarioDTO calendario in deudores)
             {
-                int repitencia = deudores.FindAll(x => x.Dni == calendario.Dni).Count();
-                archivo += "0083000000" + calendario.Dni + "0" + repitencia +
-                    calendario.Vencimiento.ToString("yyyyMMdd") + getConcepto(calendario) + "SOL0000000" +
-                    getMonto(calendario) + getNombre(calendario) + "000000000000000000000000000\n";
+                archivo += "00830000" + calendario.Dni + getConcepto(calendario) +
+                    calendario.Vencimiento.ToString("yyyyMMdd") + "SOL0000000" +
+                    getMonto(calendario) + getNombre(calendario) + "000000000000000000000000050\n";
             }
             
         }

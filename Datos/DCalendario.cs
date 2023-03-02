@@ -177,6 +177,51 @@ namespace Datos
             }
             return lista;
         }
+        public DataTable ListarDeudoresXFecha(DateTime date)
+        {
+            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (NpgsqlCommand command = new NpgsqlCommand(
+                    @"select a.dni, a.apellidos_nombres, a.email, c.concepto_codigo, c.descripcion,
+                        (c.monto_total- c.monto_pagado) as monto, c.vencimiento from calendarios c
+                        inner join alumnos a on a.id = c.alumno_id where c.vencimiento <= @date 
+                        order by a.apellidos_nombres", connection))
+                {
+
+                    command.Parameters.AddWithValue("date", date);
+                    NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    return dt;
+                }
+            }
+        }
+        public DataTable ListarDeudoresXFechaXGrado(DateTime date, int grado)
+        {
+            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (NpgsqlCommand command = new NpgsqlCommand(
+                    @"select a.dni, a.apellidos_nombres, a.email, c.concepto_codigo, c.descripcion,
+                        (c.monto_total- c.monto_pagado) as monto, c.vencimiento from calendarios c
+                        inner join alumnos a on a.id = c.alumno_id where c.vencimiento <= @date 
+                        and a.grado = @grado order by a.apellidos_nombres", connection))
+                {
+
+                    command.Parameters.AddWithValue("date", date);
+                    command.Parameters.AddWithValue("grado", grado);
+                    NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    return dt;
+                }
+            }
+        }
 
     }
 }
