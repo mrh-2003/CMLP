@@ -36,7 +36,6 @@ namespace Datos
             for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
             return sb.ToString();
         }
-
         public static bool escribirTxt(string nombre, string contenido)
         {
             try
@@ -52,7 +51,6 @@ namespace Datos
             {
                 return false;
             }
-        }
-        
+        }  
     }
 }
