@@ -43,6 +43,8 @@ namespace Presentacion
             this.txtId = new System.Windows.Forms.TextBox();
             this.dgvListar = new System.Windows.Forms.DataGridView();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.cbxConcepto = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,7 +64,7 @@ namespace Presentacion
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(118, 171);
+            this.label2.Location = new System.Drawing.Point(526, 74);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 17);
             this.label2.TabIndex = 96;
@@ -95,7 +97,7 @@ namespace Presentacion
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(453, 83);
+            this.label9.Location = new System.Drawing.Point(487, 134);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(94, 17);
             this.label9.TabIndex = 98;
@@ -111,7 +113,7 @@ namespace Presentacion
             this.btnEliminar.Location = new System.Drawing.Point(772, 239);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(121, 35);
-            this.btnEliminar.TabIndex = 7;
+            this.btnEliminar.TabIndex = 8;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -126,7 +128,7 @@ namespace Presentacion
             this.btnModificar.Location = new System.Drawing.Point(441, 239);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(121, 35);
-            this.btnModificar.TabIndex = 6;
+            this.btnModificar.TabIndex = 7;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
@@ -141,7 +143,7 @@ namespace Presentacion
             this.btnAgregar.Location = new System.Drawing.Point(98, 239);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(121, 35);
-            this.btnAgregar.TabIndex = 5;
+            this.btnAgregar.TabIndex = 6;
             this.btnAgregar.Text = "Registrar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -151,7 +153,7 @@ namespace Presentacion
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(326, 171);
+            this.label5.Location = new System.Drawing.Point(734, 74);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 17);
             this.label5.TabIndex = 89;
@@ -160,18 +162,19 @@ namespace Presentacion
             // dtpVencimiento
             // 
             this.dtpVencimiento.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpVencimiento.Location = new System.Drawing.Point(620, 168);
             this.dtpVencimiento.Name = "dtpVencimiento";
             this.dtpVencimiento.Size = new System.Drawing.Size(248, 24);
-            this.dtpVencimiento.TabIndex = 4;
+            this.dtpVencimiento.TabIndex = 5;
             // 
             // txtMonto
             // 
             this.txtMonto.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMonto.Location = new System.Drawing.Point(177, 168);
+            this.txtMonto.Location = new System.Drawing.Point(585, 71);
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(147, 24);
-            this.txtMonto.TabIndex = 2;
+            this.txtMonto.TabIndex = 3;
             // 
             // txtId
             // 
@@ -195,16 +198,38 @@ namespace Presentacion
             this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListar.Size = new System.Drawing.Size(932, 360);
-            this.dgvListar.TabIndex = 8;
+            this.dgvListar.TabIndex = 9;
             this.dgvListar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellClick);
             // 
             // txtDescripcion
             // 
             this.txtDescripcion.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcion.Location = new System.Drawing.Point(616, 78);
+            this.txtDescripcion.Location = new System.Drawing.Point(650, 129);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(252, 24);
-            this.txtDescripcion.TabIndex = 3;
+            this.txtDescripcion.TabIndex = 4;
+            // 
+            // cbxConcepto
+            // 
+            this.cbxConcepto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxConcepto.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxConcepto.FormattingEnabled = true;
+            this.cbxConcepto.Location = new System.Drawing.Point(177, 144);
+            this.cbxConcepto.Name = "cbxConcepto";
+            this.cbxConcepto.Size = new System.Drawing.Size(284, 24);
+            this.cbxConcepto.TabIndex = 2;
+            this.cbxConcepto.SelectedIndexChanged += new System.EventHandler(this.cbxConcepto_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(46, 147);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(81, 17);
+            this.label3.TabIndex = 101;
+            this.label3.Text = "Concepto:";
             // 
             // MPagos
             // 
@@ -212,6 +237,8 @@ namespace Presentacion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(65)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(992, 681);
+            this.Controls.Add(this.cbxConcepto);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label2);
@@ -251,5 +278,7 @@ namespace Presentacion
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.DataGridView dgvListar;
         private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.ComboBox cbxConcepto;
+        private System.Windows.Forms.Label label3;
     }
 }

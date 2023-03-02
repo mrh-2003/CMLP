@@ -36,6 +36,23 @@ namespace Datos
             for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
             return sb.ToString();
         }
+
+        public static bool escribirTxt(string nombre, string contenido)
+        {
+            try
+            {
+                string downloadsFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Downloads";
+                StreamWriter sw = new StreamWriter(downloadsFolder + "\\" + nombre + ".txt");
+                string contenidoConSaltos = contenido.Replace("\n", "\r\n"); // Agregar saltos de línea para cada '\n'
+                sw.Write(contenidoConSaltos);
+                sw.Close();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
         
     }
 }

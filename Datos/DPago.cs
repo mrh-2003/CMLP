@@ -30,13 +30,13 @@ namespace Datos
                             {
                                 while (reader.Read())
                                 {
-                                    EPago concepto = new EPago();
-                                    concepto.Id = reader.GetInt32(0);
-                                    concepto.Descripcion = reader.GetString(1);
-                                    concepto.Monto = reader.GetDecimal(2);
-                                    concepto.Vencimiento = reader.GetDateTime(3);
-
-                                    lista.Add(concepto);
+                                    EPago pago = new EPago();
+                                    pago.Id = reader.GetInt32(0);
+                                    pago.Descripcion = reader.GetString(1);
+                                    pago.Monto = reader.GetDecimal(2);
+                                    pago.Vencimiento = reader.GetDateTime(3);
+                                    pago.ConceptoCodigo = reader.GetInt32(4);
+                                    lista.Add(pago);
                                 }
                             }
                         }
@@ -66,12 +66,12 @@ namespace Datos
                         string query;
                         if (opcion == "insert")
                         {
-                            query = "INSERT INTO pagos (descripcion, monto, vencimiento) VALUES (@descripcion, @monto, @vencimiento)";
+                            query = "INSERT INTO pagos (descripcion, monto, vencimiento, concepto_codigo) VALUES (@descripcion, @monto, @vencimiento, @concepto_codigo)";
                             mensaje = "Se inserto correctamente el Pago con el código " + pago.Id+ " cuyo monto es " + pago.Monto + " y vence el " + pago.Vencimiento.ToString();
                         }
                         else if (opcion == "update")
                         {
-                            query = "UPDATE pagos SET descripcion = @descripcion, monto = @monto, vencimiento = @vencimiento WHERE id = @id";
+                            query = "UPDATE pagos SET descripcion = @descripcion, monto = @monto, vencimiento = @vencimiento, concepto_codigo = @concepto_codigo WHERE id = @id";
                             mensaje = "Se actualizo correctamente el Pago con Código " + pago.Id + " ANTES: " + ePago.Monto + " - " + ePago.Vencimiento.ToString() + " AHORA: " + pago.Monto + " - " + pago.Vencimiento.ToString();
                         }
                         else
@@ -85,6 +85,7 @@ namespace Datos
                             cmd.Parameters.AddWithValue("@descripcion", pago.Descripcion);
                             cmd.Parameters.AddWithValue("@monto", pago.Monto);
                             cmd.Parameters.AddWithValue("@vencimiento", pago.Vencimiento);
+                            cmd.Parameters.AddWithValue("@concepto_codigo", pago.ConceptoCodigo);
                             cmd.ExecuteNonQuery();
                         }
                         trans.Commit();
@@ -110,14 +111,13 @@ namespace Datos
                         using (var reader = cmd.ExecuteReader())
                         {
                             reader.Read();
-                            EPago ePago = new EPago()
-                            {
-                                Id = reader.GetInt32(0),
-                                Descripcion = reader.GetString(1),
-                                Monto = reader.GetInt32(2),
-                                Vencimiento= reader.GetDateTime(3),
-                            };
-                            return ePago;
+                            EPago pago = new EPago();
+                            pago.Id = reader.GetInt32(0);
+                            pago.Descripcion = reader.GetString(1);
+                            pago.Monto = reader.GetDecimal(2);
+                            pago.Vencimiento = reader.GetDateTime(3);
+                            pago.ConceptoCodigo = reader.GetInt32(4);
+                            return pago;
                         }
                     }
                 }

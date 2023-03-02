@@ -15,6 +15,7 @@ namespace Presentacion
     {
         DPago dPago = new DPago();
         DHistorial dHistorial = new DHistorial();
+        DConcepto dConcepto = new DConcepto();
         int id = Login.id;
         public MPagos()
         {
@@ -23,6 +24,7 @@ namespace Presentacion
 
         private void MPagos_Load(object sender, EventArgs e)
         {
+            cbxConcepto.DataSource = dConcepto.Listar();
             mostrar();
         }
         void limpiar()
@@ -31,6 +33,7 @@ namespace Presentacion
             txtDescripcion.Clear();
             txtMonto.Clear();
             dtpVencimiento.Value = DateTime.Now;
+            cbxConcepto.SelectedIndex = -1;
             txtId.Focus();
         }
         void mostrar()
@@ -41,14 +44,16 @@ namespace Presentacion
         }
         private void mantenimiento(string opcion)
         {
-            if (txtDescripcion.Text != "" && txtMonto.Text != "" && dtpVencimiento.Value != null)
+            if (txtDescripcion.Text != "" && txtMonto.Text != "" && dtpVencimiento.Value != null
+                && cbxConcepto.SelectedIndex != -1)
             {
                 EPago ePago = new EPago()
                 {
                     Id = txtId.Text != "" ? Convert.ToInt32(txtId.Text) : 0,
                     Descripcion = txtDescripcion.Text,
                     Monto = Convert.ToDecimal(txtMonto.Text),
-                    Vencimiento = dtpVencimiento.Value
+                    Vencimiento = dtpVencimiento.Value,
+                    ConceptoCodigo = Convert.ToInt32(cbxConcepto.Text.Split('-')[0].Trim())
                 };
                 string mensaje = dPago.Mantenimiento(ePago, opcion);
                 MessageBox.Show(mensaje);
@@ -92,7 +97,16 @@ namespace Presentacion
                 txtDescripcion.Text = dgvListar.Rows[e.RowIndex].Cells[1].Value.ToString();
                 txtMonto.Text = dgvListar.Rows[e.RowIndex].Cells[2].Value.ToString();
                 dtpVencimiento.Value = Convert.ToDateTime(dgvListar.Rows[e.RowIndex].Cells[3].Value);
+                EConcepto eConcepto = dConcepto.Listar().Find(x => x.Codigo == Convert.ToInt32(dgvListar.Rows[e.RowIndex].Cells[4].Value.ToString()));
+                cbxConcepto.Text = eConcepto.Codigo + " - " + eConcepto.Concepto;
             }
+        }
+
+        private void cbxConcepto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            EConcepto eConcepto = cbxConcepto.SelectedItem as EConcepto;
+            if (eConcepto != null)
+                txtMonto.Text = eConcepto.Importe.ToString();
         }
     }
 }

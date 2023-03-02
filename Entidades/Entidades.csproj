@@ -44,6 +44,7 @@
     <Compile Include="EAlumno.cs" />
     <Compile Include="EBoleta.cs" />
     <Compile Include="ECalendario.cs" />
+    <Compile Include="ECalendarioDTO.cs" />
     <Compile Include="EConcepto.cs" />
     <Compile Include="EHistorial.cs" />
     <Compile Include="EPago.cs" />

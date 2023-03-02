@@ -18,7 +18,7 @@ namespace Datos
             {
                 connection.Open();
 
-                using (NpgsqlCommand command = new NpgsqlCommand(@"SELECT c.id, c.descripcion, a.dni, c.monto_pagado, c.monto_total, c.vencimiento FROM calendarios c inner join alumnos a on a.id = c.alumno_id", connection))
+                using (NpgsqlCommand command = new NpgsqlCommand(@"SELECT c.id, c.descripcion, c.concepto_codigo, a.dni, c.monto_pagado, c.monto_total, c.vencimiento FROM calendarios c inner join alumnos a on a.id = c.alumno_id", connection))
                 {
                     NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
                     DataTable dt = new DataTable();
@@ -28,7 +28,6 @@ namespace Datos
                 }
             }
         }
-
 
         public string Mantenimiento(ECalendario calendario, string opcion)
         {
@@ -47,12 +46,12 @@ namespace Datos
                         string query;
                         if (opcion == "insert")
                         {
-                            query = "INSERT INTO calendarios (descripcion, monto_total, monto_pagado, vencimiento, alumno_id) VALUES (@descripcion, @monto_total, @monto_pagado, @vencimiento, @alumno_id)";
+                            query = "INSERT INTO calendarios (descripcion, monto_total, monto_pagado, vencimiento, alumno_id, concepto_codigo) VALUES (@descripcion, @monto_total, @monto_pagado, @vencimiento, @alumno_id, @concepto_codigo)";
                             mensaje = "Se insertó correctamente el Calendario de Pago del alumno " + eAlumno.Dni + " cuyo monto es " + calendario.MontoTotal + " y vence el " + calendario.Vencimiento.ToString();
                         }
                         else if (opcion == "update")
                         {
-                            query = "UPDATE calendarios SET descripcion = @descripcion, monto_total = @monto_total, monto_pagado = @monto_pagado, vencimiento = @vencimiento, alumno_id = @alumno_id WHERE id = @id";
+                            query = "UPDATE calendarios SET descripcion = @descripcion, monto_total = @monto_total, monto_pagado = @monto_pagado, vencimiento = @vencimiento, alumno_id = @alumno_id, concepto_codigo = @concepto_codigo WHERE id = @id";
                             mensaje = "Se actualizó correctamente el Calendario de Pago del alumno " + eAlumno.Dni + " ANTES: " + eCalendario.MontoTotal + " - " + eCalendario.Vencimiento.ToString() + " AHORA: " + calendario.MontoTotal + " - " + calendario.Vencimiento.ToString();
                         }
                         else
@@ -68,6 +67,7 @@ namespace Datos
                             cmd.Parameters.AddWithValue("@monto_pagado", calendario.MontoPagado);
                             cmd.Parameters.AddWithValue("@vencimiento", calendario.Vencimiento);
                             cmd.Parameters.AddWithValue("@alumno_id", calendario.AlumnoId);
+                            cmd.Parameters.AddWithValue("@concepto_codigo", calendario.ConceptoCodigo);
                             cmd.ExecuteNonQuery();
                         }
                         trans.Commit();
@@ -87,7 +87,7 @@ namespace Datos
             {
                 connection.Open();
 
-                using (NpgsqlCommand command = new NpgsqlCommand(@"SELECT c.id, c.descripcion, a.dni, c.monto_pagado, c.monto_total, c.vencimiento 
+                using (NpgsqlCommand command = new NpgsqlCommand(@"SELECT c.id, c.descripcion, c.concepto_codigo, a.dni, c.monto_pagado, c.monto_total, c.vencimiento 
                 FROM calendarios c inner join alumnos a on a.id = c.alumno_id
                 WHERE LOWER(a.dni) LIKE LOWER(@valor_buscado) OR LOWER(c.descripcion) LIKE LOWER(@valor_buscado)", connection))
                 {
@@ -121,6 +121,7 @@ namespace Datos
                                 MontoPagado = reader.GetDecimal(3),
                                 Vencimiento = reader.GetDateTime(4),
                                 AlumnoId = reader.GetInt32(5),
+                                ConceptoCodigo = reader.GetInt32(6)
                             };
                             return eCalendario;
                         }
@@ -132,6 +133,49 @@ namespace Datos
                     return null;
                 }
             }
+        }
+        public List<ECalendarioDTO> PagosPendientes()
+        {
+            List<ECalendarioDTO> lista = new List<ECalendarioDTO>();
+
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    using (var trans = conn.BeginTransaction())
+                    {
+                        string query = @"SELECT c.id, c.descripcion, a.dni, c.monto_pagado, c.monto_total, c.vencimiento, c.concepto_codigo
+                            FROM calendarios c inner join alumnos a on a.id = c.alumno_id 
+                         WHERE c.monto_total::numeric <> 0 AND c.monto_pagado < c.monto_total";
+
+                        using (var cmd = new NpgsqlCommand(query, conn, trans))
+                        {
+                            using (var reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    ECalendarioDTO calendario = new ECalendarioDTO();
+                                    calendario.Id = reader.GetInt32(0);
+                                    calendario.Descripcion = reader.GetString(1);
+                                    calendario.Dni = reader.GetString(2);
+                                    calendario.MontoPagado = reader.GetDecimal(3);
+                                    calendario.MontoTotal = reader.GetDecimal(4);
+                                    calendario.Vencimiento = reader.GetDateTime(5);
+                                    calendario.ConceptoCodigo = reader.GetInt32(6);
+                                    lista.Add(calendario);
+                                }
+                            }
+                        }
+                        trans.Commit();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return lista;
         }
 
     }

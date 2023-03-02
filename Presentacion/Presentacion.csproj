@@ -206,6 +206,12 @@
     <Compile Include="RJControls\RJDropdownMenu.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="RTxtBanco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RTxtBanco.Designer.cs">
+      <DependentUpon>RTxtBanco.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CAlumnos.resx">
       <DependentUpon>CAlumnos.cs</DependentUpon>
     </EmbeddedResource>
@@ -272,6 +278,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RBoletasXFechas.resx">
       <DependentUpon>RBoletasXFechas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RTxtBanco.resx">
+      <DependentUpon>RTxtBanco.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

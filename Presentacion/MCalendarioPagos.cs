@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls.Primitives;
 using System.Windows.Forms;
 using Datos;
 using Entidades;
@@ -18,6 +19,7 @@ namespace Presentacion
         DCalendario dCalendario = new DCalendario();
         DPago dPago = new DPago();
         DAlumno dAlumno = new DAlumno();
+        DConcepto dConcepto = new DConcepto();
         EPago ePago = null;
         DHistorial dHistorial = new DHistorial();
         int id = Login.id;
@@ -28,13 +30,15 @@ namespace Presentacion
         private void MCalendarioPagos_Load(object sender, EventArgs e)
         {
             cbxDescripcion.DataSource = dPago.Listar();
+            cbxConcepto.DataSource = dConcepto.Listar();
             mostrar();
         }
         void limpiar()
         {
             txtId.Clear();
             cbxDescripcion.Text = "";
-            txtMontoPagado.Clear();
+            cbxConcepto.SelectedIndex = -1;
+            txtMontoPagado.Text = "0";
             txtMontoTotal.Clear();
             dtpVencimiento.Value = DateTime.Now;
             txtDni.Clear();
@@ -49,7 +53,7 @@ namespace Presentacion
         }
         private void mantenimiento(string opcion)
         {
-            if (txtDni.Text != "" && cbxDescripcion.Text != "" && txtMontoPagado.Text != "" && txtMontoTotal.Text != "" && dtpVencimiento.Value != null)
+            if (txtDni.Text != "" && cbxDescripcion.Text != "" && cbxConcepto.Text != "" && txtMontoPagado.Text != "" && txtMontoTotal.Text != "" && dtpVencimiento.Value != null)
             {
                 EAlumno eAlumno = dAlumno.getAlumno(txtDni.Text);
                 if (eAlumno != null)
@@ -61,7 +65,8 @@ namespace Presentacion
                         MontoTotal = Convert.ToDecimal(txtMontoTotal.Text),
                         MontoPagado = Convert.ToDecimal(txtMontoPagado.Text),
                         Vencimiento = dtpVencimiento.Value,
-                        AlumnoId = eAlumno.Id
+                        AlumnoId = eAlumno.Id,
+                        ConceptoCodigo = Convert.ToInt32(cbxConcepto.Text.Split('-')[0].Trim())
                     };
                     string mensaje = dCalendario.Mantenimiento(eCalendario, opcion);
                     MessageBox.Show(mensaje);
@@ -88,10 +93,12 @@ namespace Presentacion
             {
                 txtId.Text = dgvListar.Rows[e.RowIndex].Cells[0].Value.ToString();
                 cbxDescripcion.Text = dgvListar.Rows[e.RowIndex].Cells[1].Value.ToString();
-                txtDni.Text = dgvListar.Rows[e.RowIndex].Cells[2].Value.ToString();
-                txtMontoPagado.Text = dgvListar.Rows[e.RowIndex].Cells[3].Value.ToString();
-                txtMontoTotal.Text = dgvListar.Rows[e.RowIndex].Cells[4].Value.ToString();
-                dtpVencimiento.Value = Convert.ToDateTime(dgvListar.Rows[e.RowIndex].Cells[5].Value);
+                EConcepto eConcepto = dConcepto.Listar().Find(x => x.Codigo == Convert.ToInt32(dgvListar.Rows[e.RowIndex].Cells[2].Value.ToString()));
+                cbxConcepto.Text = eConcepto.Codigo + " - " + eConcepto.Concepto;
+                txtDni.Text = dgvListar.Rows[e.RowIndex].Cells[3].Value.ToString();
+                txtMontoPagado.Text = dgvListar.Rows[e.RowIndex].Cells[4].Value.ToString();
+                txtMontoTotal.Text = dgvListar.Rows[e.RowIndex].Cells[5].Value.ToString();
+                dtpVencimiento.Value = Convert.ToDateTime(dgvListar.Rows[e.RowIndex].Cells[6].Value);
             }
         }
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -132,8 +139,12 @@ namespace Presentacion
         private void cbxDescripcion_SelectedIndexChanged(object sender, EventArgs e)
         {
             ePago = cbxDescripcion.SelectedItem as EPago;
-            if(ePago != null)
+            EConcepto eConcepto = dConcepto.getConcepto(ePago.ConceptoCodigo);
+            if (ePago != null)
+            {
+                cbxConcepto.Text = eConcepto.Codigo + " - " + eConcepto.Concepto;
                 txtMontoPagado.Text = ePago.Monto.ToString();
+            }
         }
 
         private void txtDni_TextChanged(object sender, EventArgs e)

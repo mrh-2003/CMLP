@@ -12,6 +12,7 @@ namespace Entidades
         public string Descripcion { get; set; }
         public decimal Monto { get; set; }
         public DateTime Vencimiento { get; set; }
+        public int ConceptoCodigo { get; set; }
         public override string ToString()
         {
             return Descripcion;
