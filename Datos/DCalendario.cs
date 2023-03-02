@@ -222,6 +222,53 @@ namespace Datos
                 }
             }
         }
+        public decimal TotalPorGrado(int mes, int grado)
+        {
+            decimal total = 0;
+
+            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (NpgsqlCommand command = new NpgsqlCommand("select sum(c.monto_total) from calendarios c inner join alumnos a on a.id = c.alumno_id where a.grado = @grado and EXTRACT(MONTH FROM c.vencimiento) = @mes", connection))
+                {
+                    command.Parameters.AddWithValue("mes", mes);
+                    command.Parameters.AddWithValue("grado", grado);
+
+                    using (NpgsqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            if (!reader.IsDBNull(0))
+                            {
+                              total = reader.GetDecimal(0);
+                            }
+                        }
+                    }
+                }
+            }
+            return total;
+        }
+        public DataTable ListarPencionesXMesXGrado(int mes, int grado)
+        {
+            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (NpgsqlCommand command = new NpgsqlCommand(@"select  a.dni, a.apellidos_nombres, a.email, c.concepto_codigo, c.descripcion,
+                    c.monto_total, c.vencimiento  from calendarios c inner join alumnos a on a.id = c.alumno_id 
+                    where a.grado = @grado and EXTRACT(MONTH FROM c.vencimiento) = @mes", connection))
+                {
+                    command.Parameters.AddWithValue("mes", mes);
+                    command.Parameters.AddWithValue("grado", grado);
+                    NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    return dt;
+                }
+            }
+        }
 
     }
 }

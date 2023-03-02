@@ -220,10 +220,7 @@ namespace Datos
                         {
                             if (!reader.IsDBNull(0))
                             {
-                                if (!reader.IsDBNull(0))
-                                {
                                     total = reader.GetDecimal(0);
-                                }
                             }
                         }
                     }

@@ -218,6 +218,12 @@
     <Compile Include="RJControls\RJDropdownMenu.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="RPencionesXMesGrado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RPencionesXMesGrado.Designer.cs">
+      <DependentUpon>RPencionesXMesGrado.cs</DependentUpon>
+    </Compile>
     <Compile Include="RTxtBanco.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -296,6 +302,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RDeudoresXFechaXGrado.resx">
       <DependentUpon>RDeudoresXFechaXGrado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPencionesXMesGrado.resx">
+      <DependentUpon>RPencionesXMesGrado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RTxtBanco.resx">
       <DependentUpon>RTxtBanco.cs</DependentUpon>
