@@ -61,12 +61,17 @@ namespace Presentacion
             this.menuRBoleta = new CustomControls.RJControls.RJDropdownMenu(this.components);
             this.submenuRBConcepto = new System.Windows.Forms.ToolStripMenuItem();
             this.submenuRBFecha = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuRAlum = new CustomControls.RJControls.RJDropdownMenu(this.components);
+            this.submenuPenGradoMes = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuKardex.SuspendLayout();
             this.menuCAlumnos.SuspendLayout();
             this.menuRBoleta.SuspendLayout();
+            this.menuRAlum.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -591,6 +596,43 @@ namespace Presentacion
             this.submenuRBFecha.Text = "Por Fecha";
             this.submenuRBFecha.Click += new System.EventHandler(this.submenuRBFecha_Click);
             // 
+            // menuRAlum
+            // 
+            this.menuRAlum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(19)))));
+            this.menuRAlum.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuRAlum.IsMainMenu = false;
+            this.menuRAlum.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.submenuPenGradoMes,
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem3});
+            this.menuRAlum.MenuItemHeight = 25;
+            this.menuRAlum.MenuItemTextColor = System.Drawing.Color.Empty;
+            this.menuRAlum.Name = "rjDropdownMenu1";
+            this.menuRAlum.PrimaryColor = System.Drawing.Color.Empty;
+            this.menuRAlum.Size = new System.Drawing.Size(253, 92);
+            // 
+            // submenuPenGradoMes
+            // 
+            this.submenuPenGradoMes.ForeColor = System.Drawing.Color.White;
+            this.submenuPenGradoMes.Name = "submenuPenGradoMes";
+            this.submenuPenGradoMes.Size = new System.Drawing.Size(252, 22);
+            this.submenuPenGradoMes.Text = "Penciones por mes y grado";
+            this.submenuPenGradoMes.Click += new System.EventHandler(this.submenuPenGradoMes_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(252, 22);
+            this.toolStripMenuItem2.Text = "Kardex Grado";
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(252, 22);
+            this.toolStripMenuItem3.Text = "Kardex Resumen de Grado";
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -610,6 +652,7 @@ namespace Presentacion
             this.menuKardex.ResumeLayout(false);
             this.menuCAlumnos.ResumeLayout(false);
             this.menuRBoleta.ResumeLayout(false);
+            this.menuRAlum.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -646,6 +689,10 @@ namespace Presentacion
         private CustomControls.RJControls.RJDropdownMenu menuRBoleta;
         private System.Windows.Forms.ToolStripMenuItem submenuRBConcepto;
         private System.Windows.Forms.ToolStripMenuItem submenuRBFecha;
+        private CustomControls.RJControls.RJDropdownMenu menuRAlum;
+        private System.Windows.Forms.ToolStripMenuItem submenuPenGradoMes;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
     }
 }
 

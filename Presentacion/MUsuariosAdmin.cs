@@ -55,13 +55,13 @@ namespace Presentacion
                 };
                 string mensaje = dUsuario.Mantenimiento(eUsuario, opcion);
                 MessageBox.Show(mensaje);
-                EHistorial historial = new EHistorial()
-                {
-                    Descripcion = mensaje,
-                    Usuario = (new DUsuario()).getUsuario(id).Usuario,
-                    Fecha = DateTime.Now
-                };
-                dHistorial.Insertar(historial);
+                //EHistorial historial = new EHistorial()
+                //{
+                //    Descripcion = mensaje,
+                //    Usuario = (new DUsuario()).getUsuario(id).Usuario,
+                //    Fecha = DateTime.Now
+                //};
+                //dHistorial.Insertar(historial);
                 mostrar();
             }
             else

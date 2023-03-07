@@ -64,7 +64,7 @@ namespace Presentacion
 
         private void btnRAlumnos_Click(object sender, EventArgs e)
         {
-
+            menuRAlum.Show(btnRAlumnos, btnRAlumnos.Width, 4);
         }
 
         private void btnBoleta_Click(object sender, EventArgs e)
@@ -115,6 +115,11 @@ namespace Presentacion
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
             abrirFormHija(new MUsuariosAdmin());
+        }
+
+        private void submenuPenGradoMes_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new RPencionesXMesGrado());
         }
     }
 }
