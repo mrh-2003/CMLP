@@ -131,5 +131,10 @@ namespace Presentacion
         {
             abrirFormHija(new RDeudoresXFechaXGrado());
         }
+
+        private void Home_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

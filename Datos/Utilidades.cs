@@ -10,6 +10,7 @@ namespace Datos
 {
     public class Utilidades
     {
+        public static string anio;
         public static string cadena()
         {
             string line;

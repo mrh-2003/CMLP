@@ -24,6 +24,8 @@ namespace Presentacion
         }
         private void MAlumnos_Load(object sender, EventArgs e)
         {
+            if(Utilidades.anio == "TODOS")
+                btnAgregar.Enabled = false;
             mostrar();
         }
         void mostrar()
@@ -72,13 +74,13 @@ namespace Presentacion
                 };
                 string mensaje = dAlumno.Mantenimiento(eAlumno, opcion);
                 MessageBox.Show(mensaje);
-                //EHistorial historial = new EHistorial()
-                //{
-                //    Descripcion = mensaje,
-                //    Usuario = (new DUsuario()).getUsuario(id).Usuario,
-                //    Fecha = DateTime.Now
-                //};
-                //dHistorial.Insertar(historial);
+                EHistorial historial = new EHistorial()
+                {
+                    Descripcion = mensaje,
+                    Usuario = (new DUsuario()).getUsuario(id).Usuario,
+                    Fecha = DateTime.Now
+                };
+                dHistorial.Insertar(historial);
                 mostrar();
             }
             else
@@ -106,7 +108,7 @@ namespace Presentacion
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            txtAnio.Text = DateTime.Now.Year.ToString();
+            txtAnio.Text = Utilidades.anio;
             EAlumno eAlumno = dAlumno.getAlumno(txtDni.Text);
             if (eAlumno == null)
                 mantenimiento("insert");

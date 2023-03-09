@@ -609,7 +609,7 @@ namespace Presentacion
             this.menuRAlum.MenuItemTextColor = System.Drawing.Color.Empty;
             this.menuRAlum.Name = "rjDropdownMenu1";
             this.menuRAlum.PrimaryColor = System.Drawing.Color.Empty;
-            this.menuRAlum.Size = new System.Drawing.Size(253, 92);
+            this.menuRAlum.Size = new System.Drawing.Size(253, 70);
             // 
             // submenuPenGradoMes
             // 
@@ -648,6 +648,7 @@ namespace Presentacion
             this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema Integrado de Información Computarizada del CMLP (SICC)";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Home_FormClosing);
             this.panelMenu.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

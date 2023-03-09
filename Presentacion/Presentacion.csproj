@@ -103,6 +103,12 @@
     <Compile Include="CBoletas.Designer.cs">
       <DependentUpon>CBoletas.cs</DependentUpon>
     </Compile>
+    <Compile Include="CTxtBanco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CTxtBanco.Designer.cs">
+      <DependentUpon>CTxtBanco.cs</DependentUpon>
+    </Compile>
     <Compile Include="Historial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -238,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CBoletas.resx">
       <DependentUpon>CBoletas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CTxtBanco.resx">
+      <DependentUpon>CTxtBanco.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Historial.resx">
       <DependentUpon>Historial.cs</DependentUpon>

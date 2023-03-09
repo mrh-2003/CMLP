@@ -6,20 +6,31 @@ using System.Threading.Tasks;
 using Entidades;
 using System.Data;
 using Npgsql;
+using System.Windows.Shapes;
+using System.Windows.Forms;
+using System.Windows.Media;
 
 namespace Datos
 {
     public class DCalendario
     {
+        private readonly string anio = Utilidades.anio;
         private readonly string connectionString = Utilidades.cadena();
         public DataTable Listar()
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
+                string query = @"SELECT c.id, c.descripcion, c.concepto_codigo, a.dni, c.monto_pagado, c.monto_total, c.vencimiento FROM calendarios c inner join alumnos a on a.id = c.alumno_id";
+                if(anio != "TODOS")
+                    query += " WHERE EXTRACT(YEAR FROM c.vencimiento) = @anio ORDER BY c.vencimiento";
+                else
+                    query += " ORDER BY c.vencimiento";
                 connection.Open();
 
-                using (NpgsqlCommand command = new NpgsqlCommand(@"SELECT c.id, c.descripcion, c.concepto_codigo, a.dni, c.monto_pagado, c.monto_total, c.vencimiento FROM calendarios c inner join alumnos a on a.id = c.alumno_id", connection))
+                using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
                 {
+                    if(anio != "TODOS")
+                        command.Parameters.AddWithValue("@anio", Convert.ToInt32(anio));
                     NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
@@ -28,7 +39,6 @@ namespace Datos
                 }
             }
         }
-
         public string Mantenimiento(ECalendario calendario, string opcion)
         {
             using (var conn = new NpgsqlConnection(connectionString))
@@ -80,18 +90,24 @@ namespace Datos
                 }
             }
         }
-
         public DataTable BuscarPorDniODescripcion(string valorBuscado)
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
+                string query = @"SELECT c.id, c.descripcion, c.concepto_codigo, a.dni, c.monto_pagado, c.monto_total, c.vencimiento 
+                FROM calendarios c inner join alumnos a on a.id = c.alumno_id";
+                if (anio != "TODOS")
+                    query += " WHERE EXTRACT(YEAR FROM c.vencimiento) = @anio AND (LOWER(a.dni) LIKE LOWER(@valor_buscado) OR LOWER(c.descripcion) LIKE LOWER(@valor_buscado)) ORDER BY c.vencimiento";
+                else
+                    query += " WHERE LOWER(a.dni) LIKE LOWER(@valor_buscado) OR LOWER(c.descripcion) LIKE LOWER(@valor_buscado) ORDER BY c.vencimiento";
+                
                 connection.Open();
 
-                using (NpgsqlCommand command = new NpgsqlCommand(@"SELECT c.id, c.descripcion, c.concepto_codigo, a.dni, c.monto_pagado, c.monto_total, c.vencimiento 
-                FROM calendarios c inner join alumnos a on a.id = c.alumno_id
-                WHERE LOWER(a.dni) LIKE LOWER(@valor_buscado) OR LOWER(c.descripcion) LIKE LOWER(@valor_buscado)", connection))
+                using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@valor_buscado", "%" + valorBuscado.ToLower() + "%");
+                    if (anio != "TODOS")
+                        command.Parameters.AddWithValue("@anio", Convert.ToInt32(anio));
                     NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
@@ -146,11 +162,18 @@ namespace Datos
                     using (var trans = conn.BeginTransaction())
                     {
                         string query = @"SELECT c.id, c.descripcion, a.dni, c.monto_pagado, c.monto_total, c.vencimiento, c.concepto_codigo
-                            FROM calendarios c inner join alumnos a on a.id = c.alumno_id 
-                         WHERE c.monto_total::numeric <> 0 AND c.monto_pagado < c.monto_total";
+                            FROM calendarios c inner join alumnos a on a.id = c.alumno_id";
+                        if (anio != "TODOS")
+                            query += " WHERE EXTRACT(YEAR FROM c.vencimiento) = @anio and c.monto_total::numeric <> 0 AND c.monto_pagado < c.monto_total";
+                        else
+                            query += " WHERE c.monto_total::numeric <> 0 AND c.monto_pagado < c.monto_total";
+
 
                         using (var cmd = new NpgsqlCommand(query, conn, trans))
                         {
+                            if (anio != "TODOS")
+                                cmd.Parameters.AddWithValue("@anio", Convert.ToInt32(anio));
+
                             using (var reader = cmd.ExecuteReader())
                             {
                                 while (reader.Read())
@@ -181,16 +204,21 @@ namespace Datos
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
+                string query = @"select a.dni, a.apellidos_nombres, a.email, c.concepto_codigo, c.descripcion,
+                        (c.monto_total- c.monto_pagado) as monto, c.vencimiento from calendarios c
+                        inner join alumnos a on a.id = c.alumno_id";
+                if (anio != "TODOS")
+                    query += " where EXTRACT(YEAR FROM c.vencimiento) = @anio and c.vencimiento <= @date order by a.apellidos_nombres";
+                else 
+                    query += " where c.vencimiento <= @date order by a.apellidos_nombres";
+
                 connection.Open();
 
-                using (NpgsqlCommand command = new NpgsqlCommand(
-                    @"select a.dni, a.apellidos_nombres, a.email, c.concepto_codigo, c.descripcion,
-                        (c.monto_total- c.monto_pagado) as monto, c.vencimiento from calendarios c
-                        inner join alumnos a on a.id = c.alumno_id where c.vencimiento <= @date 
-                        order by a.apellidos_nombres", connection))
+                using (NpgsqlCommand command = new NpgsqlCommand( query, connection))
                 {
-
                     command.Parameters.AddWithValue("date", date);
+                    if (anio != "TODOS")
+                        command.Parameters.AddWithValue("@anio", Convert.ToInt32(anio));
                     NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
@@ -203,17 +231,23 @@ namespace Datos
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
+                string query = @"select a.dni, a.apellidos_nombres, a.email, c.concepto_codigo, c.descripcion,
+                        (c.monto_total- c.monto_pagado) as monto, c.vencimiento from calendarios c
+                        inner join alumnos a on a.id = c.alumno_id";
+                if (anio != "TODOS")
+                    query += " where EXTRACT(YEAR FROM c.vencimiento) = @anio and c.vencimiento <= @date and a.grado = @grado order by a.apellidos_nombres";
+                else
+                    query += " where c.vencimiento <= @date and a.grado = @grado order by a.apellidos_nombres";
                 connection.Open();
 
-                using (NpgsqlCommand command = new NpgsqlCommand(
-                    @"select a.dni, a.apellidos_nombres, a.email, c.concepto_codigo, c.descripcion,
-                        (c.monto_total- c.monto_pagado) as monto, c.vencimiento from calendarios c
-                        inner join alumnos a on a.id = c.alumno_id where c.vencimiento <= @date 
-                        and a.grado = @grado order by a.apellidos_nombres", connection))
+                using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
                 {
 
                     command.Parameters.AddWithValue("date", date);
                     command.Parameters.AddWithValue("grado", grado);
+                    if(anio != "TODOS")
+                        command.Parameters.AddWithValue("anio", Convert.ToInt32(anio));
+
                     NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
@@ -228,12 +262,20 @@ namespace Datos
 
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
+                string query = "select sum(c.monto_total) from calendarios c inner join alumnos a on a.id = c.alumno_id";
+                if (anio != "TODOS")
+                    query += " where a.grado = @grado and EXTRACT(MONTH FROM c.vencimiento) = @mes and EXTRACT(YEAR FROM c.vencimiento) = @anio";
+                else 
+                    query += " where a.grado = @grado and EXTRACT(MONTH FROM c.vencimiento) = @mes";
+
                 connection.Open();
 
-                using (NpgsqlCommand command = new NpgsqlCommand("select sum(c.monto_total) from calendarios c inner join alumnos a on a.id = c.alumno_id where a.grado = @grado and EXTRACT(MONTH FROM c.vencimiento) = @mes", connection))
+                using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("mes", mes);
                     command.Parameters.AddWithValue("grado", grado);
+                    if (anio != "TODOS")
+                        command.Parameters.AddWithValue("@anio", Convert.ToInt32(anio));
 
                     using (NpgsqlDataReader reader = command.ExecuteReader())
                     {
@@ -253,14 +295,20 @@ namespace Datos
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
+                string query = @"select  a.dni, a.apellidos_nombres, a.email, c.concepto_codigo, c.descripcion,
+                    c.monto_total, c.vencimiento  from calendarios c inner join alumnos a on a.id = c.alumno_id";
+                if (anio != "TODOS")
+                    query += " where a.grado = @grado and EXTRACT(MONTH FROM c.vencimiento) = @mes and EXTRACT(YEAR FROM c.vencimiento) = @anio";
+                else
+                    query += " where a.grado = @grado and EXTRACT(MONTH FROM c.vencimiento) = @mes";
                 connection.Open();
 
-                using (NpgsqlCommand command = new NpgsqlCommand(@"select  a.dni, a.apellidos_nombres, a.email, c.concepto_codigo, c.descripcion,
-                    c.monto_total, c.vencimiento  from calendarios c inner join alumnos a on a.id = c.alumno_id 
-                    where a.grado = @grado and EXTRACT(MONTH FROM c.vencimiento) = @mes", connection))
+                using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("mes", mes);
                     command.Parameters.AddWithValue("grado", grado);
+                    if (anio != "TODOS")
+                        command.Parameters.AddWithValue("@anio", Convert.ToInt32(anio));
                     NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);

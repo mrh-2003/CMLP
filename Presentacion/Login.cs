@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
 using Datos;
+using DocumentFormat.OpenXml.Drawing.Diagrams;
+
 namespace Presentacion
 {
     public partial class Login : Form
@@ -31,6 +33,7 @@ namespace Presentacion
             id = dUsuario.Login(txtUsuario.Text, txtContrasenia.Text);
             if (id != 0)
             {
+                Utilidades.anio = cbxAnio.Text;
                 this.Hide();
                 (new Home()).ShowDialog();
             }
@@ -45,6 +48,14 @@ namespace Presentacion
 
                 btnLogin.PerformClick();
             }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            for (int i = DateTime.Now.Year - 3; i < DateTime.Now.Year + 3; i++)
+                cbxAnio.Items.Add(i);
+            cbxAnio.Items.Add("TODOS");
+            cbxAnio.SelectedIndex = 3;
         }
     }
 }
