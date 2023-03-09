@@ -63,8 +63,8 @@ namespace Presentacion
             this.submenuRBFecha = new System.Windows.Forms.ToolStripMenuItem();
             this.menuRAlum = new CustomControls.RJControls.RJDropdownMenu(this.components);
             this.submenuPenGradoMes = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.submenuDeuFecha = new System.Windows.Forms.ToolStripMenuItem();
+            this.submenuDeuGrado = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -603,8 +603,8 @@ namespace Presentacion
             this.menuRAlum.IsMainMenu = false;
             this.menuRAlum.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.submenuPenGradoMes,
-            this.toolStripMenuItem2,
-            this.toolStripMenuItem3});
+            this.submenuDeuFecha,
+            this.submenuDeuGrado});
             this.menuRAlum.MenuItemHeight = 25;
             this.menuRAlum.MenuItemTextColor = System.Drawing.Color.Empty;
             this.menuRAlum.Name = "rjDropdownMenu1";
@@ -619,19 +619,21 @@ namespace Presentacion
             this.submenuPenGradoMes.Text = "Penciones por mes y grado";
             this.submenuPenGradoMes.Click += new System.EventHandler(this.submenuPenGradoMes_Click);
             // 
-            // toolStripMenuItem2
+            // submenuDeuFecha
             // 
-            this.toolStripMenuItem2.ForeColor = System.Drawing.Color.White;
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(252, 22);
-            this.toolStripMenuItem2.Text = "Kardex Grado";
+            this.submenuDeuFecha.ForeColor = System.Drawing.Color.White;
+            this.submenuDeuFecha.Name = "submenuDeuFecha";
+            this.submenuDeuFecha.Size = new System.Drawing.Size(252, 22);
+            this.submenuDeuFecha.Text = "Deudores por fecha";
+            this.submenuDeuFecha.Click += new System.EventHandler(this.submenuDeuFecha_Click);
             // 
-            // toolStripMenuItem3
+            // submenuDeuGrado
             // 
-            this.toolStripMenuItem3.ForeColor = System.Drawing.Color.White;
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(252, 22);
-            this.toolStripMenuItem3.Text = "Kardex Resumen de Grado";
+            this.submenuDeuGrado.ForeColor = System.Drawing.Color.White;
+            this.submenuDeuGrado.Name = "submenuDeuGrado";
+            this.submenuDeuGrado.Size = new System.Drawing.Size(252, 22);
+            this.submenuDeuGrado.Text = "Deudores por grado";
+            this.submenuDeuGrado.Click += new System.EventHandler(this.submenuDeuGrado_Click);
             // 
             // Home
             // 
@@ -691,8 +693,8 @@ namespace Presentacion
         private System.Windows.Forms.ToolStripMenuItem submenuRBFecha;
         private CustomControls.RJControls.RJDropdownMenu menuRAlum;
         private System.Windows.Forms.ToolStripMenuItem submenuPenGradoMes;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem submenuDeuFecha;
+        private System.Windows.Forms.ToolStripMenuItem submenuDeuGrado;
     }
 }
 

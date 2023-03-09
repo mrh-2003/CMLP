@@ -121,5 +121,15 @@ namespace Presentacion
         {
             abrirFormHija(new RPencionesXMesGrado());
         }
+
+        private void submenuDeuFecha_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new RDeudoresXFecha());
+        }
+
+        private void submenuDeuGrado_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new RDeudoresXFechaXGrado());
+        }
     }
 }
