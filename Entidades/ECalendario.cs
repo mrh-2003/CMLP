@@ -15,5 +15,8 @@ namespace Entidades
         public DateTime Vencimiento { get; set; }
         public int AlumnoId { get; set; }
         public int ConceptoCodigo { get; set; }
+        public decimal Mora { get; set; }
+        public DateTime Cancelacion { get; set; }
+        public DateTime Emision { get; set; }
     }
 }

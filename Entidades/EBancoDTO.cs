@@ -8,6 +8,7 @@ namespace Entidades
 {
     public class EBancoDTO
     {
+        public int Id { get; set; }
         public string NCredito { get; set; }
         public int NCuota { get; set; }
         public DateTime FVncmto { get; set; }

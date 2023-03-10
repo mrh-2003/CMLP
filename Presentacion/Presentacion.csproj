@@ -133,11 +133,11 @@
     <Compile Include="KGrado.Designer.cs">
       <DependentUpon>KGrado.cs</DependentUpon>
     </Compile>
-    <Compile Include="KResumenGrado.cs">
+    <Compile Include="KGeneral.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KResumenGrado.Designer.cs">
-      <DependentUpon>KResumenGrado.cs</DependentUpon>
+    <Compile Include="KGeneral.Designer.cs">
+      <DependentUpon>KGeneral.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -260,8 +260,8 @@
     <EmbeddedResource Include="KGrado.resx">
       <DependentUpon>KGrado.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KResumenGrado.resx">
-      <DependentUpon>KResumenGrado.cs</DependentUpon>
+    <EmbeddedResource Include="KGeneral.resx">
+      <DependentUpon>KGeneral.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

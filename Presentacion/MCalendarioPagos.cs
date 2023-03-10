@@ -66,17 +66,18 @@ namespace Presentacion
                         MontoPagado = Convert.ToDecimal(txtMontoPagado.Text),
                         Vencimiento = dtpVencimiento.Value,
                         AlumnoId = eAlumno.Id,
-                        ConceptoCodigo = Convert.ToInt32(cbxConcepto.Text.Split('-')[0].Trim())
+                        ConceptoCodigo = Convert.ToInt32(cbxConcepto.Text.Split('-')[0].Trim()),
+                        Emision = DateTime.Now,
                     };
                     string mensaje = dCalendario.Mantenimiento(eCalendario, opcion);
                     MessageBox.Show(mensaje);
-                    //EHistorial historial = new EHistorial()
-                    //{
-                    //    Descripcion = mensaje,
-                    //    Usuario = (new DUsuario()).getUsuario(id).Usuario,
-                    //    Fecha = DateTime.Now
-                    //};
-                    //dHistorial.Insertar(historial);
+                    EHistorial historial = new EHistorial()
+                    {
+                        Descripcion = mensaje,
+                        Usuario = (new DUsuario()).getUsuario(id).Usuario,
+                        Fecha = DateTime.Now
+                    };
+                    dHistorial.Insertar(historial);
                     mostrar();
                 }
                 else

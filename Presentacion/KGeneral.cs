@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Presentacion
 {
-    public partial class KResumenGrado : Form
+    public partial class KGeneral : Form
     {
-        public KResumenGrado()
+        public KGeneral()
         {
             InitializeComponent();
         }

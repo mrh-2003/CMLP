@@ -39,6 +39,102 @@ namespace Datos
                 }
             }
         }
+        public List<ECalendario> ListarLista()
+        {
+            List<ECalendario> lista = new List<ECalendario>();
+
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    using (var trans = conn.BeginTransaction())
+                    {
+                        string query = "select * from calendarios";
+                        if (anio != "TODOS")
+                            query += " WHERE EXTRACT(YEAR FROM c.vencimiento) = @anio ORDER BY c.vencimiento";
+                        else
+                            query += " ORDER BY c.vencimiento";
+                        using (var cmd = new NpgsqlCommand(query, conn, trans))
+                        {
+                            if (anio != "TODOS")
+                                cmd.Parameters.AddWithValue("@anio", Convert.ToInt32(anio));
+                            using (var reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    ECalendario calendario = new ECalendario();
+                                    calendario.Id = reader.GetInt32(0);
+                                    calendario.Descripcion = reader.GetString(1);
+                                    calendario.MontoTotal = reader.GetDecimal(2);
+                                    calendario.MontoPagado = reader.GetDecimal(3);
+                                    calendario.Vencimiento = reader.GetDateTime(4);
+                                    calendario.AlumnoId = reader.GetInt32(5);
+                                    calendario.ConceptoCodigo = reader.GetInt32(6);
+                                    calendario.Mora = reader.GetDecimal(7);
+                                    calendario.Cancelacion = reader.IsDBNull(8) ? default(DateTime) : reader.GetDateTime(8);
+                                    calendario.Emision = reader.GetDateTime(9);
+                                    lista.Add(calendario);
+                                }
+                            }
+                        }
+                        trans.Commit();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return lista;
+        }
+        public List<ECalendarioDTO> ListarListaDTO()
+        {
+            List<ECalendarioDTO> lista = new List<ECalendarioDTO>();
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    using (var trans = conn.BeginTransaction())
+                    {
+                        string query = @"SELECT c.id, c.descripcion, a.dni, c.monto_pagado, c.monto_total, c.vencimiento, c.concepto_codigo
+                            FROM calendarios c inner join alumnos a on a.id = c.alumno_id";
+                        if (anio != "TODOS")
+                            query += " WHERE EXTRACT(YEAR FROM c.vencimiento) = @anio";
+
+
+                        using (var cmd = new NpgsqlCommand(query, conn, trans))
+                        {
+                            if (anio != "TODOS")
+                                cmd.Parameters.AddWithValue("@anio", Convert.ToInt32(anio));
+
+                            using (var reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    ECalendarioDTO calendario = new ECalendarioDTO();
+                                    calendario.Id = reader.GetInt32(0);
+                                    calendario.Descripcion = reader.GetString(1);
+                                    calendario.Dni = reader.GetString(2);
+                                    calendario.MontoPagado = reader.GetDecimal(3);
+                                    calendario.MontoTotal = reader.GetDecimal(4);
+                                    calendario.Vencimiento = reader.GetDateTime(5);
+                                    calendario.ConceptoCodigo = reader.GetInt32(6);
+                                    lista.Add(calendario);
+                                }
+                            }
+                        }
+                        trans.Commit();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return lista;
+        }
         public string Mantenimiento(ECalendario calendario, string opcion)
         {
             using (var conn = new NpgsqlConnection(connectionString))
@@ -56,12 +152,12 @@ namespace Datos
                         string query;
                         if (opcion == "insert")
                         {
-                            query = "INSERT INTO calendarios (descripcion, monto_total, monto_pagado, vencimiento, alumno_id, concepto_codigo) VALUES (@descripcion, @monto_total, @monto_pagado, @vencimiento, @alumno_id, @concepto_codigo)";
+                            query = "INSERT INTO calendarios (descripcion, monto_total, monto_pagado, vencimiento, alumno_id, concepto_codigo, mora, cancelacion, emision) VALUES (@descripcion, @monto_total, @monto_pagado, @vencimiento, @alumno_id, @concepto_codigo, @mora, @cancelacion, @emision)";
                             mensaje = "Se insertó correctamente el Calendario de Pago del alumno " + eAlumno.Dni + " cuyo monto es " + calendario.MontoTotal + " y vence el " + calendario.Vencimiento.ToString();
                         }
                         else if (opcion == "update")
                         {
-                            query = "UPDATE calendarios SET descripcion = @descripcion, monto_total = @monto_total, monto_pagado = @monto_pagado, vencimiento = @vencimiento, alumno_id = @alumno_id, concepto_codigo = @concepto_codigo WHERE id = @id";
+                            query = "UPDATE calendarios SET descripcion = @descripcion, monto_total = @monto_total, monto_pagado = @monto_pagado, vencimiento = @vencimiento, alumno_id = @alumno_id, concepto_codigo = @concepto_codigo, mora = @mora, cancelacion=@cancelacion, emision = @emision WHERE id = @id";
                             mensaje = "Se actualizó correctamente el Calendario de Pago del alumno " + eAlumno.Dni + " ANTES: " + eCalendario.MontoTotal + " - " + eCalendario.Vencimiento.ToString() + " AHORA: " + calendario.MontoTotal + " - " + calendario.Vencimiento.ToString();
                         }
                         else
@@ -78,6 +174,9 @@ namespace Datos
                             cmd.Parameters.AddWithValue("@vencimiento", calendario.Vencimiento);
                             cmd.Parameters.AddWithValue("@alumno_id", calendario.AlumnoId);
                             cmd.Parameters.AddWithValue("@concepto_codigo", calendario.ConceptoCodigo);
+                            cmd.Parameters.AddWithValue("@mora", calendario.Mora);
+                            cmd.Parameters.AddWithValue("@cancelacion", calendario.Cancelacion);
+                            cmd.Parameters.AddWithValue("@emision", calendario.Emision);
                             cmd.ExecuteNonQuery();
                         }
                         trans.Commit();
@@ -137,7 +236,10 @@ namespace Datos
                                 MontoPagado = reader.GetDecimal(3),
                                 Vencimiento = reader.GetDateTime(4),
                                 AlumnoId = reader.GetInt32(5),
-                                ConceptoCodigo = reader.GetInt32(6)
+                                ConceptoCodigo = reader.GetInt32(6),
+                                Mora = reader.GetDecimal(7),
+                                Cancelacion = reader.GetDateTime(8),
+                                Emision = reader.GetDateTime(9),
                             };
                             return eCalendario;
                         }

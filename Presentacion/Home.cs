@@ -44,7 +44,7 @@ namespace Presentacion
 
         private void subMenukardexResumenDeGrado_Click(object sender, EventArgs e)
         {
-            abrirFormHija(new KResumenGrado());
+            abrirFormHija(new KGeneral());
         }
 
         private void btnCargarAlum_Click(object sender, EventArgs e)
