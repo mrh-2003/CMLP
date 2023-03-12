@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 using System.Data;
 using Entidades;
 using Npgsql;
+using System.Windows.Shapes;
 
 namespace Datos
 {
     public class DBoleta
     {
+        private readonly string anio = Utilidades.anio;
         private readonly string connectionString = Utilidades.cadena();
         public string Mantenimiento(EBoleta boleta, string opcion)
         {
@@ -66,10 +68,15 @@ namespace Datos
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
+                string query = "SELECT b.codigo, a.dni, b.monto, b.fecha, b.concepto_codigo FROM boletas b INNER JOIN alumnos a ON a.id = b.alumno_id";
+                if(anio != "TODOS")
+                    query += " WHERE EXTRACT(YEAR FROM b.fecha) = @anio";
                 connection.Open();
 
-                using (NpgsqlCommand command = new NpgsqlCommand("SELECT b.codigo, a.dni, b.monto, b.fecha, b.concepto_codigo FROM boletas b INNER JOIN alumnos a ON a.id = b.alumno_id", connection))
+                using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
                 {
+                    if(anio != "TODOS")
+                        command.Parameters.AddWithValue("anio", Convert.ToInt32(anio));
                     NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
@@ -123,14 +130,19 @@ namespace Datos
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
+                string query = @"SELECT b.codigo, a.dni, b.monto, b.fecha, b.concepto_codigo FROM boletas b INNER JOIN 
+                    alumnos a ON a.id = b.alumno_id";
+                if (anio != "TODOS")
+                    query += " WHERE EXTRACT(YEAR FROM b.fecha) = @anio and (LOWER(a.dni) LIKE LOWER(@valor_buscado) OR LOWER(b.codigo) LIKE LOWER(@valor_buscado))";
+                else
+                    query += " WHERE LOWER(a.dni) LIKE LOWER(@valor_buscado) OR LOWER(b.codigo) LIKE LOWER(@valor_buscado)";
                 connection.Open();
 
-                using (NpgsqlCommand command = new NpgsqlCommand(
-                    @"SELECT b.codigo, a.dni, b.monto, b.fecha, b.concepto_codigo FROM boletas b INNER JOIN 
-                    alumnos a ON a.id = b.alumno_id WHERE LOWER(a.dni) LIKE 
-                    LOWER(@valor_buscado) OR LOWER(b.codigo) LIKE LOWER(@valor_buscado)", connection))
+                using (NpgsqlCommand command = new NpgsqlCommand( query, connection))
                 {
                     command.Parameters.AddWithValue("@valor_buscado", "%" + valorBuscado.ToLower() + "%");
+                    if (anio != "TODOS")
+                        command.Parameters.AddWithValue("anio", Convert.ToInt32(anio));
                     NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
@@ -220,10 +232,7 @@ namespace Datos
                         {
                             if (!reader.IsDBNull(0))
                             {
-                                if (!reader.IsDBNull(0))
-                                {
                                     total = reader.GetDecimal(0);
-                                }
                             }
                         }
                     }
@@ -237,11 +246,15 @@ namespace Datos
 
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
+                string query = "SELECT SUM(monto) FROM boletas";
+                if(anio != "TODOS")
+                    query += " WHERE EXTRACT(YEAR FROM fecha) = @anio";
                 connection.Open();
 
-                using (NpgsqlCommand command = new NpgsqlCommand("SELECT SUM(monto) FROM boletas", connection))
+                using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
                 {
-
+                    if (anio != "TODOS")
+                        command.Parameters.AddWithValue("anio", Convert.ToInt32(anio));
                     using (NpgsqlDataReader reader = command.ExecuteReader())
                     {
                         if (reader.Read())

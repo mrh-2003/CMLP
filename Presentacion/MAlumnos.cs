@@ -17,6 +17,8 @@ namespace Presentacion
         private const string TITULO_ALERTA = "Error de Entrada";
         DAlumno dAlumno = new DAlumno();
         DHistorial dHistorial = new DHistorial();
+        DCalendario dCalendario = new DCalendario();
+        DPago dPago = new DPago();
         int id = Login.id;
         public MAlumnos()
         {
@@ -24,6 +26,8 @@ namespace Presentacion
         }
         private void MAlumnos_Load(object sender, EventArgs e)
         {
+            if(Utilidades.anio == "TODOS")
+                btnAgregar.Enabled = false;
             mostrar();
         }
         void mostrar()
@@ -72,13 +76,13 @@ namespace Presentacion
                 };
                 string mensaje = dAlumno.Mantenimiento(eAlumno, opcion);
                 MessageBox.Show(mensaje);
-                //EHistorial historial = new EHistorial()
-                //{
-                //    Descripcion = mensaje,
-                //    Usuario = (new DUsuario()).getUsuario(id).Usuario,
-                //    Fecha = DateTime.Now
-                //};
-                //dHistorial.Insertar(historial);
+                EHistorial historial = new EHistorial()
+                {
+                    Descripcion = mensaje,
+                    Usuario = (new DUsuario()).getUsuario(id).Usuario,
+                    Fecha = DateTime.Now
+                };
+                dHistorial.Insertar(historial);
                 mostrar();
             }
             else
@@ -106,10 +110,56 @@ namespace Presentacion
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            txtAnio.Text = DateTime.Now.Year.ToString();
+            string dni = txtDni.Text;
+            txtAnio.Text = Utilidades.anio;
             EAlumno eAlumno = dAlumno.getAlumno(txtDni.Text);
             if (eAlumno == null)
+            {
                 mantenimiento("insert");
+                List<EPago> pagos = dPago.Listar();
+                EAlumno alumno = dAlumno.getAlumno(dni);
+                foreach (EPago pago in pagos)
+                {
+                    ECalendario eCalendario;
+                    if (pago.Descripcion == "Alimentación" && alumno.Descuento != "Ninguna")
+                    {
+                        if (alumno.Descuento == "Beca")
+                        {
+                            eCalendario = new ECalendario()
+                            {
+                                Descripcion = pago.Descripcion,
+                                MontoPagado = 0,
+                                MontoTotal = 0,
+                                Vencimiento = pago.Vencimiento,
+                                AlumnoId = alumno.Id
+                            };
+                        }
+                        else
+                        {
+                            eCalendario = new ECalendario()
+                            {
+                                Descripcion = pago.Descripcion,
+                                MontoPagado = 0,
+                                MontoTotal = pago.Monto / 2,
+                                Vencimiento = pago.Vencimiento,
+                                AlumnoId = alumno.Id
+                            };
+                        }
+                    }
+                    else
+                    {
+                        eCalendario = new ECalendario()
+                        {
+                            Descripcion = pago.Descripcion,
+                            MontoPagado = 0,
+                            MontoTotal = pago.Monto,
+                            Vencimiento = pago.Vencimiento,
+                            AlumnoId = alumno.Id
+                        };
+                    }
+                    dCalendario.Mantenimiento(eCalendario, "insert");
+                }
+            }
             else
                 MessageBox.Show("El alumno ya existe");
         }

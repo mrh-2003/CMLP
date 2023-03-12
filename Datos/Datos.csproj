@@ -98,6 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAlumno.cs" />
+    <Compile Include="DBancoDTO.cs" />
     <Compile Include="DBoleta.cs" />
     <Compile Include="DCalendario.cs" />
     <Compile Include="DHistorial.cs" />

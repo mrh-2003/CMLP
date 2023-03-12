@@ -111,7 +111,6 @@ namespace Presentacion
             this.Name = "CAlumnos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CAlumnos";
-           // this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CAlumnos_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

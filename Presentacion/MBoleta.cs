@@ -64,13 +64,13 @@ namespace Presentacion
                     };
                     string mensaje = dBoleta.Mantenimiento(eBoleta, opcion);
                     MessageBox.Show(mensaje);
-                    //EHistorial historial = new EHistorial()
-                    //{
-                    //    Descripcion = mensaje,
-                    //    Usuario = (new DUsuario()).getUsuario(id).Usuario,
-                    //    Fecha = DateTime.Now
-                    //};
-                    //dHistorial.Insertar(historial);
+                    EHistorial historial = new EHistorial()
+                    {
+                        Descripcion = mensaje,
+                        Usuario = (new DUsuario()).getUsuario(id).Usuario,
+                        Fecha = DateTime.Now
+                    };
+                    dHistorial.Insertar(historial);
                     mostrar();
                 }
                 else
@@ -79,26 +79,138 @@ namespace Presentacion
             else
                 MessageBox.Show("Todos los campos deben estar llenos");
         }
-
-
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private async void btnAgregar_Click(object sender, EventArgs e)
         {
-            mantenimiento("insert");
+            if (Utilidades.VerificarConexionInternet())
+            {
+                string html = @"
+                    <html>
+                    <head>
+                        <title>Confirmación de pago de boleta electrónica</title>
+                        <style>
+                            body {
+                                font-family: Arial, sans-serif;
+                                font-size: 16px;
+                                line-height: 1.5;
+                                color: #333;
+                                background-color: #f5f5f5;
+                                margin: 0;
+                                padding: 0;
+                            }
+                            header {
+                                text-align: center;
+                                color: black;
+                                padding: 15px;
+                            }
+                            main {
+                                padding: 20px;
+                                background-color: #fff;
+                            }
+                            table {
+                                border-collapse: collapse;
+                                margin-bottom: 20px;
+                                width: 100%;
+                            }
+
+                            table td, table th {
+                                border: 1px solid #ccc;
+                                padding: 10px;
+                                text-align: left;
+                            }
+
+                            table th {
+                                background-color: #f7f7f7;
+                                font-weight: bold;
+                            }
+                            footer {
+                                font-weight: bold;
+                                color: #000;
+                                padding: 20px;
+                                display: flex;
+                                align-items: center;
+            
+                            }
+                            .footer-text {
+                                margin: 0;
+                                margin: auto;
+                                font-size: 20px;
+                            }
+                            .footer-text span {
+                                font-size: 40px;
+                                color: #007bff;
+                            }
+        
+                        </style>
+                    </head>
+                    <body>
+                        <header>
+                            <h1>Confirmación de pago de boleta electrónica</h1>
+                        </header>
+                        <main>
+                            <p>Estimado/a [Nombre del cliente],</p>
+                            <p>Le informamos que su pago de la boleta electrónica número [Número de la boleta] ha sido procesado con éxito. A continuación, encontrará los detalles del pago:</p>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Concepto</th>
+                                        <th>Monto</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>[Concepto del pago]</td>
+                                        <td>[Monto del pago]</td>
+                                    </tr>
+           
+                                </tbody>
+                            </table>
+                            <p>Para cualquier consulta, por favor no dude en contactarnos a través de nuestro correo electrónico [Correo electrónico de la empresa] o en nuestro número de atención al cliente [Número de atención al cliente].</p>
+                            <p>Atentamente,</p>
+                            <p>El area de administración del Colegio Militar Leoncio Prado</p>
+                        </main>
+                        <footer>
+                            <p class=""footer-text"">¡Felicitaciones! Continúa realizando tus pagos de boletas. <span>😊👍</span></p>
+                        </footer>
+                    </body>
+                    </html>    
+                    ";
+                mantenimiento("insert");
+                string resultado = await Utilidades.EnviarCorreo("huberjuanillo@gmail.com", "bobyyfoptgcwojbx", "74143981@pronabec.edu.pe", "Prueba", html);
+                MessageBox.Show(resultado);
+            }
+            else 
+                MessageBox.Show("No hay conexion a internet");
         }
 
-        private void btnActualizar_Click(object sender, EventArgs e)
+        private async void btnActualizar_Click(object sender, EventArgs e)
         {
-            EAlumno eAlumno = dAlumno.getAlumno(txtDni.Text);
-            EBoleta eBoleta = dBoleta.getBoleta(txtCodigo.Text);
-            if (eBoleta != null && eAlumno != null && eBoleta.AlumnoId == eAlumno.Id)
-                mantenimiento("update");
+            if (Utilidades.VerificarConexionInternet())
+            {
+                EAlumno eAlumno = dAlumno.getAlumno(txtDni.Text);
+                EBoleta eBoleta = dBoleta.getBoleta(txtCodigo.Text);
+                if (eBoleta != null && eAlumno != null && eBoleta.AlumnoId == eAlumno.Id)
+                {
+                    mantenimiento("update");
+                    string resultado = await Utilidades.EnviarCorreo("huberjuanillo@gmail.com", "bobyyfoptgcwojbx", "74143981@pronabec.edu.pe", "Prueba", "Prueba");
+                    MessageBox.Show(resultado);
+                }
+                else
+                    MessageBox.Show("No se puede modificar esos datos");
+            }
             else
-                MessageBox.Show("No se puede modificar esos datos");
+                MessageBox.Show("No hay conexion a internet");
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private async void btnEliminar_Click(object sender, EventArgs e)
         {
-            mantenimiento("delete");
+            if (Utilidades.VerificarConexionInternet())
+            {
+                mantenimiento("delete");
+                string resultado = await Utilidades.EnviarCorreo("huberjuanillo@gmail.com", "bobyyfoptgcwojbx", "74143981@pronabec.edu.pe", "Prueba", "Prueba");
+                MessageBox.Show(resultado);
+            }
+            else
+                MessageBox.Show("No hay conexion a internet");
         }
 
         private void dgvListar_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -103,6 +103,12 @@
     <Compile Include="CBoletas.Designer.cs">
       <DependentUpon>CBoletas.cs</DependentUpon>
     </Compile>
+    <Compile Include="CTxtBanco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CTxtBanco.Designer.cs">
+      <DependentUpon>CTxtBanco.cs</DependentUpon>
+    </Compile>
     <Compile Include="Historial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,11 +133,11 @@
     <Compile Include="KGrado.Designer.cs">
       <DependentUpon>KGrado.cs</DependentUpon>
     </Compile>
-    <Compile Include="KResumenGrado.cs">
+    <Compile Include="KGeneral.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KResumenGrado.Designer.cs">
-      <DependentUpon>KResumenGrado.cs</DependentUpon>
+    <Compile Include="KGeneral.Designer.cs">
+      <DependentUpon>KGeneral.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -218,6 +224,12 @@
     <Compile Include="RJControls\RJDropdownMenu.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="RPencionesXMesGrado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RPencionesXMesGrado.Designer.cs">
+      <DependentUpon>RPencionesXMesGrado.cs</DependentUpon>
+    </Compile>
     <Compile Include="RTxtBanco.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,6 +245,9 @@
     <EmbeddedResource Include="CBoletas.resx">
       <DependentUpon>CBoletas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CTxtBanco.resx">
+      <DependentUpon>CTxtBanco.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Historial.resx">
       <DependentUpon>Historial.cs</DependentUpon>
     </EmbeddedResource>
@@ -245,8 +260,8 @@
     <EmbeddedResource Include="KGrado.resx">
       <DependentUpon>KGrado.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KResumenGrado.resx">
-      <DependentUpon>KResumenGrado.cs</DependentUpon>
+    <EmbeddedResource Include="KGeneral.resx">
+      <DependentUpon>KGeneral.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -296,6 +311,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RDeudoresXFechaXGrado.resx">
       <DependentUpon>RDeudoresXFechaXGrado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPencionesXMesGrado.resx">
+      <DependentUpon>RPencionesXMesGrado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RTxtBanco.resx">
       <DependentUpon>RTxtBanco.cs</DependentUpon>

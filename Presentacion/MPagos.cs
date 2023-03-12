@@ -24,6 +24,12 @@ namespace Presentacion
 
         private void MPagos_Load(object sender, EventArgs e)
         {
+            if(Utilidades.anio == "TODOS")
+            {
+                btnAgregar.Enabled = false;
+                btnModificar.Enabled = false;
+                btnEliminar.Enabled = false;
+            }
             cbxConcepto.DataSource = dConcepto.Listar();
             mostrar();
         }
@@ -57,13 +63,13 @@ namespace Presentacion
                 };
                 string mensaje = dPago.Mantenimiento(ePago, opcion);
                 MessageBox.Show(mensaje);
-                //EHistorial historial = new EHistorial()
-                //{
-                //    Descripcion = mensaje,
-                //    Usuario = (new DUsuario()).getUsuario(id).Usuario,
-                //    Fecha = DateTime.Now
-                //};
-                //dHistorial.Insertar(historial);
+                EHistorial historial = new EHistorial()
+                {
+                    Descripcion = mensaje,
+                    Usuario = (new DUsuario()).getUsuario(id).Usuario,
+                    Fecha = DateTime.Now
+                };
+                dHistorial.Insertar(historial);
                 mostrar();
             }
             else

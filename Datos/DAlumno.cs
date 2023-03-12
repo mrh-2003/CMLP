@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Npgsql;
 using Entidades;
 using System.Data;
@@ -12,6 +9,7 @@ namespace Datos
 {
     public class DAlumno
     {
+        private readonly string anio = Utilidades.anio;
         private readonly string connectionString = Utilidades.cadena();
         public string Mantenimiento(EAlumno alumno, string opcion)
         {
@@ -68,15 +66,18 @@ namespace Datos
                 }
             }
         }
-
         public DataTable Listar()
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
+                string query = "SELECT * FROM alumnos";
+                if(anio != "TODOS")
+                    query += " WHERE anio_registro = @anio";                
                 connection.Open();
-                using (NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM alumnos", connection))
+                using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
                 {
-
+                    if(anio != "TODOS")
+                        command.Parameters.AddWithValue("@anio", Convert.ToInt32(anio));
                     NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
@@ -139,7 +140,7 @@ namespace Datos
                     using (var cmd = new NpgsqlCommand("SELECT * FROM alumnos WHERE dni = @dni and anio_registro = @anio_registro", conn))
                     {
                         cmd.Parameters.AddWithValue("@dni", dni);
-                        cmd.Parameters.AddWithValue("@anio_registro", DateTime.Now.Year);
+                        cmd.Parameters.AddWithValue("@anio_registro", Convert.ToInt32(anio));
                         using (var reader = cmd.ExecuteReader())
                         {
                             reader.Read();
@@ -239,16 +240,21 @@ namespace Datos
             }
             return dataTable;
         }
-
         public DataTable BuscarPorNombreODNI(string valorBuscado)
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
+                string query = "SELECT * FROM alumnos WHERE LOWER(dni) LIKE LOWER(@valor_buscado) OR LOWER(apellidos_nombres) LIKE LOWER(@valor_buscado)";
+                if(anio != "TODOS")
+                    query = "SELECT * FROM alumnos WHERE anio_registro = @anio_registro and (LOWER(dni) LIKE LOWER(@valor_buscado) OR LOWER(apellidos_nombres) LIKE LOWER(@valor_buscado))";
+
                 connection.Open();
 
-                using (NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM alumnos WHERE LOWER(dni) LIKE LOWER(@valor_buscado) OR LOWER(apellidos_nombres) LIKE LOWER(@valor_buscado)", connection))
+                using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@valor_buscado", "%" + valorBuscado.ToLower() + "%");
+                    if(anio != "TODOS")
+                        command.Parameters.AddWithValue("@anio_registro", Convert.ToInt32(anio));
                     NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
@@ -263,13 +269,26 @@ namespace Datos
             {
                 connection.Open();
 
-                string query = "SELECT * FROM alumnos WHERE grado = @grado OR seccion =@seccion";
-                if(grado != 0 && seccion != "")
-                    query = "SELECT * FROM alumnos WHERE grado = @grado AND seccion =@seccion";
+                string query = "SELECT * FROM alumnos";
+                if (grado != 0 && seccion != "")
+                {
+                    query += "WHERE grado = @grado AND seccion =@seccion";
+                    if (anio != "TODOS")
+                        query += " AND anio_registro = @anio_registro";
+                }
+                else
+                {
+                    if (anio != "TODOS")
+                        query += " WHERE anio_registro = @anio_registro and (grado = @grado OR seccion =@seccion)";
+                    else
+                        query += " WHERE grado = @grado OR seccion =@seccion";
+                }
                 using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@grado", grado);
                     command.Parameters.AddWithValue("@seccion", seccion.ToUpper());
+                    if(anio != "TODOS")
+                        command.Parameters.AddWithValue("@anio_registro", Convert.ToInt32(anio));
                     NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);

@@ -1,7 +1,7 @@
 ﻿
 namespace Presentacion
 {
-    partial class KResumenGrado
+    partial class KGeneral
     {
         /// <summary>
         /// Required designer variable.

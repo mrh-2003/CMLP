@@ -11,6 +11,7 @@ namespace Datos
 {
     public class DPago
     {
+        private readonly string anio = Utilidades.anio;
         private readonly string connectionString = Utilidades.cadena();
         public List<EPago> Listar()
         {
@@ -24,8 +25,14 @@ namespace Datos
                     using (var trans = conn.BeginTransaction())
                     {
                         string query = "SELECT * FROM pagos";
+                        if(anio != "TODOS")
+                            query += " WHERE EXTRACT(YEAR FROM vencimiento) = @anio ORDER BY vencimiento";
+                        else
+                            query += " ORDER BY vencimiento";
                         using (var cmd = new NpgsqlCommand(query, conn, trans))
                         {
+                            if(anio != "TODOS")
+                                cmd.Parameters.AddWithValue("@anio", Convert.ToInt32(anio));
                             using (var reader = cmd.ExecuteReader())
                             {
                                 while (reader.Read())

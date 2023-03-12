@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Datos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -44,7 +45,7 @@ namespace Presentacion
 
         private void subMenukardexResumenDeGrado_Click(object sender, EventArgs e)
         {
-            abrirFormHija(new KResumenGrado());
+            abrirFormHija(new KGeneral());
         }
 
         private void btnCargarAlum_Click(object sender, EventArgs e)
@@ -64,17 +65,23 @@ namespace Presentacion
 
         private void btnRAlumnos_Click(object sender, EventArgs e)
         {
-
+            menuRAlum.Show(btnRAlumnos, btnRAlumnos.Width, 4);
         }
 
         private void btnBoleta_Click(object sender, EventArgs e)
         {
-            abrirFormHija(new MBoleta());
+            if (Utilidades.VerificarConexionInternet()) 
+                abrirFormHija(new MBoleta());
+            else
+                MessageBox.Show("Para poder generar una boleta, debe estar conectado a internet", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnCargarBol_Click(object sender, EventArgs e)
         {
-            abrirFormHija(new CBoletas());
+            if (Utilidades.VerificarConexionInternet())
+                abrirFormHija(new CBoletas());
+            else
+                MessageBox.Show("Para poder cargar una boleta, debe estar conectado a internet", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnConceptos_Click(object sender, EventArgs e)
@@ -115,6 +122,26 @@ namespace Presentacion
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
             abrirFormHija(new MUsuariosAdmin());
+        }
+
+        private void submenuPenGradoMes_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new RPencionesXMesGrado());
+        }
+
+        private void submenuDeuFecha_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new RDeudoresXFecha());
+        }
+
+        private void submenuDeuGrado_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new RDeudoresXFechaXGrado());
+        }
+
+        private void Home_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

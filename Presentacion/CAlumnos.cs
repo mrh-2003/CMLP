@@ -43,7 +43,7 @@ namespace Presentacion
                     foreach (EPago pago in pagos)
                     {
                         ECalendario eCalendario;
-                        if (pago.Descripcion == "Alimnetacion" && alumno.Descuento != "Ninguna")
+                        if (pago.Descripcion == "Alimentación" && alumno.Descuento != "Ninguna")
                         {
                             if(alumno.Descuento == "Beca")
                             {
