@@ -30,24 +30,17 @@ namespace Presentacion
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.btnConsultar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txbPendiente = new System.Windows.Forms.TextBox();
             this.txbCancelado = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.txbTelefono = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblSeccion = new System.Windows.Forms.Label();
             this.lblAnio = new System.Windows.Forms.Label();
-            this.txbDireccion = new System.Windows.Forms.TextBox();
-            this.tbxAlumno = new System.Windows.Forms.TextBox();
-            this.txbCorreo = new System.Windows.Forms.TextBox();
             this.txbDni = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -58,39 +51,19 @@ namespace Presentacion
             this.label2 = new System.Windows.Forms.Label();
             this.fechahora = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.lbNombre = new System.Windows.Forms.Label();
+            this.lbEmail = new System.Windows.Forms.Label();
+            this.lbTelefono = new System.Windows.Forms.Label();
+            this.dgvListar = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnConsultar
-            // 
-            this.btnConsultar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(19)))));
-            this.btnConsultar.FlatAppearance.BorderSize = 0;
-            this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsultar.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsultar.ForeColor = System.Drawing.Color.White;
-            this.btnConsultar.Location = new System.Drawing.Point(769, 271);
-            this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(129, 44);
-            this.btnConsultar.TabIndex = 6;
-            this.btnConsultar.Text = "Consultar";
-            this.btnConsultar.UseVisualStyleBackColor = false;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 338);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(944, 267);
-            this.dataGridView1.TabIndex = 7;
             // 
             // txbPendiente
             // 
             this.txbPendiente.Font = new System.Drawing.Font("Verdana", 11F);
             this.txbPendiente.Location = new System.Drawing.Point(517, 651);
             this.txbPendiente.Name = "txbPendiente";
+            this.txbPendiente.ReadOnly = true;
             this.txbPendiente.Size = new System.Drawing.Size(152, 25);
             this.txbPendiente.TabIndex = 56;
             // 
@@ -99,6 +72,7 @@ namespace Presentacion
             this.txbCancelado.Font = new System.Drawing.Font("Verdana", 11F);
             this.txbCancelado.Location = new System.Drawing.Point(291, 651);
             this.txbCancelado.Name = "txbCancelado";
+            this.txbCancelado.ReadOnly = true;
             this.txbCancelado.Size = new System.Drawing.Size(152, 25);
             this.txbCancelado.TabIndex = 55;
             // 
@@ -134,16 +108,6 @@ namespace Presentacion
             this.label11.Size = new System.Drawing.Size(207, 18);
             this.label11.TabIndex = 52;
             this.label11.Text = "** Resumen de Totales **";
-            // 
-            // txbTelefono
-            // 
-            this.txbTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbTelefono.Location = new System.Drawing.Point(131, 269);
-            this.txbTelefono.MaxLength = 9;
-            this.txbTelefono.Name = "txbTelefono";
-            this.txbTelefono.Size = new System.Drawing.Size(180, 23);
-            this.txbTelefono.TabIndex = 4;
-            this.txbTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbTelefono_KeyPress);
             // 
             // label17
             // 
@@ -188,32 +152,6 @@ namespace Presentacion
             this.lblAnio.TabIndex = 92;
             this.lblAnio.Text = "...";
             // 
-            // txbDireccion
-            // 
-            this.txbDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbDireccion.Location = new System.Drawing.Point(129, 309);
-            this.txbDireccion.Name = "txbDireccion";
-            this.txbDireccion.Size = new System.Drawing.Size(435, 23);
-            this.txbDireccion.TabIndex = 5;
-            this.txbDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbDireccion_KeyPress);
-            // 
-            // tbxAlumno
-            // 
-            this.tbxAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxAlumno.Location = new System.Drawing.Point(129, 190);
-            this.tbxAlumno.Name = "tbxAlumno";
-            this.tbxAlumno.Size = new System.Drawing.Size(404, 23);
-            this.tbxAlumno.TabIndex = 2;
-            this.tbxAlumno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxAlumno_KeyPress);
-            // 
-            // txbCorreo
-            // 
-            this.txbCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbCorreo.Location = new System.Drawing.Point(129, 229);
-            this.txbCorreo.Name = "txbCorreo";
-            this.txbCorreo.Size = new System.Drawing.Size(264, 23);
-            this.txbCorreo.TabIndex = 3;
-            // 
             // txbDni
             // 
             this.txbDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -222,6 +160,7 @@ namespace Presentacion
             this.txbDni.Name = "txbDni";
             this.txbDni.Size = new System.Drawing.Size(121, 23);
             this.txbDni.TabIndex = 1;
+            this.txbDni.TextChanged += new System.EventHandler(this.txbDni_TextChanged);
             this.txbDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbDni_KeyPress);
             // 
             // label10
@@ -234,17 +173,6 @@ namespace Presentacion
             this.label10.Size = new System.Drawing.Size(72, 18);
             this.label10.TabIndex = 87;
             this.label10.Text = "Sección:";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Verdana", 11F);
-            this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(43, 310);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(82, 18);
-            this.label16.TabIndex = 85;
-            this.label16.Text = "Direccion:";
             // 
             // label9
             // 
@@ -350,20 +278,68 @@ namespace Presentacion
             this.label1.TabIndex = 79;
             this.label1.Text = "Karde´x de un Determinado Alumno";
             // 
+            // lbNombre
+            // 
+            this.lbNombre.AutoSize = true;
+            this.lbNombre.Font = new System.Drawing.Font("Verdana", 11F);
+            this.lbNombre.ForeColor = System.Drawing.Color.White;
+            this.lbNombre.Location = new System.Drawing.Point(133, 195);
+            this.lbNombre.Name = "lbNombre";
+            this.lbNombre.Size = new System.Drawing.Size(71, 18);
+            this.lbNombre.TabIndex = 94;
+            this.lbNombre.Text = "Alumno:";
+            // 
+            // lbEmail
+            // 
+            this.lbEmail.AutoSize = true;
+            this.lbEmail.Font = new System.Drawing.Font("Verdana", 11F);
+            this.lbEmail.ForeColor = System.Drawing.Color.White;
+            this.lbEmail.Location = new System.Drawing.Point(133, 232);
+            this.lbEmail.Name = "lbEmail";
+            this.lbEmail.Size = new System.Drawing.Size(71, 18);
+            this.lbEmail.TabIndex = 95;
+            this.lbEmail.Text = "Alumno:";
+            // 
+            // lbTelefono
+            // 
+            this.lbTelefono.AutoSize = true;
+            this.lbTelefono.Font = new System.Drawing.Font("Verdana", 11F);
+            this.lbTelefono.ForeColor = System.Drawing.Color.White;
+            this.lbTelefono.Location = new System.Drawing.Point(133, 271);
+            this.lbTelefono.Name = "lbTelefono";
+            this.lbTelefono.Size = new System.Drawing.Size(71, 18);
+            this.lbTelefono.TabIndex = 96;
+            this.lbTelefono.Text = "Alumno:";
+            // 
+            // dgvListar
+            // 
+            this.dgvListar.AllowUserToAddRows = false;
+            this.dgvListar.AllowUserToResizeRows = false;
+            this.dgvListar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvListar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListar.Location = new System.Drawing.Point(33, 353);
+            this.dgvListar.Name = "dgvListar";
+            this.dgvListar.ReadOnly = true;
+            this.dgvListar.RowHeadersVisible = false;
+            this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvListar.Size = new System.Drawing.Size(926, 235);
+            this.dgvListar.TabIndex = 98;
+            // 
             // KAlumno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(65)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(992, 681);
+            this.Controls.Add(this.dgvListar);
+            this.Controls.Add(this.lbTelefono);
+            this.Controls.Add(this.lbEmail);
+            this.Controls.Add(this.lbNombre);
             this.Controls.Add(this.lblSeccion);
             this.Controls.Add(this.lblAnio);
-            this.Controls.Add(this.txbDireccion);
-            this.Controls.Add(this.tbxAlumno);
-            this.Controls.Add(this.txbCorreo);
             this.Controls.Add(this.txbDni);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.label16);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label15);
@@ -373,46 +349,36 @@ namespace Presentacion
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnConsultar);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txbPendiente);
             this.Controls.Add(this.txbCancelado);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.txbTelefono);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label6);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "KAlumno";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KardexAlumno";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.KAlumno_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnConsultar;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox txbPendiente;
         private System.Windows.Forms.TextBox txbCancelado;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txbTelefono;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblSeccion;
         private System.Windows.Forms.Label lblAnio;
-        private System.Windows.Forms.TextBox txbDireccion;
-        private System.Windows.Forms.TextBox tbxAlumno;
-        private System.Windows.Forms.TextBox txbCorreo;
         private System.Windows.Forms.TextBox txbDni;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label15;
@@ -423,5 +389,9 @@ namespace Presentacion
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer fechahora;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbNombre;
+        private System.Windows.Forms.Label lbEmail;
+        private System.Windows.Forms.Label lbTelefono;
+        private System.Windows.Forms.DataGridView dgvListar;
     }
 }

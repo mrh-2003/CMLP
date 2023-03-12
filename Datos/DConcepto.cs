@@ -147,7 +147,7 @@ namespace Datos
                             {
                                 Codigo = reader.GetInt32(0),
                                 Concepto = reader.GetString(1),
-                                Importe = reader.GetInt32(2),
+                                Importe = reader.GetDecimal(2),
                             };
                             return eConcepto;
                         }

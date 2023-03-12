@@ -419,6 +419,182 @@ namespace Datos
                 }
             }
         }
+        public DataTable KardexGeneral()
+        {
+            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+            {
+                string query = @"SELECT a.apellidos_nombres as ""APELLIDOS Y NOMBRES"", c.emision AS ""EMISION"", c.vencimiento AS ""VENCE EL"", c.concepto_codigo AS ""CP"", c.cancelacion AS ""CANCELADO"", 
+                        c.descripcion AS ""MOTIVO DE PAGO"", c.monto_total AS ""IMPORTE"", c.mora AS ""IMP/MORA"" FROM calendarios c INNER JOIN 
+                        alumnos a on a.id = c.alumno_id";
+                if (anio != "TODOS")
+                    query += " WHERE EXTRACT(YEAR FROM c.vencimiento) = @anio ORDER BY c.vencimiento";
+                else
+                    query += " ORDER BY c.vencimiento";
+                connection.Open();
 
+                using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
+                {
+                    if (anio != "TODOS")
+                        command.Parameters.AddWithValue("@anio", Convert.ToInt32(anio));
+                    NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    return dt;
+                }
+            }
+        }
+        public DataTable KardexXAlumno(string dni)
+        {
+            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+            {
+                string query = @"SELECT a.apellidos_nombres as ""APELLIDOS Y NOMBRES"", c.emision AS ""EMISION"", c.vencimiento AS ""VENCE EL"", c.concepto_codigo AS ""CP"", c.cancelacion AS ""CANCELADO"", 
+                        c.descripcion AS ""MOTIVO DE PAGO"", c.monto_total AS ""IMPORTE"", c.mora AS ""IMP/MORA"" FROM calendarios c INNER JOIN 
+                        alumnos a on a.id = c.alumno_id WHERE a.dni = @dni";
+                if (anio != "TODOS")
+                    query += " and EXTRACT(YEAR FROM c.vencimiento) = @anio ORDER BY c.vencimiento";
+                else
+                    query += " ORDER BY c.vencimiento";
+                connection.Open();
+
+                using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@dni", dni);
+                    if (anio != "TODOS")
+                        command.Parameters.AddWithValue("@anio", Convert.ToInt32(anio));
+                    NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    return dt;
+                }
+            }
+        }
+        public decimal PagadoPorAlumno(string dni)
+        {
+            decimal total = 0;
+
+            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+            {
+                string query = "select sum(c.monto_total + c.mora) from calendarios c inner join alumnos a on a.id = c.alumno_id  where c.monto_total <= c.monto_pagado and a.dni = @dni";
+                if (anio != "TODOS")
+                    query += " and EXTRACT(YEAR FROM c.vencimiento) = @anio";
+
+                connection.Open();
+
+                using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("dni", dni);
+                    if (anio != "TODOS")
+                        command.Parameters.AddWithValue("@anio", Convert.ToInt32(anio));
+
+                    using (NpgsqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            if (!reader.IsDBNull(0))
+                            {
+                                total = reader.GetDecimal(0);
+                            }
+                        }
+                    }
+                }
+            }
+            return total;
+        }
+        public decimal DeudaPorAlumno(string dni)
+        {
+            decimal total = 0;
+
+            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+            {
+                string query = "select sum(c.monto_total - c.monto_pagado) from calendarios c inner join alumnos a on a.id = c.alumno_id where c.monto_total > c.monto_pagado and a.dni = @dni";
+                if (anio != "TODOS")
+                    query += " and EXTRACT(YEAR FROM c.vencimiento) = @anio";
+
+                connection.Open();
+
+                using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("dni", dni);
+                    if (anio != "TODOS")
+                        command.Parameters.AddWithValue("@anio", Convert.ToInt32(anio));
+
+                    using (NpgsqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            if (!reader.IsDBNull(0))
+                            {
+                                total = reader.GetDecimal(0);
+                            }
+                        }
+                    }
+                }
+            }
+            return total;
+        }
+        public decimal PagadoGeneral()
+        {
+            decimal total = 0;
+
+            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+            {
+                string query = "select sum(c.monto_total + c.mora) from calendarios c inner join alumnos a on a.id = c.alumno_id  where c.monto_total <= c.monto_pagado";
+                if (anio != "TODOS")
+                    query += " and EXTRACT(YEAR FROM c.vencimiento) = @anio";
+
+                connection.Open();
+
+                using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
+                {
+                    if (anio != "TODOS")
+                        command.Parameters.AddWithValue("@anio", Convert.ToInt32(anio));
+
+                    using (NpgsqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            if (!reader.IsDBNull(0))
+                            {
+                                total = reader.GetDecimal(0);
+                            }
+                        }
+                    }
+                }
+            }
+            return total;
+        }
+        public decimal DeudaGeneral()
+        {
+            decimal total = 0;
+
+            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+            {
+                string query = "select sum(c.monto_total - c.monto_pagado) from calendarios c inner join alumnos a on a.id = c.alumno_id where c.monto_total > c.monto_pagado";
+                if (anio != "TODOS")
+                    query += " and EXTRACT(YEAR FROM c.vencimiento) = @anio";
+
+                connection.Open();
+
+                using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
+                {
+                    if (anio != "TODOS")
+                        command.Parameters.AddWithValue("@anio", Convert.ToInt32(anio));
+
+                    using (NpgsqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            if (!reader.IsDBNull(0))
+                            {
+                                total = reader.GetDecimal(0);
+                            }
+                        }
+                    }
+                }
+            }
+            return total;
+        }
     }
 }
