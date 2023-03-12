@@ -18,6 +18,7 @@ namespace Presentacion
         private List<EBoleta> listaBoletas = new List<EBoleta>();
         DAlumno dAlumno = new DAlumno();
         DBoleta dBoleta = new DBoleta();
+        DBancoDTO dBancoDTO = new DBancoDTO();
         public CBoletas()
         {
             InitializeComponent();
@@ -41,7 +42,16 @@ namespace Presentacion
         }
         int obtenerConcepto(EBoleta boleta)
         {
-            return boleta.ConceptoCodigo;
+            List<EBancoDTO> lista = dBancoDTO.ListarConCalendario();
+            EAlumno alumno = dAlumno.getAlumnoById(boleta.AlumnoId);
+            EBancoDTO eBancoDTO = lista.Find(x => x.NCredito == alumno.Dni && x.SPagado == boleta.Monto);
+            if (eBancoDTO != null)
+            {
+                int concepto = eBancoDTO.NCuota;
+                dBancoDTO.Mantenimiento(eBancoDTO, "delete");
+                return concepto;
+            }
+            return -1;
         }
         private void cargarBoletas()
         {
@@ -61,7 +71,10 @@ namespace Presentacion
                     eBoleta.Monto = sd.GetCellValueAsDecimal(irow, 3);
                     eBoleta.Fecha = sd.GetCellValueAsDateTime(irow, 4);
                     eBoleta.ConceptoCodigo = obtenerConcepto(eBoleta);
-                    listaBoletas.Add(eBoleta);
+                    if(eBoleta.ConceptoCodigo == -1)
+                        fallo += "Fila " + irow + " CONCEPTO no encontrado : " + sd.GetCellValueAsString(irow, 2) + "\n";
+                    else 
+                        listaBoletas.Add(eBoleta);
                 }
                 else
                     fallo += "Fila " + irow + " DNI no encontrado : " + sd.GetCellValueAsString(irow, 2) + "\n";
