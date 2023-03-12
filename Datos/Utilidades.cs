@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,6 +54,60 @@ namespace Datos
             {
                 return false;
             }
-        }  
+        }
+        public static async Task<string> EnviarCorreo(string remitente, string password, string destinatario, string asunto, string cuerpo)
+        {
+            if (string.IsNullOrEmpty(remitente))
+                throw new ArgumentException("El remitente no puede ser nulo ni vacío.", nameof(remitente));
+
+            if (string.IsNullOrEmpty(password))
+                throw new ArgumentException("La contraseña no puede ser nula ni vacía.", nameof(password));
+            if (string.IsNullOrEmpty(destinatario))
+                throw new ArgumentException("El destinatario no puede ser nulo ni vacío.", nameof(destinatario));
+            using (MailMessage message = new MailMessage())
+            {
+                using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+                {
+                    message.From = new MailAddress(remitente);
+                    message.To.Add(destinatario);
+                    message.Subject = asunto;
+                    message.SubjectEncoding = System.Text.Encoding.UTF8;
+                    message.Body = cuerpo;
+                    message.BodyEncoding = System.Text.Encoding.UTF8;
+                    message.IsBodyHtml = true;
+
+                    smtp.UseDefaultCredentials = false;
+                    smtp.Credentials = new NetworkCredential(remitente, password);
+                    smtp.EnableSsl = true;
+
+                    try
+                    {
+                        await smtp.SendMailAsync(message);
+                        return "El correo electrónico se envió correctamente.";
+                    }
+                    catch (Exception ex)
+                    {
+                        return string.Format("Error al enviar el correo electrónico: {0}", ex.Message);
+                    }
+                }
+            }
+        }
+
+        public static bool VerificarConexionInternet()
+        {
+            try
+            {
+                using (var cliente = new WebClient())
+                using (var stream = cliente.OpenRead("http://www.google.com"))
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
     }
 }

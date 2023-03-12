@@ -17,5 +17,6 @@ namespace Entidades
         public string ACliente { get; set; }
         public decimal SInterMora { get; set; }
         public decimal SPagado { get; set; }
+        public bool Calendario { get; set; }
     }
 }

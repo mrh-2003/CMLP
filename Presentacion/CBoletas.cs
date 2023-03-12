@@ -16,6 +16,8 @@ namespace Presentacion
     {
         private const string TITULO_ALERTA = "Error de Entrada";
         private List<EBoleta> listaBoletas = new List<EBoleta>();
+        DAlumno dAlumno = new DAlumno();
+        DBoleta dBoleta = new DBoleta();
         public CBoletas()
         {
             InitializeComponent();
@@ -23,51 +25,68 @@ namespace Presentacion
 
         private void btnAbrir_Click(object sender, EventArgs e)
         {
-            string downloadsFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Downloads";
-            openFile.InitialDirectory = downloadsFolder;
-            openFile.Filter = "xlsx (*.xlsx)|*.xlsx";
-            if (openFile.ShowDialog() == DialogResult.OK)
+            if (Utilidades.VerificarConexionInternet())
             {
-                cargarBoletas();
+                string downloadsFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Downloads";
+                openFile.InitialDirectory = downloadsFolder;
+                openFile.Filter = "xlsx (*.xlsx)|*.xlsx";
+                if (openFile.ShowDialog() == DialogResult.OK)
+                {
+                    cargarBoletas();
+                }
             }
-            
+            else
+                MessageBox.Show("No hay conexion a internet");
+
+        }
+        int obtenerConcepto(EBoleta boleta)
+        {
+            return boleta.ConceptoCodigo;
         }
         private void cargarBoletas()
         {
+            string fallo = "";
             string directionFile = openFile.FileName;
             SLDocument sd = new SLDocument(directionFile);
             int irow = 1;
             while (!string.IsNullOrEmpty(sd.GetCellValueAsString(irow, 1)))
             {
-                EBoleta eBoleta = new EBoleta()
+                EBoleta eBoleta = new EBoleta();
+                string dni = sd.GetCellValueAsString(irow, 2).Split('-')[0].Trim();
+                EAlumno eAlumno = dAlumno.getAlumno(dni);
+                if (eAlumno != null)
                 {
-                    Codigo = sd.GetCellValueAsString(irow, 1),
-                    //AlumnoId = sd.GetCellValueAsString(irow, 2).Split('-')[0].Trim(),
-                    Monto = sd.GetCellValueAsDecimal(irow, 3),
-                    Fecha = sd.GetCellValueAsDateTime(irow, 4),
-                    ConceptoCodigo = sd.GetCellValueAsInt32(irow, 5)
-                };
-                listaBoletas.Add(eBoleta);
+                    eBoleta.Codigo = sd.GetCellValueAsString(irow, 1);
+                    eBoleta.AlumnoId = eAlumno.Id;
+                    eBoleta.Monto = sd.GetCellValueAsDecimal(irow, 3);
+                    eBoleta.Fecha = sd.GetCellValueAsDateTime(irow, 4);
+                    eBoleta.ConceptoCodigo = obtenerConcepto(eBoleta);
+                    listaBoletas.Add(eBoleta);
+                }
+                else
+                    fallo += "Fila " + irow + " DNI no encontrado : " + sd.GetCellValueAsString(irow, 2) + "\n";
                 irow++;
             }
             dgvListar.DataSource = listaBoletas;
+            if(fallo.Length > 0)
+            {
+                MessageBox.Show("Los errores fueron copiados al portapapeles");
+                Clipboard.SetText(fallo);
+            }
         }
 
-        private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
+        private async void btnCargar_Click(object sender, EventArgs e)
         {
-            if (!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (Utilidades.VerificarConexionInternet())
             {
-                e.Handled = true;
-                MessageBox.Show("Este campo solo acepta numeros. Introduce un valor válido", TITULO_ALERTA, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                foreach (EBoleta boleta in listaBoletas)
+                {
+                    dBoleta.Mantenimiento(boleta, "insert");
+                    await Utilidades.EnviarCorreo("huberjuanillo@gmail.com", "bobyyfoptgcwojbx", "74143981@pronabec.edu.pe", "Prueba", "Prueba");
+                }
             }
-        }
-        private void txtMonto_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if(!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
-            {
-                e.Handled = true;
-                MessageBox.Show("Este campo solo acepta numeros. Introduce un valor válido", TITULO_ALERTA, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+            else
+                MessageBox.Show("Necesita tener conexion a internet");
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Datos
     public class DBancoDTO
     {
         private readonly string connectionString = Utilidades.cadena();
-        public List<EBancoDTO> Listar()
+        public List<EBancoDTO> ListarSinCalendario()
         {
             List<EBancoDTO> lista = new List<EBancoDTO>();
 
@@ -23,7 +23,7 @@ namespace Datos
                     conn.Open();
                     using (var trans = conn.BeginTransaction())
                     {
-                        string query = "select * from banco";
+                        string query = "select * from banco where calendario = false";
                         using (var cmd = new NpgsqlCommand(query, conn, trans))
                         {
                             using (var reader = cmd.ExecuteReader())
@@ -40,6 +40,7 @@ namespace Datos
                                     banco.ACliente = reader.GetString(6);
                                     banco.SInterMora = reader.GetDecimal(7);
                                     banco.SPagado = reader.GetDecimal(8);
+                                    banco.Calendario = reader.GetBoolean(9);
                                     lista.Add(banco);
                                 }
                             }
@@ -54,7 +55,49 @@ namespace Datos
             }
             return lista;
         }
+        public List<EBancoDTO> ListarConCalendario()
+        {
+            List<EBancoDTO> lista = new List<EBancoDTO>();
 
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    using (var trans = conn.BeginTransaction())
+                    {
+                        string query = "select * from banco where calendario = true";
+                        using (var cmd = new NpgsqlCommand(query, conn, trans))
+                        {
+                            using (var reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    EBancoDTO banco = new EBancoDTO();
+                                    banco.Id = reader.GetInt32(0);
+                                    banco.NCredito = reader.GetString(1);
+                                    banco.NCuota = reader.GetInt32(2);
+                                    banco.FVncmto = reader.GetDateTime(3);
+                                    banco.FPago = reader.GetDateTime(4);
+                                    banco.SImporte = reader.GetDecimal(5);
+                                    banco.ACliente = reader.GetString(6);
+                                    banco.SInterMora = reader.GetDecimal(7);
+                                    banco.SPagado = reader.GetDecimal(8);
+                                    banco.Calendario = reader.GetBoolean(9);
+                                    lista.Add(banco);
+                                }
+                            }
+                        }
+                        trans.Commit();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return lista;
+        }
         public string EliminarTodo()
         {
             using (var conn = new NpgsqlConnection(connectionString))
@@ -66,6 +109,28 @@ namespace Datos
 
                     using (var cmd = new NpgsqlCommand(query, conn))
                     {
+                        cmd.ExecuteNonQuery();
+                    }
+                    return "Accion realizada con exito";
+                }
+                catch (Exception ex)
+                {
+                    return ex.Message;
+                }
+            }
+        }
+        public string ActualizarCalendario()
+        {
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "UPDATE banco SET calendario = @calendario";
+
+                    using (var cmd = new NpgsqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@calendario", true);
                         cmd.ExecuteNonQuery();
                     }
                     return "Accion realizada con exito";
@@ -93,7 +158,7 @@ namespace Datos
                         }
                         else if (opcion == "update")
                         {
-                            query = "UPDATE banco SET ncredito = @ncredito, ncuota = @ncuota, fvncmto = @fvncmto, fpago = @fpago, simporte = @simporte, acliente = @acliente, sintermora = @sintermora, spagado = @spagado WHERE id = @id";
+                            query = "UPDATE banco SET ncredito = @ncredito, ncuota = @ncuota, fvncmto = @fvncmto, fpago = @fpago, simporte = @simporte, acliente = @acliente, sintermora = @sintermora, spagado = @spagado, calendario = @calendario WHERE id = @id";
                         }
                         else
                         {
@@ -110,6 +175,7 @@ namespace Datos
                             cmd.Parameters.AddWithValue("@acliente", banco.ACliente);
                             cmd.Parameters.AddWithValue("@sintermora", banco.SInterMora);
                             cmd.Parameters.AddWithValue("@spagado", banco.SPagado);
+                            cmd.Parameters.AddWithValue("@calendario", banco.Calendario);
                             cmd.ExecuteNonQuery();
                         }
                         trans.Commit();

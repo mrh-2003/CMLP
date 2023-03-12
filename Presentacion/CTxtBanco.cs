@@ -80,7 +80,7 @@ namespace Presentacion
 
         void mostrar()
         {
-            dgvListar.DataSource = dBanco.Listar();
+            dgvListar.DataSource = dBanco.ListarSinCalendario();
             if(dgvListar.RowCount  > 0 )
                 dgvListar.Rows[0].Selected = true;
         }
@@ -95,8 +95,11 @@ namespace Presentacion
             if (e.ColumnIndex == dgvListar.Columns["btnCompletar"].Index && e.RowIndex >= 0)
             {
                 EBancoDTO eBanco = dgvListar.Rows[e.RowIndex].DataBoundItem as EBancoDTO;
-                if(completarCalendario(eBanco))
-                    dBanco.Mantenimiento(eBanco, "delete");
+                if (completarCalendario(eBanco))
+                {
+                    eBanco.Calendario = true;
+                    dBanco.Mantenimiento(eBanco, "update");
+                }
                 else
                     MessageBox.Show("Este registro no coincide con ningun dato del calendario por lo cual no se puede eliminar, revise el cobro y el calendario de pagos y modifique manualmente el pago realizado por el alumno, despues de ello puede precionar el boton de eliminar todo para que se limpie los pagos pendientes de boleta");
                 mostrar();
@@ -127,9 +130,51 @@ namespace Presentacion
         {
             if (MessageBox.Show("¿Está seguro de que desea continuar?\nEsta accion eliminara todos los registros", "Confirmación", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                dBanco.EliminarTodo();
+                dBanco.ActualizarCalendario();
                 mostrar();
             }
+        }
+
+        private void dgvListar_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvListar.SelectedRows.Count > 0) // asegurarse de que haya una fila seleccionada
+                {
+                    EBancoDTO eBanco = dgvListar.SelectedRows[0].DataBoundItem as EBancoDTO;
+                    btnNombre.Text = "Nombre: " + eBanco.ACliente;
+                    btnDNI.Text = "DNI: " + eBanco.NCredito;
+                    btnImp.Text = "Importe: " + eBanco.SPagado;
+                    btnDesc.Text = "Descripcion: " + eBanco.NCuota;
+        }
+            }
+            catch (Exception)
+            {
+                btnNombre.Text = "Nombre: ";
+                btnDNI.Text = "DNI: " ;
+                btnImp.Text = "Importe: ";
+                btnDesc.Text = "Descripcion: ";
+            }
+        }
+
+        private void btnNombre_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(btnNombre.Text.Split(':')[1].Trim());
+        }
+
+        private void btnDNI_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(btnDNI.Text.Split(':')[1].Trim());
+        }
+
+        private void btnImp_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(btnImp.Text.Split(':')[1].Trim());
+        }
+
+        private void btnDesc_Click(object sender, EventArgs e)
+        {   
+            Clipboard.SetText(btnDesc.Text.Split(':')[1].Trim());
         }
     }
 }

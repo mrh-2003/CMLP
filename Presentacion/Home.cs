@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Datos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -69,12 +70,18 @@ namespace Presentacion
 
         private void btnBoleta_Click(object sender, EventArgs e)
         {
-            abrirFormHija(new MBoleta());
+            if (Utilidades.VerificarConexionInternet()) 
+                abrirFormHija(new MBoleta());
+            else
+                MessageBox.Show("Para poder generar una boleta, debe estar conectado a internet", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnCargarBol_Click(object sender, EventArgs e)
         {
-            abrirFormHija(new CBoletas());
+            if (Utilidades.VerificarConexionInternet())
+                abrirFormHija(new CBoletas());
+            else
+                MessageBox.Show("Para poder cargar una boleta, debe estar conectado a internet", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnConceptos_Click(object sender, EventArgs e)
