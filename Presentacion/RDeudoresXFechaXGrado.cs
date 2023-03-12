@@ -20,17 +20,14 @@ namespace Presentacion
         {
             InitializeComponent();
         }
-
         private void dtpFecha_ValueChanged(object sender, EventArgs e)
         {
             dgvListar.DataSource = dCalendario.ListarDeudoresXFechaXGrado(dtpFecha.Value, cbxGrado.Text != "" ? Convert.ToInt32(cbxGrado.Text) : 0);
         }
-
         private void cbxGrado_SelectedIndexChanged(object sender, EventArgs e)
         {
             dgvListar.DataSource = dCalendario.ListarDeudoresXFechaXGrado(dtpFecha.Value, cbxGrado.Text != "" ? Convert.ToInt32(cbxGrado.Text) : 0);
         }
-
         private void RDeudoresXFechaXGrado_Load(object sender, EventArgs e)
         {
             dgvListar.DataSource = dCalendario.ListarDeudoresXFechaXGrado(dtpFecha.Value, cbxGrado.Text != "" ? Convert.ToInt32(cbxGrado.Text) : 0);

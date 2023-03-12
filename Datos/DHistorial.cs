@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Entidades;
 using System.Data;
 using Npgsql;
-
 namespace Datos
 {
     public class DHistorial
