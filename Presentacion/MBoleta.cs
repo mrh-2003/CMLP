@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
 using Datos;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
+using iTextSharp.tool.xml;
+using System.IO;
 
 namespace Presentacion
 {
@@ -254,6 +258,108 @@ namespace Presentacion
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             dgvListar.DataSource = dBoleta.BuscarPorCodigoOdni(txtBuscar.Text);
+        }
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog savefile = new SaveFileDialog();
+            savefile.FileName = string.Format("{0}.pdf", DateTime.Now.ToString("ddMMyyyyHHmmss"));
+
+            string PaginaHTML_Texto = Properties.Resources.DBoleta.ToString();
+
+            // Obtener la fila seleccionada
+            DataGridViewRow filaSeleccionada = dgvListar.SelectedRows[0];
+
+            // Crear una lista para almacenar los valores de las celdas de la fila seleccionada
+            List<string> valoresCeldasFila = new List<string>();
+
+            // Recorrer todas las celdas de la fila seleccionada y agregar sus valores a la lista
+            int count = 0;
+            foreach (DataGridViewCell celda in filaSeleccionada.Cells)
+            {
+                if (count == 4)
+                {
+                    valoresCeldasFila.Add(Convert.ToDateTime(celda.Value).ToString("dd/MM/yyyy"));
+                }
+                else
+                    valoresCeldasFila.Add(celda.Value.ToString());
+                count++;
+            }
+
+            // Reemplazar los valores en la cadena HTML
+            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@CODIGO", valoresCeldasFila[0]);
+            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@DNI", valoresCeldasFila[1]);
+            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@APELLIDOS_NOMBRES", valoresCeldasFila[2]);
+            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@MONTO", valoresCeldasFila[3]);
+            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FECHA", valoresCeldasFila[4]);
+            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@CONCEPTO_CODIGO", dConcepto.getConcepto(Convert.ToInt32(valoresCeldasFila[5])).Concepto);
+
+            StringBuilder filas = new StringBuilder();
+            foreach (DataGridViewRow row in dgvListar.Rows)
+            {
+                filas.Append("<tr>");
+                if (row.Cells["CODIGO"].Value != null)
+                {
+                    filas.AppendFormat("<td style=\"text-align:center;\">{0}</td>", row.Cells["CODIGO"].Value.ToString());
+                }
+                else
+                {
+                    filas.Append("<td style=\"text-align:center;\"> </td>");
+                }
+                if (row.Cells["DNI"].Value != null)
+                {
+                    filas.AppendFormat("<td style=\"text-align:center;\">{0}</td>", row.Cells["DNI"].Value.ToString());
+                }
+                else
+                {
+                    filas.Append("<td style=\"text-align:center;\"> </td>");
+                }
+                if (row.Cells["APELLIDOS_NOMBRES"].Value != null)
+                {
+                    filas.AppendFormat("<td style=\"text-align:center;\">{0}</td>", row.Cells["APELLIDOS_NOMBRES"].Value.ToString());
+                }
+                else
+                {
+                    filas.Append("<td style=\"text-align:center;\"> </td>");
+                }
+                if (row.Cells["MONTO"].Value != null)
+                {
+                    filas.AppendFormat("<td style=\"text-align:center;\">{0}</td>", row.Cells["MONTO"].Value.ToString());
+                }
+                else
+                {
+                    filas.Append("<td style=\"text-align:center;\"> </td>");
+                }             
+                if (row.Cells["CONCEPTO_CODIGO"].Value != null)
+                {
+                    filas.AppendFormat("<td style=\"text-align:center;\">{0}</td>", row.Cells["CONCEPTO_CODIGO"].Value.ToString());
+                }
+                else
+                {
+                    filas.Append("<td style=\"text-align:center;\"> </td>");
+                }
+                filas.Append("</tr>");
+            }
+
+            if (savefile.ShowDialog() == DialogResult.OK)
+            {
+                using (FileStream stream = new FileStream(savefile.FileName, FileMode.Create))
+                {
+                    //Creamos un nuevo documento y lo definimos como PDF
+                    Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 25);
+
+                    PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+                    pdfDoc.Open();
+                    pdfDoc.Add(new Phrase(""));
+
+                    using (StringReader sr = new StringReader(PaginaHTML_Texto))
+                    {
+                        XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                    }
+                    pdfDoc.Close();
+                    stream.Close();
+                }
+
+            }
         }
     }
 }

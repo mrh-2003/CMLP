@@ -37,6 +37,7 @@
             this.btnDNI = new System.Windows.Forms.Button();
             this.btnImp = new System.Windows.Forms.Button();
             this.btnDesc = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,12 +47,16 @@
             // 
             // btnAbrir
             // 
-            this.btnAbrir.Location = new System.Drawing.Point(39, 12);
+            this.btnAbrir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(19)))));
+            this.btnAbrir.FlatAppearance.BorderSize = 0;
+            this.btnAbrir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAbrir.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAbrir.Location = new System.Drawing.Point(274, 216);
             this.btnAbrir.Name = "btnAbrir";
-            this.btnAbrir.Size = new System.Drawing.Size(75, 23);
+            this.btnAbrir.Size = new System.Drawing.Size(130, 42);
             this.btnAbrir.TabIndex = 0;
             this.btnAbrir.Text = "Abrir";
-            this.btnAbrir.UseVisualStyleBackColor = true;
+            this.btnAbrir.UseVisualStyleBackColor = false;
             this.btnAbrir.Click += new System.EventHandler(this.btnAbrir_Click);
             // 
             // dgvListar
@@ -62,13 +67,13 @@
             this.dgvListar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnCompletar});
-            this.dgvListar.Location = new System.Drawing.Point(27, 124);
+            this.dgvListar.Location = new System.Drawing.Point(25, 278);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.ReadOnly = true;
             this.dgvListar.RowHeadersVisible = false;
             this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListar.Size = new System.Drawing.Size(733, 344);
+            this.dgvListar.Size = new System.Drawing.Size(941, 391);
             this.dgvListar.TabIndex = 10;
             this.dgvListar.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellContentClick);
             this.dgvListar.SelectionChanged += new System.EventHandler(this.dgvListar_SelectionChanged);
@@ -84,63 +89,96 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(145, 12);
+            this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(19)))));
+            this.btnLimpiar.FlatAppearance.BorderSize = 0;
+            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.Location = new System.Drawing.Point(592, 216);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpiar.Size = new System.Drawing.Size(130, 41);
             this.btnLimpiar.TabIndex = 11;
             this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.UseVisualStyleBackColor = false;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnNombre
             // 
-            this.btnNombre.Location = new System.Drawing.Point(68, 38);
+            this.btnNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(19)))));
+            this.btnNombre.FlatAppearance.BorderSize = 0;
+            this.btnNombre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNombre.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNombre.Location = new System.Drawing.Point(339, 162);
             this.btnNombre.Margin = new System.Windows.Forms.Padding(0);
             this.btnNombre.Name = "btnNombre";
-            this.btnNombre.Size = new System.Drawing.Size(671, 21);
+            this.btnNombre.Size = new System.Drawing.Size(329, 29);
             this.btnNombre.TabIndex = 14;
             this.btnNombre.Text = "Nombre:";
-            this.btnNombre.UseVisualStyleBackColor = true;
+            this.btnNombre.UseVisualStyleBackColor = false;
             this.btnNombre.Click += new System.EventHandler(this.btnNombre_Click);
             // 
             // btnDNI
             // 
-            this.btnDNI.Location = new System.Drawing.Point(68, 59);
+            this.btnDNI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(19)))));
+            this.btnDNI.FlatAppearance.BorderSize = 0;
+            this.btnDNI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDNI.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDNI.Location = new System.Drawing.Point(745, 88);
             this.btnDNI.Margin = new System.Windows.Forms.Padding(0);
             this.btnDNI.Name = "btnDNI";
-            this.btnDNI.Size = new System.Drawing.Size(671, 21);
+            this.btnDNI.Size = new System.Drawing.Size(194, 26);
             this.btnDNI.TabIndex = 15;
             this.btnDNI.Text = "DNI:";
-            this.btnDNI.UseVisualStyleBackColor = true;
+            this.btnDNI.UseVisualStyleBackColor = false;
             this.btnDNI.Click += new System.EventHandler(this.btnDNI_Click);
             // 
             // btnImp
             // 
-            this.btnImp.Location = new System.Drawing.Point(68, 80);
+            this.btnImp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(19)))));
+            this.btnImp.FlatAppearance.BorderSize = 0;
+            this.btnImp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImp.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImp.Location = new System.Drawing.Point(53, 85);
             this.btnImp.Margin = new System.Windows.Forms.Padding(0);
             this.btnImp.Name = "btnImp";
-            this.btnImp.Size = new System.Drawing.Size(671, 21);
+            this.btnImp.Size = new System.Drawing.Size(194, 29);
             this.btnImp.TabIndex = 16;
             this.btnImp.Text = "Importe:";
-            this.btnImp.UseVisualStyleBackColor = true;
+            this.btnImp.UseVisualStyleBackColor = false;
             this.btnImp.Click += new System.EventHandler(this.btnImp_Click);
             // 
             // btnDesc
             // 
-            this.btnDesc.Location = new System.Drawing.Point(68, 100);
+            this.btnDesc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(19)))));
+            this.btnDesc.FlatAppearance.BorderSize = 0;
+            this.btnDesc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDesc.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDesc.Location = new System.Drawing.Point(361, 85);
             this.btnDesc.Margin = new System.Windows.Forms.Padding(0);
             this.btnDesc.Name = "btnDesc";
-            this.btnDesc.Size = new System.Drawing.Size(671, 21);
+            this.btnDesc.Size = new System.Drawing.Size(284, 29);
             this.btnDesc.TabIndex = 17;
             this.btnDesc.Text = "Descripcion: ";
-            this.btnDesc.UseVisualStyleBackColor = true;
+            this.btnDesc.UseVisualStyleBackColor = false;
             this.btnDesc.Click += new System.EventHandler(this.btnDesc_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(374, 3);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(295, 25);
+            this.label11.TabIndex = 89;
+            this.label11.Text = "Cargar Archivo del Banco";
             // 
             // CTxtBanco
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 546);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(65)))), ((int)(((byte)(45)))));
+            this.ClientSize = new System.Drawing.Size(992, 681);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.btnDesc);
             this.Controls.Add(this.btnImp);
             this.Controls.Add(this.btnDNI);
@@ -148,11 +186,14 @@
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.dgvListar);
             this.Controls.Add(this.btnAbrir);
+            this.ForeColor = System.Drawing.Color.White;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CTxtBanco";
             this.Text = "CTxtBanco";
             this.Load += new System.EventHandler(this.CTxtBanco_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -167,5 +208,6 @@
         private System.Windows.Forms.Button btnDNI;
         private System.Windows.Forms.Button btnImp;
         private System.Windows.Forms.Button btnDesc;
+        private System.Windows.Forms.Label label11;
     }
 }
