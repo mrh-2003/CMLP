@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Datos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace Presentacion
 {
     public partial class KGrado : Form
     {
+        DCalendario dCalendario = new DCalendario();
         public KGrado()
         {
             InitializeComponent();
@@ -30,6 +32,22 @@ namespace Presentacion
 
                 btnConsultar.PerformClick();
             }
+        }
+
+        private void KGrado_Load(object sender, EventArgs e)
+        {
+            dgvListar.DataSource = dCalendario.KardexGeneral();
+            txbCancelado.Text = dCalendario.PagadoGeneral().ToString();
+            txbPendiente.Text = dCalendario.DeudaGeneral().ToString();
+            dgvListar.ClearSelection();
+        }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            dgvListar.DataSource = dCalendario.KardexXGrado(Convert.ToInt32(cbxGrado.Text), Convert.ToChar(cbxSeccion.Text));
+            txbCancelado.Text = dCalendario.PagadoGradoSeccion(Convert.ToInt32(cbxGrado.Text), Convert.ToChar(cbxSeccion.Text)).ToString();
+            txbPendiente.Text = dCalendario.DeudaGradoSeccion(Convert.ToInt32(cbxGrado.Text), Convert.ToChar(cbxSeccion.Text)).ToString();
+            dgvListar.ClearSelection();
         }
     }
 }
