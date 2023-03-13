@@ -31,10 +31,7 @@ namespace Presentacion
         {
             this.components = new System.ComponentModel.Container();
             this.btnConsultar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
-            this.cmbAnio = new System.Windows.Forms.ComboBox();
-            this.cmbSeccion = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,7 +39,15 @@ namespace Presentacion
             this.lblFecha = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.fechahora = new System.Windows.Forms.Timer(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.txbPendiente = new System.Windows.Forms.TextBox();
+            this.txbCancelado = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.dgvListar = new System.Windows.Forms.DataGridView();
+            this.cbxSeccion = new System.Windows.Forms.ComboBox();
+            this.cbxGrado = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
             this.SuspendLayout();
             // 
             // btnConsultar
@@ -58,17 +63,7 @@ namespace Presentacion
             this.btnConsultar.TabIndex = 3;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = false;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(32, 249);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(934, 409);
-            this.dataGridView1.TabIndex = 4;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // label5
             // 
@@ -80,25 +75,6 @@ namespace Presentacion
             this.label5.Size = new System.Drawing.Size(399, 25);
             this.label5.TabIndex = 59;
             this.label5.Text = "Karde´x de un Determinado Grado";
-            // 
-            // cmbAnio
-            // 
-            this.cmbAnio.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbAnio.FormattingEnabled = true;
-            this.cmbAnio.Location = new System.Drawing.Point(323, 149);
-            this.cmbAnio.Name = "cmbAnio";
-            this.cmbAnio.Size = new System.Drawing.Size(121, 24);
-            this.cmbAnio.TabIndex = 1;
-            // 
-            // cmbSeccion
-            // 
-            this.cmbSeccion.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbSeccion.FormattingEnabled = true;
-            this.cmbSeccion.Location = new System.Drawing.Point(577, 148);
-            this.cmbSeccion.Name = "cmbSeccion";
-            this.cmbSeccion.Size = new System.Drawing.Size(121, 24);
-            this.cmbSeccion.TabIndex = 2;
-            this.cmbSeccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbSeccion_KeyPress);
             // 
             // label7
             // 
@@ -171,15 +147,118 @@ namespace Presentacion
             this.fechahora.Enabled = true;
             this.fechahora.Tick += new System.EventHandler(this.fechahora_Tick);
             // 
+            // txbPendiente
+            // 
+            this.txbPendiente.Font = new System.Drawing.Font("Verdana", 11F);
+            this.txbPendiente.Location = new System.Drawing.Point(539, 613);
+            this.txbPendiente.Name = "txbPendiente";
+            this.txbPendiente.ReadOnly = true;
+            this.txbPendiente.Size = new System.Drawing.Size(152, 25);
+            this.txbPendiente.TabIndex = 92;
+            // 
+            // txbCancelado
+            // 
+            this.txbCancelado.Font = new System.Drawing.Font("Verdana", 11F);
+            this.txbCancelado.Location = new System.Drawing.Point(313, 613);
+            this.txbCancelado.Name = "txbCancelado";
+            this.txbCancelado.ReadOnly = true;
+            this.txbCancelado.Size = new System.Drawing.Size(152, 25);
+            this.txbCancelado.TabIndex = 91;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Verdana", 11F);
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(574, 590);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(80, 18);
+            this.label14.TabIndex = 89;
+            this.label14.Text = "Pendiente";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Verdana", 11F);
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(347, 590);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(85, 18);
+            this.label13.TabIndex = 90;
+            this.label13.Text = "Cancelado";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Verdana", 11F);
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(398, 572);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(207, 18);
+            this.label11.TabIndex = 88;
+            this.label11.Text = "** Resumen de Totales **";
+            // 
+            // dgvListar
+            // 
+            this.dgvListar.AllowUserToAddRows = false;
+            this.dgvListar.AllowUserToResizeRows = false;
+            this.dgvListar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvListar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListar.Location = new System.Drawing.Point(33, 245);
+            this.dgvListar.Name = "dgvListar";
+            this.dgvListar.ReadOnly = true;
+            this.dgvListar.RowHeadersVisible = false;
+            this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvListar.Size = new System.Drawing.Size(926, 333);
+            this.dgvListar.TabIndex = 93;
+            // 
+            // cbxSeccion
+            // 
+            this.cbxSeccion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxSeccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxSeccion.FormattingEnabled = true;
+            this.cbxSeccion.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F"});
+            this.cbxSeccion.Location = new System.Drawing.Point(590, 150);
+            this.cbxSeccion.Name = "cbxSeccion";
+            this.cbxSeccion.Size = new System.Drawing.Size(145, 24);
+            this.cbxSeccion.TabIndex = 95;
+            // 
+            // cbxGrado
+            // 
+            this.cbxGrado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxGrado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxGrado.FormattingEnabled = true;
+            this.cbxGrado.Items.AddRange(new object[] {
+            "3",
+            "4",
+            "5"});
+            this.cbxGrado.Location = new System.Drawing.Point(326, 150);
+            this.cbxGrado.Name = "cbxGrado";
+            this.cbxGrado.Size = new System.Drawing.Size(145, 24);
+            this.cbxGrado.TabIndex = 94;
+            // 
             // KGrado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(65)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(992, 681);
+            this.Controls.Add(this.cbxSeccion);
+            this.Controls.Add(this.cbxGrado);
+            this.Controls.Add(this.dgvListar);
+            this.Controls.Add(this.txbPendiente);
+            this.Controls.Add(this.txbCancelado);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.cmbAnio);
-            this.Controls.Add(this.cmbSeccion);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -187,12 +266,12 @@ namespace Presentacion
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnConsultar);
-            this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "KGrado";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KardexGrado";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.KGrado_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,10 +280,7 @@ namespace Presentacion
         #endregion
 
         private System.Windows.Forms.Button btnConsultar;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cmbAnio;
-        private System.Windows.Forms.ComboBox cmbSeccion;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -212,5 +288,13 @@ namespace Presentacion
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer fechahora;
+        private System.Windows.Forms.TextBox txbPendiente;
+        private System.Windows.Forms.TextBox txbCancelado;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DataGridView dgvListar;
+        private System.Windows.Forms.ComboBox cbxSeccion;
+        private System.Windows.Forms.ComboBox cbxGrado;
     }
 }
