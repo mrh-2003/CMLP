@@ -50,7 +50,7 @@
             "3",
             "4",
             "5"});
-            this.cbxGrado.Location = new System.Drawing.Point(958, 81);
+            this.cbxGrado.Location = new System.Drawing.Point(801, 82);
             this.cbxGrado.Margin = new System.Windows.Forms.Padding(4);
             this.cbxGrado.Name = "cbxGrado";
             this.cbxGrado.Size = new System.Drawing.Size(168, 24);
@@ -91,7 +91,7 @@
             "10",
             "11",
             "12"});
-            this.cbxMes.Location = new System.Drawing.Point(209, 81);
+            this.cbxMes.Location = new System.Drawing.Point(381, 82);
             this.cbxMes.Margin = new System.Windows.Forms.Padding(4);
             this.cbxMes.Name = "cbxMes";
             this.cbxMes.Size = new System.Drawing.Size(226, 24);
@@ -103,7 +103,7 @@
             this.lb3ro.AutoSize = true;
             this.lb3ro.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb3ro.ForeColor = System.Drawing.Color.White;
-            this.lb3ro.Location = new System.Drawing.Point(327, 179);
+            this.lb3ro.Location = new System.Drawing.Point(319, 179);
             this.lb3ro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb3ro.Name = "lb3ro";
             this.lb3ro.Size = new System.Drawing.Size(70, 17);
@@ -151,7 +151,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(424, 4);
+            this.label11.Location = new System.Drawing.Point(436, 9);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(446, 25);
             this.label11.TabIndex = 101;
@@ -162,7 +162,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(165, 84);
+            this.label1.Location = new System.Drawing.Point(337, 85);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 17);
@@ -174,7 +174,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(898, 85);
+            this.label2.Location = new System.Drawing.Point(741, 86);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 17);

@@ -97,5 +97,33 @@ namespace Presentacion.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
+        ///&lt;html&gt;
+        ///&lt;head&gt;
+        ///    &lt;title&gt;Web Page Desing &lt;/title&gt;
+        ///    &lt;style&gt;
+        ///            table.border {
+        ///            border-collapse: collapse;
+        ///             }
+        ///
+        ///            table.border th {
+        ///                padding: 5px;
+        ///                border: 1px solid black;
+        ///            }
+        ///
+        ///            table.border td {
+        ///                padding: 5px;
+        ///                border: 1px solid black;
+        ///            }
+        ///            .emoji {
+        ///                font-size: 2em;/*&lt;title&gt;Web Page Desing &lt;span class=&quot;emoji&quot;&gt;&amp;#x1F [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string KDeterminadoAlumno {
+            get {
+                return ResourceManager.GetString("KDeterminadoAlumno", resourceCulture);
+            }
+        }
     }
 }

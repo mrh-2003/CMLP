@@ -369,5 +369,8 @@
   <ItemGroup>
     <None Include="Resources\DBoleta.html" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KDeterminadoAlumno.html" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
