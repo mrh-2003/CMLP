@@ -136,7 +136,7 @@ namespace Presentacion
             this.lblSeccion.AutoSize = true;
             this.lblSeccion.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSeccion.ForeColor = System.Drawing.Color.White;
-            this.lblSeccion.Location = new System.Drawing.Point(749, 189);
+            this.lblSeccion.Location = new System.Drawing.Point(741, 162);
             this.lblSeccion.Name = "lblSeccion";
             this.lblSeccion.Size = new System.Drawing.Size(23, 18);
             this.lblSeccion.TabIndex = 93;
@@ -147,7 +147,7 @@ namespace Presentacion
             this.lblAnio.AutoSize = true;
             this.lblAnio.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAnio.ForeColor = System.Drawing.Color.White;
-            this.lblAnio.Location = new System.Drawing.Point(609, 190);
+            this.lblAnio.Location = new System.Drawing.Point(580, 158);
             this.lblAnio.Name = "lblAnio";
             this.lblAnio.Size = new System.Drawing.Size(23, 18);
             this.lblAnio.TabIndex = 92;
@@ -169,7 +169,7 @@ namespace Presentacion
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Verdana", 11F);
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(682, 190);
+            this.label10.Location = new System.Drawing.Point(674, 160);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(72, 18);
             this.label10.TabIndex = 87;
@@ -180,11 +180,11 @@ namespace Presentacion
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Verdana", 11F);
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(571, 190);
+            this.label9.Location = new System.Drawing.Point(522, 158);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(44, 18);
+            this.label9.Size = new System.Drawing.Size(61, 18);
             this.label9.TabIndex = 86;
-            this.label9.Text = "Año:";
+            this.label9.Text = "Grado:";
             // 
             // label7
             // 

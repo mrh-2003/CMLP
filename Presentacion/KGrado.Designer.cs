@@ -47,6 +47,7 @@ namespace Presentacion
             this.dgvListar = new System.Windows.Forms.DataGridView();
             this.cbxSeccion = new System.Windows.Forms.ComboBox();
             this.cbxGrado = new System.Windows.Forms.ComboBox();
+            this.btnImprimir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,7 +58,7 @@ namespace Presentacion
             this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConsultar.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultar.ForeColor = System.Drawing.Color.White;
-            this.btnConsultar.Location = new System.Drawing.Point(438, 195);
+            this.btnConsultar.Location = new System.Drawing.Point(279, 192);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(129, 44);
             this.btnConsultar.TabIndex = 3;
@@ -81,7 +82,7 @@ namespace Presentacion
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Verdana", 11F);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(503, 151);
+            this.label7.Location = new System.Drawing.Point(515, 152);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(72, 18);
             this.label7.TabIndex = 56;
@@ -92,11 +93,11 @@ namespace Presentacion
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 11F);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(276, 152);
+            this.label4.Location = new System.Drawing.Point(262, 152);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 18);
+            this.label4.Size = new System.Drawing.Size(61, 18);
             this.label4.TabIndex = 55;
-            this.label4.Text = "Año:";
+            this.label4.Text = "Grado:";
             // 
             // label3
             // 
@@ -150,7 +151,7 @@ namespace Presentacion
             // txbPendiente
             // 
             this.txbPendiente.Font = new System.Drawing.Font("Verdana", 11F);
-            this.txbPendiente.Location = new System.Drawing.Point(539, 613);
+            this.txbPendiente.Location = new System.Drawing.Point(540, 633);
             this.txbPendiente.Name = "txbPendiente";
             this.txbPendiente.ReadOnly = true;
             this.txbPendiente.Size = new System.Drawing.Size(152, 25);
@@ -159,7 +160,7 @@ namespace Presentacion
             // txbCancelado
             // 
             this.txbCancelado.Font = new System.Drawing.Font("Verdana", 11F);
-            this.txbCancelado.Location = new System.Drawing.Point(313, 613);
+            this.txbCancelado.Location = new System.Drawing.Point(314, 633);
             this.txbCancelado.Name = "txbCancelado";
             this.txbCancelado.ReadOnly = true;
             this.txbCancelado.Size = new System.Drawing.Size(152, 25);
@@ -170,7 +171,7 @@ namespace Presentacion
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Verdana", 11F);
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(574, 590);
+            this.label14.Location = new System.Drawing.Point(575, 610);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(80, 18);
             this.label14.TabIndex = 89;
@@ -181,7 +182,7 @@ namespace Presentacion
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Verdana", 11F);
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(347, 590);
+            this.label13.Location = new System.Drawing.Point(348, 610);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(85, 18);
             this.label13.TabIndex = 90;
@@ -192,7 +193,7 @@ namespace Presentacion
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Verdana", 11F);
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(398, 572);
+            this.label11.Location = new System.Drawing.Point(399, 592);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(207, 18);
             this.label11.TabIndex = 88;
@@ -244,12 +245,28 @@ namespace Presentacion
             this.cbxGrado.Size = new System.Drawing.Size(145, 24);
             this.cbxGrado.TabIndex = 94;
             // 
+            // btnImprimir
+            // 
+            this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(19)))));
+            this.btnImprimir.FlatAppearance.BorderSize = 0;
+            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimir.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimir.ForeColor = System.Drawing.Color.White;
+            this.btnImprimir.Location = new System.Drawing.Point(606, 193);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(129, 44);
+            this.btnImprimir.TabIndex = 96;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.UseVisualStyleBackColor = false;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
             // KGrado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(65)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(992, 681);
+            this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.cbxSeccion);
             this.Controls.Add(this.cbxGrado);
             this.Controls.Add(this.dgvListar);
@@ -296,5 +313,6 @@ namespace Presentacion
         private System.Windows.Forms.DataGridView dgvListar;
         private System.Windows.Forms.ComboBox cbxSeccion;
         private System.Windows.Forms.ComboBox cbxGrado;
+        private System.Windows.Forms.Button btnImprimir;
     }
 }

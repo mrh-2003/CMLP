@@ -32,6 +32,8 @@ namespace Presentacion
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnCTxtBanco = new FontAwesome.Sharp.IconButton();
+            this.btnRTxtBanco = new FontAwesome.Sharp.IconButton();
             this.btnUsuarios = new FontAwesome.Sharp.IconButton();
             this.btnHistorial = new FontAwesome.Sharp.IconButton();
             this.btnRBoletas = new FontAwesome.Sharp.IconButton();
@@ -65,8 +67,6 @@ namespace Presentacion
             this.submenuPenGradoMes = new System.Windows.Forms.ToolStripMenuItem();
             this.submenuDeuFecha = new System.Windows.Forms.ToolStripMenuItem();
             this.submenuDeuGrado = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnRTxtBanco = new FontAwesome.Sharp.IconButton();
-            this.btnCTxtBanco = new FontAwesome.Sharp.IconButton();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -104,6 +104,54 @@ namespace Presentacion
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(192, 681);
             this.panelMenu.TabIndex = 2;
+            // 
+            // btnCTxtBanco
+            // 
+            this.btnCTxtBanco.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCTxtBanco.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCTxtBanco.FlatAppearance.BorderSize = 0;
+            this.btnCTxtBanco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCTxtBanco.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCTxtBanco.ForeColor = System.Drawing.Color.White;
+            this.btnCTxtBanco.IconChar = FontAwesome.Sharp.IconChar.Tools;
+            this.btnCTxtBanco.IconColor = System.Drawing.Color.White;
+            this.btnCTxtBanco.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCTxtBanco.IconSize = 35;
+            this.btnCTxtBanco.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCTxtBanco.Location = new System.Drawing.Point(0, 622);
+            this.btnCTxtBanco.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnCTxtBanco.Name = "btnCTxtBanco";
+            this.btnCTxtBanco.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnCTxtBanco.Size = new System.Drawing.Size(192, 38);
+            this.btnCTxtBanco.TabIndex = 34;
+            this.btnCTxtBanco.Text = "Cargar banco";
+            this.btnCTxtBanco.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCTxtBanco.UseVisualStyleBackColor = true;
+            this.btnCTxtBanco.Click += new System.EventHandler(this.btnCTxtBanco_Click);
+            // 
+            // btnRTxtBanco
+            // 
+            this.btnRTxtBanco.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRTxtBanco.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRTxtBanco.FlatAppearance.BorderSize = 0;
+            this.btnRTxtBanco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRTxtBanco.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRTxtBanco.ForeColor = System.Drawing.Color.White;
+            this.btnRTxtBanco.IconChar = FontAwesome.Sharp.IconChar.Tools;
+            this.btnRTxtBanco.IconColor = System.Drawing.Color.White;
+            this.btnRTxtBanco.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnRTxtBanco.IconSize = 35;
+            this.btnRTxtBanco.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRTxtBanco.Location = new System.Drawing.Point(0, 584);
+            this.btnRTxtBanco.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnRTxtBanco.Name = "btnRTxtBanco";
+            this.btnRTxtBanco.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnRTxtBanco.Size = new System.Drawing.Size(192, 38);
+            this.btnRTxtBanco.TabIndex = 33;
+            this.btnRTxtBanco.Text = "Generar banco";
+            this.btnRTxtBanco.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRTxtBanco.UseVisualStyleBackColor = true;
+            this.btnRTxtBanco.Click += new System.EventHandler(this.btnRTxtBanco_Click);
             // 
             // btnUsuarios
             // 
@@ -514,13 +562,13 @@ namespace Presentacion
             this.menuKardex.MenuItemTextColor = System.Drawing.Color.Empty;
             this.menuKardex.Name = "rjDropdownMenu1";
             this.menuKardex.PrimaryColor = System.Drawing.Color.Empty;
-            this.menuKardex.Size = new System.Drawing.Size(250, 70);
+            this.menuKardex.Size = new System.Drawing.Size(178, 70);
             // 
             // subMenukardexAlumno
             // 
             this.subMenukardexAlumno.ForeColor = System.Drawing.Color.White;
             this.subMenukardexAlumno.Name = "subMenukardexAlumno";
-            this.subMenukardexAlumno.Size = new System.Drawing.Size(249, 22);
+            this.subMenukardexAlumno.Size = new System.Drawing.Size(177, 22);
             this.subMenukardexAlumno.Text = "Kardex Alumno";
             this.subMenukardexAlumno.Click += new System.EventHandler(this.subMenukardexAlumno_Click);
             // 
@@ -528,7 +576,7 @@ namespace Presentacion
             // 
             this.subMenukardexGrado.ForeColor = System.Drawing.Color.White;
             this.subMenukardexGrado.Name = "subMenukardexGrado";
-            this.subMenukardexGrado.Size = new System.Drawing.Size(249, 22);
+            this.subMenukardexGrado.Size = new System.Drawing.Size(177, 22);
             this.subMenukardexGrado.Text = "Kardex Grado";
             this.subMenukardexGrado.Click += new System.EventHandler(this.subMenukardexGrado_Click);
             // 
@@ -536,8 +584,8 @@ namespace Presentacion
             // 
             this.subMenukardexResumenDeGrado.ForeColor = System.Drawing.Color.White;
             this.subMenukardexResumenDeGrado.Name = "subMenukardexResumenDeGrado";
-            this.subMenukardexResumenDeGrado.Size = new System.Drawing.Size(249, 22);
-            this.subMenukardexResumenDeGrado.Text = "Kardex Resumen de Grado";
+            this.subMenukardexResumenDeGrado.Size = new System.Drawing.Size(177, 22);
+            this.subMenukardexResumenDeGrado.Text = "Kardex General";
             this.subMenukardexResumenDeGrado.Click += new System.EventHandler(this.subMenukardexResumenDeGrado_Click);
             // 
             // menuCAlumnos
@@ -638,54 +686,6 @@ namespace Presentacion
             this.submenuDeuGrado.Size = new System.Drawing.Size(252, 22);
             this.submenuDeuGrado.Text = "Deudores por grado";
             this.submenuDeuGrado.Click += new System.EventHandler(this.submenuDeuGrado_Click);
-            // 
-            // btnRTxtBanco
-            // 
-            this.btnRTxtBanco.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRTxtBanco.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnRTxtBanco.FlatAppearance.BorderSize = 0;
-            this.btnRTxtBanco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRTxtBanco.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRTxtBanco.ForeColor = System.Drawing.Color.White;
-            this.btnRTxtBanco.IconChar = FontAwesome.Sharp.IconChar.Tools;
-            this.btnRTxtBanco.IconColor = System.Drawing.Color.White;
-            this.btnRTxtBanco.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnRTxtBanco.IconSize = 35;
-            this.btnRTxtBanco.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRTxtBanco.Location = new System.Drawing.Point(0, 584);
-            this.btnRTxtBanco.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnRTxtBanco.Name = "btnRTxtBanco";
-            this.btnRTxtBanco.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnRTxtBanco.Size = new System.Drawing.Size(192, 38);
-            this.btnRTxtBanco.TabIndex = 33;
-            this.btnRTxtBanco.Text = "Generar banco";
-            this.btnRTxtBanco.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnRTxtBanco.UseVisualStyleBackColor = true;
-            this.btnRTxtBanco.Click += new System.EventHandler(this.btnRTxtBanco_Click);
-            // 
-            // btnCTxtBanco
-            // 
-            this.btnCTxtBanco.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCTxtBanco.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCTxtBanco.FlatAppearance.BorderSize = 0;
-            this.btnCTxtBanco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCTxtBanco.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCTxtBanco.ForeColor = System.Drawing.Color.White;
-            this.btnCTxtBanco.IconChar = FontAwesome.Sharp.IconChar.Tools;
-            this.btnCTxtBanco.IconColor = System.Drawing.Color.White;
-            this.btnCTxtBanco.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCTxtBanco.IconSize = 35;
-            this.btnCTxtBanco.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCTxtBanco.Location = new System.Drawing.Point(0, 622);
-            this.btnCTxtBanco.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnCTxtBanco.Name = "btnCTxtBanco";
-            this.btnCTxtBanco.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnCTxtBanco.Size = new System.Drawing.Size(192, 38);
-            this.btnCTxtBanco.TabIndex = 34;
-            this.btnCTxtBanco.Text = "Cargar banco";
-            this.btnCTxtBanco.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCTxtBanco.UseVisualStyleBackColor = true;
-            this.btnCTxtBanco.Click += new System.EventHandler(this.btnCTxtBanco_Click);
             // 
             // Home
             // 
