@@ -13,6 +13,7 @@ using iTextSharp.text.pdf;
 using iTextSharp.text;
 using iTextSharp.tool.xml;
 using System.IO;
+using iTextSharp.tool.xml.html;
 
 namespace Presentacion
 {
@@ -23,6 +24,7 @@ namespace Presentacion
         DConcepto dConcepto = new DConcepto();
         DAlumno dAlumno = new DAlumno();
         DHistorial dHistorial = new DHistorial();
+        EColegio eColegio = (new DColegio()).getColegio();
         int id = Login.id;
         public MBoleta()
         {
@@ -75,6 +77,13 @@ namespace Presentacion
                         Fecha = DateTime.Now
                     };
                     dHistorial.Insertar(historial);
+                    if (opcion == "insert")
+                        enviarCorreoAgregar();
+                    else if (opcion == "update")
+                        enviarCorreoActualizar();
+                    else
+                        enviarCorreoEliminar();
+
                     mostrar();
                 }
                 else
@@ -83,70 +92,10 @@ namespace Presentacion
             else
                 MessageBox.Show("Todos los campos deben estar llenos");
         }
-        private async void btnAgregar_Click(object sender, EventArgs e)
+        async void enviarCorreoAgregar()
         {
-            if (Utilidades.VerificarConexionInternet())
-            {
-                string html = @"
-                    <html>
-                    <head>
-                        <title>Confirmación de pago de boleta electrónica</title>
-                        <style>
-                            body {
-                                font-family: Arial, sans-serif;
-                                font-size: 16px;
-                                line-height: 1.5;
-                                color: #333;
-                                background-color: #f5f5f5;
-                                margin: 0;
-                                padding: 0;
-                            }
-                            header {
-                                text-align: center;
-                                color: black;
-                                padding: 15px;
-                            }
-                            main {
-                                padding: 20px;
-                                background-color: #fff;
-                            }
-                            table {
-                                border-collapse: collapse;
-                                margin-bottom: 20px;
-                                width: 100%;
-                            }
-
-                            table td, table th {
-                                border: 1px solid #ccc;
-                                padding: 10px;
-                                text-align: left;
-                            }
-
-                            table th {
-                                background-color: #f7f7f7;
-                                font-weight: bold;
-                            }
-                            footer {
-                                font-weight: bold;
-                                color: #000;
-                                padding: 20px;
-                                display: flex;
-                                align-items: center;
-            
-                            }
-                            .footer-text {
-                                margin: 0;
-                                margin: auto;
-                                font-size: 20px;
-                            }
-                            .footer-text span {
-                                font-size: 40px;
-                                color: #007bff;
-                            }
-        
-                        </style>
-                    </head>
-                    <body>
+            string html = @"
+                        [HEAD]
                         <header>
                             <h1>Confirmación de pago de boleta electrónica</h1>
                         </header>
@@ -168,36 +117,123 @@ namespace Presentacion
            
                                 </tbody>
                             </table>
-                            <p>Para cualquier consulta, por favor no dude en contactarnos a través de nuestro correo electrónico [Correo electrónico de la empresa] o en nuestro número de atención al cliente [Número de atención al cliente].</p>
-                            <p>Atentamente,</p>
-                            <p>El area de administración del Colegio Militar Leoncio Prado</p>
-                        </main>
+                            [FOOT]
                         <footer>
                             <p class=""footer-text"">¡Felicitaciones! Continúa realizando tus pagos de boletas. <span>😊👍</span></p>
                         </footer>
                     </body>
                     </html>    
                     ";
+            EAlumno eAlumno = dAlumno.getAlumno(txtDni.Text);
+            html = html.Replace("[HEAD]", Utilidades.getHead());
+            html = html.Replace("[FOOT]", Utilidades.getFoot());
+            html = html.Replace("[Nombre del cliente]", eAlumno.ApellidosNombres);
+            html = html.Replace("[Número de la boleta]", txtCodigo.Text);
+            html = html.Replace("[Concepto del pago]", cbxConcepto.Text);
+            html = html.Replace("[Monto del pago]", txtMonto.Text);
+            html = html.Replace("[Correo]", eColegio.Email);
+            html = html.Replace("[Número de atención al cliente]", eColegio.Numero);
+            string resultado = await Utilidades.EnviarCorreo(eColegio.Email, eColegio.Contrasenia, eAlumno.EmailApoderado, "Confirmación de pago de boleta electrónica", html);
+            MessageBox.Show(resultado);
+        }
+        async void enviarCorreoActualizar() 
+        {
+            string html = @"
+                        [HEAD]
+                        <header>
+                            <h1>Actualización de boleta electrónica</h1>
+                        </header>
+                        <main>
+                            <p>Estimado/a [Nombre del cliente],</p>
+                            <p>Le informamos que se cometio un error en la boleta electrónica número [Número de la boleta], por ello, se procedio a actulizar los datos. A continuación, encontrará los detalles de la nueva boleta:</p>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Concepto</th>
+                                        <th>Monto</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>[Concepto del pago]</td>
+                                        <td>[Monto del pago]</td>
+                                    </tr>
+           
+                                </tbody>
+                            </table>
+                            [FOOT]
+                    </body>
+                    </html>    
+                    ";
+            EAlumno eAlumno = dAlumno.getAlumno(txtDni.Text);
+            html = html.Replace("[HEAD]", Utilidades.getHead());
+            html = html.Replace("[FOOT]", Utilidades.getFoot());
+            html = html.Replace("[Nombre del cliente]", eAlumno.ApellidosNombres);
+            html = html.Replace("[Número de la boleta]", txtCodigo.Text);
+            html = html.Replace("[Concepto del pago]", cbxConcepto.Text);
+            html = html.Replace("[Monto del pago]", txtMonto.Text);
+            html = html.Replace("[Correo]", eColegio.Email);
+            html = html.Replace("[Número de atención al cliente]", eColegio.Numero);
+            string resultado = await Utilidades.EnviarCorreo(eColegio.Email, eColegio.Contrasenia, eAlumno.EmailApoderado, "Confirmación de pago de boleta electrónica", html);
+            MessageBox.Show(resultado);
+        }
+        async void enviarCorreoEliminar()
+        {
+            string html = @"
+                        [HEAD]
+                        <header>
+                            <h1>Boleta electrónica eliminada</h1>
+                        </header>
+                        <main>
+                            <p>Estimado/a [Nombre del cliente],</p>
+                            <p>Le informamos que la boleta electrónica número [Número de la boleta] ha sido eliminada. A continuación, encontrará los detalles de la boleta eliminada:</p>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Concepto</th>
+                                        <th>Monto</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>[Concepto del pago]</td>
+                                        <td>[Monto del pago]</td>
+                                    </tr>
+           
+                                </tbody>
+                            </table>
+                            [FOOT]
+                    </body>
+                    </html>    
+                    ";
+            EAlumno eAlumno = dAlumno.getAlumno(txtDni.Text);
+            html = html.Replace("[HEAD]", Utilidades.getHead());
+            html = html.Replace("[FOOT]", Utilidades.getFoot());
+            html = html.Replace("[Nombre del cliente]", eAlumno.ApellidosNombres);
+            html = html.Replace("[Número de la boleta]", txtCodigo.Text);
+            html = html.Replace("[Concepto del pago]", cbxConcepto.Text);
+            html = html.Replace("[Monto del pago]", txtMonto.Text);
+            html = html.Replace("[Correo]", eColegio.Email);
+            html = html.Replace("[Número de atención al cliente]", eColegio.Numero);
+            string resultado = await Utilidades.EnviarCorreo(eColegio.Email, eColegio.Contrasenia, eAlumno.EmailApoderado, "Boleta electrónica eliminada", html);
+            MessageBox.Show(resultado);
+        }
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if (Utilidades.VerificarConexionInternet())
                 mantenimiento("insert");
-                string resultado = await Utilidades.EnviarCorreo("huberjuanillo@gmail.com", "bobyyfoptgcwojbx", "74143981@pronabec.edu.pe", "Prueba", html);
-                MessageBox.Show(resultado);
-            }
             else 
                 MessageBox.Show("No hay conexion a internet");
         }
 
-        private async void btnActualizar_Click(object sender, EventArgs e)
+        private void btnActualizar_Click(object sender, EventArgs e)
         {
             if (Utilidades.VerificarConexionInternet())
             {
                 EAlumno eAlumno = dAlumno.getAlumno(txtDni.Text);
                 EBoleta eBoleta = dBoleta.getBoleta(txtCodigo.Text);
                 if (eBoleta != null && eAlumno != null && eBoleta.AlumnoId == eAlumno.Id)
-                {
                     mantenimiento("update");
-                    string resultado = await Utilidades.EnviarCorreo("huberjuanillo@gmail.com", "bobyyfoptgcwojbx", "74143981@pronabec.edu.pe", "Prueba", "Prueba");
-                    MessageBox.Show(resultado);
-                }
                 else
                     MessageBox.Show("No se puede modificar esos datos");
             }
@@ -205,14 +241,10 @@ namespace Presentacion
                 MessageBox.Show("No hay conexion a internet");
         }
 
-        private async void btnEliminar_Click(object sender, EventArgs e)
+        private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (Utilidades.VerificarConexionInternet())
-            {
                 mantenimiento("delete");
-                string resultado = await Utilidades.EnviarCorreo("huberjuanillo@gmail.com", "bobyyfoptgcwojbx", "74143981@pronabec.edu.pe", "Prueba", "Prueba");
-                MessageBox.Show(resultado);
-            }
             else
                 MessageBox.Show("No hay conexion a internet");
         }
@@ -261,104 +293,111 @@ namespace Presentacion
         }
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            SaveFileDialog savefile = new SaveFileDialog();
-            savefile.FileName = string.Format("{0}.pdf", DateTime.Now.ToString("ddMMyyyyHHmmss"));
-
-            string PaginaHTML_Texto = Properties.Resources.DBoleta.ToString();
-
-            // Obtener la fila seleccionada
-            DataGridViewRow filaSeleccionada = dgvListar.SelectedRows[0];
-
-            // Crear una lista para almacenar los valores de las celdas de la fila seleccionada
-            List<string> valoresCeldasFila = new List<string>();
-
-            // Recorrer todas las celdas de la fila seleccionada y agregar sus valores a la lista
-            int count = 0;
-            foreach (DataGridViewCell celda in filaSeleccionada.Cells)
+            try
             {
-                if (count == 4)
-                {
-                    valoresCeldasFila.Add(Convert.ToDateTime(celda.Value).ToString("dd/MM/yyyy"));
-                }
-                else
-                    valoresCeldasFila.Add(celda.Value.ToString());
-                count++;
-            }
+                SaveFileDialog savefile = new SaveFileDialog();
+                savefile.FileName = string.Format("{0}.pdf", DateTime.Now.ToString("ddMMyyyyHHmmss"));
 
-            // Reemplazar los valores en la cadena HTML
-            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@CODIGO", valoresCeldasFila[0]);
-            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@DNI", valoresCeldasFila[1]);
-            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@APELLIDOS_NOMBRES", valoresCeldasFila[2]);
-            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@MONTO", valoresCeldasFila[3]);
-            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FECHA", valoresCeldasFila[4]);
-            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@CONCEPTO_CODIGO", dConcepto.getConcepto(Convert.ToInt32(valoresCeldasFila[5])).Concepto);
+                string PaginaHTML_Texto = Properties.Resources.DBoleta.ToString();
 
-            StringBuilder filas = new StringBuilder();
-            foreach (DataGridViewRow row in dgvListar.Rows)
-            {
-                filas.Append("<tr>");
-                if (row.Cells["CODIGO"].Value != null)
-                {
-                    filas.AppendFormat("<td style=\"text-align:center;\">{0}</td>", row.Cells["CODIGO"].Value.ToString());
-                }
-                else
-                {
-                    filas.Append("<td style=\"text-align:center;\"> </td>");
-                }
-                if (row.Cells["DNI"].Value != null)
-                {
-                    filas.AppendFormat("<td style=\"text-align:center;\">{0}</td>", row.Cells["DNI"].Value.ToString());
-                }
-                else
-                {
-                    filas.Append("<td style=\"text-align:center;\"> </td>");
-                }
-                if (row.Cells["APELLIDOS_NOMBRES"].Value != null)
-                {
-                    filas.AppendFormat("<td style=\"text-align:center;\">{0}</td>", row.Cells["APELLIDOS_NOMBRES"].Value.ToString());
-                }
-                else
-                {
-                    filas.Append("<td style=\"text-align:center;\"> </td>");
-                }
-                if (row.Cells["MONTO"].Value != null)
-                {
-                    filas.AppendFormat("<td style=\"text-align:center;\">{0}</td>", row.Cells["MONTO"].Value.ToString());
-                }
-                else
-                {
-                    filas.Append("<td style=\"text-align:center;\"> </td>");
-                }             
-                if (row.Cells["CONCEPTO_CODIGO"].Value != null)
-                {
-                    filas.AppendFormat("<td style=\"text-align:center;\">{0}</td>", row.Cells["CONCEPTO_CODIGO"].Value.ToString());
-                }
-                else
-                {
-                    filas.Append("<td style=\"text-align:center;\"> </td>");
-                }
-                filas.Append("</tr>");
-            }
+                // Obtener la fila seleccionada
+                DataGridViewRow filaSeleccionada = dgvListar.SelectedRows[0];
 
-            if (savefile.ShowDialog() == DialogResult.OK)
-            {
-                using (FileStream stream = new FileStream(savefile.FileName, FileMode.Create))
+                // Crear una lista para almacenar los valores de las celdas de la fila seleccionada
+                List<string> valoresCeldasFila = new List<string>();
+
+                // Recorrer todas las celdas de la fila seleccionada y agregar sus valores a la lista
+                int count = 0;
+                foreach (DataGridViewCell celda in filaSeleccionada.Cells)
                 {
-                    //Creamos un nuevo documento y lo definimos como PDF
-                    Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 25);
-
-                    PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
-                    pdfDoc.Open();
-                    pdfDoc.Add(new Phrase(""));
-
-                    using (StringReader sr = new StringReader(PaginaHTML_Texto))
+                    if (count == 4)
                     {
-                        XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                        valoresCeldasFila.Add(Convert.ToDateTime(celda.Value).ToString("dd/MM/yyyy"));
                     }
-                    pdfDoc.Close();
-                    stream.Close();
+                    else
+                        valoresCeldasFila.Add(celda.Value.ToString());
+                    count++;
                 }
 
+                // Reemplazar los valores en la cadena HTML
+                PaginaHTML_Texto = PaginaHTML_Texto.Replace("@CODIGO", valoresCeldasFila[0]);
+                PaginaHTML_Texto = PaginaHTML_Texto.Replace("@DNI", valoresCeldasFila[1]);
+                PaginaHTML_Texto = PaginaHTML_Texto.Replace("@APELLIDOS_NOMBRES", valoresCeldasFila[2]);
+                PaginaHTML_Texto = PaginaHTML_Texto.Replace("@MONTO", valoresCeldasFila[3]);
+                PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FECHA", valoresCeldasFila[4]);
+                PaginaHTML_Texto = PaginaHTML_Texto.Replace("@CONCEPTO_CODIGO", dConcepto.getConcepto(Convert.ToInt32(valoresCeldasFila[5])).Concepto);
+
+                StringBuilder filas = new StringBuilder();
+                foreach (DataGridViewRow row in dgvListar.Rows)
+                {
+                    filas.Append("<tr>");
+                    if (row.Cells["CODIGO"].Value != null)
+                    {
+                        filas.AppendFormat("<td style=\"text-align:center;\">{0}</td>", row.Cells["CODIGO"].Value.ToString());
+                    }
+                    else
+                    {
+                        filas.Append("<td style=\"text-align:center;\"> </td>");
+                    }
+                    if (row.Cells["DNI"].Value != null)
+                    {
+                        filas.AppendFormat("<td style=\"text-align:center;\">{0}</td>", row.Cells["DNI"].Value.ToString());
+                    }
+                    else
+                    {
+                        filas.Append("<td style=\"text-align:center;\"> </td>");
+                    }
+                    if (row.Cells["APELLIDOS_NOMBRES"].Value != null)
+                    {
+                        filas.AppendFormat("<td style=\"text-align:center;\">{0}</td>", row.Cells["APELLIDOS_NOMBRES"].Value.ToString());
+                    }
+                    else
+                    {
+                        filas.Append("<td style=\"text-align:center;\"> </td>");
+                    }
+                    if (row.Cells["MONTO"].Value != null)
+                    {
+                        filas.AppendFormat("<td style=\"text-align:center;\">{0}</td>", row.Cells["MONTO"].Value.ToString());
+                    }
+                    else
+                    {
+                        filas.Append("<td style=\"text-align:center;\"> </td>");
+                    }
+                    if (row.Cells["CONCEPTO_CODIGO"].Value != null)
+                    {
+                        filas.AppendFormat("<td style=\"text-align:center;\">{0}</td>", row.Cells["CONCEPTO_CODIGO"].Value.ToString());
+                    }
+                    else
+                    {
+                        filas.Append("<td style=\"text-align:center;\"> </td>");
+                    }
+                    filas.Append("</tr>");
+                }
+
+                if (savefile.ShowDialog() == DialogResult.OK)
+                {
+                    using (FileStream stream = new FileStream(savefile.FileName, FileMode.Create))
+                    {
+                        //Creamos un nuevo documento y lo definimos como PDF
+                        Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 25);
+
+                        PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+                        pdfDoc.Open();
+                        pdfDoc.Add(new Phrase(""));
+
+                        using (StringReader sr = new StringReader(PaginaHTML_Texto))
+                        {
+                            XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                        }
+                        pdfDoc.Close();
+                        stream.Close();
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

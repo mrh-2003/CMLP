@@ -73,6 +73,7 @@ namespace Presentacion
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(211, 24);
             this.txtBuscar.TabIndex = 82;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // txbPendiente
             // 

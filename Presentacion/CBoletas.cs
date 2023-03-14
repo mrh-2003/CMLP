@@ -14,11 +14,11 @@ namespace Presentacion
 {
     public partial class CBoletas : Form
     {
-        private const string TITULO_ALERTA = "Error de Entrada";
         private List<EBoleta> listaBoletas = new List<EBoleta>();
         DAlumno dAlumno = new DAlumno();
         DBoleta dBoleta = new DBoleta();
         DBancoDTO dBancoDTO = new DBancoDTO();
+        EColegio eColegio = (new DColegio()).getColegio();
         public CBoletas()
         {
             InitializeComponent();
@@ -87,15 +87,59 @@ namespace Presentacion
                 Clipboard.SetText(fallo);
             }
         }
+        async void enviarCorreoAgregar(EBoleta boleta)
+        {
+            string html = @"
+                        [HEAD]
+                        <header>
+                            <h1>Confirmación de pago de boleta electrónica</h1>
+                        </header>
+                        <main>
+                            <p>Estimado/a [Nombre del cliente],</p>
+                            <p>Le informamos que su pago de la boleta electrónica número [Número de la boleta] ha sido procesado con éxito. A continuación, encontrará los detalles del pago:</p>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Concepto</th>
+                                        <th>Monto</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>[Concepto del pago]</td>
+                                        <td>[Monto del pago]</td>
+                                    </tr>
+           
+                                </tbody>
+                            </table>
+                            [FOOT]
+                        <footer>
+                            <p class=""footer-text"">¡Felicitaciones! Continúa realizando tus pagos de boletas. <span>😊👍</span></p>
+                        </footer>
+                    </body>
+                    </html>    
+                    ";
+            EAlumno eAlumno = dAlumno.getAlumnoById(boleta.AlumnoId);
+            html = html.Replace("[HEAD]", Utilidades.getHead());
+            html = html.Replace("[FOOT]", Utilidades.getFoot());
+            html = html.Replace("[Nombre del cliente]", eAlumno.ApellidosNombres);
+            html = html.Replace("[Número de la boleta]", boleta.Codigo);
+            EConcepto eConcepto = (new DConcepto()).getConcepto(boleta.ConceptoCodigo);
+            html = html.Replace("[Concepto del pago]", eConcepto.Codigo + " - " + eConcepto.Concepto);
+            html = html.Replace("[Monto del pago]", boleta.Monto.ToString());
+            html = html.Replace("[Correo]", eColegio.Email);
+            html = html.Replace("[Número de atención al cliente]", eColegio.Numero);
+            await Utilidades.EnviarCorreo(eColegio.Email, eColegio.Contrasenia, eAlumno.EmailApoderado, "Confirmación de pago de boleta electrónica", html);
+        }
 
-        private async void btnCargar_Click(object sender, EventArgs e)
+        private void btnCargar_Click(object sender, EventArgs e)
         {
             if (Utilidades.VerificarConexionInternet())
             {
                 foreach (EBoleta boleta in listaBoletas)
                 {
                     dBoleta.Mantenimiento(boleta, "insert");
-                    await Utilidades.EnviarCorreo("huberjuanillo@gmail.com", "bobyyfoptgcwojbx", "74143981@pronabec.edu.pe", "Prueba", "Prueba");
+                    enviarCorreoAgregar(boleta);
                 }
             }
             else

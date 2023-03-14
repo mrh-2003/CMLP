@@ -143,5 +143,15 @@ namespace Presentacion
         {
             Application.Exit();
         }
+
+        private void btnRTxtBanco_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new RTxtBanco());
+        }
+
+        private void btnCTxtBanco_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new CTxtBanco());
+        }
     }
 }

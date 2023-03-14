@@ -108,6 +108,75 @@ namespace Datos
                 return false;
             }
         }
+        public static string getHead()
+        {
+            return @"                    <html>
+                    <head>
+                        <title>Pago de boleta electrónica</title>
+                        <style>
+                            body {
+                                font-family: Arial, sans-serif;
+                                font-size: 16px;
+                                line-height: 1.5;
+                                color: #333;
+                                background-color: #f5f5f5;
+                                margin: 0;
+                                padding: 0;
+                            }
+                            header {
+                                text-align: center;
+                                color: black;
+                                padding: 15px;
+                            }
+                            main {
+                                padding: 20px;
+                                background-color: #fff;
+                            }
+                            table {
+                                border-collapse: collapse;
+                                margin-bottom: 20px;
+                                width: 100%;
+                            }
+
+                            table td, table th {
+                                border: 1px solid #ccc;
+                                padding: 10px;
+                                text-align: left;
+                            }
+
+                            table th {
+                                background-color: #f7f7f7;
+                                font-weight: bold;
+                            }
+                            footer {
+                                font-weight: bold;
+                                color: #000;
+                                padding: 20px;
+                                display: flex;
+                                align-items: center;
+            
+                            }
+                            .footer-text {
+                                margin: 0;
+                                margin: auto;
+                                font-size: 20px;
+                            }
+                            .footer-text span {
+                                font-size: 40px;
+                                color: #007bff;
+                            }
+        
+                        </style>
+                    </head>
+                    <body>";
+        }
+        public static string getFoot()
+        {
+            return @"                            <p>Para cualquier consulta, por favor no dude en contactarnos a través de nuestro correo electrónico [Correo] o en nuestro número de atención al cliente [Número de atención al cliente].</p>
+                            <p>Atentamente,</p>
+                            <p>El area de administración del Colegio Militar Leoncio Prado</p>
+                        </main>";
+        }
 
     }
 }
