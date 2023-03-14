@@ -68,7 +68,7 @@ namespace Datos
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
-                string query = "SELECT b.codigo, a.dni, a.apellidos_nombres, b.monto, b.fecha, b.concepto_codigo FROM boletas b INNER JOIN alumnos a ON a.id = b.alumno_id";
+                string query = "SELECT b.codigo, a.dni, b.monto, b.fecha, b.concepto_codigo FROM boletas b INNER JOIN alumnos a ON a.id = b.alumno_id";
                 if(anio != "TODOS")
                     query += " WHERE EXTRACT(YEAR FROM b.fecha) = @anio";
                 connection.Open();

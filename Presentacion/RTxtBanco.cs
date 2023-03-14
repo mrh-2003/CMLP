@@ -16,6 +16,8 @@ namespace Presentacion
     {
         DCalendario dCalendario = new DCalendario();
         DAlumno dAlumno = new DAlumno();
+        DColegio dColegio = new DColegio();
+        EColegio eColegio = null;
         string archivo = "";
         public RTxtBanco()
         {
@@ -24,6 +26,7 @@ namespace Presentacion
 
         private void RTxtBanco_Load(object sender, EventArgs e)
         {
+            eColegio = dColegio.getColegio();
             generaTxt();
             rtxtInfo.Text = archivo;
         }
@@ -59,7 +62,10 @@ namespace Presentacion
         }
         string getMora()
         {
-            return "5000000".PadLeft(15, '0');
+            decimal monto = eColegio.Mora;
+            string decimales = monto.ToString().Split('.')[1].PadRight(7, '0');
+            string entero = monto.ToString().Split('.')[0].PadLeft(8, '0');
+            return entero + decimales;
         }
         string getInteresComp()
         {
@@ -93,7 +99,7 @@ namespace Presentacion
 
         private void btnEscribir_Click(object sender, EventArgs e)
         {
-            if (Utilidades.escribirTxt("CPCO", archivo))
+            if (Utilidades.escribirTxt(eColegio.Txtsalida, archivo))
                 MessageBox.Show("Se realizo correctamente");
             else
                 MessageBox.Show("Ocurrio un error, intentelo de nuevo");

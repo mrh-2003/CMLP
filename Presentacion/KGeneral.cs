@@ -26,5 +26,13 @@ namespace Presentacion
             txbPendiente.Text = dCalendario.DeudaGeneral().ToString();
             dgvListar.ClearSelection();
         }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            dgvListar.DataSource = dCalendario.BuscarKardexGeneral(txtBuscar.Text);
+            txbCancelado.Text = dCalendario.PagadoBusquedaGeneral(txtBuscar.Text).ToString();
+            txbPendiente.Text = dCalendario.DeudaBusquedaGeneral(txtBuscar.Text).ToString();
+            dgvListar.ClearSelection();
+        }
     }
 }

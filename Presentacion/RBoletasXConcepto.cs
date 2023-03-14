@@ -10,9 +10,6 @@ using System.Windows.Forms;
 using Datos;
 using Entidades;
 using System.IO;
-using iTextSharp.text.pdf;
-using iTextSharp.text;
-using iTextSharp.tool.xml;
 
 namespace Presentacion
 {
