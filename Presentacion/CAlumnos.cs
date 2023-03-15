@@ -53,7 +53,11 @@ namespace Presentacion
                                     MontoPagado = 0,
                                     MontoTotal = 0,
                                     Vencimiento = pago.Vencimiento,
-                                    AlumnoId = alumno.Id
+                                    AlumnoId = alumno.Id,
+                                    ConceptoCodigo = pago.ConceptoCodigo,
+                                    Mora = 0,
+                                    Cancelacion = DateTime.Now,
+                                    Emision = DateTime.Now
                                 };
                             }
                             else
@@ -64,7 +68,11 @@ namespace Presentacion
                                     MontoPagado = 0,
                                     MontoTotal = pago.Monto / 2,
                                     Vencimiento = pago.Vencimiento,
-                                    AlumnoId = alumno.Id
+                                    AlumnoId = alumno.Id,
+                                    ConceptoCodigo = pago.ConceptoCodigo,
+                                    Mora = 0,
+                                    Cancelacion = DateTime.Now,
+                                    Emision = DateTime.Now
                                 };
                             }
                         }
@@ -76,7 +84,11 @@ namespace Presentacion
                                 MontoPagado = 0,
                                 MontoTotal = pago.Monto,
                                 Vencimiento = pago.Vencimiento,
-                                AlumnoId = alumno.Id
+                                AlumnoId = alumno.Id,
+                                ConceptoCodigo = pago.ConceptoCodigo,
+                                Mora = 0,
+                                Cancelacion = DateTime.Now,
+                                Emision = DateTime.Now
                             };
                         }
                         dCalendario.Mantenimiento(eCalendario, "insert");
@@ -91,8 +103,8 @@ namespace Presentacion
                 Clipboard.SetText(fallo);
                 MessageBox.Show("Los alumnos existentes fueron copiados al portapapeles");
             }
-            else
-                MessageBox.Show("Tarea realizada exitosamente");
+            MessageBox.Show("Tarea realizada exitosamente");
+            dgvListar.DataSource = null;
         }
 
         private void btnAbrir_Click(object sender, EventArgs e)

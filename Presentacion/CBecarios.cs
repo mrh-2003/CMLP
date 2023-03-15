@@ -36,6 +36,7 @@ namespace Presentacion
                     eAlumno.Descuento = cbxBeca.Text;
                     eAlumno.FinDescuento = DateTime.Now.AddMonths(2);
                     listaAlumnos.Add(eAlumno);
+                    MessageBox.Show("Becario registrado con exito");
                     mostrar();
                 }
                 else
@@ -58,6 +59,7 @@ namespace Presentacion
         {
             txtDni.Clear();
             cbxBeca.SelectedIndex = -1;
+            lbNombre.Text = "Nombre: ";
             txtDni.Focus();
         }
 
@@ -70,6 +72,7 @@ namespace Presentacion
                 {
                     eAlumno.Descuento = cbxBeca.Text;
                     eAlumno.FinDescuento = DateTime.Now.AddMonths(2);
+                    MessageBox.Show("Becario modificado con exito");
                     mostrar();
                 }
             }
@@ -81,7 +84,9 @@ namespace Presentacion
         {
             if (txtDni.Text != "")
             {
-                listaAlumnos.RemoveAll(x => x.Dni == txtDni.Text);
+                int count = listaAlumnos.RemoveAll(x => x.Dni == txtDni.Text);  
+                if(count > 0)
+                    MessageBox.Show("Becario eliminado con exito");
                 mostrar();
             }
         }
@@ -94,6 +99,7 @@ namespace Presentacion
             if (openFile.ShowDialog() == DialogResult.OK)
             {
                 cargarBoletas();
+                MessageBox.Show("Tarea realizada exitosamente");
             }
 
         }
@@ -136,6 +142,8 @@ namespace Presentacion
             foreach (EAlumno item in listaAlumnos)
                 dAlumno.Mantenimiento(item, "update");
             MessageBox.Show("Tarea realizada exitosamente");
+            listaAlumnos.Clear();
+            mostrar();
         }
 
         private void txtDNI_TextChanged(object sender, EventArgs e)
@@ -148,8 +156,8 @@ namespace Presentacion
         {
             if (e.RowIndex != -1)
             {
-                txtDni.Text = dgvListar.Rows[e.RowIndex].Cells[0].Value.ToString();
-                cbxBeca.Text = dgvListar.Rows[e.RowIndex].Cells[8].Value.ToString();
+                txtDni.Text = dgvListar.Rows[e.RowIndex].Cells[1].Value.ToString();
+                cbxBeca.Text = dgvListar.Rows[e.RowIndex].Cells[9].Value.ToString();
             }
         }
 

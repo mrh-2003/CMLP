@@ -145,7 +145,7 @@ namespace Presentacion
                     btnNombre.Text = "Nombre: " + eBanco.ACliente;
                     btnDNI.Text = "DNI: " + eBanco.NCredito;
                     btnImp.Text = "Importe: " + eBanco.SPagado;
-                    btnDesc.Text = "Descripcion: " + eBanco.NCuota;
+                    btnDesc.Text = "Descripcion: " + (new DConcepto()).getConcepto(eBanco.NCuota).Concepto;
         }
             }
             catch (Exception)

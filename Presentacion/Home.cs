@@ -68,32 +68,6 @@ namespace Presentacion
             menuRAlum.Show(btnRAlumnos, btnRAlumnos.Width, 4);
         }
 
-        private void btnBoleta_Click(object sender, EventArgs e)
-        {
-            if (Utilidades.VerificarConexionInternet()) 
-                abrirFormHija(new MBoleta());
-            else
-                MessageBox.Show("Para poder generar una boleta, debe estar conectado a internet", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        private void btnCargarBol_Click(object sender, EventArgs e)
-        {
-            if (Utilidades.VerificarConexionInternet())
-                abrirFormHija(new CBoletas());
-            else
-                MessageBox.Show("Para poder cargar una boleta, debe estar conectado a internet", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        private void btnConceptos_Click(object sender, EventArgs e)
-        {
-            abrirFormHija(new MConceptos());
-        }
-
-        private void btnRBoletas_Click(object sender, EventArgs e)
-        {
-            menuRBoleta.Show(btnRBoletas, btnRBoletas.Width, 4);
-        }
-
         private void submenuCAlum_Click(object sender, EventArgs e)
         {
             abrirFormHija(new CAlumnos());
@@ -112,16 +86,6 @@ namespace Presentacion
         private void submenuRBFecha_Click(object sender, EventArgs e)
         {
             abrirFormHija(new RBoletasXFechas());
-        }
-
-        private void btnHistorial_Click(object sender, EventArgs e)
-        {
-            abrirFormHija(new Historial());
-        }
-
-        private void btnUsuarios_Click(object sender, EventArgs e)
-        {
-            abrirFormHija(new MUsuariosAdmin());
         }
 
         private void submenuPenGradoMes_Click(object sender, EventArgs e)
@@ -143,6 +107,41 @@ namespace Presentacion
         {
             Application.Exit();
         }
+        private void btnBoleta_Click(object sender, EventArgs e)
+        {
+            if (Utilidades.VerificarConexionInternet())
+                abrirFormHija(new MBoleta());
+            else
+                MessageBox.Show("Para poder generar una boleta, debe estar conectado a internet", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void btnConceptos_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new MConceptos());
+        }
+
+        private void btnCargarBol_Click(object sender, EventArgs e)
+        {
+            if (Utilidades.VerificarConexionInternet())
+                abrirFormHija(new CBoletas());
+            else
+                MessageBox.Show("Para poder cargar una boleta, debe estar conectado a internet", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void btnRBoletas_Click(object sender, EventArgs e)
+        {
+            menuRBoleta.Show(btnRBoletas, btnRBoletas.Width, 4);
+        }
+
+        private void btnHistorial_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new Historial());
+        }
+
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new MUsuariosAdmin());
+        }
 
         private void btnRTxtBanco_Click(object sender, EventArgs e)
         {
@@ -152,6 +151,21 @@ namespace Presentacion
         private void btnCTxtBanco_Click(object sender, EventArgs e)
         {
             abrirFormHija(new CTxtBanco());
+        }
+
+        private void btnPagos_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new MPagos());
+        }
+
+        private void btnConfig_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new MConfiguracion());
+        }
+
+        private void btnAlumGrado_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new RAlumnosXGrado());
         }
     }
 }

@@ -44,10 +44,17 @@ namespace Presentacion
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            dgvListar.DataSource = dCalendario.KardexXGrado(Convert.ToInt32(cbxGrado.Text), Convert.ToChar(cbxSeccion.Text));
-            txbCancelado.Text = dCalendario.PagadoGradoSeccion(Convert.ToInt32(cbxGrado.Text), Convert.ToChar(cbxSeccion.Text)).ToString();
-            txbPendiente.Text = dCalendario.DeudaGradoSeccion(Convert.ToInt32(cbxGrado.Text), Convert.ToChar(cbxSeccion.Text)).ToString();
-            dgvListar.ClearSelection();
+            if(cbxGrado.Text != "" && cbxSeccion.Text != "")
+            {
+                dgvListar.DataSource = dCalendario.KardexXGrado(Convert.ToInt32(cbxGrado.Text), Convert.ToChar(cbxSeccion.Text));
+                txbCancelado.Text = dCalendario.PagadoGradoSeccion(Convert.ToInt32(cbxGrado.Text), Convert.ToChar(cbxSeccion.Text)).ToString();
+                txbPendiente.Text = dCalendario.DeudaGradoSeccion(Convert.ToInt32(cbxGrado.Text), Convert.ToChar(cbxSeccion.Text)).ToString();
+                dgvListar.ClearSelection();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un grado y una sección", "Error de Entrada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }

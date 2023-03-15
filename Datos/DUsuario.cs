@@ -136,5 +136,31 @@ namespace Datos
             }
         }
 
+        public int CantidadUsuarios()
+        {
+            int total = 0;
+
+            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (NpgsqlCommand command = new NpgsqlCommand("SELECT COUNT(*) FROM usuarios;", connection))
+                {
+                    using (NpgsqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            if (!reader.IsDBNull(0))
+                            {
+                                total = reader.GetInt32(0);
+                            }
+                        }
+                    }
+                }
+            }
+
+            return total;
+        }
+
     }
 }

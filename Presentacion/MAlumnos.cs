@@ -52,7 +52,7 @@ namespace Presentacion
             txtAnio.Clear();
             txtDni.Focus();
         }
-        private void mantenimiento(string opcion)
+        private bool mantenimiento(string opcion)
         {
             if (txtDni.Text != "" && txtApellidosNombres.Text != "" && cbxGrado.SelectedIndex != -1 && 
                 cbxSeccion.SelectedIndex != -1 && txtEmail.Text != "" && txtCelular.Text != "" && 
@@ -88,7 +88,9 @@ namespace Presentacion
             else
             {
                 MessageBox.Show("Todos los campos deben estar llenos");
+                return false;
             }
+            return true;
         }
         private void dgvListar_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -115,24 +117,45 @@ namespace Presentacion
             EAlumno eAlumno = dAlumno.getAlumno(txtDni.Text);
             if (eAlumno == null)
             {
-                mantenimiento("insert");
-                List<EPago> pagos = dPago.Listar();
-                EAlumno alumno = dAlumno.getAlumno(dni);
-                foreach (EPago pago in pagos)
+                if (mantenimiento("insert"))
                 {
-                    ECalendario eCalendario;
-                    if (pago.Descripcion == "Alimentación" && alumno.Descuento != "Ninguna")
+                    List<EPago> pagos = dPago.Listar();
+                    EAlumno alumno = dAlumno.getAlumno(dni);
+                    foreach (EPago pago in pagos)
                     {
-                        if (alumno.Descuento == "Beca")
+                        ECalendario eCalendario;
+                        if (pago.Descripcion == "Alimentación" && alumno.Descuento != "Ninguna")
                         {
-                            eCalendario = new ECalendario()
+                            if (alumno.Descuento == "Beca")
                             {
-                                Descripcion = pago.Descripcion,
-                                MontoPagado = 0,
-                                MontoTotal = 0,
-                                Vencimiento = pago.Vencimiento,
-                                AlumnoId = alumno.Id
-                            };
+                                eCalendario = new ECalendario()
+                                {
+                                    Descripcion = pago.Descripcion,
+                                    MontoPagado = 0,
+                                    MontoTotal = 0,
+                                    Vencimiento = pago.Vencimiento,
+                                    AlumnoId = alumno.Id,
+                                    ConceptoCodigo = pago.ConceptoCodigo,
+                                    Mora = 0,
+                                    Cancelacion = DateTime.Now,
+                                    Emision = DateTime.Now
+                                };
+                            }
+                            else
+                            {
+                                eCalendario = new ECalendario()
+                                {
+                                    Descripcion = pago.Descripcion,
+                                    MontoPagado = 0,
+                                    MontoTotal = pago.Monto / 2,
+                                    Vencimiento = pago.Vencimiento,
+                                    AlumnoId = alumno.Id,
+                                    ConceptoCodigo = pago.ConceptoCodigo,
+                                    Mora = 0,
+                                    Cancelacion = DateTime.Now,
+                                    Emision = DateTime.Now
+                                };
+                            }
                         }
                         else
                         {
@@ -140,24 +163,17 @@ namespace Presentacion
                             {
                                 Descripcion = pago.Descripcion,
                                 MontoPagado = 0,
-                                MontoTotal = pago.Monto / 2,
+                                MontoTotal = pago.Monto,
                                 Vencimiento = pago.Vencimiento,
-                                AlumnoId = alumno.Id
+                                AlumnoId = alumno.Id,
+                                ConceptoCodigo = pago.ConceptoCodigo,
+                                Mora = 0,
+                                Cancelacion = DateTime.Now,
+                                Emision = DateTime.Now
                             };
                         }
+                        dCalendario.Mantenimiento(eCalendario, "insert");
                     }
-                    else
-                    {
-                        eCalendario = new ECalendario()
-                        {
-                            Descripcion = pago.Descripcion,
-                            MontoPagado = 0,
-                            MontoTotal = pago.Monto,
-                            Vencimiento = pago.Vencimiento,
-                            AlumnoId = alumno.Id
-                        };
-                    }
-                    dCalendario.Mantenimiento(eCalendario, "insert");
                 }
             }
             else

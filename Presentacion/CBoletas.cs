@@ -141,6 +141,8 @@ namespace Presentacion
                     dBoleta.Mantenimiento(boleta, "insert");
                     enviarCorreoAgregar(boleta);
                 }
+                MessageBox.Show("Se cargaron " + listaBoletas.Count + " boletas");
+                dgvListar.DataSource = null;
             }
             else
                 MessageBox.Show("Necesita tener conexion a internet");

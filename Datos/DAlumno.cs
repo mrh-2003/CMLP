@@ -272,7 +272,7 @@ namespace Datos
                 string query = "SELECT * FROM alumnos";
                 if (grado != 0 && seccion != "")
                 {
-                    query += "WHERE grado = @grado AND seccion =@seccion";
+                    query += " WHERE grado = @grado AND seccion =@seccion";
                     if (anio != "TODOS")
                         query += " AND anio_registro = @anio_registro";
                 }

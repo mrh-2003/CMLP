@@ -32,25 +32,25 @@ namespace Presentacion
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnRAlumnos = new FontAwesome.Sharp.IconButton();
+            this.btnCalendario = new FontAwesome.Sharp.IconButton();
+            this.btnKardex = new FontAwesome.Sharp.IconButton();
+            this.btnCargarAlum = new FontAwesome.Sharp.IconButton();
+            this.btnMantAlumnos = new FontAwesome.Sharp.IconButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelLogo = new System.Windows.Forms.Panel();
+            this.panelEscritorio = new System.Windows.Forms.Panel();
+            this.btnPagos = new FontAwesome.Sharp.IconButton();
+            this.btnCTxtBanco = new FontAwesome.Sharp.IconButton();
+            this.btnRTxtBanco = new FontAwesome.Sharp.IconButton();
             this.btnUsuarios = new FontAwesome.Sharp.IconButton();
             this.btnHistorial = new FontAwesome.Sharp.IconButton();
             this.btnRBoletas = new FontAwesome.Sharp.IconButton();
             this.btnCargarBol = new FontAwesome.Sharp.IconButton();
             this.btnConceptos = new FontAwesome.Sharp.IconButton();
             this.btnBoleta = new FontAwesome.Sharp.IconButton();
-            this.btnRAlumnos = new FontAwesome.Sharp.IconButton();
-            this.btnCalendario = new FontAwesome.Sharp.IconButton();
-            this.btnKardex = new FontAwesome.Sharp.IconButton();
-            this.btnCargarAlum = new FontAwesome.Sharp.IconButton();
-            this.btnMantAlumnos = new FontAwesome.Sharp.IconButton();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.btnRecaudacion = new FontAwesome.Sharp.IconButton();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panelLogo = new System.Windows.Forms.Panel();
-            this.panelEscritorio = new System.Windows.Forms.Panel();
+            this.btnConfig = new FontAwesome.Sharp.IconButton();
             this.menuKardex = new CustomControls.RJControls.RJDropdownMenu(this.components);
             this.subMenukardexAlumno = new System.Windows.Forms.ToolStripMenuItem();
             this.subMenukardexGrado = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,8 +65,7 @@ namespace Presentacion
             this.submenuPenGradoMes = new System.Windows.Forms.ToolStripMenuItem();
             this.submenuDeuFecha = new System.Windows.Forms.ToolStripMenuItem();
             this.submenuDeuGrado = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnRTxtBanco = new FontAwesome.Sharp.IconButton();
-            this.btnCTxtBanco = new FontAwesome.Sharp.IconButton();
+            this.btnAlumGrado = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -79,6 +78,7 @@ namespace Presentacion
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(19)))));
+            this.panelMenu.Controls.Add(this.btnConfig);
             this.panelMenu.Controls.Add(this.btnCTxtBanco);
             this.panelMenu.Controls.Add(this.btnRTxtBanco);
             this.panelMenu.Controls.Add(this.btnUsuarios);
@@ -87,15 +87,12 @@ namespace Presentacion
             this.panelMenu.Controls.Add(this.btnCargarBol);
             this.panelMenu.Controls.Add(this.btnConceptos);
             this.panelMenu.Controls.Add(this.btnBoleta);
+            this.panelMenu.Controls.Add(this.btnPagos);
             this.panelMenu.Controls.Add(this.btnRAlumnos);
             this.panelMenu.Controls.Add(this.btnCalendario);
             this.panelMenu.Controls.Add(this.btnKardex);
             this.panelMenu.Controls.Add(this.btnCargarAlum);
             this.panelMenu.Controls.Add(this.btnMantAlumnos);
-            this.panelMenu.Controls.Add(this.iconButton3);
-            this.panelMenu.Controls.Add(this.iconButton2);
-            this.panelMenu.Controls.Add(this.iconButton1);
-            this.panelMenu.Controls.Add(this.btnRecaudacion);
             this.panelMenu.Controls.Add(this.panel1);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.ForeColor = System.Drawing.Color.White;
@@ -104,150 +101,6 @@ namespace Presentacion
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(192, 681);
             this.panelMenu.TabIndex = 2;
-            // 
-            // btnUsuarios
-            // 
-            this.btnUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnUsuarios.FlatAppearance.BorderSize = 0;
-            this.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUsuarios.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUsuarios.ForeColor = System.Drawing.Color.White;
-            this.btnUsuarios.IconChar = FontAwesome.Sharp.IconChar.Tools;
-            this.btnUsuarios.IconColor = System.Drawing.Color.White;
-            this.btnUsuarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnUsuarios.IconSize = 35;
-            this.btnUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsuarios.Location = new System.Drawing.Point(0, 546);
-            this.btnUsuarios.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnUsuarios.Name = "btnUsuarios";
-            this.btnUsuarios.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnUsuarios.Size = new System.Drawing.Size(192, 38);
-            this.btnUsuarios.TabIndex = 32;
-            this.btnUsuarios.Text = "Usuarios";
-            this.btnUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnUsuarios.UseVisualStyleBackColor = true;
-            this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
-            // 
-            // btnHistorial
-            // 
-            this.btnHistorial.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHistorial.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnHistorial.FlatAppearance.BorderSize = 0;
-            this.btnHistorial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHistorial.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHistorial.ForeColor = System.Drawing.Color.White;
-            this.btnHistorial.IconChar = FontAwesome.Sharp.IconChar.Tools;
-            this.btnHistorial.IconColor = System.Drawing.Color.White;
-            this.btnHistorial.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnHistorial.IconSize = 35;
-            this.btnHistorial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHistorial.Location = new System.Drawing.Point(0, 508);
-            this.btnHistorial.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnHistorial.Name = "btnHistorial";
-            this.btnHistorial.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnHistorial.Size = new System.Drawing.Size(192, 38);
-            this.btnHistorial.TabIndex = 31;
-            this.btnHistorial.Text = "Historial ";
-            this.btnHistorial.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnHistorial.UseVisualStyleBackColor = true;
-            this.btnHistorial.Click += new System.EventHandler(this.btnHistorial_Click);
-            // 
-            // btnRBoletas
-            // 
-            this.btnRBoletas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRBoletas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnRBoletas.FlatAppearance.BorderSize = 0;
-            this.btnRBoletas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRBoletas.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRBoletas.ForeColor = System.Drawing.Color.White;
-            this.btnRBoletas.IconChar = FontAwesome.Sharp.IconChar.Building;
-            this.btnRBoletas.IconColor = System.Drawing.Color.White;
-            this.btnRBoletas.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnRBoletas.IconSize = 25;
-            this.btnRBoletas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRBoletas.Location = new System.Drawing.Point(0, 478);
-            this.btnRBoletas.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnRBoletas.Name = "btnRBoletas";
-            this.btnRBoletas.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
-            this.btnRBoletas.Size = new System.Drawing.Size(192, 30);
-            this.btnRBoletas.TabIndex = 30;
-            this.btnRBoletas.Text = "Reportes";
-            this.btnRBoletas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnRBoletas.UseVisualStyleBackColor = true;
-            this.btnRBoletas.Click += new System.EventHandler(this.btnRBoletas_Click);
-            // 
-            // btnCargarBol
-            // 
-            this.btnCargarBol.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCargarBol.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCargarBol.FlatAppearance.BorderSize = 0;
-            this.btnCargarBol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCargarBol.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCargarBol.ForeColor = System.Drawing.Color.White;
-            this.btnCargarBol.IconChar = FontAwesome.Sharp.IconChar.BridgeCircleExclamation;
-            this.btnCargarBol.IconColor = System.Drawing.Color.White;
-            this.btnCargarBol.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCargarBol.IconSize = 25;
-            this.btnCargarBol.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCargarBol.Location = new System.Drawing.Point(0, 448);
-            this.btnCargarBol.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnCargarBol.Name = "btnCargarBol";
-            this.btnCargarBol.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
-            this.btnCargarBol.Size = new System.Drawing.Size(192, 30);
-            this.btnCargarBol.TabIndex = 29;
-            this.btnCargarBol.Text = "Cargar boletas";
-            this.btnCargarBol.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCargarBol.UseVisualStyleBackColor = true;
-            this.btnCargarBol.Click += new System.EventHandler(this.btnCargarBol_Click);
-            // 
-            // btnConceptos
-            // 
-            this.btnConceptos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConceptos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnConceptos.FlatAppearance.BorderSize = 0;
-            this.btnConceptos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConceptos.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConceptos.ForeColor = System.Drawing.Color.White;
-            this.btnConceptos.IconChar = FontAwesome.Sharp.IconChar.Paypal;
-            this.btnConceptos.IconColor = System.Drawing.Color.White;
-            this.btnConceptos.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnConceptos.IconSize = 25;
-            this.btnConceptos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConceptos.Location = new System.Drawing.Point(0, 418);
-            this.btnConceptos.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnConceptos.Name = "btnConceptos";
-            this.btnConceptos.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
-            this.btnConceptos.Size = new System.Drawing.Size(192, 30);
-            this.btnConceptos.TabIndex = 28;
-            this.btnConceptos.Text = "Conceptos";
-            this.btnConceptos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnConceptos.UseVisualStyleBackColor = true;
-            this.btnConceptos.Click += new System.EventHandler(this.btnConceptos_Click);
-            // 
-            // btnBoleta
-            // 
-            this.btnBoleta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBoleta.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnBoleta.FlatAppearance.BorderSize = 0;
-            this.btnBoleta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBoleta.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBoleta.ForeColor = System.Drawing.Color.White;
-            this.btnBoleta.IconChar = FontAwesome.Sharp.IconChar.MailBulk;
-            this.btnBoleta.IconColor = System.Drawing.Color.White;
-            this.btnBoleta.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBoleta.IconSize = 35;
-            this.btnBoleta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBoleta.Location = new System.Drawing.Point(0, 380);
-            this.btnBoleta.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnBoleta.Name = "btnBoleta";
-            this.btnBoleta.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnBoleta.Size = new System.Drawing.Size(192, 38);
-            this.btnBoleta.TabIndex = 27;
-            this.btnBoleta.Text = "Boleta";
-            this.btnBoleta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnBoleta.UseVisualStyleBackColor = true;
-            this.btnBoleta.Click += new System.EventHandler(this.btnBoleta_Click);
             // 
             // btnRAlumnos
             // 
@@ -262,7 +115,7 @@ namespace Presentacion
             this.btnRAlumnos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnRAlumnos.IconSize = 25;
             this.btnRAlumnos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRAlumnos.Location = new System.Drawing.Point(0, 350);
+            this.btnRAlumnos.Location = new System.Drawing.Point(0, 222);
             this.btnRAlumnos.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnRAlumnos.Name = "btnRAlumnos";
             this.btnRAlumnos.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
@@ -286,7 +139,7 @@ namespace Presentacion
             this.btnCalendario.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCalendario.IconSize = 25;
             this.btnCalendario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCalendario.Location = new System.Drawing.Point(0, 320);
+            this.btnCalendario.Location = new System.Drawing.Point(0, 192);
             this.btnCalendario.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnCalendario.Name = "btnCalendario";
             this.btnCalendario.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
@@ -310,7 +163,7 @@ namespace Presentacion
             this.btnKardex.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnKardex.IconSize = 25;
             this.btnKardex.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnKardex.Location = new System.Drawing.Point(0, 290);
+            this.btnKardex.Location = new System.Drawing.Point(0, 162);
             this.btnKardex.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnKardex.Name = "btnKardex";
             this.btnKardex.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
@@ -334,7 +187,7 @@ namespace Presentacion
             this.btnCargarAlum.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCargarAlum.IconSize = 25;
             this.btnCargarAlum.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCargarAlum.Location = new System.Drawing.Point(0, 260);
+            this.btnCargarAlum.Location = new System.Drawing.Point(0, 132);
             this.btnCargarAlum.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnCargarAlum.Name = "btnCargarAlum";
             this.btnCargarAlum.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
@@ -358,7 +211,7 @@ namespace Presentacion
             this.btnMantAlumnos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMantAlumnos.IconSize = 35;
             this.btnMantAlumnos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMantAlumnos.Location = new System.Drawing.Point(0, 222);
+            this.btnMantAlumnos.Location = new System.Drawing.Point(0, 94);
             this.btnMantAlumnos.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnMantAlumnos.Name = "btnMantAlumnos";
             this.btnMantAlumnos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -368,98 +221,6 @@ namespace Presentacion
             this.btnMantAlumnos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnMantAlumnos.UseVisualStyleBackColor = true;
             this.btnMantAlumnos.Click += new System.EventHandler(this.btnMantAlumnos_Click);
-            // 
-            // iconButton3
-            // 
-            this.iconButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton3.FlatAppearance.BorderSize = 0;
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton3.ForeColor = System.Drawing.Color.White;
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.Building;
-            this.iconButton3.IconColor = System.Drawing.Color.White;
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 25;
-            this.iconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton3.Location = new System.Drawing.Point(0, 192);
-            this.iconButton3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
-            this.iconButton3.Size = new System.Drawing.Size(192, 30);
-            this.iconButton3.TabIndex = 4;
-            this.iconButton3.Text = "Recaudación";
-            this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton3.UseVisualStyleBackColor = true;
-            // 
-            // iconButton2
-            // 
-            this.iconButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton2.ForeColor = System.Drawing.Color.White;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.BridgeCircleExclamation;
-            this.iconButton2.IconColor = System.Drawing.Color.White;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 25;
-            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.Location = new System.Drawing.Point(0, 162);
-            this.iconButton2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
-            this.iconButton2.Size = new System.Drawing.Size(192, 30);
-            this.iconButton2.TabIndex = 3;
-            this.iconButton2.Text = "Recaudación";
-            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton2.UseVisualStyleBackColor = true;
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton1.ForeColor = System.Drawing.Color.White;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Brush;
-            this.iconButton1.IconColor = System.Drawing.Color.White;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 25;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(0, 132);
-            this.iconButton1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
-            this.iconButton1.Size = new System.Drawing.Size(192, 30);
-            this.iconButton1.TabIndex = 2;
-            this.iconButton1.Text = "Recaudación";
-            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton1.UseVisualStyleBackColor = true;
-            // 
-            // btnRecaudacion
-            // 
-            this.btnRecaudacion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRecaudacion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnRecaudacion.FlatAppearance.BorderSize = 0;
-            this.btnRecaudacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRecaudacion.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRecaudacion.ForeColor = System.Drawing.Color.White;
-            this.btnRecaudacion.IconChar = FontAwesome.Sharp.IconChar.Box;
-            this.btnRecaudacion.IconColor = System.Drawing.Color.White;
-            this.btnRecaudacion.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnRecaudacion.IconSize = 35;
-            this.btnRecaudacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRecaudacion.Location = new System.Drawing.Point(0, 94);
-            this.btnRecaudacion.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnRecaudacion.Name = "btnRecaudacion";
-            this.btnRecaudacion.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnRecaudacion.Size = new System.Drawing.Size(192, 38);
-            this.btnRecaudacion.TabIndex = 1;
-            this.btnRecaudacion.Text = " Recaudación";
-            this.btnRecaudacion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnRecaudacion.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -500,6 +261,246 @@ namespace Presentacion
             this.panelEscritorio.Name = "panelEscritorio";
             this.panelEscritorio.Size = new System.Drawing.Size(992, 681);
             this.panelEscritorio.TabIndex = 4;
+            // 
+            // btnPagos
+            // 
+            this.btnPagos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPagos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPagos.FlatAppearance.BorderSize = 0;
+            this.btnPagos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPagos.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPagos.ForeColor = System.Drawing.Color.White;
+            this.btnPagos.IconChar = FontAwesome.Sharp.IconChar.BasketShopping;
+            this.btnPagos.IconColor = System.Drawing.Color.White;
+            this.btnPagos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPagos.IconSize = 25;
+            this.btnPagos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPagos.Location = new System.Drawing.Point(0, 252);
+            this.btnPagos.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnPagos.Name = "btnPagos";
+            this.btnPagos.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
+            this.btnPagos.Size = new System.Drawing.Size(192, 30);
+            this.btnPagos.TabIndex = 35;
+            this.btnPagos.Text = "Agregar Pagos";
+            this.btnPagos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPagos.UseVisualStyleBackColor = true;
+            this.btnPagos.Click += new System.EventHandler(this.btnPagos_Click);
+            // 
+            // btnCTxtBanco
+            // 
+            this.btnCTxtBanco.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCTxtBanco.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCTxtBanco.FlatAppearance.BorderSize = 0;
+            this.btnCTxtBanco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCTxtBanco.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCTxtBanco.ForeColor = System.Drawing.Color.White;
+            this.btnCTxtBanco.IconChar = FontAwesome.Sharp.IconChar.Tools;
+            this.btnCTxtBanco.IconColor = System.Drawing.Color.White;
+            this.btnCTxtBanco.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCTxtBanco.IconSize = 35;
+            this.btnCTxtBanco.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCTxtBanco.Location = new System.Drawing.Point(0, 524);
+            this.btnCTxtBanco.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnCTxtBanco.Name = "btnCTxtBanco";
+            this.btnCTxtBanco.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnCTxtBanco.Size = new System.Drawing.Size(192, 38);
+            this.btnCTxtBanco.TabIndex = 43;
+            this.btnCTxtBanco.Text = "Cargar banco";
+            this.btnCTxtBanco.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCTxtBanco.UseVisualStyleBackColor = true;
+            this.btnCTxtBanco.Click += new System.EventHandler(this.btnCTxtBanco_Click);
+            // 
+            // btnRTxtBanco
+            // 
+            this.btnRTxtBanco.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRTxtBanco.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRTxtBanco.FlatAppearance.BorderSize = 0;
+            this.btnRTxtBanco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRTxtBanco.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRTxtBanco.ForeColor = System.Drawing.Color.White;
+            this.btnRTxtBanco.IconChar = FontAwesome.Sharp.IconChar.Tools;
+            this.btnRTxtBanco.IconColor = System.Drawing.Color.White;
+            this.btnRTxtBanco.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnRTxtBanco.IconSize = 35;
+            this.btnRTxtBanco.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRTxtBanco.Location = new System.Drawing.Point(0, 486);
+            this.btnRTxtBanco.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnRTxtBanco.Name = "btnRTxtBanco";
+            this.btnRTxtBanco.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnRTxtBanco.Size = new System.Drawing.Size(192, 38);
+            this.btnRTxtBanco.TabIndex = 42;
+            this.btnRTxtBanco.Text = "Generar banco";
+            this.btnRTxtBanco.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRTxtBanco.UseVisualStyleBackColor = true;
+            this.btnRTxtBanco.Click += new System.EventHandler(this.btnRTxtBanco_Click);
+            // 
+            // btnUsuarios
+            // 
+            this.btnUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnUsuarios.FlatAppearance.BorderSize = 0;
+            this.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsuarios.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsuarios.ForeColor = System.Drawing.Color.White;
+            this.btnUsuarios.IconChar = FontAwesome.Sharp.IconChar.Tools;
+            this.btnUsuarios.IconColor = System.Drawing.Color.White;
+            this.btnUsuarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnUsuarios.IconSize = 35;
+            this.btnUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUsuarios.Location = new System.Drawing.Point(0, 448);
+            this.btnUsuarios.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnUsuarios.Name = "btnUsuarios";
+            this.btnUsuarios.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnUsuarios.Size = new System.Drawing.Size(192, 38);
+            this.btnUsuarios.TabIndex = 41;
+            this.btnUsuarios.Text = "Usuarios";
+            this.btnUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUsuarios.UseVisualStyleBackColor = true;
+            this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
+            // 
+            // btnHistorial
+            // 
+            this.btnHistorial.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHistorial.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnHistorial.FlatAppearance.BorderSize = 0;
+            this.btnHistorial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHistorial.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHistorial.ForeColor = System.Drawing.Color.White;
+            this.btnHistorial.IconChar = FontAwesome.Sharp.IconChar.Tools;
+            this.btnHistorial.IconColor = System.Drawing.Color.White;
+            this.btnHistorial.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnHistorial.IconSize = 35;
+            this.btnHistorial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHistorial.Location = new System.Drawing.Point(0, 410);
+            this.btnHistorial.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnHistorial.Name = "btnHistorial";
+            this.btnHistorial.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnHistorial.Size = new System.Drawing.Size(192, 38);
+            this.btnHistorial.TabIndex = 40;
+            this.btnHistorial.Text = "Historial ";
+            this.btnHistorial.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnHistorial.UseVisualStyleBackColor = true;
+            this.btnHistorial.Click += new System.EventHandler(this.btnHistorial_Click);
+            // 
+            // btnRBoletas
+            // 
+            this.btnRBoletas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRBoletas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRBoletas.FlatAppearance.BorderSize = 0;
+            this.btnRBoletas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRBoletas.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRBoletas.ForeColor = System.Drawing.Color.White;
+            this.btnRBoletas.IconChar = FontAwesome.Sharp.IconChar.Building;
+            this.btnRBoletas.IconColor = System.Drawing.Color.White;
+            this.btnRBoletas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnRBoletas.IconSize = 25;
+            this.btnRBoletas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRBoletas.Location = new System.Drawing.Point(0, 380);
+            this.btnRBoletas.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnRBoletas.Name = "btnRBoletas";
+            this.btnRBoletas.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
+            this.btnRBoletas.Size = new System.Drawing.Size(192, 30);
+            this.btnRBoletas.TabIndex = 39;
+            this.btnRBoletas.Text = "Reportes";
+            this.btnRBoletas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRBoletas.UseVisualStyleBackColor = true;
+            this.btnRBoletas.Click += new System.EventHandler(this.btnRBoletas_Click);
+            // 
+            // btnCargarBol
+            // 
+            this.btnCargarBol.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCargarBol.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCargarBol.FlatAppearance.BorderSize = 0;
+            this.btnCargarBol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCargarBol.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCargarBol.ForeColor = System.Drawing.Color.White;
+            this.btnCargarBol.IconChar = FontAwesome.Sharp.IconChar.BridgeCircleExclamation;
+            this.btnCargarBol.IconColor = System.Drawing.Color.White;
+            this.btnCargarBol.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCargarBol.IconSize = 25;
+            this.btnCargarBol.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCargarBol.Location = new System.Drawing.Point(0, 350);
+            this.btnCargarBol.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnCargarBol.Name = "btnCargarBol";
+            this.btnCargarBol.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
+            this.btnCargarBol.Size = new System.Drawing.Size(192, 30);
+            this.btnCargarBol.TabIndex = 38;
+            this.btnCargarBol.Text = "Cargar boletas";
+            this.btnCargarBol.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCargarBol.UseVisualStyleBackColor = true;
+            this.btnCargarBol.Click += new System.EventHandler(this.btnCargarBol_Click);
+            // 
+            // btnConceptos
+            // 
+            this.btnConceptos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConceptos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnConceptos.FlatAppearance.BorderSize = 0;
+            this.btnConceptos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConceptos.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConceptos.ForeColor = System.Drawing.Color.White;
+            this.btnConceptos.IconChar = FontAwesome.Sharp.IconChar.Paypal;
+            this.btnConceptos.IconColor = System.Drawing.Color.White;
+            this.btnConceptos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnConceptos.IconSize = 25;
+            this.btnConceptos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConceptos.Location = new System.Drawing.Point(0, 320);
+            this.btnConceptos.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnConceptos.Name = "btnConceptos";
+            this.btnConceptos.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
+            this.btnConceptos.Size = new System.Drawing.Size(192, 30);
+            this.btnConceptos.TabIndex = 37;
+            this.btnConceptos.Text = "Conceptos";
+            this.btnConceptos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnConceptos.UseVisualStyleBackColor = true;
+            this.btnConceptos.Click += new System.EventHandler(this.btnConceptos_Click);
+            // 
+            // btnBoleta
+            // 
+            this.btnBoleta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBoleta.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnBoleta.FlatAppearance.BorderSize = 0;
+            this.btnBoleta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBoleta.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBoleta.ForeColor = System.Drawing.Color.White;
+            this.btnBoleta.IconChar = FontAwesome.Sharp.IconChar.MailBulk;
+            this.btnBoleta.IconColor = System.Drawing.Color.White;
+            this.btnBoleta.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBoleta.IconSize = 35;
+            this.btnBoleta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBoleta.Location = new System.Drawing.Point(0, 282);
+            this.btnBoleta.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnBoleta.Name = "btnBoleta";
+            this.btnBoleta.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnBoleta.Size = new System.Drawing.Size(192, 38);
+            this.btnBoleta.TabIndex = 36;
+            this.btnBoleta.Text = "Boleta";
+            this.btnBoleta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBoleta.UseVisualStyleBackColor = true;
+            this.btnBoleta.Click += new System.EventHandler(this.btnBoleta_Click);
+            // 
+            // btnConfig
+            // 
+            this.btnConfig.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfig.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnConfig.FlatAppearance.BorderSize = 0;
+            this.btnConfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfig.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfig.ForeColor = System.Drawing.Color.White;
+            this.btnConfig.IconChar = FontAwesome.Sharp.IconChar.Tools;
+            this.btnConfig.IconColor = System.Drawing.Color.White;
+            this.btnConfig.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnConfig.IconSize = 35;
+            this.btnConfig.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConfig.Location = new System.Drawing.Point(0, 562);
+            this.btnConfig.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnConfig.Name = "btnConfig";
+            this.btnConfig.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnConfig.Size = new System.Drawing.Size(192, 38);
+            this.btnConfig.TabIndex = 44;
+            this.btnConfig.Text = "Datos IE";
+            this.btnConfig.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnConfig.UseVisualStyleBackColor = true;
+            this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
             // 
             // menuKardex
             // 
@@ -608,12 +609,13 @@ namespace Presentacion
             this.menuRAlum.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.submenuPenGradoMes,
             this.submenuDeuFecha,
-            this.submenuDeuGrado});
+            this.submenuDeuGrado,
+            this.btnAlumGrado});
             this.menuRAlum.MenuItemHeight = 25;
             this.menuRAlum.MenuItemTextColor = System.Drawing.Color.Empty;
             this.menuRAlum.Name = "rjDropdownMenu1";
             this.menuRAlum.PrimaryColor = System.Drawing.Color.Empty;
-            this.menuRAlum.Size = new System.Drawing.Size(253, 70);
+            this.menuRAlum.Size = new System.Drawing.Size(253, 114);
             // 
             // submenuPenGradoMes
             // 
@@ -639,53 +641,12 @@ namespace Presentacion
             this.submenuDeuGrado.Text = "Deudores por grado";
             this.submenuDeuGrado.Click += new System.EventHandler(this.submenuDeuGrado_Click);
             // 
-            // btnRTxtBanco
+            // btnAlumGrado
             // 
-            this.btnRTxtBanco.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRTxtBanco.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnRTxtBanco.FlatAppearance.BorderSize = 0;
-            this.btnRTxtBanco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRTxtBanco.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRTxtBanco.ForeColor = System.Drawing.Color.White;
-            this.btnRTxtBanco.IconChar = FontAwesome.Sharp.IconChar.Tools;
-            this.btnRTxtBanco.IconColor = System.Drawing.Color.White;
-            this.btnRTxtBanco.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnRTxtBanco.IconSize = 35;
-            this.btnRTxtBanco.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRTxtBanco.Location = new System.Drawing.Point(0, 584);
-            this.btnRTxtBanco.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnRTxtBanco.Name = "btnRTxtBanco";
-            this.btnRTxtBanco.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnRTxtBanco.Size = new System.Drawing.Size(192, 38);
-            this.btnRTxtBanco.TabIndex = 33;
-            this.btnRTxtBanco.Text = "Generar banco";
-            this.btnRTxtBanco.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnRTxtBanco.UseVisualStyleBackColor = true;
-            this.btnRTxtBanco.Click += new System.EventHandler(this.btnRTxtBanco_Click);
-            // 
-            // btnCTxtBanco
-            // 
-            this.btnCTxtBanco.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCTxtBanco.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCTxtBanco.FlatAppearance.BorderSize = 0;
-            this.btnCTxtBanco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCTxtBanco.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCTxtBanco.ForeColor = System.Drawing.Color.White;
-            this.btnCTxtBanco.IconChar = FontAwesome.Sharp.IconChar.Tools;
-            this.btnCTxtBanco.IconColor = System.Drawing.Color.White;
-            this.btnCTxtBanco.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCTxtBanco.IconSize = 35;
-            this.btnCTxtBanco.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCTxtBanco.Location = new System.Drawing.Point(0, 622);
-            this.btnCTxtBanco.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnCTxtBanco.Name = "btnCTxtBanco";
-            this.btnCTxtBanco.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnCTxtBanco.Size = new System.Drawing.Size(192, 38);
-            this.btnCTxtBanco.TabIndex = 34;
-            this.btnCTxtBanco.Text = "Cargar banco";
-            this.btnCTxtBanco.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCTxtBanco.UseVisualStyleBackColor = true;
-            this.btnCTxtBanco.Click += new System.EventHandler(this.btnCTxtBanco_Click);
+            this.btnAlumGrado.Name = "btnAlumGrado";
+            this.btnAlumGrado.Size = new System.Drawing.Size(252, 22);
+            this.btnAlumGrado.Text = "Alumnos por Grado";
+            this.btnAlumGrado.Click += new System.EventHandler(this.btnAlumGrado_Click);
             // 
             // Home
             // 
@@ -716,10 +677,6 @@ namespace Presentacion
 
         private System.Windows.Forms.Panel panelMenu;
         private FontAwesome.Sharp.IconButton btnMantAlumnos;
-        private FontAwesome.Sharp.IconButton iconButton3;
-        private FontAwesome.Sharp.IconButton iconButton2;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private FontAwesome.Sharp.IconButton btnRecaudacion;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panelLogo;
@@ -728,12 +685,6 @@ namespace Presentacion
         private System.Windows.Forms.ToolStripMenuItem subMenukardexAlumno;
         private System.Windows.Forms.ToolStripMenuItem subMenukardexGrado;
         private System.Windows.Forms.ToolStripMenuItem subMenukardexResumenDeGrado;
-        private FontAwesome.Sharp.IconButton btnUsuarios;
-        private FontAwesome.Sharp.IconButton btnHistorial;
-        private FontAwesome.Sharp.IconButton btnRBoletas;
-        private FontAwesome.Sharp.IconButton btnCargarBol;
-        private FontAwesome.Sharp.IconButton btnConceptos;
-        private FontAwesome.Sharp.IconButton btnBoleta;
         private FontAwesome.Sharp.IconButton btnRAlumnos;
         private FontAwesome.Sharp.IconButton btnCalendario;
         private FontAwesome.Sharp.IconButton btnKardex;
@@ -750,6 +701,15 @@ namespace Presentacion
         private System.Windows.Forms.ToolStripMenuItem submenuDeuGrado;
         private FontAwesome.Sharp.IconButton btnCTxtBanco;
         private FontAwesome.Sharp.IconButton btnRTxtBanco;
+        private FontAwesome.Sharp.IconButton btnUsuarios;
+        private FontAwesome.Sharp.IconButton btnHistorial;
+        private FontAwesome.Sharp.IconButton btnRBoletas;
+        private FontAwesome.Sharp.IconButton btnCargarBol;
+        private FontAwesome.Sharp.IconButton btnConceptos;
+        private FontAwesome.Sharp.IconButton btnBoleta;
+        private FontAwesome.Sharp.IconButton btnPagos;
+        private FontAwesome.Sharp.IconButton btnConfig;
+        private System.Windows.Forms.ToolStripMenuItem btnAlumGrado;
     }
 }
 

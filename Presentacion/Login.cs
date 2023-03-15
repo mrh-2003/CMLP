@@ -23,13 +23,6 @@ namespace Presentacion
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //EUsuario user = new EUsuario()
-            //{
-            //    Usuario = txtUsuario.Text,
-            //    Contrasenia = Utilidades.GetSHA256(txtContrasenia.Text),
-            //    Rol = "Administrador"
-            //};
-            //MessageBox.Show(dUsuario.Mantenimiento(user, "insert"));
             id = dUsuario.Login(txtUsuario.Text, txtContrasenia.Text);
             if (id != 0)
             {
@@ -38,7 +31,20 @@ namespace Presentacion
                 (new Home()).ShowDialog();
             }
             else
-                MessageBox.Show("Credenciales incompletas o incorrectas");
+            {
+                if(dUsuario.CantidadUsuarios() == 0)
+                {
+                    EUsuario user = new EUsuario()
+                    {
+                        Usuario = txtUsuario.Text,
+                        Contrasenia = Utilidades.GetSHA256(txtContrasenia.Text),
+                        Rol = "Administrador"
+                    };
+                    MessageBox.Show(dUsuario.Mantenimiento(user, "insert"));
+                } 
+                else 
+                    MessageBox.Show("Credenciales incompletas o incorrectas");
+            }
         }
         private void txtContrasenia_KeyPress(object sender, KeyPressEventArgs e)
         {
