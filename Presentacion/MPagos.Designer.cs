@@ -173,6 +173,7 @@ namespace Presentacion
             this.txtMonto.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMonto.Location = new System.Drawing.Point(177, 193);
             this.txtMonto.Name = "txtMonto";
+            this.txtMonto.ReadOnly = true;
             this.txtMonto.Size = new System.Drawing.Size(147, 24);
             this.txtMonto.TabIndex = 3;
             // 

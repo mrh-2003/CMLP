@@ -15,5 +15,6 @@ namespace Entidades
         public decimal MontoTotal { get; set; }
         public DateTime Vencimiento { get; set; }
         public int ConceptoCodigo { get; set; }
+        public bool Txt { get; set; }
     }
 }

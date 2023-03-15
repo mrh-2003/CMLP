@@ -36,14 +36,19 @@ namespace Presentacion
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            EColegio colegio = new EColegio();
-            colegio.Email = txtEmail.Text;
-            colegio.Contrasenia = txtContrasenia.Text;
-            colegio.Numero = txtCelular.Text;
-            colegio.Txtsalida = txtSalida.Text;
-            colegio.Mora = Convert.ToDecimal(txtMora.Text);
-            string mensaje = dColegio.Mantenimineto(colegio);
-            MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if(txtEmail.Text != "" && txtContrasenia.Text != "" && txtCelular.Text != "" && txtSalida.Text != "" && txtMora.Text != "")
+            {
+                EColegio colegio = new EColegio();
+                colegio.Email = txtEmail.Text;
+                colegio.Contrasenia = txtContrasenia.Text;
+                colegio.Numero = txtCelular.Text;
+                colegio.Txtsalida = txtSalida.Text;
+                colegio.Mora = Convert.ToDecimal(txtMora.Text);
+                string mensaje = dColegio.Mantenimineto(colegio);
+                MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+                MessageBox.Show("Debe completar todos los campos");
         }
     }
 }

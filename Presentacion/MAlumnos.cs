@@ -119,12 +119,12 @@ namespace Presentacion
             {
                 if (mantenimiento("insert"))
                 {
-                    List<EPago> pagos = dPago.Listar();
+                    List<EPago> pagos = dPago.ListarXMes();
                     EAlumno alumno = dAlumno.getAlumno(dni);
                     foreach (EPago pago in pagos)
                     {
                         ECalendario eCalendario;
-                        if (pago.Descripcion == "Alimentación" && alumno.Descuento != "Ninguna")
+                        if (pago.ConceptoCodigo == 2 && alumno.Descuento != "Ninguna")
                         {
                             if (alumno.Descuento == "Beca")
                             {
