@@ -43,6 +43,53 @@ namespace Datos
                                     pago.Monto = reader.GetDecimal(2);
                                     pago.Vencimiento = reader.GetDateTime(3);
                                     pago.ConceptoCodigo = reader.GetInt32(4);
+                                    pago.Emision = reader.GetDateTime(5);
+                                    lista.Add(pago);
+                                }
+                            }
+                        }
+                        trans.Commit();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return lista;
+        }
+        public List<EPago> ListarXMes()
+        {
+            List<EPago> lista = new List<EPago>();
+
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    using (var trans = conn.BeginTransaction())
+                    {
+                        string query = "SELECT * FROM pagos";
+                        if (anio != "TODOS")
+                            query += " WHERE EXTRACT(MONTH FROM emision) = @mes and EXTRACT(YEAR FROM vencimiento) = @anio ORDER BY vencimiento";
+                        else
+                            query += " WHERE EXTRACT(MONTH FROM emision) = @mes ORDER BY vencimiento";
+                        using (var cmd = new NpgsqlCommand(query, conn, trans))
+                        {
+                            if (anio != "TODOS")
+                                cmd.Parameters.AddWithValue("@anio", Convert.ToInt32(anio));
+                            cmd.Parameters.AddWithValue("@mes",DateTime.Now.Month);
+                            using (var reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    EPago pago = new EPago();
+                                    pago.Id = reader.GetInt32(0);
+                                    pago.Descripcion = reader.GetString(1);
+                                    pago.Monto = reader.GetDecimal(2);
+                                    pago.Vencimiento = reader.GetDateTime(3);
+                                    pago.ConceptoCodigo = reader.GetInt32(4);
+                                    pago.Emision = reader.GetDateTime(5);
                                     lista.Add(pago);
                                 }
                             }
@@ -73,7 +120,7 @@ namespace Datos
                         string query;
                         if (opcion == "insert")
                         {
-                            query = "INSERT INTO pagos (descripcion, monto, vencimiento, concepto_codigo) VALUES (@descripcion, @monto, @vencimiento, @concepto_codigo)";
+                            query = "INSERT INTO pagos (descripcion, monto, vencimiento, concepto_codigo, emision) VALUES (@descripcion, @monto, @vencimiento, @concepto_codigo, @emision)";
                             mensaje = "Se inserto correctamente el Pago con el código " + pago.Id+ " cuyo monto es " + pago.Monto + " y vence el " + pago.Vencimiento.ToString();
                         }
                         else if (opcion == "update")
@@ -93,6 +140,7 @@ namespace Datos
                             cmd.Parameters.AddWithValue("@monto", pago.Monto);
                             cmd.Parameters.AddWithValue("@vencimiento", pago.Vencimiento);
                             cmd.Parameters.AddWithValue("@concepto_codigo", pago.ConceptoCodigo);
+                            cmd.Parameters.AddWithValue("@emision", DateTime.Now);
                             cmd.ExecuteNonQuery();
                         }
                         trans.Commit();
@@ -124,6 +172,7 @@ namespace Datos
                             pago.Monto = reader.GetDecimal(2);
                             pago.Vencimiento = reader.GetDateTime(3);
                             pago.ConceptoCodigo = reader.GetInt32(4);
+                            pago.Emision = reader.GetDateTime(5);
                             return pago;
                         }
                     }

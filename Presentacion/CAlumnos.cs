@@ -33,7 +33,7 @@ namespace Presentacion
         private void btnCargar_Click(object sender, EventArgs e)
         {
             string fallo = "";
-            List<EPago> pagos = dPago.Listar();
+            List<EPago> pagos = dPago.ListarXMes();
             foreach (EAlumno item in listaAlumnos)
             {
                 if (dAlumno.getAlumno(item.Dni) == null)
@@ -43,7 +43,7 @@ namespace Presentacion
                     foreach (EPago pago in pagos)
                     {
                         ECalendario eCalendario;
-                        if (pago.Descripcion == "Alimentación" && alumno.Descuento != "Ninguna")
+                        if (pago.ConceptoCodigo  == 2 && alumno.Descuento != "Ninguna")
                         {
                             if(alumno.Descuento == "Beca")
                             {
@@ -143,7 +143,8 @@ namespace Presentacion
                             CelularApoderado = sd.GetCellValueAsInt32(irow, 8),
                             Descuento = sd.GetCellValueAsString(irow, 9),
                             FinDescuento = DateTime.Now.AddMonths(2),
-                            AnioRegistro = DateTime.Now.Year //Esto tambien se podria leer
+                            //AnioRegistro = DateTime.Now.Year //Esto tambien se podria leer
+                            AnioRegistro = sd.GetCellValueAsInt32(irow, 10)
                         };
                         listaAlumnos.Add(eAlumno);
                     }

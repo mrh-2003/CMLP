@@ -100,7 +100,9 @@ namespace Presentacion
         private void btnEscribir_Click(object sender, EventArgs e)
         {
             if (Utilidades.escribirTxt(eColegio.Txtsalida, archivo))
-                MessageBox.Show("Se realizo correctamente");
+            {
+                MessageBox.Show(dCalendario.ActualizarCalendario());
+            }
             else
                 MessageBox.Show("Ocurrio un error, intentelo de nuevo");
         }
