@@ -41,7 +41,7 @@ namespace Presentacion
         private void btnImprimir_Click(object sender, EventArgs e)
         {
             SaveFileDialog savefile = new SaveFileDialog();
-            savefile.FileName = string.Format("{0}.pdf", DateTime.Now.ToString("ddMMyyyyHHmmss"));
+            savefile.FileName = string.Format("{0}.pdf", DateTime.Now.ToString("dd-MM-yyyy"));
 
             string PaginaHTML_Texto = Properties.Resources.KGeneral.ToString();
 
