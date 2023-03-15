@@ -70,7 +70,7 @@ namespace Presentacion
         private void btnImprimir_Click(object sender, EventArgs e)
         {
             SaveFileDialog savefile = new SaveFileDialog();
-            savefile.FileName = string.Format("{0}.pdf", DateTime.Now.ToString("dd-MM-yyyy"+"-"+ txbDni.Text +"-"+ lblAnio.Text+"-"+lblSeccion.Text ));
+            savefile.FileName = string.Format("{0}.pdf", DateTime.Now.ToString("dd-MM-yyyy"+"-"+ DateTime.Now.ToString("HH:mm:ss") + txbDni.Text +"-"+ lblAnio.Text+"-"+lblSeccion.Text ));
 
             string PaginaHTML_Texto = Properties.Resources.KDeterminadoAlumno.ToString();
 

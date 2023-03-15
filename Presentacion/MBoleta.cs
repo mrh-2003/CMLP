@@ -295,11 +295,6 @@ namespace Presentacion
         {
             try
             {
-                SaveFileDialog savefile = new SaveFileDialog();
-                savefile.FileName = string.Format("{0}.pdf", DateTime.Now.ToString("ddMMyyyyHHmmss"));
-
-                string PaginaHTML_Texto = Properties.Resources.DBoleta.ToString();
-
                 // Obtener la fila seleccionada
                 DataGridViewRow filaSeleccionada = dgvListar.SelectedRows[0];
 
@@ -307,25 +302,35 @@ namespace Presentacion
                 List<string> valoresCeldasFila = new List<string>();
 
                 // Recorrer todas las celdas de la fila seleccionada y agregar sus valores a la lista
-                int count = 0;
                 foreach (DataGridViewCell celda in filaSeleccionada.Cells)
                 {
-                    if (count == 4)
+                    DateTime fecha;
+                    if (DateTime.TryParse(celda.Value.ToString(), out fecha))
                     {
-                        valoresCeldasFila.Add(Convert.ToDateTime(celda.Value).ToString("dd/MM/yyyy"));
+                        valoresCeldasFila.Add(fecha.ToString("dd/MM/yyyy"));
                     }
                     else
+                    {
                         valoresCeldasFila.Add(celda.Value.ToString());
-                    count++;
+                    }
                 }
+                string dni = valoresCeldasFila[1];
 
+                string nombre = dAlumno.getAlumno(dni).ApellidosNombres;
+
+                SaveFileDialog savefile = new SaveFileDialog();
+                savefile.FileName = string.Format("{0}.pdf", valoresCeldasFila[0]+" - "+nombre);
+
+                string PaginaHTML_Texto = Properties.Resources.DBoleta.ToString();
+              
+               
                 // Reemplazar los valores en la cadena HTML
                 PaginaHTML_Texto = PaginaHTML_Texto.Replace("@CODIGO", valoresCeldasFila[0]);
-                PaginaHTML_Texto = PaginaHTML_Texto.Replace("@DNI", valoresCeldasFila[1]);
-                PaginaHTML_Texto = PaginaHTML_Texto.Replace("@APELLIDOS_NOMBRES", valoresCeldasFila[2]);
-                PaginaHTML_Texto = PaginaHTML_Texto.Replace("@MONTO", valoresCeldasFila[3]);
-                PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FECHA", valoresCeldasFila[4]);
-                PaginaHTML_Texto = PaginaHTML_Texto.Replace("@CONCEPTO_CODIGO", dConcepto.getConcepto(Convert.ToInt32(valoresCeldasFila[5])).Concepto);
+                PaginaHTML_Texto = PaginaHTML_Texto.Replace("@DNI", dni);
+                PaginaHTML_Texto = PaginaHTML_Texto.Replace("@APELLIDOS_NOMBRES", nombre);
+                PaginaHTML_Texto = PaginaHTML_Texto.Replace("@MONTO", valoresCeldasFila[2]);
+                PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FECHA", valoresCeldasFila[3]);
+                PaginaHTML_Texto = PaginaHTML_Texto.Replace("@CONCEPTO_CODIGO", dConcepto.getConcepto(Convert.ToInt32(valoresCeldasFila[4])).Concepto);
 
                 StringBuilder filas = new StringBuilder();
                 foreach (DataGridViewRow row in dgvListar.Rows)
