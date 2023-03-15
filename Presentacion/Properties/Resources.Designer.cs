@@ -125,5 +125,61 @@ namespace Presentacion.Properties {
                 return ResourceManager.GetString("KDeterminadoAlumno", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
+        ///&lt;html&gt;
+        ///&lt;head&gt;
+        ///    &lt;title&gt;Web Page Desing &lt;/title&gt;
+        ///    &lt;style&gt;
+        ///            table.border {
+        ///            border-collapse: collapse;
+        ///             }
+        ///
+        ///            table.border th {
+        ///                padding: 5px;
+        ///                border: 1px solid black;
+        ///            }
+        ///
+        ///            table.border td {
+        ///                padding: 5px;
+        ///                border: 1px solid black;
+        ///            }
+        ///            .emoji {
+        ///                font-size: 2em;/*&lt;title&gt;Web Page Desing &lt;span class=&quot;emoji&quot;&gt;&amp;#x1F [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string KDeterminadoGrado {
+            get {
+                return ResourceManager.GetString("KDeterminadoGrado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
+        ///&lt;html&gt;
+        ///&lt;head&gt;
+        ///    &lt;title&gt;Web Page Desing &lt;/title&gt;
+        ///    &lt;style&gt;
+        ///            table.border {
+        ///            border-collapse: collapse;
+        ///             }
+        ///
+        ///            table.border th {
+        ///                padding: 5px;
+        ///                border: 1px solid black;
+        ///            }
+        ///
+        ///            table.border td {
+        ///                padding: 5px;
+        ///                border: 1px solid black;
+        ///            }
+        ///            .emoji {
+        ///                font-size: 2em;/*&lt;title&gt;Web Page Desing &lt;span class=&quot;emoji&quot;&gt;&amp;#x1F [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string KGeneral {
+            get {
+                return ResourceManager.GetString("KGeneral", resourceCulture);
+            }
+        }
     }
 }

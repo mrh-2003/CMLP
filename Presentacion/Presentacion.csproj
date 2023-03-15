@@ -381,5 +381,11 @@
   <ItemGroup>
     <None Include="Resources\KDeterminadoAlumno.html" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KDeterminadoGrado.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KGeneral.html" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

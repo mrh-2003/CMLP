@@ -347,14 +347,6 @@ namespace Presentacion
                     {
                         filas.Append("<td style=\"text-align:center;\"> </td>");
                     }
-                    if (row.Cells["APELLIDOS_NOMBRES"].Value != null)
-                    {
-                        filas.AppendFormat("<td style=\"text-align:center;\">{0}</td>", row.Cells["APELLIDOS_NOMBRES"].Value.ToString());
-                    }
-                    else
-                    {
-                        filas.Append("<td style=\"text-align:center;\"> </td>");
-                    }
                     if (row.Cells["MONTO"].Value != null)
                     {
                         filas.AppendFormat("<td style=\"text-align:center;\">{0}</td>", row.Cells["MONTO"].Value.ToString());

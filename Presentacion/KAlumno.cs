@@ -70,7 +70,7 @@ namespace Presentacion
         private void btnImprimir_Click(object sender, EventArgs e)
         {
             SaveFileDialog savefile = new SaveFileDialog();
-            savefile.FileName = string.Format("{0}.pdf", DateTime.Now.ToString("ddMMyyyyHHmmss"));
+            savefile.FileName = string.Format("{0}.pdf", DateTime.Now.ToString("dd-MM-yyyy"+"-"+ txbDni.Text +"-"+ lblAnio.Text+"-"+lblSeccion.Text ));
 
             string PaginaHTML_Texto = Properties.Resources.KDeterminadoAlumno.ToString();
 
@@ -148,10 +148,12 @@ namespace Presentacion
             EAlumno eAlumno = (new DAlumno()).getAlumno(txbDni.Text);
             if (eAlumno != null)
             {
-                PaginaHTML_Texto = PaginaHTML_Texto.Replace("@APELLIDOS_NOMBRE", lbNombre.Text = eAlumno.ApellidosNombres);
+                PaginaHTML_Texto = PaginaHTML_Texto.Replace("@APELLIDOS_NOMBRES", lbNombre.Text = eAlumno.ApellidosNombres);
                 PaginaHTML_Texto = PaginaHTML_Texto.Replace("@DNI", lbNombre.Text = eAlumno.Dni);
                 PaginaHTML_Texto = PaginaHTML_Texto.Replace("@CANCELADO", txbCancelado.Text = dCalendario.PagadoPorAlumno(txbDni.Text).ToString());
                 PaginaHTML_Texto = PaginaHTML_Texto.Replace("@PENDIENTE", txbPendiente.Text = dCalendario.DeudaPorAlumno(txbDni.Text).ToString());
+                PaginaHTML_Texto = PaginaHTML_Texto.Replace("@GRADO", lblAnio.Text);
+                PaginaHTML_Texto = PaginaHTML_Texto.Replace("@SECCION", lblSeccion.Text);
             }
             if (savefile.ShowDialog() == DialogResult.OK)
             {

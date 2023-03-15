@@ -515,13 +515,13 @@ namespace Presentacion
             this.menuKardex.MenuItemTextColor = System.Drawing.Color.Empty;
             this.menuKardex.Name = "rjDropdownMenu1";
             this.menuKardex.PrimaryColor = System.Drawing.Color.Empty;
-            this.menuKardex.Size = new System.Drawing.Size(250, 70);
+            this.menuKardex.Size = new System.Drawing.Size(178, 70);
             // 
             // subMenukardexAlumno
             // 
             this.subMenukardexAlumno.ForeColor = System.Drawing.Color.White;
             this.subMenukardexAlumno.Name = "subMenukardexAlumno";
-            this.subMenukardexAlumno.Size = new System.Drawing.Size(249, 22);
+            this.subMenukardexAlumno.Size = new System.Drawing.Size(177, 22);
             this.subMenukardexAlumno.Text = "Kardex Alumno";
             this.subMenukardexAlumno.Click += new System.EventHandler(this.subMenukardexAlumno_Click);
             // 
@@ -529,7 +529,7 @@ namespace Presentacion
             // 
             this.subMenukardexGrado.ForeColor = System.Drawing.Color.White;
             this.subMenukardexGrado.Name = "subMenukardexGrado";
-            this.subMenukardexGrado.Size = new System.Drawing.Size(249, 22);
+            this.subMenukardexGrado.Size = new System.Drawing.Size(177, 22);
             this.subMenukardexGrado.Text = "Kardex Grado";
             this.subMenukardexGrado.Click += new System.EventHandler(this.subMenukardexGrado_Click);
             // 
@@ -537,8 +537,8 @@ namespace Presentacion
             // 
             this.subMenukardexResumenDeGrado.ForeColor = System.Drawing.Color.White;
             this.subMenukardexResumenDeGrado.Name = "subMenukardexResumenDeGrado";
-            this.subMenukardexResumenDeGrado.Size = new System.Drawing.Size(249, 22);
-            this.subMenukardexResumenDeGrado.Text = "Kardex Resumen de Grado";
+            this.subMenukardexResumenDeGrado.Size = new System.Drawing.Size(177, 22);
+            this.subMenukardexResumenDeGrado.Text = "Kardex General";
             this.subMenukardexResumenDeGrado.Click += new System.EventHandler(this.subMenukardexResumenDeGrado_Click);
             // 
             // menuCAlumnos
