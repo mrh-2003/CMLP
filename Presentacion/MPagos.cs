@@ -16,6 +16,8 @@ namespace Presentacion
         DPago dPago = new DPago();
         DHistorial dHistorial = new DHistorial();
         DConcepto dConcepto = new DConcepto();
+        DAlumno dAlumno = new DAlumno();
+        DCalendario dCalendario = new DCalendario();
         int id = Login.id;
         public MPagos()
         {
@@ -40,6 +42,8 @@ namespace Presentacion
             txtMonto.Clear();
             dtpVencimiento.Value = DateTime.Now;
             cbxConcepto.SelectedIndex = -1;
+            cbxGrado.SelectedIndex = 0;
+            cbxSeccion.SelectedIndex = 0;
             txtId.Focus();
         }
         void mostrar()
@@ -113,6 +117,79 @@ namespace Presentacion
             EConcepto eConcepto = cbxConcepto.SelectedItem as EConcepto;
             if (eConcepto != null)
                 txtMonto.Text = eConcepto.Importe.ToString();
+        }
+
+        private void btnAsignar_Click(object sender, EventArgs e)
+        {
+            List<EPago> pagos = dPago.ListarXMes();
+            List<EAlumno> listaAlumnos = null;
+            if(cbxSeccion.Text == "TODOS" && cbxGrado.Text == "TODOS")
+                listaAlumnos = dAlumno.ListarLista();
+            else
+                if (cbxSeccion.Text != "TODOS" && cbxGrado.Text != "TODOS")
+                    listaAlumnos = dAlumno.ListarGradoSeccion("AND", Convert.ToInt32(cbxGrado.Text), Convert.ToChar(cbxSeccion.Text));
+                else
+                    listaAlumnos = dAlumno.ListarGradoSeccion("OR", Convert.ToInt32(cbxGrado.Text == "TODOS" ? "0" : cbxGrado.Text), Convert.ToChar(cbxSeccion.Text == "TODOS" ? "0" : cbxSeccion.Text));
+
+            foreach (EAlumno item in listaAlumnos)
+            {
+                EAlumno alumno = dAlumno.getAlumno(item.Dni);
+                foreach (EPago pago in pagos)
+                {
+                    ECalendario eCalendario;
+                    if (pago.ConceptoCodigo == 2 && alumno.Descuento != "Ninguna")
+                    {
+                        if (alumno.Descuento == "Beca")
+                        {
+                            eCalendario = new ECalendario()
+                            {
+                                Descripcion = pago.Descripcion,
+                                MontoPagado = 0,
+                                MontoTotal = 0,
+                                Vencimiento = pago.Vencimiento,
+                                AlumnoId = alumno.Id,
+                                ConceptoCodigo = pago.ConceptoCodigo,
+                                Mora = 0,
+                                Cancelacion = DateTime.Now,
+                                Emision = DateTime.Now
+                            };
+                        }
+                        else
+                        {
+                            eCalendario = new ECalendario()
+                            {
+                                Descripcion = pago.Descripcion,
+                                MontoPagado = 0,
+                                MontoTotal = pago.Monto / 2,
+                                Vencimiento = pago.Vencimiento,
+                                AlumnoId = alumno.Id,
+                                ConceptoCodigo = pago.ConceptoCodigo,
+                                Mora = 0,
+                                Cancelacion = DateTime.Now,
+                                Emision = DateTime.Now
+                            };
+                        }
+                    }
+                    else
+                    {
+                        eCalendario = new ECalendario()
+                        {
+                            Descripcion = pago.Descripcion,
+                            MontoPagado = 0,
+                            MontoTotal = pago.Monto,
+                            Vencimiento = pago.Vencimiento,
+                            AlumnoId = alumno.Id,
+                            ConceptoCodigo = pago.ConceptoCodigo,
+                            Mora = 0,
+                            Cancelacion = DateTime.Now,
+                            Emision = DateTime.Now
+                        };
+                    }
+                    dCalendario.Mantenimiento(eCalendario, "insert");
+                }
+            }
+            limpiar();
+            MessageBox.Show("Tarea cumplida exitosamente");
         }
     }
 }

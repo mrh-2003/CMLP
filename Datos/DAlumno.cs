@@ -86,50 +86,115 @@ namespace Datos
                 }
             }
         }
-        //public List<EAlumno> Listar()
-        //{
-        //    List<EAlumno> lista = new List<EAlumno>();
+        public List<EAlumno> ListarLista()
+        {
+            List<EAlumno> lista = new List<EAlumno>();
 
-        //    using (var conn = new NpgsqlConnection(connectionString))
-        //    {
-        //        try
-        //        {
-        //            conn.Open();
-        //            using (var trans = conn.BeginTransaction())
-        //            {
-        //                string query = "SELECT dni, apellidos_nombres, grado, seccion, email, celular, celular_mama, celular_papa, descuento, fin_descuento FROM alumnos";
-        //                using (var cmd = new NpgsqlCommand(query, conn, trans))
-        //                {
-        //                    using (var reader = cmd.ExecuteReader())
-        //                    {
-        //                        while (reader.Read())
-        //                        {
-        //                            EAlumno alumno = new EAlumno();
-        //                            alumno.Dni = reader.GetString(0);
-        //                            alumno.ApellidosNombres = reader.GetString(1);
-        //                            alumno.Grado = reader.GetInt32(2);
-        //                            alumno.Seccion = reader.GetChar(3);
-        //                            alumno.Email = reader.GetString(4);
-        //                            alumno.Celular = reader.GetInt32(5);
-        //                            alumno.CelularApoderado = reader.GetInt32(6);
-        //                            alumno.CelularPapa = reader.GetInt32(7);
-        //                            alumno.Descuento = reader.GetString(8);
-        //                            alumno.FinDescuento = reader.GetDateTime(9);
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    using (var trans = conn.BeginTransaction())
+                    {
+                        string query = "SELECT * FROM alumnos";
+                        if (anio != "TODOS")
+                            query += " WHERE anio_registro = @anio";
+                        using (var cmd = new NpgsqlCommand(query, conn, trans))
+                        {
+                            if (anio != "TODOS")
+                                cmd.Parameters.AddWithValue("@anio", Convert.ToInt32(anio));
+                            using (var reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    EAlumno eAlumno = new EAlumno()
+                                    {
+                                        Id = reader.GetInt32(0),
+                                        Dni = reader.GetString(1),
+                                        ApellidosNombres = reader.GetString(2),
+                                        Grado = reader.GetInt32(3),
+                                        Seccion = reader.GetChar(4),
+                                        Email = reader.GetString(5),
+                                        EmailApoderado = reader.GetString(6),
+                                        Celular = reader.GetInt32(7),
+                                        CelularApoderado = reader.GetInt32(8),
+                                        Descuento = reader.GetString(9),
+                                        FinDescuento = reader.GetDateTime(10),
+                                        AnioRegistro = reader.GetInt32(11)
+                                    };
 
-        //                            lista.Add(alumno);
-        //                        }
-        //                    }
-        //                }
-        //                trans.Commit();
-        //            }
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            Console.WriteLine(ex.Message);
-        //        }
-        //    }
-        //    return lista;
-        //}
+                                    lista.Add(eAlumno);
+                                }
+                            }
+                        }
+                        trans.Commit();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return lista;
+        }
+        public List<EAlumno> ListarGradoSeccion(string param, int grado,char seccion)
+        {
+            List<EAlumno> lista = new List<EAlumno>();
+
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    using (var trans = conn.BeginTransaction())
+                    {
+                        string query = "SELECT * FROM alumnos";
+                        if (anio != "TODOS")
+                            query += " WHERE anio_registro = @anio and ";
+                        else
+                            query += " WHERE ";
+                        query += "(grado = @grado " + param + " seccion = @seccion)";
+                        using (var cmd = new NpgsqlCommand(query, conn, trans))
+                        {
+                            if (anio != "TODOS")
+                                cmd.Parameters.AddWithValue("@anio", Convert.ToInt32(anio));
+                            cmd.Parameters.AddWithValue("@grado", grado);
+                            cmd.Parameters.AddWithValue("@seccion", seccion);
+                            using (var reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    EAlumno eAlumno = new EAlumno()
+                                    {
+                                        Id = reader.GetInt32(0),
+                                        Dni = reader.GetString(1),
+                                        ApellidosNombres = reader.GetString(2),
+                                        Grado = reader.GetInt32(3),
+                                        Seccion = reader.GetChar(4),
+                                        Email = reader.GetString(5),
+                                        EmailApoderado = reader.GetString(6),
+                                        Celular = reader.GetInt32(7),
+                                        CelularApoderado = reader.GetInt32(8),
+                                        Descuento = reader.GetString(9),
+                                        FinDescuento = reader.GetDateTime(10),
+                                        AnioRegistro = reader.GetInt32(11)
+                                    };
+
+                                    lista.Add(eAlumno);
+                                }
+                            }
+                        }
+                        trans.Commit();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return lista;
+        }
         public EAlumno getAlumno(string dni)
         {
             using (var conn = new NpgsqlConnection(connectionString))

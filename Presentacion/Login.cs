@@ -16,7 +16,6 @@ namespace Presentacion
     public partial class Login : Form
     {
         DUsuario dUsuario = new DUsuario();
-        EColegio colegio = (new DColegio()).getColegio();
         public static int id;
         public Login()
         {
@@ -28,7 +27,8 @@ namespace Presentacion
             if (id != 0)
             {
                 Utilidades.anio = cbxAnio.Text;
-                if(colegio != null)
+                EColegio colegio = (new DColegio()).getColegio();
+                if (colegio != null)
                 {
                     this.Hide();
                     (new Home()).ShowDialog();
