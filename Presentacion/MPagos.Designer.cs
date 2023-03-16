@@ -45,6 +45,11 @@ namespace Presentacion
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.cbxConcepto = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cbxSeccion = new System.Windows.Forms.ComboBox();
+            this.cbxGrado = new System.Windows.Forms.ComboBox();
+            this.btnAsignar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -198,7 +203,7 @@ namespace Presentacion
             this.dgvListar.RowHeadersVisible = false;
             this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListar.Size = new System.Drawing.Size(932, 360);
+            this.dgvListar.Size = new System.Drawing.Size(730, 360);
             this.dgvListar.TabIndex = 9;
             this.dgvListar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellClick);
             // 
@@ -232,12 +237,87 @@ namespace Presentacion
             this.label3.TabIndex = 101;
             this.label3.Text = "Concepto:";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(765, 439);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(67, 17);
+            this.label6.TabIndex = 105;
+            this.label6.Text = "Sección:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(765, 391);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(57, 17);
+            this.label7.TabIndex = 104;
+            this.label7.Text = "Grado:";
+            // 
+            // cbxSeccion
+            // 
+            this.cbxSeccion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxSeccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxSeccion.FormattingEnabled = true;
+            this.cbxSeccion.Items.AddRange(new object[] {
+            "TODOS",
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F"});
+            this.cbxSeccion.Location = new System.Drawing.Point(835, 436);
+            this.cbxSeccion.Name = "cbxSeccion";
+            this.cbxSeccion.Size = new System.Drawing.Size(145, 24);
+            this.cbxSeccion.TabIndex = 103;
+            // 
+            // cbxGrado
+            // 
+            this.cbxGrado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxGrado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxGrado.FormattingEnabled = true;
+            this.cbxGrado.Items.AddRange(new object[] {
+            "TODOS",
+            "3",
+            "4",
+            "5"});
+            this.cbxGrado.Location = new System.Drawing.Point(835, 388);
+            this.cbxGrado.Name = "cbxGrado";
+            this.cbxGrado.Size = new System.Drawing.Size(145, 24);
+            this.cbxGrado.TabIndex = 102;
+            // 
+            // btnAsignar
+            // 
+            this.btnAsignar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(19)))));
+            this.btnAsignar.FlatAppearance.BorderSize = 0;
+            this.btnAsignar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAsignar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAsignar.ForeColor = System.Drawing.Color.White;
+            this.btnAsignar.Location = new System.Drawing.Point(803, 522);
+            this.btnAsignar.Name = "btnAsignar";
+            this.btnAsignar.Size = new System.Drawing.Size(153, 51);
+            this.btnAsignar.TabIndex = 106;
+            this.btnAsignar.Text = "Asignar Calendario de Pagos";
+            this.btnAsignar.UseVisualStyleBackColor = false;
+            this.btnAsignar.Click += new System.EventHandler(this.btnAsignar_Click);
+            // 
             // MPagos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(65)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(992, 681);
+            this.Controls.Add(this.btnAsignar);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.cbxSeccion);
+            this.Controls.Add(this.cbxGrado);
             this.Controls.Add(this.cbxConcepto);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtDescripcion);
@@ -281,5 +361,10 @@ namespace Presentacion
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.ComboBox cbxConcepto;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cbxSeccion;
+        private System.Windows.Forms.ComboBox cbxGrado;
+        private System.Windows.Forms.Button btnAsignar;
     }
 }
