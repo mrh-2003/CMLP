@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
 using Datos;
+
 namespace Presentacion
 {
     public partial class CBoletas : Form
@@ -18,6 +19,7 @@ namespace Presentacion
         DAlumno dAlumno = new DAlumno();
         DBoleta dBoleta = new DBoleta();
         DBancoDTO dBancoDTO = new DBancoDTO();
+        DCalendario dCalendario = new DCalendario();
         EColegio eColegio = (new DColegio()).getColegio();
         public CBoletas()
         {
@@ -87,6 +89,95 @@ namespace Presentacion
                 Clipboard.SetText(fallo);
             }
         }
+        string getKardex(string dni)
+        {
+            string PaginaHTML_Texto = Properties.Resources.KDeterminadoAlumno.ToString();
+
+            StringBuilder filas = new StringBuilder();
+
+            dgvDatos.DataSource = dCalendario.KardexXAlumno(dni);
+            foreach (DataGridViewRow row in dgvDatos.Rows)
+            {
+                filas.Append("<tr>");
+                if (row.Cells["EMISION"].Value != null && row.Cells["EMISION"].Value is DateTime)
+                {
+                    DateTime fecha = (DateTime)row.Cells["EMISION"].Value;
+                    filas.AppendFormat("<td style=\"text-align:center;\"><pre>{0}</pre></td>", fecha.ToString("d"));
+                }
+                else
+                {
+                    filas.Append("<td style=\"text-align:center;\"> </td>");
+                }
+                if (row.Cells["VENCE EL"].Value != null && row.Cells["VENCE EL"].Value is DateTime)
+                {
+                    DateTime fecha = (DateTime)row.Cells["VENCE EL"].Value;
+                    filas.AppendFormat("<td style=\"text-align:center;\"><pre>{0}</pre></td>", fecha.ToString("d"));
+                }
+                else
+                {
+                    filas.Append("<td style=\"text-align:center;\"> </td>");
+                }
+                if (row.Cells["CP"].Value != null)
+                {
+                    filas.AppendFormat("<td style=\"text-align:center;\"><pre>{0}</pre></td>", row.Cells["CP"].Value.ToString());
+                }
+                else
+                {
+                    filas.Append("<td style=\"text-align:center;\"> </td>");
+                }
+                if (row.Cells["CANCELADO"].Value != null && row.Cells["EMISION"].Value is DateTime)
+                {
+                    DateTime fecha = (DateTime)row.Cells["CANCELADO"].Value;
+                    filas.AppendFormat("<td style=\"text-align:center;\"><pre>{0}</pre></td>", fecha.ToString("d"));
+                }
+                else
+                {
+                    filas.Append("<td style=\"text-align:center;\"> </td>");
+                }
+                if (row.Cells["MOTIVO DE PAGO"].Value != null)
+                {
+                    filas.AppendFormat("<td style=\"text-align:center;\"><pre>{0}</pre></td>", row.Cells["MOTIVO DE PAGO"].Value.ToString());
+                }
+                else
+                {
+                    filas.Append("<td style=\"text-align:center;\"> </td>");
+                }
+                if (row.Cells["IMPORTE"].Value != null)
+                {
+                    filas.AppendFormat("<td style=\"text-align:center;\"><pre>{0}</pre></td>", row.Cells["IMPORTE"].Value.ToString());
+                }
+                else
+                {
+                    filas.Append("<td style=\"text-align:center;\"> </td>");
+                }
+                if (row.Cells["IMP/MORA"].Value != null)
+                {
+                    filas.AppendFormat("<td style=\"text-align:center;\"><pre>{0}</pre></td>", row.Cells["IMP/MORA"].Value.ToString());
+                }
+                else
+                {
+                    filas.Append("<td style=\"text-align:center;\"> </td>");
+                }
+                filas.Append("</tr>");
+            }
+
+            // Reemplazar la etiqueta @FILAS con todas las filas del DataGridView
+            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FILAS", filas.ToString());
+
+            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FECHA", DateTime.Now.ToShortDateString());
+
+            EAlumno eAlumno = (new DAlumno()).getAlumno(dni);
+            if (eAlumno != null)
+            {
+                PaginaHTML_Texto = PaginaHTML_Texto.Replace("@APELLIDOS_NOMBRES", eAlumno.ApellidosNombres);
+                PaginaHTML_Texto = PaginaHTML_Texto.Replace("@DNI", eAlumno.Dni);
+                PaginaHTML_Texto = PaginaHTML_Texto.Replace("@CANCELADO", dCalendario.PagadoPorAlumno(dni).ToString());
+                PaginaHTML_Texto = PaginaHTML_Texto.Replace("@PENDIENTE", dCalendario.DeudaPorAlumno(dni).ToString());
+                PaginaHTML_Texto = PaginaHTML_Texto.Replace("@GRADO", eAlumno.Grado.ToString());
+                PaginaHTML_Texto = PaginaHTML_Texto.Replace("@SECCION", eAlumno.Seccion.ToString());
+            }
+            return PaginaHTML_Texto;
+        }
         async void enviarCorreoAgregar(EBoleta boleta)
         {
             string html = @"
@@ -117,7 +208,11 @@ namespace Presentacion
                             <p class=""footer-text"">¡Felicitaciones! Continúa realizando tus pagos de boletas. <span>😊👍</span></p>
                         </footer>
                     </body>
-                    </html>    
+                    </html>   
+                    <br>
+                    <hr>
+                    <br>
+                      [KARDEX]
                     ";
             EAlumno eAlumno = dAlumno.getAlumnoById(boleta.AlumnoId);
             html = html.Replace("[HEAD]", Utilidades.getHead());
@@ -129,6 +224,7 @@ namespace Presentacion
             html = html.Replace("[Monto del pago]", boleta.Monto.ToString());
             html = html.Replace("[Correo]", eColegio.Email);
             html = html.Replace("[Número de atención al cliente]", eColegio.Numero);
+            html = html.Replace("[KARDEX]", getKardex(eAlumno.Dni));
             await Utilidades.EnviarCorreo(eColegio.Email, eColegio.Contrasenia, eAlumno.EmailApoderado, "Confirmación de pago de boleta electrónica", html);
         }
 
