@@ -50,5 +50,14 @@ namespace Presentacion
             else
                 MessageBox.Show("Debe completar todos los campos");
         }
+        private void txtMora_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+
+                btnActualizar.PerformClick();
+            }
+        }
     }
 }
