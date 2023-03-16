@@ -127,7 +127,7 @@ namespace Presentacion
             this.txtTotal.AutoSize = true;
             this.txtTotal.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotal.ForeColor = System.Drawing.Color.White;
-            this.txtTotal.Location = new System.Drawing.Point(821, 183);
+            this.txtTotal.Location = new System.Drawing.Point(821, 180);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(52, 17);
             this.txtTotal.TabIndex = 85;

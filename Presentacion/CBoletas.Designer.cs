@@ -48,7 +48,7 @@ namespace Presentacion
             this.btnCargar.ForeColor = System.Drawing.Color.White;
             this.btnCargar.Location = new System.Drawing.Point(721, 52);
             this.btnCargar.Name = "btnCargar";
-            this.btnCargar.Size = new System.Drawing.Size(125, 49);
+            this.btnCargar.Size = new System.Drawing.Size(158, 49);
             this.btnCargar.TabIndex = 8;
             this.btnCargar.Text = "Cargar";
             this.btnCargar.UseVisualStyleBackColor = false;
@@ -63,7 +63,7 @@ namespace Presentacion
             this.btnAbrir.ForeColor = System.Drawing.Color.White;
             this.btnAbrir.Location = new System.Drawing.Point(127, 52);
             this.btnAbrir.Name = "btnAbrir";
-            this.btnAbrir.Size = new System.Drawing.Size(121, 49);
+            this.btnAbrir.Size = new System.Drawing.Size(158, 49);
             this.btnAbrir.TabIndex = 6;
             this.btnAbrir.Text = "Abrir";
             this.btnAbrir.UseVisualStyleBackColor = false;
@@ -93,7 +93,7 @@ namespace Presentacion
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(378, 3);
+            this.label11.Location = new System.Drawing.Point(417, 3);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(164, 25);
             this.label11.TabIndex = 89;

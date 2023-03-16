@@ -227,7 +227,7 @@ namespace Presentacion
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(733, 196);
+            this.label6.Location = new System.Drawing.Point(765, 449);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(67, 17);
             this.label6.TabIndex = 105;
@@ -238,7 +238,7 @@ namespace Presentacion
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(428, 196);
+            this.label7.Location = new System.Drawing.Point(765, 356);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(57, 17);
             this.label7.TabIndex = 104;
@@ -257,7 +257,7 @@ namespace Presentacion
             "D",
             "E",
             "F"});
-            this.cbxSeccion.Location = new System.Drawing.Point(803, 193);
+            this.cbxSeccion.Location = new System.Drawing.Point(835, 446);
             this.cbxSeccion.Name = "cbxSeccion";
             this.cbxSeccion.Size = new System.Drawing.Size(145, 24);
             this.cbxSeccion.TabIndex = 103;
@@ -272,7 +272,7 @@ namespace Presentacion
             "3",
             "4",
             "5"});
-            this.cbxGrado.Location = new System.Drawing.Point(498, 193);
+            this.cbxGrado.Location = new System.Drawing.Point(835, 353);
             this.cbxGrado.Name = "cbxGrado";
             this.cbxGrado.Size = new System.Drawing.Size(145, 24);
             this.cbxGrado.TabIndex = 102;
@@ -284,7 +284,7 @@ namespace Presentacion
             this.btnAsignar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAsignar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAsignar.ForeColor = System.Drawing.Color.White;
-            this.btnAsignar.Location = new System.Drawing.Point(783, 237);
+            this.btnAsignar.Location = new System.Drawing.Point(798, 548);
             this.btnAsignar.Name = "btnAsignar";
             this.btnAsignar.Size = new System.Drawing.Size(153, 51);
             this.btnAsignar.TabIndex = 106;
@@ -300,12 +300,12 @@ namespace Presentacion
             this.dgvListar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cbxAgregar});
-            this.dgvListar.Location = new System.Drawing.Point(32, 292);
+            this.dgvListar.Location = new System.Drawing.Point(12, 292);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.RowHeadersVisible = false;
             this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListar.Size = new System.Drawing.Size(718, 366);
+            this.dgvListar.Size = new System.Drawing.Size(747, 377);
             this.dgvListar.TabIndex = 107;
             this.dgvListar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellClick);
             // 

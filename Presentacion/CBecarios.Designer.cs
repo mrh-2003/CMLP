@@ -48,7 +48,7 @@ namespace Presentacion
             // txtDni
             // 
             this.txtDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDni.Location = new System.Drawing.Point(133, 68);
+            this.txtDni.Location = new System.Drawing.Point(125, 68);
             this.txtDni.MaxLength = 8;
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(147, 23);
@@ -65,7 +65,7 @@ namespace Presentacion
             "Beca",
             "Semibeca",
             "Ninguna"});
-            this.cbxBeca.Location = new System.Drawing.Point(713, 68);
+            this.cbxBeca.Location = new System.Drawing.Point(714, 68);
             this.cbxBeca.Name = "cbxBeca";
             this.cbxBeca.Size = new System.Drawing.Size(186, 24);
             this.cbxBeca.TabIndex = 2;
@@ -75,7 +75,7 @@ namespace Presentacion
             this.lbNombre.AutoSize = true;
             this.lbNombre.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNombre.ForeColor = System.Drawing.Color.White;
-            this.lbNombre.Location = new System.Drawing.Point(299, 70);
+            this.lbNombre.Location = new System.Drawing.Point(291, 70);
             this.lbNombre.Name = "lbNombre";
             this.lbNombre.Size = new System.Drawing.Size(63, 17);
             this.lbNombre.TabIndex = 16;
@@ -166,13 +166,13 @@ namespace Presentacion
             this.dgvListar.AllowUserToResizeRows = false;
             this.dgvListar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListar.Location = new System.Drawing.Point(24, 178);
+            this.dgvListar.Location = new System.Drawing.Point(12, 178);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.ReadOnly = true;
             this.dgvListar.RowHeadersVisible = false;
             this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListar.Size = new System.Drawing.Size(943, 483);
+            this.dgvListar.Size = new System.Drawing.Size(968, 491);
             this.dgvListar.TabIndex = 8;
             this.dgvListar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellClick);
             // 
@@ -181,7 +181,7 @@ namespace Presentacion
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(85, 71);
+            this.label1.Location = new System.Drawing.Point(77, 71);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 17);
             this.label1.TabIndex = 16;
@@ -192,7 +192,7 @@ namespace Presentacion
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(654, 71);
+            this.label2.Location = new System.Drawing.Point(655, 71);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 17);
             this.label2.TabIndex = 16;

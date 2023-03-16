@@ -65,7 +65,7 @@ namespace Presentacion
             this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAceptar.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
             this.btnAceptar.ForeColor = System.Drawing.Color.White;
-            this.btnAceptar.Location = new System.Drawing.Point(268, 171);
+            this.btnAceptar.Location = new System.Drawing.Point(268, 169);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(150, 44);
             this.btnAceptar.TabIndex = 4;
@@ -163,7 +163,7 @@ namespace Presentacion
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiar.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
             this.btnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiar.Location = new System.Drawing.Point(551, 171);
+            this.btnLimpiar.Location = new System.Drawing.Point(551, 169);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(150, 44);
             this.btnLimpiar.TabIndex = 5;

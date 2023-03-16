@@ -159,7 +159,7 @@ namespace Presentacion
             this.txbDni.Location = new System.Drawing.Point(129, 153);
             this.txbDni.MaxLength = 8;
             this.txbDni.Name = "txbDni";
-            this.txbDni.Size = new System.Drawing.Size(121, 23);
+            this.txbDni.Size = new System.Drawing.Size(139, 23);
             this.txbDni.TabIndex = 1;
             this.txbDni.TextChanged += new System.EventHandler(this.txbDni_TextChanged);
             this.txbDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbDni_KeyPress);
@@ -318,13 +318,13 @@ namespace Presentacion
             this.dgvListar.AllowUserToResizeRows = false;
             this.dgvListar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListar.Location = new System.Drawing.Point(24, 310);
+            this.dgvListar.Location = new System.Drawing.Point(12, 310);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.ReadOnly = true;
             this.dgvListar.RowHeadersVisible = false;
             this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListar.Size = new System.Drawing.Size(941, 297);
+            this.dgvListar.Size = new System.Drawing.Size(968, 297);
             this.dgvListar.TabIndex = 98;
             // 
             // btnImprimir
