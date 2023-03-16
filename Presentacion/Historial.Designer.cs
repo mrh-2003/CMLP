@@ -53,19 +53,19 @@ namespace Presentacion
             this.dgvListar.AllowUserToResizeRows = false;
             this.dgvListar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListar.Location = new System.Drawing.Point(33, 152);
+            this.dgvListar.Location = new System.Drawing.Point(24, 118);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.ReadOnly = true;
             this.dgvListar.RowHeadersVisible = false;
             this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListar.Size = new System.Drawing.Size(926, 496);
+            this.dgvListar.Size = new System.Drawing.Size(945, 541);
             this.dgvListar.TabIndex = 2;
             // 
             // txtBuscarPorUsuarioOdescripcion
             // 
             this.txtBuscarPorUsuarioOdescripcion.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarPorUsuarioOdescripcion.Location = new System.Drawing.Point(455, 83);
+            this.txtBuscarPorUsuarioOdescripcion.Location = new System.Drawing.Point(451, 68);
             this.txtBuscarPorUsuarioOdescripcion.Name = "txtBuscarPorUsuarioOdescripcion";
             this.txtBuscarPorUsuarioOdescripcion.Size = new System.Drawing.Size(307, 24);
             this.txtBuscarPorUsuarioOdescripcion.TabIndex = 1;
@@ -76,7 +76,7 @@ namespace Presentacion
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(198, 87);
+            this.label2.Location = new System.Drawing.Point(194, 72);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(248, 17);
             this.label2.TabIndex = 83;

@@ -45,13 +45,13 @@ namespace Presentacion
             this.dgvListar.AllowUserToResizeRows = false;
             this.dgvListar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListar.Location = new System.Drawing.Point(27, 189);
+            this.dgvListar.Location = new System.Drawing.Point(12, 182);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.ReadOnly = true;
             this.dgvListar.RowHeadersVisible = false;
             this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListar.Size = new System.Drawing.Size(938, 465);
+            this.dgvListar.Size = new System.Drawing.Size(968, 487);
             this.dgvListar.TabIndex = 4;
             // 
             // cbxSeccion
@@ -66,7 +66,7 @@ namespace Presentacion
             "D",
             "E",
             "F"});
-            this.cbxSeccion.Location = new System.Drawing.Point(671, 83);
+            this.cbxSeccion.Location = new System.Drawing.Point(671, 72);
             this.cbxSeccion.Name = "cbxSeccion";
             this.cbxSeccion.Size = new System.Drawing.Size(150, 24);
             this.cbxSeccion.TabIndex = 2;
@@ -82,7 +82,7 @@ namespace Presentacion
             "3",
             "4",
             "5"});
-            this.cbxGrado.Location = new System.Drawing.Point(219, 83);
+            this.cbxGrado.Location = new System.Drawing.Point(219, 72);
             this.cbxGrado.Name = "cbxGrado";
             this.cbxGrado.Size = new System.Drawing.Size(146, 24);
             this.cbxGrado.TabIndex = 1;
@@ -95,9 +95,9 @@ namespace Presentacion
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(420, 123);
+            this.btnClear.Location = new System.Drawing.Point(411, 107);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(129, 44);
+            this.btnClear.Size = new System.Drawing.Size(148, 60);
             this.btnClear.TabIndex = 3;
             this.btnClear.Text = "Limpiar";
             this.btnClear.UseVisualStyleBackColor = false;
@@ -108,7 +108,7 @@ namespace Presentacion
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 11F);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(155, 86);
+            this.label4.Location = new System.Drawing.Point(155, 75);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 18);
             this.label4.TabIndex = 84;
@@ -119,7 +119,7 @@ namespace Presentacion
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 11F);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(596, 86);
+            this.label1.Location = new System.Drawing.Point(596, 75);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 18);
             this.label1.TabIndex = 84;
