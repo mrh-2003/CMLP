@@ -287,9 +287,9 @@ namespace Presentacion
             // dgvDatos
             // 
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDatos.Location = new System.Drawing.Point(13, 13);
+            this.dgvDatos.Location = new System.Drawing.Point(12, 12);
             this.dgvDatos.Name = "dgvDatos";
-            this.dgvDatos.Size = new System.Drawing.Size(21, 16);
+            this.dgvDatos.Size = new System.Drawing.Size(10, 10);
             this.dgvDatos.TabIndex = 81;
             this.dgvDatos.Visible = false;
             // 
