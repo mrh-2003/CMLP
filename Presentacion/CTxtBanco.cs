@@ -108,7 +108,8 @@ namespace Presentacion
 
         bool completarCalendario(EBancoDTO banco)
         {
-            ECalendarioDTO eCalendarioDTO =  dCalendario.ListarListaDTO().Find(x =>
+            List<ECalendarioDTO> calendarios = dCalendario.ListarListaDTO();
+            ECalendarioDTO eCalendarioDTO = calendarios.Find(x =>
             x.Dni == banco.NCredito && x.Vencimiento == banco.FVncmto &&
             x.ConceptoCodigo == banco.NCuota);
             if (eCalendarioDTO != null)

@@ -167,5 +167,15 @@ namespace Presentacion
         {
             abrirFormHija(new RAlumnosXGrado());
         }
+
+        private void Home_Load(object sender, EventArgs e)
+        {
+            abrirFormHija(new MCalendarioPagos());
+        }
+
+        private void btnPagosSinBoleta_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new MPagosSinBoleta());
+        }
     }
 }

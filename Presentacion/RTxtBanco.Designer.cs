@@ -28,18 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.rtxtInfo = new System.Windows.Forms.RichTextBox();
             this.btnEscribir = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
+            this.rtxtInfo = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
-            // 
-            // rtxtInfo
-            // 
-            this.rtxtInfo.Location = new System.Drawing.Point(32, 57);
-            this.rtxtInfo.Name = "rtxtInfo";
-            this.rtxtInfo.Size = new System.Drawing.Size(924, 556);
-            this.rtxtInfo.TabIndex = 0;
-            this.rtxtInfo.Text = "";
             // 
             // btnEscribir
             // 
@@ -67,6 +59,14 @@
             this.label11.TabIndex = 89;
             this.label11.Text = "Cargar txt al Banco";
             // 
+            // rtxtInfo
+            // 
+            this.rtxtInfo.Location = new System.Drawing.Point(32, 57);
+            this.rtxtInfo.Name = "rtxtInfo";
+            this.rtxtInfo.Size = new System.Drawing.Size(924, 556);
+            this.rtxtInfo.TabIndex = 0;
+            this.rtxtInfo.Text = "";
+            // 
             // RTxtBanco
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -87,9 +87,8 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.RichTextBox rtxtInfo;
         private System.Windows.Forms.Button btnEscribir;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.RichTextBox rtxtInfo;
     }
 }

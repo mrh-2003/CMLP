@@ -52,6 +52,7 @@
             this.btnAbrir.FlatAppearance.BorderSize = 0;
             this.btnAbrir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAbrir.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAbrir.ForeColor = System.Drawing.Color.White;
             this.btnAbrir.Location = new System.Drawing.Point(274, 216);
             this.btnAbrir.Name = "btnAbrir";
             this.btnAbrir.Size = new System.Drawing.Size(130, 42);
@@ -71,7 +72,7 @@
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -102,6 +103,7 @@
             this.btnLimpiar.FlatAppearance.BorderSize = 0;
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.ForeColor = System.Drawing.Color.White;
             this.btnLimpiar.Location = new System.Drawing.Point(592, 216);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(130, 41);
@@ -116,6 +118,7 @@
             this.btnNombre.FlatAppearance.BorderSize = 0;
             this.btnNombre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNombre.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNombre.ForeColor = System.Drawing.Color.White;
             this.btnNombre.Location = new System.Drawing.Point(339, 162);
             this.btnNombre.Margin = new System.Windows.Forms.Padding(0);
             this.btnNombre.Name = "btnNombre";
@@ -131,6 +134,7 @@
             this.btnDNI.FlatAppearance.BorderSize = 0;
             this.btnDNI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDNI.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDNI.ForeColor = System.Drawing.Color.White;
             this.btnDNI.Location = new System.Drawing.Point(745, 88);
             this.btnDNI.Margin = new System.Windows.Forms.Padding(0);
             this.btnDNI.Name = "btnDNI";
@@ -146,6 +150,7 @@
             this.btnImp.FlatAppearance.BorderSize = 0;
             this.btnImp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImp.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImp.ForeColor = System.Drawing.Color.White;
             this.btnImp.Location = new System.Drawing.Point(53, 85);
             this.btnImp.Margin = new System.Windows.Forms.Padding(0);
             this.btnImp.Name = "btnImp";
@@ -161,6 +166,7 @@
             this.btnDesc.FlatAppearance.BorderSize = 0;
             this.btnDesc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDesc.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDesc.ForeColor = System.Drawing.Color.White;
             this.btnDesc.Location = new System.Drawing.Point(361, 85);
             this.btnDesc.Margin = new System.Windows.Forms.Padding(0);
             this.btnDesc.Name = "btnDesc";
@@ -195,7 +201,7 @@
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.dgvListar);
             this.Controls.Add(this.btnAbrir);
-            this.ForeColor = System.Drawing.Color.White;
+            this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CTxtBanco";
             this.Text = "CTxtBanco";

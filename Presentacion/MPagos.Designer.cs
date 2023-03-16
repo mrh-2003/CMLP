@@ -41,7 +41,6 @@ namespace Presentacion
             this.dtpVencimiento = new System.Windows.Forms.DateTimePicker();
             this.txtMonto = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
-            this.dgvListar = new System.Windows.Forms.DataGridView();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.cbxConcepto = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,6 +49,8 @@ namespace Presentacion
             this.cbxSeccion = new System.Windows.Forms.ComboBox();
             this.cbxGrado = new System.Windows.Forms.ComboBox();
             this.btnAsignar = new System.Windows.Forms.Button();
+            this.dgvListar = new System.Windows.Forms.DataGridView();
+            this.cbxAgregar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -191,22 +192,6 @@ namespace Presentacion
             this.txtId.Size = new System.Drawing.Size(147, 24);
             this.txtId.TabIndex = 1;
             // 
-            // dgvListar
-            // 
-            this.dgvListar.AllowUserToAddRows = false;
-            this.dgvListar.AllowUserToResizeRows = false;
-            this.dgvListar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvListar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListar.Location = new System.Drawing.Point(29, 297);
-            this.dgvListar.Name = "dgvListar";
-            this.dgvListar.ReadOnly = true;
-            this.dgvListar.RowHeadersVisible = false;
-            this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListar.Size = new System.Drawing.Size(730, 360);
-            this.dgvListar.TabIndex = 9;
-            this.dgvListar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellClick);
-            // 
             // txtDescripcion
             // 
             this.txtDescripcion.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -307,12 +292,35 @@ namespace Presentacion
             this.btnAsignar.UseVisualStyleBackColor = false;
             this.btnAsignar.Click += new System.EventHandler(this.btnAsignar_Click);
             // 
+            // dgvListar
+            // 
+            this.dgvListar.AllowUserToAddRows = false;
+            this.dgvListar.AllowUserToResizeRows = false;
+            this.dgvListar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvListar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cbxAgregar});
+            this.dgvListar.Location = new System.Drawing.Point(32, 292);
+            this.dgvListar.Name = "dgvListar";
+            this.dgvListar.RowHeadersVisible = false;
+            this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvListar.Size = new System.Drawing.Size(718, 366);
+            this.dgvListar.TabIndex = 107;
+            this.dgvListar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellClick);
+            // 
+            // cbxAgregar
+            // 
+            this.cbxAgregar.HeaderText = "Agregar";
+            this.cbxAgregar.Name = "cbxAgregar";
+            // 
             // MPagos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(65)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(992, 681);
+            this.Controls.Add(this.dgvListar);
             this.Controls.Add(this.btnAsignar);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
@@ -333,7 +341,6 @@ namespace Presentacion
             this.Controls.Add(this.dtpVencimiento);
             this.Controls.Add(this.txtMonto);
             this.Controls.Add(this.txtId);
-            this.Controls.Add(this.dgvListar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MPagos";
             this.Text = "MPagos";
@@ -357,7 +364,6 @@ namespace Presentacion
         private System.Windows.Forms.DateTimePicker dtpVencimiento;
         private System.Windows.Forms.TextBox txtMonto;
         private System.Windows.Forms.TextBox txtId;
-        private System.Windows.Forms.DataGridView dgvListar;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.ComboBox cbxConcepto;
         private System.Windows.Forms.Label label3;
@@ -366,5 +372,7 @@ namespace Presentacion
         private System.Windows.Forms.ComboBox cbxSeccion;
         private System.Windows.Forms.ComboBox cbxGrado;
         private System.Windows.Forms.Button btnAsignar;
+        private System.Windows.Forms.DataGridView dgvListar;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn cbxAgregar;
     }
 }

@@ -99,19 +99,6 @@ namespace Presentacion
                 mantenimiento("delete");
         }
 
-        private void dgvListar_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex != -1)
-            {
-                txtId.Text = dgvListar.Rows[e.RowIndex].Cells[0].Value.ToString();
-                txtDescripcion.Text = dgvListar.Rows[e.RowIndex].Cells[1].Value.ToString();
-                txtMonto.Text = dgvListar.Rows[e.RowIndex].Cells[2].Value.ToString();
-                dtpVencimiento.Value = Convert.ToDateTime(dgvListar.Rows[e.RowIndex].Cells[3].Value);
-                EConcepto eConcepto = dConcepto.Listar().Find(x => x.Codigo == Convert.ToInt32(dgvListar.Rows[e.RowIndex].Cells[4].Value.ToString()));
-                cbxConcepto.Text = eConcepto.Codigo + " - " + eConcepto.Concepto;
-            }
-        }
-
         private void cbxConcepto_SelectedIndexChanged(object sender, EventArgs e)
         {
             EConcepto eConcepto = cbxConcepto.SelectedItem as EConcepto;
@@ -121,7 +108,10 @@ namespace Presentacion
 
         private void btnAsignar_Click(object sender, EventArgs e)
         {
-            List<EPago> pagos = dPago.ListarXMes();
+            List<EPago> pagos = dgvListar.Rows.Cast<DataGridViewRow>()
+            .Where(row => Convert.ToBoolean(row.Cells["cbxAgregar"].Value))
+            .Select(row => row.DataBoundItem as EPago)
+            .ToList();
             List<EAlumno> listaAlumnos = null;
             if(cbxSeccion.Text == "TODOS" && cbxGrado.Text == "TODOS")
                 listaAlumnos = dAlumno.ListarLista();
@@ -190,6 +180,19 @@ namespace Presentacion
             }
             limpiar();
             MessageBox.Show("Tarea cumplida exitosamente");
+        }
+
+        private void dgvListar_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                txtId.Text = dgvListar.Rows[e.RowIndex].Cells[1].Value.ToString();
+                txtDescripcion.Text = dgvListar.Rows[e.RowIndex].Cells[2].Value.ToString();
+                txtMonto.Text = dgvListar.Rows[e.RowIndex].Cells[3].Value.ToString();
+                dtpVencimiento.Value = Convert.ToDateTime(dgvListar.Rows[e.RowIndex].Cells[4].Value);
+                EConcepto eConcepto = dConcepto.Listar().Find(x => x.Codigo == Convert.ToInt32(dgvListar.Rows[e.RowIndex].Cells[5].Value.ToString()));
+                cbxConcepto.Text = eConcepto.Codigo + " - " + eConcepto.Concepto;
+            }
         }
     }
 }
