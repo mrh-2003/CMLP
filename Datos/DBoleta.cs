@@ -1,4 +1,5 @@
 ﻿using System;
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,6 +8,7 @@ using System.Data;
 using Entidades;
 using Npgsql;
 using System.Windows.Shapes;
+using System.Windows.Forms;
 
 namespace Datos
 {
@@ -63,7 +65,6 @@ namespace Datos
                 }
             }
         }
-
         public DataTable Listar()
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
