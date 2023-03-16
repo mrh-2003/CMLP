@@ -49,7 +49,9 @@ namespace Presentacion
             this.label12 = new System.Windows.Forms.Label();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
+            this.dgvDatos = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.SuspendLayout();
             // 
             // txtCodigo
@@ -282,12 +284,22 @@ namespace Presentacion
             this.btnImprimir.UseVisualStyleBackColor = false;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
+            // dgvDatos
+            // 
+            this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDatos.Location = new System.Drawing.Point(12, 12);
+            this.dgvDatos.Name = "dgvDatos";
+            this.dgvDatos.Size = new System.Drawing.Size(10, 10);
+            this.dgvDatos.TabIndex = 81;
+            this.dgvDatos.Visible = false;
+            // 
             // MBoleta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(65)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(992, 681);
+            this.Controls.Add(this.dgvDatos);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.label12);
@@ -314,6 +326,7 @@ namespace Presentacion
             this.Text = "MBoleta";
             this.Load += new System.EventHandler(this.MBoleta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -341,5 +354,6 @@ namespace Presentacion
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.DataGridView dgvDatos;
     }
 }

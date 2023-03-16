@@ -58,52 +58,52 @@ namespace Datos
             }
             return lista;
         }
-        public List<EPago> ListarXMes()
-        {
-            List<EPago> lista = new List<EPago>();
+        //public List<EPago> ListarXMes()
+        //{
+        //    List<EPago> lista = new List<EPago>();
 
-            using (var conn = new NpgsqlConnection(connectionString))
-            {
-                try
-                {
-                    conn.Open();
-                    using (var trans = conn.BeginTransaction())
-                    {
-                        string query = "SELECT * FROM pagos";
-                        if (anio != "TODOS")
-                            query += " WHERE EXTRACT(MONTH FROM emision) = @mes and EXTRACT(YEAR FROM vencimiento) = @anio ORDER BY vencimiento";
-                        else
-                            query += " WHERE EXTRACT(MONTH FROM emision) = @mes ORDER BY vencimiento";
-                        using (var cmd = new NpgsqlCommand(query, conn, trans))
-                        {
-                            if (anio != "TODOS")
-                                cmd.Parameters.AddWithValue("@anio", Convert.ToInt32(anio));
-                            cmd.Parameters.AddWithValue("@mes",DateTime.Now.Month);
-                            using (var reader = cmd.ExecuteReader())
-                            {
-                                while (reader.Read())
-                                {
-                                    EPago pago = new EPago();
-                                    pago.Id = reader.GetInt32(0);
-                                    pago.Descripcion = reader.GetString(1);
-                                    pago.Monto = reader.GetDecimal(2);
-                                    pago.Vencimiento = reader.GetDateTime(3);
-                                    pago.ConceptoCodigo = reader.GetInt32(4);
-                                    pago.Emision = reader.GetDateTime(5);
-                                    lista.Add(pago);
-                                }
-                            }
-                        }
-                        trans.Commit();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-            }
-            return lista;
-        }
+        //    using (var conn = new NpgsqlConnection(connectionString))
+        //    {
+        //        try
+        //        {
+        //            conn.Open();
+        //            using (var trans = conn.BeginTransaction())
+        //            {
+        //                string query = "SELECT * FROM pagos";
+        //                if (anio != "TODOS")
+        //                    query += " WHERE EXTRACT(MONTH FROM emision) = @mes and EXTRACT(YEAR FROM vencimiento) = @anio ORDER BY vencimiento";
+        //                else
+        //                    query += " WHERE EXTRACT(MONTH FROM emision) = @mes ORDER BY vencimiento";
+        //                using (var cmd = new NpgsqlCommand(query, conn, trans))
+        //                {
+        //                    if (anio != "TODOS")
+        //                        cmd.Parameters.AddWithValue("@anio", Convert.ToInt32(anio));
+        //                    cmd.Parameters.AddWithValue("@mes",DateTime.Now.Month);
+        //                    using (var reader = cmd.ExecuteReader())
+        //                    {
+        //                        while (reader.Read())
+        //                        {
+        //                            EPago pago = new EPago();
+        //                            pago.Id = reader.GetInt32(0);
+        //                            pago.Descripcion = reader.GetString(1);
+        //                            pago.Monto = reader.GetDecimal(2);
+        //                            pago.Vencimiento = reader.GetDateTime(3);
+        //                            pago.ConceptoCodigo = reader.GetInt32(4);
+        //                            pago.Emision = reader.GetDateTime(5);
+        //                            lista.Add(pago);
+        //                        }
+        //                    }
+        //                }
+        //                trans.Commit();
+        //            }
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            Console.WriteLine(ex.Message);
+        //        }
+        //    }
+        //    return lista;
+        //}
         public string Mantenimiento(EPago pago, string opcion)
         {
             using (var conn = new NpgsqlConnection(connectionString))

@@ -33,70 +33,11 @@ namespace Presentacion
         private void btnCargar_Click(object sender, EventArgs e)
         {
             string fallo = "";
-            List<EPago> pagos = dPago.ListarXMes();
             foreach (EAlumno item in listaAlumnos)
-            {
                 if (dAlumno.getAlumno(item.Dni) == null)
-                {
                     dAlumno.Mantenimiento(item, "insert");
-                    EAlumno alumno = dAlumno.getAlumno(item.Dni);
-                    foreach (EPago pago in pagos)
-                    {
-                        ECalendario eCalendario;
-                        if (pago.ConceptoCodigo  == 2 && alumno.Descuento != "Ninguna")
-                        {
-                            if(alumno.Descuento == "Beca")
-                            {
-                                eCalendario = new ECalendario()
-                                {
-                                    Descripcion = pago.Descripcion,
-                                    MontoPagado = 0,
-                                    MontoTotal = 0,
-                                    Vencimiento = pago.Vencimiento,
-                                    AlumnoId = alumno.Id,
-                                    ConceptoCodigo = pago.ConceptoCodigo,
-                                    Mora = 0,
-                                    Cancelacion = DateTime.Now,
-                                    Emision = DateTime.Now
-                                };
-                            }
-                            else
-                            {
-                                eCalendario = new ECalendario()
-                                {
-                                    Descripcion = pago.Descripcion,
-                                    MontoPagado = 0,
-                                    MontoTotal = pago.Monto / 2,
-                                    Vencimiento = pago.Vencimiento,
-                                    AlumnoId = alumno.Id,
-                                    ConceptoCodigo = pago.ConceptoCodigo,
-                                    Mora = 0,
-                                    Cancelacion = DateTime.Now,
-                                    Emision = DateTime.Now
-                                };
-                            }
-                        }
-                        else
-                        {
-                            eCalendario = new ECalendario()
-                            {
-                                Descripcion = pago.Descripcion,
-                                MontoPagado = 0,
-                                MontoTotal = pago.Monto,
-                                Vencimiento = pago.Vencimiento,
-                                AlumnoId = alumno.Id,
-                                ConceptoCodigo = pago.ConceptoCodigo,
-                                Mora = 0,
-                                Cancelacion = DateTime.Now,
-                                Emision = DateTime.Now
-                            };
-                        }
-                        dCalendario.Mantenimiento(eCalendario, "insert");
-                    }
-                }
                 else
                     fallo += item.Dni + " - " + item.ApellidosNombres + "\n";
-            }
             if (fallo.Length > 0)
             {
                 MessageBox.Show("Estos alumnos ya fueron registrados antes :\n" + fallo);

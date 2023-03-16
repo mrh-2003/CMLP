@@ -34,7 +34,9 @@ namespace Presentacion
             this.dgvListar = new System.Windows.Forms.DataGridView();
             this.openFile = new System.Windows.Forms.OpenFileDialog();
             this.label11 = new System.Windows.Forms.Label();
+            this.dgvDatos = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCargar
@@ -97,12 +99,22 @@ namespace Presentacion
             this.label11.TabIndex = 89;
             this.label11.Text = "Cargar Boleta";
             // 
+            // dgvDatos
+            // 
+            this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDatos.Location = new System.Drawing.Point(12, 18);
+            this.dgvDatos.Name = "dgvDatos";
+            this.dgvDatos.Size = new System.Drawing.Size(10, 10);
+            this.dgvDatos.TabIndex = 90;
+            this.dgvDatos.Visible = false;
+            // 
             // CBoletas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(65)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(992, 681);
+            this.Controls.Add(this.dgvDatos);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.btnCargar);
             this.Controls.Add(this.btnAbrir);
@@ -112,6 +124,7 @@ namespace Presentacion
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CBoletas";
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,5 +136,6 @@ namespace Presentacion
         private System.Windows.Forms.DataGridView dgvListar;
         private System.Windows.Forms.OpenFileDialog openFile;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DataGridView dgvDatos;
     }
 }

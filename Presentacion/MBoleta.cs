@@ -22,6 +22,7 @@ namespace Presentacion
         private const string TITULO_ALERTA = "Error de Entrada";
         DBoleta dBoleta = new DBoleta();
         DConcepto dConcepto = new DConcepto();
+        DCalendario dCalendario = new DCalendario();
         DAlumno dAlumno = new DAlumno();
         DHistorial dHistorial = new DHistorial();
         EColegio eColegio = (new DColegio()).getColegio();
@@ -92,6 +93,95 @@ namespace Presentacion
             else
                 MessageBox.Show("Todos los campos deben estar llenos");
         }
+        string getKardex()
+        {
+            string PaginaHTML_Texto = Properties.Resources.KDeterminadoAlumno.ToString();
+
+            StringBuilder filas = new StringBuilder();
+
+            dgvDatos.DataSource = dCalendario.KardexXAlumno(txtDni.Text);
+            foreach (DataGridViewRow row in dgvDatos.Rows)
+            {
+                filas.Append("<tr>");
+                if (row.Cells["EMISION"].Value != null && row.Cells["EMISION"].Value is DateTime)
+                {
+                    DateTime fecha = (DateTime)row.Cells["EMISION"].Value;
+                    filas.AppendFormat("<td style=\"text-align:center;\"><pre>{0}</pre></td>", fecha.ToString("d"));
+                }
+                else
+                {
+                    filas.Append("<td style=\"text-align:center;\"> </td>");
+                }
+                if (row.Cells["VENCE EL"].Value != null && row.Cells["VENCE EL"].Value is DateTime)
+                {
+                    DateTime fecha = (DateTime)row.Cells["VENCE EL"].Value;
+                    filas.AppendFormat("<td style=\"text-align:center;\"><pre>{0}</pre></td>", fecha.ToString("d"));
+                }
+                else
+                {
+                    filas.Append("<td style=\"text-align:center;\"> </td>");
+                }
+                if (row.Cells["CP"].Value != null)
+                {
+                    filas.AppendFormat("<td style=\"text-align:center;\"><pre>{0}</pre></td>", row.Cells["CP"].Value.ToString());
+                }
+                else
+                {
+                    filas.Append("<td style=\"text-align:center;\"> </td>");
+                }
+                if (row.Cells["CANCELADO"].Value != null && row.Cells["EMISION"].Value is DateTime)
+                {
+                    DateTime fecha = (DateTime)row.Cells["CANCELADO"].Value;
+                    filas.AppendFormat("<td style=\"text-align:center;\"><pre>{0}</pre></td>", fecha.ToString("d"));
+                }
+                else
+                {
+                    filas.Append("<td style=\"text-align:center;\"> </td>");
+                }
+                if (row.Cells["MOTIVO DE PAGO"].Value != null)
+                {
+                    filas.AppendFormat("<td style=\"text-align:center;\"><pre>{0}</pre></td>", row.Cells["MOTIVO DE PAGO"].Value.ToString());
+                }
+                else
+                {
+                    filas.Append("<td style=\"text-align:center;\"> </td>");
+                }
+                if (row.Cells["IMPORTE"].Value != null)
+                {
+                    filas.AppendFormat("<td style=\"text-align:center;\"><pre>{0}</pre></td>", row.Cells["IMPORTE"].Value.ToString());
+                }
+                else
+                {
+                    filas.Append("<td style=\"text-align:center;\"> </td>");
+                }
+                if (row.Cells["IMP/MORA"].Value != null)
+                {
+                    filas.AppendFormat("<td style=\"text-align:center;\"><pre>{0}</pre></td>", row.Cells["IMP/MORA"].Value.ToString());
+                }
+                else
+                {
+                    filas.Append("<td style=\"text-align:center;\"> </td>");
+                }
+                filas.Append("</tr>");
+            }
+
+            // Reemplazar la etiqueta @FILAS con todas las filas del DataGridView
+            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FILAS", filas.ToString());
+
+            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FECHA", DateTime.Now.ToShortDateString());
+
+            EAlumno eAlumno = (new DAlumno()).getAlumno(txtDni.Text);
+            if (eAlumno != null)
+            {
+                PaginaHTML_Texto = PaginaHTML_Texto.Replace("@APELLIDOS_NOMBRES", eAlumno.ApellidosNombres);
+                PaginaHTML_Texto = PaginaHTML_Texto.Replace("@DNI", eAlumno.Dni);
+                PaginaHTML_Texto = PaginaHTML_Texto.Replace("@CANCELADO", dCalendario.PagadoPorAlumno(txtDni.Text).ToString());
+                PaginaHTML_Texto = PaginaHTML_Texto.Replace("@PENDIENTE", dCalendario.DeudaPorAlumno(txtDni.Text).ToString());
+                PaginaHTML_Texto = PaginaHTML_Texto.Replace("@GRADO", eAlumno.Grado.ToString());
+                PaginaHTML_Texto = PaginaHTML_Texto.Replace("@SECCION", eAlumno.Seccion.ToString());
+            }
+            return PaginaHTML_Texto;
+        }
         async void enviarCorreoAgregar()
         {
             string html = @"
@@ -122,7 +212,11 @@ namespace Presentacion
                             <p class=""footer-text"">¡Felicitaciones! Continúa realizando tus pagos de boletas. <span>😊👍</span></p>
                         </footer>
                     </body>
-                    </html>    
+                    </html>
+                    <br>
+                    <hr>
+                    <br>
+                      [KARDEX]
                     ";
             EAlumno eAlumno = dAlumno.getAlumno(txtDni.Text);
             html = html.Replace("[HEAD]", Utilidades.getHead());
@@ -133,6 +227,7 @@ namespace Presentacion
             html = html.Replace("[Monto del pago]", txtMonto.Text);
             html = html.Replace("[Correo]", eColegio.Email);
             html = html.Replace("[Número de atención al cliente]", eColegio.Numero);
+            html = html.Replace("[KARDEX]", getKardex());
             string resultado = await Utilidades.EnviarCorreo(eColegio.Email, eColegio.Contrasenia, eAlumno.EmailApoderado, "Confirmación de pago de boleta electrónica", html);
             MessageBox.Show(resultado);
         }

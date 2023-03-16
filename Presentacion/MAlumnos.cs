@@ -52,7 +52,7 @@ namespace Presentacion
             txtAnio.Clear();
             txtDni.Focus();
         }
-        private bool mantenimiento(string opcion)
+        private void mantenimiento(string opcion)
         {
             if (txtDni.Text != "" && txtApellidosNombres.Text != "" && cbxGrado.SelectedIndex != -1 && 
                 cbxSeccion.SelectedIndex != -1 && txtEmail.Text != "" && txtCelular.Text != "" && 
@@ -86,11 +86,7 @@ namespace Presentacion
                 mostrar();
             }
             else
-            {
                 MessageBox.Show("Todos los campos deben estar llenos");
-                return false;
-            }
-            return true;
         }
         private void dgvListar_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -112,70 +108,10 @@ namespace Presentacion
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            string dni = txtDni.Text;
             txtAnio.Text = Utilidades.anio;
             EAlumno eAlumno = dAlumno.getAlumno(txtDni.Text);
             if (eAlumno == null)
-            {
-                if (mantenimiento("insert"))
-                {
-                    List<EPago> pagos = dPago.ListarXMes();
-                    EAlumno alumno = dAlumno.getAlumno(dni);
-                    foreach (EPago pago in pagos)
-                    {
-                        ECalendario eCalendario;
-                        if (pago.ConceptoCodigo == 2 && alumno.Descuento != "Ninguna")
-                        {
-                            if (alumno.Descuento == "Beca")
-                            {
-                                eCalendario = new ECalendario()
-                                {
-                                    Descripcion = pago.Descripcion,
-                                    MontoPagado = 0,
-                                    MontoTotal = 0,
-                                    Vencimiento = pago.Vencimiento,
-                                    AlumnoId = alumno.Id,
-                                    ConceptoCodigo = pago.ConceptoCodigo,
-                                    Mora = 0,
-                                    Cancelacion = DateTime.Now,
-                                    Emision = DateTime.Now
-                                };
-                            }
-                            else
-                            {
-                                eCalendario = new ECalendario()
-                                {
-                                    Descripcion = pago.Descripcion,
-                                    MontoPagado = 0,
-                                    MontoTotal = pago.Monto / 2,
-                                    Vencimiento = pago.Vencimiento,
-                                    AlumnoId = alumno.Id,
-                                    ConceptoCodigo = pago.ConceptoCodigo,
-                                    Mora = 0,
-                                    Cancelacion = DateTime.Now,
-                                    Emision = DateTime.Now
-                                };
-                            }
-                        }
-                        else
-                        {
-                            eCalendario = new ECalendario()
-                            {
-                                Descripcion = pago.Descripcion,
-                                MontoPagado = 0,
-                                MontoTotal = pago.Monto,
-                                Vencimiento = pago.Vencimiento,
-                                AlumnoId = alumno.Id,
-                                ConceptoCodigo = pago.ConceptoCodigo,
-                                Mora = 0,
-                                Cancelacion = DateTime.Now,
-                                Emision = DateTime.Now
-                            };
-                        }
-                        dCalendario.Mantenimiento(eCalendario, "insert");
-                    }
-                }
-            }
+                mantenimiento("insert");
             else
                 MessageBox.Show("El alumno ya existe");
         }

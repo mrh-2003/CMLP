@@ -190,6 +190,12 @@
     <Compile Include="MPagos.Designer.cs">
       <DependentUpon>MPagos.cs</DependentUpon>
     </Compile>
+    <Compile Include="MPagosSinBoleta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MPagosSinBoleta.Designer.cs">
+      <DependentUpon>MPagosSinBoleta.cs</DependentUpon>
+    </Compile>
     <Compile Include="MUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -298,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MPagos.resx">
       <DependentUpon>MPagos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MPagosSinBoleta.resx">
+      <DependentUpon>MPagosSinBoleta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MUsuario.resx">
       <DependentUpon>MUsuario.cs</DependentUpon>

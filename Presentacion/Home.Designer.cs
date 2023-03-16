@@ -32,6 +32,16 @@ namespace Presentacion
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnConfig = new FontAwesome.Sharp.IconButton();
+            this.btnCTxtBanco = new FontAwesome.Sharp.IconButton();
+            this.btnRTxtBanco = new FontAwesome.Sharp.IconButton();
+            this.btnUsuarios = new FontAwesome.Sharp.IconButton();
+            this.btnHistorial = new FontAwesome.Sharp.IconButton();
+            this.btnRBoletas = new FontAwesome.Sharp.IconButton();
+            this.btnCargarBol = new FontAwesome.Sharp.IconButton();
+            this.btnConceptos = new FontAwesome.Sharp.IconButton();
+            this.btnBoleta = new FontAwesome.Sharp.IconButton();
+            this.btnPagos = new FontAwesome.Sharp.IconButton();
             this.btnRAlumnos = new FontAwesome.Sharp.IconButton();
             this.btnCalendario = new FontAwesome.Sharp.IconButton();
             this.btnKardex = new FontAwesome.Sharp.IconButton();
@@ -41,16 +51,6 @@ namespace Presentacion
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.panelEscritorio = new System.Windows.Forms.Panel();
-            this.btnPagos = new FontAwesome.Sharp.IconButton();
-            this.btnCTxtBanco = new FontAwesome.Sharp.IconButton();
-            this.btnRTxtBanco = new FontAwesome.Sharp.IconButton();
-            this.btnUsuarios = new FontAwesome.Sharp.IconButton();
-            this.btnHistorial = new FontAwesome.Sharp.IconButton();
-            this.btnRBoletas = new FontAwesome.Sharp.IconButton();
-            this.btnCargarBol = new FontAwesome.Sharp.IconButton();
-            this.btnConceptos = new FontAwesome.Sharp.IconButton();
-            this.btnBoleta = new FontAwesome.Sharp.IconButton();
-            this.btnConfig = new FontAwesome.Sharp.IconButton();
             this.menuKardex = new CustomControls.RJControls.RJDropdownMenu(this.components);
             this.subMenukardexAlumno = new System.Windows.Forms.ToolStripMenuItem();
             this.subMenukardexGrado = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,6 +66,7 @@ namespace Presentacion
             this.submenuDeuFecha = new System.Windows.Forms.ToolStripMenuItem();
             this.submenuDeuGrado = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAlumGrado = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnPagosSinBoleta = new FontAwesome.Sharp.IconButton();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -78,6 +79,7 @@ namespace Presentacion
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(19)))));
+            this.panelMenu.Controls.Add(this.btnPagosSinBoleta);
             this.panelMenu.Controls.Add(this.btnConfig);
             this.panelMenu.Controls.Add(this.btnCTxtBanco);
             this.panelMenu.Controls.Add(this.btnRTxtBanco);
@@ -102,189 +104,29 @@ namespace Presentacion
             this.panelMenu.Size = new System.Drawing.Size(192, 681);
             this.panelMenu.TabIndex = 2;
             // 
-            // btnRAlumnos
+            // btnConfig
             // 
-            this.btnRAlumnos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRAlumnos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnRAlumnos.FlatAppearance.BorderSize = 0;
-            this.btnRAlumnos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRAlumnos.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRAlumnos.ForeColor = System.Drawing.Color.White;
-            this.btnRAlumnos.IconChar = FontAwesome.Sharp.IconChar.BasketShopping;
-            this.btnRAlumnos.IconColor = System.Drawing.Color.White;
-            this.btnRAlumnos.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnRAlumnos.IconSize = 25;
-            this.btnRAlumnos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRAlumnos.Location = new System.Drawing.Point(0, 222);
-            this.btnRAlumnos.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnRAlumnos.Name = "btnRAlumnos";
-            this.btnRAlumnos.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
-            this.btnRAlumnos.Size = new System.Drawing.Size(192, 30);
-            this.btnRAlumnos.TabIndex = 26;
-            this.btnRAlumnos.Text = "Reportes";
-            this.btnRAlumnos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnRAlumnos.UseVisualStyleBackColor = true;
-            this.btnRAlumnos.Click += new System.EventHandler(this.btnRAlumnos_Click);
-            // 
-            // btnCalendario
-            // 
-            this.btnCalendario.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCalendario.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCalendario.FlatAppearance.BorderSize = 0;
-            this.btnCalendario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCalendario.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCalendario.ForeColor = System.Drawing.Color.White;
-            this.btnCalendario.IconChar = FontAwesome.Sharp.IconChar.MoneyBillTrendUp;
-            this.btnCalendario.IconColor = System.Drawing.Color.White;
-            this.btnCalendario.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCalendario.IconSize = 25;
-            this.btnCalendario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCalendario.Location = new System.Drawing.Point(0, 192);
-            this.btnCalendario.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnCalendario.Name = "btnCalendario";
-            this.btnCalendario.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
-            this.btnCalendario.Size = new System.Drawing.Size(192, 30);
-            this.btnCalendario.TabIndex = 25;
-            this.btnCalendario.Text = "Calendario";
-            this.btnCalendario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCalendario.UseVisualStyleBackColor = true;
-            this.btnCalendario.Click += new System.EventHandler(this.btnCalendario_Click);
-            // 
-            // btnKardex
-            // 
-            this.btnKardex.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnKardex.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnKardex.FlatAppearance.BorderSize = 0;
-            this.btnKardex.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnKardex.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnKardex.ForeColor = System.Drawing.Color.White;
-            this.btnKardex.IconChar = FontAwesome.Sharp.IconChar.BoxOpen;
-            this.btnKardex.IconColor = System.Drawing.Color.White;
-            this.btnKardex.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnKardex.IconSize = 25;
-            this.btnKardex.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnKardex.Location = new System.Drawing.Point(0, 162);
-            this.btnKardex.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnKardex.Name = "btnKardex";
-            this.btnKardex.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
-            this.btnKardex.Size = new System.Drawing.Size(192, 30);
-            this.btnKardex.TabIndex = 24;
-            this.btnKardex.Text = "Kardex";
-            this.btnKardex.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnKardex.UseVisualStyleBackColor = true;
-            this.btnKardex.Click += new System.EventHandler(this.btnKardex_Click);
-            // 
-            // btnCargarAlum
-            // 
-            this.btnCargarAlum.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCargarAlum.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCargarAlum.FlatAppearance.BorderSize = 0;
-            this.btnCargarAlum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCargarAlum.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCargarAlum.ForeColor = System.Drawing.Color.White;
-            this.btnCargarAlum.IconChar = FontAwesome.Sharp.IconChar.Building;
-            this.btnCargarAlum.IconColor = System.Drawing.Color.White;
-            this.btnCargarAlum.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCargarAlum.IconSize = 25;
-            this.btnCargarAlum.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCargarAlum.Location = new System.Drawing.Point(0, 132);
-            this.btnCargarAlum.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnCargarAlum.Name = "btnCargarAlum";
-            this.btnCargarAlum.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
-            this.btnCargarAlum.Size = new System.Drawing.Size(192, 30);
-            this.btnCargarAlum.TabIndex = 6;
-            this.btnCargarAlum.Text = "Cargar Alumnos";
-            this.btnCargarAlum.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCargarAlum.UseVisualStyleBackColor = true;
-            this.btnCargarAlum.Click += new System.EventHandler(this.btnCargarAlum_Click);
-            // 
-            // btnMantAlumnos
-            // 
-            this.btnMantAlumnos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMantAlumnos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMantAlumnos.FlatAppearance.BorderSize = 0;
-            this.btnMantAlumnos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMantAlumnos.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMantAlumnos.ForeColor = System.Drawing.Color.White;
-            this.btnMantAlumnos.IconChar = FontAwesome.Sharp.IconChar.PeopleGroup;
-            this.btnMantAlumnos.IconColor = System.Drawing.Color.White;
-            this.btnMantAlumnos.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnMantAlumnos.IconSize = 35;
-            this.btnMantAlumnos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMantAlumnos.Location = new System.Drawing.Point(0, 94);
-            this.btnMantAlumnos.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnMantAlumnos.Name = "btnMantAlumnos";
-            this.btnMantAlumnos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnMantAlumnos.Size = new System.Drawing.Size(192, 38);
-            this.btnMantAlumnos.TabIndex = 5;
-            this.btnMantAlumnos.Text = " Alumnos";
-            this.btnMantAlumnos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnMantAlumnos.UseVisualStyleBackColor = true;
-            this.btnMantAlumnos.Click += new System.EventHandler(this.btnMantAlumnos_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(19)))));
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.panelLogo);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(192, 94);
-            this.panel1.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 1);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(192, 90);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // panelLogo
-            // 
-            this.panelLogo.Location = new System.Drawing.Point(26, 12);
-            this.panelLogo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(0, 0);
-            this.panelLogo.TabIndex = 0;
-            // 
-            // panelEscritorio
-            // 
-            this.panelEscritorio.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelEscritorio.Location = new System.Drawing.Point(192, 0);
-            this.panelEscritorio.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.panelEscritorio.Name = "panelEscritorio";
-            this.panelEscritorio.Size = new System.Drawing.Size(992, 681);
-            this.panelEscritorio.TabIndex = 4;
-            // 
-            // btnPagos
-            // 
-            this.btnPagos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPagos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPagos.FlatAppearance.BorderSize = 0;
-            this.btnPagos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPagos.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPagos.ForeColor = System.Drawing.Color.White;
-            this.btnPagos.IconChar = FontAwesome.Sharp.IconChar.BasketShopping;
-            this.btnPagos.IconColor = System.Drawing.Color.White;
-            this.btnPagos.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPagos.IconSize = 25;
-            this.btnPagos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPagos.Location = new System.Drawing.Point(0, 252);
-            this.btnPagos.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnPagos.Name = "btnPagos";
-            this.btnPagos.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
-            this.btnPagos.Size = new System.Drawing.Size(192, 30);
-            this.btnPagos.TabIndex = 35;
-            this.btnPagos.Text = "Agregar Pagos";
-            this.btnPagos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPagos.UseVisualStyleBackColor = true;
-            this.btnPagos.Click += new System.EventHandler(this.btnPagos_Click);
+            this.btnConfig.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfig.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnConfig.FlatAppearance.BorderSize = 0;
+            this.btnConfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfig.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfig.ForeColor = System.Drawing.Color.White;
+            this.btnConfig.IconChar = FontAwesome.Sharp.IconChar.Tools;
+            this.btnConfig.IconColor = System.Drawing.Color.White;
+            this.btnConfig.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnConfig.IconSize = 35;
+            this.btnConfig.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConfig.Location = new System.Drawing.Point(0, 562);
+            this.btnConfig.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnConfig.Name = "btnConfig";
+            this.btnConfig.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnConfig.Size = new System.Drawing.Size(192, 38);
+            this.btnConfig.TabIndex = 44;
+            this.btnConfig.Text = "Datos IE";
+            this.btnConfig.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnConfig.UseVisualStyleBackColor = true;
+            this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
             // 
             // btnCTxtBanco
             // 
@@ -478,29 +320,189 @@ namespace Presentacion
             this.btnBoleta.UseVisualStyleBackColor = true;
             this.btnBoleta.Click += new System.EventHandler(this.btnBoleta_Click);
             // 
-            // btnConfig
+            // btnPagos
             // 
-            this.btnConfig.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConfig.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnConfig.FlatAppearance.BorderSize = 0;
-            this.btnConfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfig.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfig.ForeColor = System.Drawing.Color.White;
-            this.btnConfig.IconChar = FontAwesome.Sharp.IconChar.Tools;
-            this.btnConfig.IconColor = System.Drawing.Color.White;
-            this.btnConfig.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnConfig.IconSize = 35;
-            this.btnConfig.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConfig.Location = new System.Drawing.Point(0, 562);
-            this.btnConfig.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnConfig.Name = "btnConfig";
-            this.btnConfig.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnConfig.Size = new System.Drawing.Size(192, 38);
-            this.btnConfig.TabIndex = 44;
-            this.btnConfig.Text = "Datos IE";
-            this.btnConfig.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnConfig.UseVisualStyleBackColor = true;
-            this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
+            this.btnPagos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPagos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPagos.FlatAppearance.BorderSize = 0;
+            this.btnPagos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPagos.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPagos.ForeColor = System.Drawing.Color.White;
+            this.btnPagos.IconChar = FontAwesome.Sharp.IconChar.BasketShopping;
+            this.btnPagos.IconColor = System.Drawing.Color.White;
+            this.btnPagos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPagos.IconSize = 25;
+            this.btnPagos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPagos.Location = new System.Drawing.Point(0, 252);
+            this.btnPagos.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnPagos.Name = "btnPagos";
+            this.btnPagos.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
+            this.btnPagos.Size = new System.Drawing.Size(192, 30);
+            this.btnPagos.TabIndex = 35;
+            this.btnPagos.Text = "Agregar Pagos";
+            this.btnPagos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPagos.UseVisualStyleBackColor = true;
+            this.btnPagos.Click += new System.EventHandler(this.btnPagos_Click);
+            // 
+            // btnRAlumnos
+            // 
+            this.btnRAlumnos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRAlumnos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRAlumnos.FlatAppearance.BorderSize = 0;
+            this.btnRAlumnos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRAlumnos.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRAlumnos.ForeColor = System.Drawing.Color.White;
+            this.btnRAlumnos.IconChar = FontAwesome.Sharp.IconChar.BasketShopping;
+            this.btnRAlumnos.IconColor = System.Drawing.Color.White;
+            this.btnRAlumnos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnRAlumnos.IconSize = 25;
+            this.btnRAlumnos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRAlumnos.Location = new System.Drawing.Point(0, 222);
+            this.btnRAlumnos.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnRAlumnos.Name = "btnRAlumnos";
+            this.btnRAlumnos.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
+            this.btnRAlumnos.Size = new System.Drawing.Size(192, 30);
+            this.btnRAlumnos.TabIndex = 26;
+            this.btnRAlumnos.Text = "Reportes";
+            this.btnRAlumnos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRAlumnos.UseVisualStyleBackColor = true;
+            this.btnRAlumnos.Click += new System.EventHandler(this.btnRAlumnos_Click);
+            // 
+            // btnCalendario
+            // 
+            this.btnCalendario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCalendario.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCalendario.FlatAppearance.BorderSize = 0;
+            this.btnCalendario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCalendario.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCalendario.ForeColor = System.Drawing.Color.White;
+            this.btnCalendario.IconChar = FontAwesome.Sharp.IconChar.MoneyBillTrendUp;
+            this.btnCalendario.IconColor = System.Drawing.Color.White;
+            this.btnCalendario.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCalendario.IconSize = 25;
+            this.btnCalendario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCalendario.Location = new System.Drawing.Point(0, 192);
+            this.btnCalendario.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnCalendario.Name = "btnCalendario";
+            this.btnCalendario.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
+            this.btnCalendario.Size = new System.Drawing.Size(192, 30);
+            this.btnCalendario.TabIndex = 25;
+            this.btnCalendario.Text = "Calendario";
+            this.btnCalendario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCalendario.UseVisualStyleBackColor = true;
+            this.btnCalendario.Click += new System.EventHandler(this.btnCalendario_Click);
+            // 
+            // btnKardex
+            // 
+            this.btnKardex.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnKardex.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnKardex.FlatAppearance.BorderSize = 0;
+            this.btnKardex.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnKardex.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnKardex.ForeColor = System.Drawing.Color.White;
+            this.btnKardex.IconChar = FontAwesome.Sharp.IconChar.BoxOpen;
+            this.btnKardex.IconColor = System.Drawing.Color.White;
+            this.btnKardex.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnKardex.IconSize = 25;
+            this.btnKardex.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnKardex.Location = new System.Drawing.Point(0, 162);
+            this.btnKardex.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnKardex.Name = "btnKardex";
+            this.btnKardex.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
+            this.btnKardex.Size = new System.Drawing.Size(192, 30);
+            this.btnKardex.TabIndex = 24;
+            this.btnKardex.Text = "Kardex";
+            this.btnKardex.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnKardex.UseVisualStyleBackColor = true;
+            this.btnKardex.Click += new System.EventHandler(this.btnKardex_Click);
+            // 
+            // btnCargarAlum
+            // 
+            this.btnCargarAlum.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCargarAlum.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCargarAlum.FlatAppearance.BorderSize = 0;
+            this.btnCargarAlum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCargarAlum.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCargarAlum.ForeColor = System.Drawing.Color.White;
+            this.btnCargarAlum.IconChar = FontAwesome.Sharp.IconChar.Building;
+            this.btnCargarAlum.IconColor = System.Drawing.Color.White;
+            this.btnCargarAlum.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCargarAlum.IconSize = 25;
+            this.btnCargarAlum.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCargarAlum.Location = new System.Drawing.Point(0, 132);
+            this.btnCargarAlum.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnCargarAlum.Name = "btnCargarAlum";
+            this.btnCargarAlum.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
+            this.btnCargarAlum.Size = new System.Drawing.Size(192, 30);
+            this.btnCargarAlum.TabIndex = 6;
+            this.btnCargarAlum.Text = "Cargar Alumnos";
+            this.btnCargarAlum.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCargarAlum.UseVisualStyleBackColor = true;
+            this.btnCargarAlum.Click += new System.EventHandler(this.btnCargarAlum_Click);
+            // 
+            // btnMantAlumnos
+            // 
+            this.btnMantAlumnos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMantAlumnos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMantAlumnos.FlatAppearance.BorderSize = 0;
+            this.btnMantAlumnos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMantAlumnos.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMantAlumnos.ForeColor = System.Drawing.Color.White;
+            this.btnMantAlumnos.IconChar = FontAwesome.Sharp.IconChar.PeopleGroup;
+            this.btnMantAlumnos.IconColor = System.Drawing.Color.White;
+            this.btnMantAlumnos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMantAlumnos.IconSize = 35;
+            this.btnMantAlumnos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMantAlumnos.Location = new System.Drawing.Point(0, 94);
+            this.btnMantAlumnos.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnMantAlumnos.Name = "btnMantAlumnos";
+            this.btnMantAlumnos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnMantAlumnos.Size = new System.Drawing.Size(192, 38);
+            this.btnMantAlumnos.TabIndex = 5;
+            this.btnMantAlumnos.Text = " Alumnos";
+            this.btnMantAlumnos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnMantAlumnos.UseVisualStyleBackColor = true;
+            this.btnMantAlumnos.Click += new System.EventHandler(this.btnMantAlumnos_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(19)))));
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.panelLogo);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(192, 94);
+            this.panel1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 1);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(192, 90);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // panelLogo
+            // 
+            this.panelLogo.Location = new System.Drawing.Point(26, 12);
+            this.panelLogo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(0, 0);
+            this.panelLogo.TabIndex = 0;
+            // 
+            // panelEscritorio
+            // 
+            this.panelEscritorio.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelEscritorio.Location = new System.Drawing.Point(192, 0);
+            this.panelEscritorio.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.panelEscritorio.Name = "panelEscritorio";
+            this.panelEscritorio.Size = new System.Drawing.Size(992, 681);
+            this.panelEscritorio.TabIndex = 4;
             // 
             // menuKardex
             // 
@@ -615,7 +617,7 @@ namespace Presentacion
             this.menuRAlum.MenuItemTextColor = System.Drawing.Color.Empty;
             this.menuRAlum.Name = "rjDropdownMenu1";
             this.menuRAlum.PrimaryColor = System.Drawing.Color.Empty;
-            this.menuRAlum.Size = new System.Drawing.Size(253, 114);
+            this.menuRAlum.Size = new System.Drawing.Size(253, 92);
             // 
             // submenuPenGradoMes
             // 
@@ -648,6 +650,30 @@ namespace Presentacion
             this.btnAlumGrado.Text = "Alumnos por Grado";
             this.btnAlumGrado.Click += new System.EventHandler(this.btnAlumGrado_Click);
             // 
+            // btnPagosSinBoleta
+            // 
+            this.btnPagosSinBoleta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPagosSinBoleta.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPagosSinBoleta.FlatAppearance.BorderSize = 0;
+            this.btnPagosSinBoleta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPagosSinBoleta.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPagosSinBoleta.ForeColor = System.Drawing.Color.White;
+            this.btnPagosSinBoleta.IconChar = FontAwesome.Sharp.IconChar.Tools;
+            this.btnPagosSinBoleta.IconColor = System.Drawing.Color.White;
+            this.btnPagosSinBoleta.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPagosSinBoleta.IconSize = 35;
+            this.btnPagosSinBoleta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPagosSinBoleta.Location = new System.Drawing.Point(0, 600);
+            this.btnPagosSinBoleta.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnPagosSinBoleta.Name = "btnPagosSinBoleta";
+            this.btnPagosSinBoleta.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnPagosSinBoleta.Size = new System.Drawing.Size(192, 38);
+            this.btnPagosSinBoleta.TabIndex = 45;
+            this.btnPagosSinBoleta.Text = "Pagos Sin Boleta";
+            this.btnPagosSinBoleta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPagosSinBoleta.UseVisualStyleBackColor = true;
+            this.btnPagosSinBoleta.Click += new System.EventHandler(this.btnPagosSinBoleta_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -662,6 +688,7 @@ namespace Presentacion
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema Integrado de Información Computarizada del CMLP (SICC)";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Home_FormClosing);
+            this.Load += new System.EventHandler(this.Home_Load);
             this.panelMenu.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -710,6 +737,7 @@ namespace Presentacion
         private FontAwesome.Sharp.IconButton btnPagos;
         private FontAwesome.Sharp.IconButton btnConfig;
         private System.Windows.Forms.ToolStripMenuItem btnAlumGrado;
+        private FontAwesome.Sharp.IconButton btnPagosSinBoleta;
     }
 }
 
