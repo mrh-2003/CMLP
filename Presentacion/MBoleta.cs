@@ -213,6 +213,9 @@ namespace Presentacion
                         </footer>
                     </body>
                     </html>
+                    <br>
+                    <hr>
+                    <br>
                       [KARDEX]
                     ";
             EAlumno eAlumno = dAlumno.getAlumno(txtDni.Text);
