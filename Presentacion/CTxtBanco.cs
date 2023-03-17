@@ -24,14 +24,26 @@ namespace Presentacion
         }
         private void btnAbrir_Click(object sender, EventArgs e)
         {
+            lista.Clear();
             string downloadsFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Downloads";
             openFile.InitialDirectory = downloadsFolder;
             openFile.Filter = "txt (*.txt)|*.txt";
             if (openFile.ShowDialog() == DialogResult.OK)
             {
-                cargarDatos();
-                cargarBD();
-                mostrar();
+                if (dBanco.InsertarArchivos(openFile.FileName))
+                {
+                    cargarDatos();
+                    cargarBD();
+                    mostrar();
+                } else
+                {
+                    if (MessageBox.Show("¿Desea continuar?\nEl archivo ya fue cargado antes", "Confirmación", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        cargarDatos();
+                        cargarBD();
+                        mostrar();
+                    }
+                }
             }
         }
         void cargarDatos()

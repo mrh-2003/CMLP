@@ -24,7 +24,7 @@ namespace Datos
                         if (getColegio() == null)
                             query = "INSERT INTO colegio (email, contrasenia, numero, txtsalida, mora) VALUES (@email, @contrasenia, @numero, @txtsalida, @mora)";
                         else
-                            query = "UPDATE colegio SET email = @email, @contrasenia = contrasenia, numero = @numero, txtsalida = @txtsalida, mora = @mora WHERE id = @id";
+                            query = "UPDATE colegio SET email = @email, contrasenia = @contrasenia, numero = @numero, txtsalida = @txtsalida, mora = @mora WHERE id = @id";
                         using (var cmd = new NpgsqlCommand(query, conn, trans))
                         {
                             if(getColegio() != null)
@@ -58,15 +58,13 @@ namespace Datos
                         using (var reader = cmd.ExecuteReader())
                         {
                             reader.Read();
-                            EColegio eColegio = new EColegio()
-                            {
-                                Id = reader.GetInt32(0),
-                                Email = reader.GetString(1),
-                                Numero = reader.GetString(2),
-                                Txtsalida = reader.GetString(3),
-                                Mora = reader.GetDecimal(4),
-                                Contrasenia = reader.GetString(5),
-                            };
+                            EColegio eColegio = new EColegio();
+                            eColegio.Id = reader.GetInt32(0);
+                            eColegio.Email = reader.GetString(1);
+                            eColegio.Numero = reader.GetString(2);
+                            eColegio.Txtsalida = reader.GetString(3);
+                            eColegio.Mora = reader.GetDecimal(4);
+                            eColegio.Contrasenia = reader.GetString(5);
                             return eColegio;
                         }
                     }

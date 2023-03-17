@@ -141,7 +141,6 @@ namespace Datos
                 }
             }
         }
-
         public string Mantenimiento(EBancoDTO banco, string opcion)
         {
             using (var conn = new NpgsqlConnection(connectionString))
@@ -185,6 +184,31 @@ namespace Datos
                 catch (Exception ex)
                 {
                     return ex.Message;
+                }
+            }
+        }
+        public bool InsertarArchivos(string nombre)
+        {
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    using (var trans = conn.BeginTransaction())
+                    {
+                        var query = "INSERT INTO archivos (nombre) VALUES (@nombre)";
+                        using (var cmd = new NpgsqlCommand(query, conn, trans))
+                        {
+                            cmd.Parameters.AddWithValue("@nombre", nombre);
+                            cmd.ExecuteNonQuery();
+                        }
+                        trans.Commit();
+                    }
+                    return true;
+                }
+                catch (Exception)
+                {
+                    return false;
                 }
             }
         }
