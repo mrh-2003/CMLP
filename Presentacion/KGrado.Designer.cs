@@ -58,9 +58,9 @@ namespace Presentacion
             this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConsultar.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultar.ForeColor = System.Drawing.Color.White;
-            this.btnConsultar.Location = new System.Drawing.Point(279, 192);
+            this.btnConsultar.Location = new System.Drawing.Point(72, 192);
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(129, 44);
+            this.btnConsultar.Size = new System.Drawing.Size(143, 44);
             this.btnConsultar.TabIndex = 3;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = false;
@@ -82,7 +82,7 @@ namespace Presentacion
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Verdana", 11F);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(515, 152);
+            this.label7.Location = new System.Drawing.Point(502, 152);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(72, 18);
             this.label7.TabIndex = 56;
@@ -93,7 +93,7 @@ namespace Presentacion
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 11F);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(262, 152);
+            this.label4.Location = new System.Drawing.Point(249, 152);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 18);
             this.label4.TabIndex = 55;
@@ -151,7 +151,7 @@ namespace Presentacion
             // txbPendiente
             // 
             this.txbPendiente.Font = new System.Drawing.Font("Verdana", 11F);
-            this.txbPendiente.Location = new System.Drawing.Point(540, 633);
+            this.txbPendiente.Location = new System.Drawing.Point(540, 641);
             this.txbPendiente.Name = "txbPendiente";
             this.txbPendiente.ReadOnly = true;
             this.txbPendiente.Size = new System.Drawing.Size(152, 25);
@@ -160,7 +160,7 @@ namespace Presentacion
             // txbCancelado
             // 
             this.txbCancelado.Font = new System.Drawing.Font("Verdana", 11F);
-            this.txbCancelado.Location = new System.Drawing.Point(314, 633);
+            this.txbCancelado.Location = new System.Drawing.Point(314, 641);
             this.txbCancelado.Name = "txbCancelado";
             this.txbCancelado.ReadOnly = true;
             this.txbCancelado.Size = new System.Drawing.Size(152, 25);
@@ -171,7 +171,7 @@ namespace Presentacion
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Verdana", 11F);
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(575, 610);
+            this.label14.Location = new System.Drawing.Point(575, 618);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(80, 18);
             this.label14.TabIndex = 89;
@@ -182,7 +182,7 @@ namespace Presentacion
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Verdana", 11F);
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(348, 610);
+            this.label13.Location = new System.Drawing.Point(348, 618);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(85, 18);
             this.label13.TabIndex = 90;
@@ -193,7 +193,7 @@ namespace Presentacion
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Verdana", 11F);
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(399, 592);
+            this.label11.Location = new System.Drawing.Point(399, 600);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(207, 18);
             this.label11.TabIndex = 88;
@@ -205,13 +205,13 @@ namespace Presentacion
             this.dgvListar.AllowUserToResizeRows = false;
             this.dgvListar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListar.Location = new System.Drawing.Point(33, 245);
+            this.dgvListar.Location = new System.Drawing.Point(12, 245);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.ReadOnly = true;
             this.dgvListar.RowHeadersVisible = false;
             this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListar.Size = new System.Drawing.Size(926, 333);
+            this.dgvListar.Size = new System.Drawing.Size(968, 352);
             this.dgvListar.TabIndex = 93;
             // 
             // cbxSeccion
@@ -226,7 +226,7 @@ namespace Presentacion
             "D",
             "E",
             "F"});
-            this.cbxSeccion.Location = new System.Drawing.Point(590, 150);
+            this.cbxSeccion.Location = new System.Drawing.Point(577, 150);
             this.cbxSeccion.Name = "cbxSeccion";
             this.cbxSeccion.Size = new System.Drawing.Size(145, 24);
             this.cbxSeccion.TabIndex = 95;
@@ -240,7 +240,7 @@ namespace Presentacion
             "3",
             "4",
             "5"});
-            this.cbxGrado.Location = new System.Drawing.Point(326, 150);
+            this.cbxGrado.Location = new System.Drawing.Point(313, 150);
             this.cbxGrado.Name = "cbxGrado";
             this.cbxGrado.Size = new System.Drawing.Size(145, 24);
             this.cbxGrado.TabIndex = 94;
@@ -252,9 +252,9 @@ namespace Presentacion
             this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImprimir.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImprimir.ForeColor = System.Drawing.Color.White;
-            this.btnImprimir.Location = new System.Drawing.Point(606, 193);
+            this.btnImprimir.Location = new System.Drawing.Point(777, 192);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(129, 44);
+            this.btnImprimir.Size = new System.Drawing.Size(141, 44);
             this.btnImprimir.TabIndex = 96;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = false;

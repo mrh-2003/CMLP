@@ -50,7 +50,7 @@
             "3",
             "4",
             "5"});
-            this.cbxGrado.Location = new System.Drawing.Point(616, 78);
+            this.cbxGrado.Location = new System.Drawing.Point(616, 71);
             this.cbxGrado.Margin = new System.Windows.Forms.Padding(4);
             this.cbxGrado.Name = "cbxGrado";
             this.cbxGrado.Size = new System.Drawing.Size(168, 24);
@@ -63,14 +63,14 @@
             this.dgvListar.AllowUserToResizeRows = false;
             this.dgvListar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListar.Location = new System.Drawing.Point(21, 206);
+            this.dgvListar.Location = new System.Drawing.Point(13, 197);
             this.dgvListar.Margin = new System.Windows.Forms.Padding(4);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.ReadOnly = true;
             this.dgvListar.RowHeadersVisible = false;
             this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListar.Size = new System.Drawing.Size(941, 455);
+            this.dgvListar.Size = new System.Drawing.Size(966, 471);
             this.dgvListar.TabIndex = 12;
             // 
             // cbxMes
@@ -91,7 +91,7 @@
             "10",
             "11",
             "12"});
-            this.cbxMes.Location = new System.Drawing.Point(196, 78);
+            this.cbxMes.Location = new System.Drawing.Point(196, 71);
             this.cbxMes.Margin = new System.Windows.Forms.Padding(4);
             this.cbxMes.Name = "cbxMes";
             this.cbxMes.Size = new System.Drawing.Size(226, 24);
@@ -103,7 +103,7 @@
             this.lb3ro.AutoSize = true;
             this.lb3ro.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb3ro.ForeColor = System.Drawing.Color.White;
-            this.lb3ro.Location = new System.Drawing.Point(194, 167);
+            this.lb3ro.Location = new System.Drawing.Point(194, 160);
             this.lb3ro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb3ro.Name = "lb3ro";
             this.lb3ro.Size = new System.Drawing.Size(70, 17);
@@ -115,7 +115,7 @@
             this.lb4to.AutoSize = true;
             this.lb4to.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb4to.ForeColor = System.Drawing.Color.White;
-            this.lb4to.Location = new System.Drawing.Point(445, 167);
+            this.lb4to.Location = new System.Drawing.Point(445, 160);
             this.lb4to.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb4to.Name = "lb4to";
             this.lb4to.Size = new System.Drawing.Size(62, 17);
@@ -127,7 +127,7 @@
             this.lb5to.AutoSize = true;
             this.lb5to.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb5to.ForeColor = System.Drawing.Color.White;
-            this.lb5to.Location = new System.Drawing.Point(705, 167);
+            this.lb5to.Location = new System.Drawing.Point(705, 160);
             this.lb5to.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb5to.Name = "lb5to";
             this.lb5to.Size = new System.Drawing.Size(66, 17);
@@ -139,7 +139,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(247, 131);
+            this.label4.Location = new System.Drawing.Point(247, 124);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(460, 17);
@@ -162,7 +162,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(152, 81);
+            this.label1.Location = new System.Drawing.Point(152, 74);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 17);
@@ -174,7 +174,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(556, 82);
+            this.label2.Location = new System.Drawing.Point(556, 75);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 17);

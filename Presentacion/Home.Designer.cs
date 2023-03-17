@@ -32,6 +32,7 @@ namespace Presentacion
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnPagosSinBoleta = new FontAwesome.Sharp.IconButton();
             this.btnConfig = new FontAwesome.Sharp.IconButton();
             this.btnCTxtBanco = new FontAwesome.Sharp.IconButton();
             this.btnRTxtBanco = new FontAwesome.Sharp.IconButton();
@@ -66,7 +67,6 @@ namespace Presentacion
             this.submenuDeuFecha = new System.Windows.Forms.ToolStripMenuItem();
             this.submenuDeuGrado = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAlumGrado = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnPagosSinBoleta = new FontAwesome.Sharp.IconButton();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -104,6 +104,30 @@ namespace Presentacion
             this.panelMenu.Size = new System.Drawing.Size(192, 681);
             this.panelMenu.TabIndex = 2;
             // 
+            // btnPagosSinBoleta
+            // 
+            this.btnPagosSinBoleta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPagosSinBoleta.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPagosSinBoleta.FlatAppearance.BorderSize = 0;
+            this.btnPagosSinBoleta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPagosSinBoleta.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPagosSinBoleta.ForeColor = System.Drawing.Color.White;
+            this.btnPagosSinBoleta.IconChar = FontAwesome.Sharp.IconChar.MoneyBillTrendUp;
+            this.btnPagosSinBoleta.IconColor = System.Drawing.Color.White;
+            this.btnPagosSinBoleta.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPagosSinBoleta.IconSize = 35;
+            this.btnPagosSinBoleta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPagosSinBoleta.Location = new System.Drawing.Point(0, 600);
+            this.btnPagosSinBoleta.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnPagosSinBoleta.Name = "btnPagosSinBoleta";
+            this.btnPagosSinBoleta.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnPagosSinBoleta.Size = new System.Drawing.Size(192, 38);
+            this.btnPagosSinBoleta.TabIndex = 45;
+            this.btnPagosSinBoleta.Text = "Pagos Sin Boleta";
+            this.btnPagosSinBoleta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPagosSinBoleta.UseVisualStyleBackColor = true;
+            this.btnPagosSinBoleta.Click += new System.EventHandler(this.btnPagosSinBoleta_Click);
+            // 
             // btnConfig
             // 
             this.btnConfig.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -112,7 +136,7 @@ namespace Presentacion
             this.btnConfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfig.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfig.ForeColor = System.Drawing.Color.White;
-            this.btnConfig.IconChar = FontAwesome.Sharp.IconChar.Tools;
+            this.btnConfig.IconChar = FontAwesome.Sharp.IconChar.School;
             this.btnConfig.IconColor = System.Drawing.Color.White;
             this.btnConfig.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnConfig.IconSize = 35;
@@ -136,7 +160,7 @@ namespace Presentacion
             this.btnCTxtBanco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCTxtBanco.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCTxtBanco.ForeColor = System.Drawing.Color.White;
-            this.btnCTxtBanco.IconChar = FontAwesome.Sharp.IconChar.Tools;
+            this.btnCTxtBanco.IconChar = FontAwesome.Sharp.IconChar.AnglesUp;
             this.btnCTxtBanco.IconColor = System.Drawing.Color.White;
             this.btnCTxtBanco.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCTxtBanco.IconSize = 35;
@@ -160,7 +184,7 @@ namespace Presentacion
             this.btnRTxtBanco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRTxtBanco.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRTxtBanco.ForeColor = System.Drawing.Color.White;
-            this.btnRTxtBanco.IconChar = FontAwesome.Sharp.IconChar.Tools;
+            this.btnRTxtBanco.IconChar = FontAwesome.Sharp.IconChar.HouseSignal;
             this.btnRTxtBanco.IconColor = System.Drawing.Color.White;
             this.btnRTxtBanco.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnRTxtBanco.IconSize = 35;
@@ -184,7 +208,7 @@ namespace Presentacion
             this.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUsuarios.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsuarios.ForeColor = System.Drawing.Color.White;
-            this.btnUsuarios.IconChar = FontAwesome.Sharp.IconChar.Tools;
+            this.btnUsuarios.IconChar = FontAwesome.Sharp.IconChar.PeopleLine;
             this.btnUsuarios.IconColor = System.Drawing.Color.White;
             this.btnUsuarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnUsuarios.IconSize = 35;
@@ -208,7 +232,7 @@ namespace Presentacion
             this.btnHistorial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHistorial.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHistorial.ForeColor = System.Drawing.Color.White;
-            this.btnHistorial.IconChar = FontAwesome.Sharp.IconChar.Tools;
+            this.btnHistorial.IconChar = FontAwesome.Sharp.IconChar.HSquare;
             this.btnHistorial.IconColor = System.Drawing.Color.White;
             this.btnHistorial.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnHistorial.IconSize = 35;
@@ -232,7 +256,7 @@ namespace Presentacion
             this.btnRBoletas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRBoletas.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRBoletas.ForeColor = System.Drawing.Color.White;
-            this.btnRBoletas.IconChar = FontAwesome.Sharp.IconChar.Building;
+            this.btnRBoletas.IconChar = FontAwesome.Sharp.IconChar.Registered;
             this.btnRBoletas.IconColor = System.Drawing.Color.White;
             this.btnRBoletas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnRBoletas.IconSize = 25;
@@ -256,7 +280,7 @@ namespace Presentacion
             this.btnCargarBol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCargarBol.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCargarBol.ForeColor = System.Drawing.Color.White;
-            this.btnCargarBol.IconChar = FontAwesome.Sharp.IconChar.BridgeCircleExclamation;
+            this.btnCargarBol.IconChar = FontAwesome.Sharp.IconChar.AnglesUp;
             this.btnCargarBol.IconColor = System.Drawing.Color.White;
             this.btnCargarBol.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCargarBol.IconSize = 25;
@@ -280,7 +304,7 @@ namespace Presentacion
             this.btnConceptos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConceptos.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConceptos.ForeColor = System.Drawing.Color.White;
-            this.btnConceptos.IconChar = FontAwesome.Sharp.IconChar.Paypal;
+            this.btnConceptos.IconChar = FontAwesome.Sharp.IconChar.AddressBook;
             this.btnConceptos.IconColor = System.Drawing.Color.White;
             this.btnConceptos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnConceptos.IconSize = 25;
@@ -328,7 +352,7 @@ namespace Presentacion
             this.btnPagos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPagos.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPagos.ForeColor = System.Drawing.Color.White;
-            this.btnPagos.IconChar = FontAwesome.Sharp.IconChar.BasketShopping;
+            this.btnPagos.IconChar = FontAwesome.Sharp.IconChar.AddressCard;
             this.btnPagos.IconColor = System.Drawing.Color.White;
             this.btnPagos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPagos.IconSize = 25;
@@ -352,7 +376,7 @@ namespace Presentacion
             this.btnRAlumnos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRAlumnos.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRAlumnos.ForeColor = System.Drawing.Color.White;
-            this.btnRAlumnos.IconChar = FontAwesome.Sharp.IconChar.BasketShopping;
+            this.btnRAlumnos.IconChar = FontAwesome.Sharp.IconChar.Registered;
             this.btnRAlumnos.IconColor = System.Drawing.Color.White;
             this.btnRAlumnos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnRAlumnos.IconSize = 25;
@@ -376,7 +400,7 @@ namespace Presentacion
             this.btnCalendario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCalendario.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCalendario.ForeColor = System.Drawing.Color.White;
-            this.btnCalendario.IconChar = FontAwesome.Sharp.IconChar.MoneyBillTrendUp;
+            this.btnCalendario.IconChar = FontAwesome.Sharp.IconChar.CalendarDays;
             this.btnCalendario.IconColor = System.Drawing.Color.White;
             this.btnCalendario.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCalendario.IconSize = 25;
@@ -424,7 +448,7 @@ namespace Presentacion
             this.btnCargarAlum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCargarAlum.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCargarAlum.ForeColor = System.Drawing.Color.White;
-            this.btnCargarAlum.IconChar = FontAwesome.Sharp.IconChar.Building;
+            this.btnCargarAlum.IconChar = FontAwesome.Sharp.IconChar.AnglesUp;
             this.btnCargarAlum.IconColor = System.Drawing.Color.White;
             this.btnCargarAlum.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCargarAlum.IconSize = 25;
@@ -649,30 +673,6 @@ namespace Presentacion
             this.btnAlumGrado.Size = new System.Drawing.Size(252, 22);
             this.btnAlumGrado.Text = "Alumnos por Grado";
             this.btnAlumGrado.Click += new System.EventHandler(this.btnAlumGrado_Click);
-            // 
-            // btnPagosSinBoleta
-            // 
-            this.btnPagosSinBoleta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPagosSinBoleta.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPagosSinBoleta.FlatAppearance.BorderSize = 0;
-            this.btnPagosSinBoleta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPagosSinBoleta.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPagosSinBoleta.ForeColor = System.Drawing.Color.White;
-            this.btnPagosSinBoleta.IconChar = FontAwesome.Sharp.IconChar.Tools;
-            this.btnPagosSinBoleta.IconColor = System.Drawing.Color.White;
-            this.btnPagosSinBoleta.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPagosSinBoleta.IconSize = 35;
-            this.btnPagosSinBoleta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPagosSinBoleta.Location = new System.Drawing.Point(0, 600);
-            this.btnPagosSinBoleta.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnPagosSinBoleta.Name = "btnPagosSinBoleta";
-            this.btnPagosSinBoleta.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnPagosSinBoleta.Size = new System.Drawing.Size(192, 38);
-            this.btnPagosSinBoleta.TabIndex = 45;
-            this.btnPagosSinBoleta.Text = "Pagos Sin Boleta";
-            this.btnPagosSinBoleta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPagosSinBoleta.UseVisualStyleBackColor = true;
-            this.btnPagosSinBoleta.Click += new System.EventHandler(this.btnPagosSinBoleta_Click);
             // 
             // Home
             // 

@@ -62,7 +62,7 @@ namespace Presentacion
             // txbPendiente
             // 
             this.txbPendiente.Font = new System.Drawing.Font("Verdana", 11F);
-            this.txbPendiente.Location = new System.Drawing.Point(517, 651);
+            this.txbPendiente.Location = new System.Drawing.Point(530, 651);
             this.txbPendiente.Name = "txbPendiente";
             this.txbPendiente.ReadOnly = true;
             this.txbPendiente.Size = new System.Drawing.Size(152, 25);
@@ -71,7 +71,7 @@ namespace Presentacion
             // txbCancelado
             // 
             this.txbCancelado.Font = new System.Drawing.Font("Verdana", 11F);
-            this.txbCancelado.Location = new System.Drawing.Point(291, 651);
+            this.txbCancelado.Location = new System.Drawing.Point(304, 651);
             this.txbCancelado.Name = "txbCancelado";
             this.txbCancelado.ReadOnly = true;
             this.txbCancelado.Size = new System.Drawing.Size(152, 25);
@@ -82,7 +82,7 @@ namespace Presentacion
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Verdana", 11F);
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(552, 628);
+            this.label14.Location = new System.Drawing.Point(565, 628);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(80, 18);
             this.label14.TabIndex = 53;
@@ -93,7 +93,7 @@ namespace Presentacion
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Verdana", 11F);
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(325, 628);
+            this.label13.Location = new System.Drawing.Point(338, 628);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(85, 18);
             this.label13.TabIndex = 54;
@@ -104,7 +104,7 @@ namespace Presentacion
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Verdana", 11F);
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(376, 610);
+            this.label11.Location = new System.Drawing.Point(389, 610);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(207, 18);
             this.label11.TabIndex = 52;
@@ -157,7 +157,7 @@ namespace Presentacion
             this.txbDni.Location = new System.Drawing.Point(129, 153);
             this.txbDni.MaxLength = 8;
             this.txbDni.Name = "txbDni";
-            this.txbDni.Size = new System.Drawing.Size(121, 23);
+            this.txbDni.Size = new System.Drawing.Size(139, 23);
             this.txbDni.TabIndex = 1;
             this.txbDni.TextChanged += new System.EventHandler(this.txbDni_TextChanged);
             this.txbDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbDni_KeyPress);
@@ -311,13 +311,13 @@ namespace Presentacion
             this.dgvListar.AllowUserToResizeRows = false;
             this.dgvListar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListar.Location = new System.Drawing.Point(33, 331);
+            this.dgvListar.Location = new System.Drawing.Point(12, 310);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.ReadOnly = true;
             this.dgvListar.RowHeadersVisible = false;
             this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListar.Size = new System.Drawing.Size(926, 257);
+            this.dgvListar.Size = new System.Drawing.Size(968, 297);
             this.dgvListar.TabIndex = 98;
             // 
             // btnImprimir
@@ -327,7 +327,7 @@ namespace Presentacion
             this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImprimir.Font = new System.Drawing.Font("Verdana", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImprimir.ForeColor = System.Drawing.Color.Transparent;
-            this.btnImprimir.Location = new System.Drawing.Point(752, 253);
+            this.btnImprimir.Location = new System.Drawing.Point(744, 236);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(177, 53);
             this.btnImprimir.TabIndex = 99;

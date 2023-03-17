@@ -33,6 +33,14 @@
             this.rtxtInfo = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
+            // rtxtInfo
+            // 
+            this.rtxtInfo.Location = new System.Drawing.Point(12, 57);
+            this.rtxtInfo.Name = "rtxtInfo";
+            this.rtxtInfo.Size = new System.Drawing.Size(968, 567);
+            this.rtxtInfo.TabIndex = 0;
+            this.rtxtInfo.Text = "";
+            // 
             // btnEscribir
             // 
             this.btnEscribir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(19)))));
@@ -40,9 +48,9 @@
             this.btnEscribir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEscribir.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEscribir.ForeColor = System.Drawing.Color.White;
-            this.btnEscribir.Location = new System.Drawing.Point(435, 634);
+            this.btnEscribir.Location = new System.Drawing.Point(400, 635);
             this.btnEscribir.Name = "btnEscribir";
-            this.btnEscribir.Size = new System.Drawing.Size(121, 35);
+            this.btnEscribir.Size = new System.Drawing.Size(202, 40);
             this.btnEscribir.TabIndex = 1;
             this.btnEscribir.Text = "Escribir";
             this.btnEscribir.UseVisualStyleBackColor = false;

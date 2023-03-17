@@ -53,7 +53,7 @@
             this.btnAbrir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAbrir.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAbrir.ForeColor = System.Drawing.Color.White;
-            this.btnAbrir.Location = new System.Drawing.Point(274, 216);
+            this.btnAbrir.Location = new System.Drawing.Point(244, 183);
             this.btnAbrir.Name = "btnAbrir";
             this.btnAbrir.Size = new System.Drawing.Size(130, 42);
             this.btnAbrir.TabIndex = 0;
@@ -77,13 +77,13 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvListar.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvListar.Location = new System.Drawing.Point(25, 278);
+            this.dgvListar.Location = new System.Drawing.Point(12, 243);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.ReadOnly = true;
             this.dgvListar.RowHeadersVisible = false;
             this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListar.Size = new System.Drawing.Size(941, 391);
+            this.dgvListar.Size = new System.Drawing.Size(968, 426);
             this.dgvListar.TabIndex = 10;
             this.dgvListar.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellContentClick);
             this.dgvListar.SelectionChanged += new System.EventHandler(this.dgvListar_SelectionChanged);
@@ -104,7 +104,7 @@
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiar.Location = new System.Drawing.Point(592, 216);
+            this.btnLimpiar.Location = new System.Drawing.Point(639, 183);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(130, 41);
             this.btnLimpiar.TabIndex = 11;
@@ -119,10 +119,10 @@
             this.btnNombre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNombre.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNombre.ForeColor = System.Drawing.Color.White;
-            this.btnNombre.Location = new System.Drawing.Point(339, 162);
+            this.btnNombre.Location = new System.Drawing.Point(328, 131);
             this.btnNombre.Margin = new System.Windows.Forms.Padding(0);
             this.btnNombre.Name = "btnNombre";
-            this.btnNombre.Size = new System.Drawing.Size(329, 29);
+            this.btnNombre.Size = new System.Drawing.Size(354, 29);
             this.btnNombre.TabIndex = 14;
             this.btnNombre.Text = "Nombre:";
             this.btnNombre.UseVisualStyleBackColor = false;
@@ -135,7 +135,7 @@
             this.btnDNI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDNI.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDNI.ForeColor = System.Drawing.Color.White;
-            this.btnDNI.Location = new System.Drawing.Point(745, 88);
+            this.btnDNI.Location = new System.Drawing.Point(745, 69);
             this.btnDNI.Margin = new System.Windows.Forms.Padding(0);
             this.btnDNI.Name = "btnDNI";
             this.btnDNI.Size = new System.Drawing.Size(194, 26);
@@ -151,7 +151,7 @@
             this.btnImp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImp.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImp.ForeColor = System.Drawing.Color.White;
-            this.btnImp.Location = new System.Drawing.Point(53, 85);
+            this.btnImp.Location = new System.Drawing.Point(53, 66);
             this.btnImp.Margin = new System.Windows.Forms.Padding(0);
             this.btnImp.Name = "btnImp";
             this.btnImp.Size = new System.Drawing.Size(194, 29);
@@ -167,7 +167,7 @@
             this.btnDesc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDesc.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDesc.ForeColor = System.Drawing.Color.White;
-            this.btnDesc.Location = new System.Drawing.Point(361, 85);
+            this.btnDesc.Location = new System.Drawing.Point(361, 66);
             this.btnDesc.Margin = new System.Windows.Forms.Padding(0);
             this.btnDesc.Name = "btnDesc";
             this.btnDesc.Size = new System.Drawing.Size(284, 29);

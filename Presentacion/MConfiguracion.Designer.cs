@@ -65,7 +65,7 @@
             this.txtEmail.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(617, 76);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(283, 24);
+            this.txtEmail.Size = new System.Drawing.Size(236, 24);
             this.txtEmail.TabIndex = 1;
             // 
             // txtCelular
@@ -73,7 +73,7 @@
             this.txtCelular.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCelular.Location = new System.Drawing.Point(617, 219);
             this.txtCelular.Name = "txtCelular";
-            this.txtCelular.Size = new System.Drawing.Size(198, 24);
+            this.txtCelular.Size = new System.Drawing.Size(236, 24);
             this.txtCelular.TabIndex = 4;
             // 
             // txtSalida
@@ -81,7 +81,7 @@
             this.txtSalida.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSalida.Location = new System.Drawing.Point(617, 169);
             this.txtSalida.Name = "txtSalida";
-            this.txtSalida.Size = new System.Drawing.Size(160, 24);
+            this.txtSalida.Size = new System.Drawing.Size(236, 24);
             this.txtSalida.TabIndex = 3;
             // 
             // txtMora
@@ -89,7 +89,7 @@
             this.txtMora.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMora.Location = new System.Drawing.Point(617, 269);
             this.txtMora.Name = "txtMora";
-            this.txtMora.Size = new System.Drawing.Size(197, 24);
+            this.txtMora.Size = new System.Drawing.Size(236, 24);
             this.txtMora.TabIndex = 5;
             this.txtMora.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMora_KeyPress);
             // 
@@ -98,7 +98,7 @@
             this.txtContrasenia.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContrasenia.Location = new System.Drawing.Point(617, 122);
             this.txtContrasenia.Name = "txtContrasenia";
-            this.txtContrasenia.Size = new System.Drawing.Size(204, 24);
+            this.txtContrasenia.Size = new System.Drawing.Size(236, 24);
             this.txtContrasenia.TabIndex = 2;
             // 
             // label1
@@ -161,7 +161,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(579, 22);
+            this.label2.Location = new System.Drawing.Point(579, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(167, 25);
             this.label2.TabIndex = 81;

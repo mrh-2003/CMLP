@@ -62,13 +62,13 @@ namespace Presentacion
             this.dgvListar.AllowUserToResizeRows = false;
             this.dgvListar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListar.Location = new System.Drawing.Point(28, 364);
+            this.dgvListar.Location = new System.Drawing.Point(12, 364);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.ReadOnly = true;
             this.dgvListar.RowHeadersVisible = false;
             this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListar.Size = new System.Drawing.Size(943, 305);
+            this.dgvListar.Size = new System.Drawing.Size(968, 305);
             this.dgvListar.TabIndex = 13;
             this.dgvListar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellClick);
             // 
@@ -87,7 +87,7 @@ namespace Presentacion
             this.cbxDescripcion.FormattingEnabled = true;
             this.cbxDescripcion.Location = new System.Drawing.Point(249, 132);
             this.cbxDescripcion.Name = "cbxDescripcion";
-            this.cbxDescripcion.Size = new System.Drawing.Size(398, 24);
+            this.cbxDescripcion.Size = new System.Drawing.Size(290, 24);
             this.cbxDescripcion.TabIndex = 3;
             this.cbxDescripcion.SelectedIndexChanged += new System.EventHandler(this.cbxDescripcion_SelectedIndexChanged);
             // 
@@ -139,7 +139,7 @@ namespace Presentacion
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
             this.btnAgregar.Location = new System.Drawing.Point(807, 157);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(121, 35);
+            this.btnAgregar.Size = new System.Drawing.Size(121, 51);
             this.btnAgregar.TabIndex = 9;
             this.btnAgregar.Text = "Registrar";
             this.btnAgregar.UseVisualStyleBackColor = false;
@@ -154,7 +154,7 @@ namespace Presentacion
             this.btnModificar.ForeColor = System.Drawing.Color.White;
             this.btnModificar.Location = new System.Drawing.Point(807, 71);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(121, 35);
+            this.btnModificar.Size = new System.Drawing.Size(121, 47);
             this.btnModificar.TabIndex = 10;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
@@ -167,9 +167,9 @@ namespace Presentacion
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(807, 245);
+            this.btnEliminar.Location = new System.Drawing.Point(807, 246);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(121, 35);
+            this.btnEliminar.Size = new System.Drawing.Size(121, 54);
             this.btnEliminar.TabIndex = 11;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -255,7 +255,7 @@ namespace Presentacion
             // txtBuscar
             // 
             this.txtBuscar.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.Location = new System.Drawing.Point(402, 328);
+            this.txtBuscar.Location = new System.Drawing.Point(402, 323);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(361, 24);
             this.txtBuscar.TabIndex = 8;
@@ -266,7 +266,7 @@ namespace Presentacion
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(183, 331);
+            this.label12.Location = new System.Drawing.Point(183, 326);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(218, 17);
             this.label12.TabIndex = 81;
