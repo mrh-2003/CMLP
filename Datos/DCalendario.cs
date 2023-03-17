@@ -331,6 +331,39 @@ namespace Datos
                 }
             }
         }
+        public decimal DeudaPorFecha(DateTime date)
+        {
+            decimal total = 0;
+
+            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+            {
+                string query = @"select sum(c.monto_total- c.monto_pagado)  from calendarios c";
+                if (anio != "TODOS")
+                    query += " where EXTRACT(YEAR FROM c.emision) = @anio and c.emision <= @date and c.monto_total <> c.monto_pagado ";
+                else
+                    query += " where c.emision <= @date and c.monto_total <> c.monto_pagado";
+                connection.Open();
+
+                using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("date", date);
+                    if (anio != "TODOS")
+                        command.Parameters.AddWithValue("@anio", Convert.ToInt32(anio));
+
+                    using (NpgsqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            if (!reader.IsDBNull(0))
+                            {
+                                total = reader.GetDecimal(0);
+                            }
+                        }
+                    }
+                }
+            }
+            return total;
+        }
         public DataTable ListarDeudoresXFechaXGrado(DateTime date, int grado)
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
@@ -359,6 +392,41 @@ namespace Datos
                     return dt;
                 }
             }
+        }
+        public decimal DeudaPorFechaXGrado(DateTime date, int grado)
+        {
+            decimal total = 0;
+
+            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+            {
+                string query = @"select sum(c.monto_total- c.monto_pagado) from calendarios c
+                        inner join alumnos a on a.id = c.alumno_id";
+                if (anio != "TODOS")
+                    query += " where EXTRACT(YEAR FROM c.emision) = @anio and c.emision <= @date and a.grado = @grado and c.monto_total <> c.monto_pagado";
+                else
+                    query += " where c.emision <= @date and a.grado = @grado and c.monto_total <> c.monto_pagado";
+                connection.Open();
+
+                using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("date", date);
+                    command.Parameters.AddWithValue("grado", grado);
+                    if (anio != "TODOS")
+                        command.Parameters.AddWithValue("@anio", Convert.ToInt32(anio));
+
+                    using (NpgsqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            if (!reader.IsDBNull(0))
+                            {
+                                total = reader.GetDecimal(0);
+                            }
+                        }
+                    }
+                }
+            }
+            return total;
         }
         public decimal TotalPorGrado(int mes, int grado)
         {

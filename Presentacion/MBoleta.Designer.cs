@@ -50,6 +50,8 @@ namespace Presentacion
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtTotal = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.SuspendLayout();
@@ -293,12 +295,36 @@ namespace Presentacion
             this.dgvDatos.TabIndex = 81;
             this.dgvDatos.Visible = false;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(685, 302);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(199, 17);
+            this.label6.TabIndex = 82;
+            this.label6.Text = "Total de todas las boletas: ";
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.AutoSize = true;
+            this.txtTotal.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.ForeColor = System.Drawing.Color.White;
+            this.txtTotal.Location = new System.Drawing.Point(877, 302);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(17, 17);
+            this.txtTotal.TabIndex = 83;
+            this.txtTotal.Text = "0";
+            // 
             // MBoleta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(65)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(992, 681);
+            this.Controls.Add(this.txtTotal);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.dgvDatos);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.txtBuscar);
@@ -355,5 +381,7 @@ namespace Presentacion
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.DataGridView dgvDatos;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label txtTotal;
     }
 }

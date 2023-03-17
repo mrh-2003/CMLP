@@ -138,9 +138,8 @@ namespace Presentacion
             this.lblSeccion.ForeColor = System.Drawing.Color.White;
             this.lblSeccion.Location = new System.Drawing.Point(741, 162);
             this.lblSeccion.Name = "lblSeccion";
-            this.lblSeccion.Size = new System.Drawing.Size(23, 18);
+            this.lblSeccion.Size = new System.Drawing.Size(0, 18);
             this.lblSeccion.TabIndex = 93;
-            this.lblSeccion.Text = "...";
             // 
             // lblAnio
             // 
@@ -149,9 +148,8 @@ namespace Presentacion
             this.lblAnio.ForeColor = System.Drawing.Color.White;
             this.lblAnio.Location = new System.Drawing.Point(580, 158);
             this.lblAnio.Name = "lblAnio";
-            this.lblAnio.Size = new System.Drawing.Size(23, 18);
+            this.lblAnio.Size = new System.Drawing.Size(0, 18);
             this.lblAnio.TabIndex = 92;
-            this.lblAnio.Text = "...";
             // 
             // txbDni
             // 
@@ -237,9 +235,8 @@ namespace Presentacion
             this.lblHora.ForeColor = System.Drawing.Color.White;
             this.lblHora.Location = new System.Drawing.Point(800, 116);
             this.lblHora.Name = "lblHora";
-            this.lblHora.Size = new System.Drawing.Size(42, 18);
+            this.lblHora.Size = new System.Drawing.Size(0, 18);
             this.lblHora.TabIndex = 80;
-            this.lblHora.Text = "hora";
             // 
             // lblFecha
             // 
@@ -248,9 +245,8 @@ namespace Presentacion
             this.lblFecha.ForeColor = System.Drawing.Color.White;
             this.lblFecha.Location = new System.Drawing.Point(800, 73);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(48, 18);
+            this.lblFecha.Size = new System.Drawing.Size(0, 18);
             this.lblFecha.TabIndex = 78;
-            this.lblFecha.Text = "fecha";
             // 
             // label2
             // 
@@ -286,9 +282,8 @@ namespace Presentacion
             this.lbNombre.ForeColor = System.Drawing.Color.White;
             this.lbNombre.Location = new System.Drawing.Point(133, 195);
             this.lbNombre.Name = "lbNombre";
-            this.lbNombre.Size = new System.Drawing.Size(71, 18);
+            this.lbNombre.Size = new System.Drawing.Size(0, 18);
             this.lbNombre.TabIndex = 94;
-            this.lbNombre.Text = "Alumno:";
             // 
             // lbEmail
             // 
@@ -297,9 +292,8 @@ namespace Presentacion
             this.lbEmail.ForeColor = System.Drawing.Color.White;
             this.lbEmail.Location = new System.Drawing.Point(133, 232);
             this.lbEmail.Name = "lbEmail";
-            this.lbEmail.Size = new System.Drawing.Size(71, 18);
+            this.lbEmail.Size = new System.Drawing.Size(0, 18);
             this.lbEmail.TabIndex = 95;
-            this.lbEmail.Text = "Alumno:";
             // 
             // lbTelefono
             // 
@@ -308,9 +302,8 @@ namespace Presentacion
             this.lbTelefono.ForeColor = System.Drawing.Color.White;
             this.lbTelefono.Location = new System.Drawing.Point(133, 271);
             this.lbTelefono.Name = "lbTelefono";
-            this.lbTelefono.Size = new System.Drawing.Size(71, 18);
+            this.lbTelefono.Size = new System.Drawing.Size(0, 18);
             this.lbTelefono.TabIndex = 96;
-            this.lbTelefono.Text = "Alumno:";
             // 
             // dgvListar
             // 

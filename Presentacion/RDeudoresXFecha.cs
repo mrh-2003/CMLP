@@ -24,11 +24,14 @@ namespace Presentacion
         private void dtpFecha_ValueChanged(object sender, EventArgs e)
         {
             dgvListar.DataSource = dCalendario.ListarDeudoresXFecha(dtpFecha.Value);
+            txtTotal.Text = dCalendario.DeudaPorFecha(dtpFecha.Value).ToString();
+
         }
 
         private void RDeudoresXFecha_Load(object sender, EventArgs e)
         {
             dgvListar.DataSource = dCalendario.ListarDeudoresXFecha(dtpFecha.Value);
+            txtTotal.Text = dCalendario.DeudaPorFecha(dtpFecha.Value).ToString();
         }
     }
 }

@@ -271,5 +271,39 @@ namespace Datos
 
             return total;
         }
+        public decimal TotalBuscarPorCodigoOdni(string valorBuscado)
+        {
+            decimal total = 0;
+
+            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+            {
+                string query = @"SELECT  SUM(b.monto) FROM boletas b INNER JOIN 
+                    alumnos a ON a.id = b.alumno_id";
+                if (anio != "TODOS")
+                    query += " WHERE EXTRACT(YEAR FROM b.fecha) = @anio and (LOWER(a.dni) LIKE LOWER(@valor_buscado) OR LOWER(b.codigo) LIKE LOWER(@valor_buscado))";
+                else
+                    query += " WHERE LOWER(a.dni) LIKE LOWER(@valor_buscado) OR LOWER(b.codigo) LIKE LOWER(@valor_buscado)";
+                connection.Open();
+
+                using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@valor_buscado", "%" + valorBuscado.ToLower() + "%");
+                    if (anio != "TODOS")
+                        command.Parameters.AddWithValue("anio", Convert.ToInt32(anio));
+                    using (NpgsqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            if (!reader.IsDBNull(0))
+                            {
+                                total = reader.GetDecimal(0);
+                            }
+                        }
+                    }
+                }
+            }
+
+            return total;
+        }
     }
 }

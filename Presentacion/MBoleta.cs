@@ -51,6 +51,7 @@ namespace Presentacion
             dtpFecha.Value = DateTime.Now;
             cbxConcepto.SelectedIndex = -1;
             lbNombre.Text = "Nombre: ";
+            txtTotal.Text = dBoleta.Total().ToString();
             txtCodigo.Focus();
         }
         private void mantenimiento(string opcion)
@@ -385,6 +386,7 @@ namespace Presentacion
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             dgvListar.DataSource = dBoleta.BuscarPorCodigoOdni(txtBuscar.Text);
+            txtTotal.Text = dBoleta.TotalBuscarPorCodigoOdni(txtBuscar.Text).ToString();
         }
         private void btnImprimir_Click(object sender, EventArgs e)
         {
