@@ -70,7 +70,7 @@ namespace Datos
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
-                string query = "SELECT * FROM alumnos";
+                string query = @"SELECT id as ""ID"", dni as ""DNI"", apellidos_nombres as ""APELLIDOS Y NOMBRES"", grado as ""GRADO"", seccion as ""SECCION"", email as ""EMAIL"", email_apoderado as ""EMAIL-APODERADO"", celular as ""CELULAR"", celular_apoderado as ""CELULAR-APODERADO"", descuento as ""DESCUENTO"", fin_descuento ""VENCE EL"", anio_registro as ""AÑO DE REGISTRO"" FROM alumnos";
                 if(anio != "TODOS")
                     query += " WHERE anio_registro = @anio";                
                 connection.Open();
