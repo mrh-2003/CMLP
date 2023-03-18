@@ -152,7 +152,6 @@ namespace Datos
                 }
             }
         }
-
         public EBoleta getBoleta(string codigo)
         {
             using (var conn = new NpgsqlConnection(connectionString))

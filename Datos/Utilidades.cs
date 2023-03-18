@@ -18,7 +18,7 @@ namespace Datos
             string line;
             try
             {
-                string downloadsFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Downloads";
+                string downloadsFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents";
                 StreamReader sr = new StreamReader(downloadsFolder + "\\1.txt");
                 line = sr.ReadLine();
                 sr.Close();
@@ -43,7 +43,7 @@ namespace Datos
         {
             try
             {
-                string downloadsFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Downloads";
+                string downloadsFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents";
                 StreamWriter sw = new StreamWriter(downloadsFolder + "\\" + nombre + ".txt");
                 string contenidoConSaltos = contenido.Replace("\n", "\r\n"); // Agregar saltos de línea para cada '\n'
                 sw.Write(contenidoConSaltos);
