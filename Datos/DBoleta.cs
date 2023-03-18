@@ -69,7 +69,7 @@ namespace Datos
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
-                string query = "SELECT b.codigo, a.dni, b.monto, b.fecha, b.concepto_codigo FROM boletas b INNER JOIN alumnos a ON a.id = b.alumno_id";
+                string query = @"SELECT b.codigo as ""CODIGO"", a.dni as ""DNI"", b.monto as ""MONTO"", b.fecha as ""FECHA"", b.concepto_codigo as ""CP"" FROM boletas b INNER JOIN alumnos a ON a.id = b.alumno_id";
                 if(anio != "TODOS")
                     query += " WHERE EXTRACT(YEAR FROM b.fecha) = @anio";
                 connection.Open();
@@ -92,7 +92,7 @@ namespace Datos
             {
                 connection.Open();
 
-                using (NpgsqlCommand command = new NpgsqlCommand(@"SELECT b.codigo, a.dni, b.monto, b.fecha, b.concepto_codigo FROM boletas b INNER JOIN 
+                using (NpgsqlCommand command = new NpgsqlCommand(@"SELECT b.codigo as ""CODIGO"", a.dni as ""DNI"", b.monto as ""MONTO"", b.fecha as ""FECHA"", b.concepto_codigo as ""CP"" FROM boletas b INNER JOIN 
                     alumnos a ON a.id = b.alumno_id WHERE fecha BETWEEN @fechaInicio AND @fechaFin", connection))
                 {
                     command.Parameters.AddWithValue("fechaInicio", fechaInicio);
@@ -112,7 +112,7 @@ namespace Datos
             {
                 connection.Open();
 
-                using (NpgsqlCommand command = new NpgsqlCommand(@"SELECT b.codigo, a.dni, a.apellidos_nombres, b.monto, b.fecha, b.concepto_codigo FROM boletas b INNER JOIN 
+                using (NpgsqlCommand command = new NpgsqlCommand(@"SELECT b.codigo as ""CODIGO"", a.dni as ""DNI"", a.apellidos_nombres as ""APELLIDOS Y NOMBRES"", b.monto as ""MONTO"", b.fecha as ""FECHA"", b.concepto_codigo as ""CPO"" FROM boletas b INNER JOIN 
                     alumnos a ON a.id = b.alumno_id WHERE b.fecha BETWEEN @fechaInicio AND @fechaFin and b.concepto_codigo = @concepto", connection))
                 {
                     command.Parameters.AddWithValue("fechaInicio", fechaInicio);
@@ -131,7 +131,7 @@ namespace Datos
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
-                string query = @"SELECT b.codigo, a.dni, b.monto, b.fecha, b.concepto_codigo FROM boletas b INNER JOIN 
+                string query = @"SELECT b.codigo as ""CODIGO"", a.dni as ""DNI"", b.monto as ""MONTO"", b.fecha as ""FECHA"", b.concepto_codigo as ""CP""FROM boletas b INNER JOIN 
                     alumnos a ON a.id = b.alumno_id";
                 if (anio != "TODOS")
                     query += " WHERE EXTRACT(YEAR FROM b.fecha) = @anio and (LOWER(a.dni) LIKE LOWER(@valor_buscado) OR LOWER(b.codigo) LIKE LOWER(@valor_buscado))";

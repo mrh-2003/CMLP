@@ -20,7 +20,7 @@ namespace Datos
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
-                string query = @"SELECT c.id, c.descripcion, c.concepto_codigo, a.dni, c.monto_pagado, c.monto_total, c.vencimiento FROM calendarios c inner join alumnos a on a.id = c.alumno_id";
+                string query = @"SELECT c.id as ""ID"", c.descripcion as ""DESCRIPCION"", c.concepto_codigo as ""CONCEPTO-CODIGO"", a.dni as ""DNI"", c.monto_pagado as ""MONTO PAGADO"", c.monto_total as ""MONTO TOTAL"", c.vencimiento as ""FECHA DE VENCIMIENTO"" FROM calendarios c inner join alumnos a on a.id = c.alumno_id";
                 if(anio != "TODOS")
                     query += " WHERE EXTRACT(YEAR FROM c.vencimiento) = @anio ORDER BY c.vencimiento";
                 else
@@ -194,7 +194,7 @@ namespace Datos
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
-                string query = @"SELECT c.id, c.descripcion, c.concepto_codigo, a.dni, c.monto_pagado, c.monto_total, c.vencimiento 
+                string query = @"SELECT c.id as ""ID"", c.descripcion as ""DESCRIPCION"", c.concepto_codigo as ""CP"", a.dni as ""DNI"", c.monto_pagado as ""CANCELADO"", c.monto_total as ""IMPORTE"" , c.vencimiento as ""VENCE EL""
                 FROM calendarios c inner join alumnos a on a.id = c.alumno_id";
                 if (anio != "TODOS")
                     query += " WHERE EXTRACT(YEAR FROM c.vencimiento) = @anio AND (LOWER(a.dni) LIKE LOWER(@valor_buscado) OR LOWER(c.descripcion) LIKE LOWER(@valor_buscado)) ORDER BY c.vencimiento";
@@ -308,8 +308,8 @@ namespace Datos
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
-                string query = @"select a.dni, a.apellidos_nombres, a.email, c.concepto_codigo, c.descripcion,
-                        (c.monto_total- c.monto_pagado) as monto,c.emision , c.vencimiento from calendarios c
+                string query = @"select a.dni as ""DNI"", a.apellidos_nombres as ""APELLIDOS Y NOMBRES"", a.email as ""EMAIL"", c.concepto_codigo as ""CP"", c.descripcion as ""MOTIVO DE PAGO"",
+                        (c.monto_total- c.monto_pagado) as monto,c.emision as ""EMISION"" , c.vencimiento as ""VENCE EL"" from calendarios c
                         inner join alumnos a on a.id = c.alumno_id";
                 if (anio != "TODOS")
                     query += " where EXTRACT(YEAR FROM c.emision) = @anio and c.emision <= @date and c.monto_total <> c.monto_pagado order by a.apellidos_nombres";
@@ -368,8 +368,8 @@ namespace Datos
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
-                string query = @"select a.dni, a.apellidos_nombres, a.email, c.concepto_codigo, c.descripcion,
-                        (c.monto_total- c.monto_pagado) as monto, c.emision , c.vencimiento from calendarios c
+                string query = @"select a.dni as ""DNI"", a.apellidos_nombres as ""APELLIDOS Y NOMBRES"", a.email as ""EMAIL"", c.concepto_codigo as ""CP"", c.descripcion as ""MOTIVO DE PAGO"",
+                        (c.monto_total- c.monto_pagado) as monto, c.emision as ""EMISION"" , c.vencimiento as ""VENCE EL"" from calendarios c
                         inner join alumnos a on a.id = c.alumno_id";
                 if (anio != "TODOS")
                     query += " where EXTRACT(YEAR FROM c.emision) = @anio and c.emision <= @date and a.grado = @grado and c.monto_total <> c.monto_pagado order by a.apellidos_nombres";
@@ -467,8 +467,8 @@ namespace Datos
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
-                string query = @"select  a.dni, a.apellidos_nombres, a.email, c.concepto_codigo, c.descripcion,
-                    c.monto_total, c.vencimiento  from calendarios c inner join alumnos a on a.id = c.alumno_id";
+                string query = @"select  a.dni as ""DNI"", a.apellidos_nombres as ""APELLIDOS Y NOMBRES"", a.email as ""EMAIL"", c.concepto_codigo as ""CP"", c.descripcion as ""MOTIVO DE PAGO"",
+                    c.monto_total as ""IMPORTE"", c.vencimiento as ""VENCE EL"" from calendarios c inner join alumnos a on a.id = c.alumno_id";
                 if (anio != "TODOS")
                     query += " where a.grado = @grado and EXTRACT(MONTH FROM c.vencimiento) = @mes and EXTRACT(YEAR FROM c.vencimiento) = @anio";
                 else
