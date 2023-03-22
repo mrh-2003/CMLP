@@ -151,7 +151,7 @@ namespace Presentacion
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Presentacion.Properties.Resources.imagen_del_colegio_MLP;
+            this.pictureBox1.Image = global::CMLP.Properties.Resources.imagen_del_colegio_MLP;
             this.pictureBox1.Location = new System.Drawing.Point(31, 249);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(927, 407);

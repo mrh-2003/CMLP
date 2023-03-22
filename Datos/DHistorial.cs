@@ -16,7 +16,7 @@ namespace Datos
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
-                string query = "SELECT * FROM historial";
+                string query = @"SELECT id as ""ID"", descripcion as ""DESCRIPCIÓN"", usuario as ""USUARIO"", fecha as ""FECHA"" FROM historial";
                 if(anio != "TODOS")
                     query += " WHERE EXTRACT(YEAR FROM fecha) = @anio ORDER BY fecha";
                 else

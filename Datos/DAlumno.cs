@@ -309,9 +309,9 @@ namespace Datos
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
-                string query = "SELECT * FROM alumnos WHERE LOWER(dni) LIKE LOWER(@valor_buscado) OR LOWER(apellidos_nombres) LIKE LOWER(@valor_buscado)";
+                string query = @"SELECT id as ""ID"", dni as ""DNI"", apellidos_nombres as ""APELLIDOS Y NOMBRES"", grado as ""GRADO"", seccion as ""SECCION"", email as ""EMAIL"", email_apoderado as ""EMAIL-APODERADO"", celular as ""CELULAR"", celular_apoderado as ""CELULAR-APODERADO"", descuento as ""DESCUENTO"", fin_descuento ""VENCE EL"", anio_registro as ""AÑO DE REGISTRO"" FROM alumnos WHERE LOWER(dni) LIKE LOWER(@valor_buscado) OR LOWER(apellidos_nombres) LIKE LOWER(@valor_buscado)";
                 if(anio != "TODOS")
-                    query = "SELECT * FROM alumnos WHERE anio_registro = @anio_registro and (LOWER(dni) LIKE LOWER(@valor_buscado) OR LOWER(apellidos_nombres) LIKE LOWER(@valor_buscado))";
+                    query = @"SELECT id as ""ID"", dni as ""DNI"", apellidos_nombres as ""APELLIDOS Y NOMBRES"", grado as ""GRADO"", seccion as ""SECCION"", email as ""EMAIL"", email_apoderado as ""EMAIL-APODERADO"", celular as ""CELULAR"", celular_apoderado as ""CELULAR-APODERADO"", descuento as ""DESCUENTO"", fin_descuento ""VENCE EL"", anio_registro as ""AÑO DE REGISTRO"" FROM alumnos WHERE anio_registro = @anio_registro and (LOWER(dni) LIKE LOWER(@valor_buscado) OR LOWER(apellidos_nombres) LIKE LOWER(@valor_buscado))";
 
                 connection.Open();
 
@@ -334,7 +334,7 @@ namespace Datos
             {
                 connection.Open();
 
-                string query = "SELECT * FROM alumnos";
+                string query = @"SELECT id as ""ID"", dni as ""DNI"", apellidos_nombres as ""APELLIDOS Y NOMBRES"", grado as ""GRADO"", seccion as ""SECCION"", email as ""EMAIL"", email_apoderado as ""EMAIL-APODERADO"", celular as ""CELULAR"", celular_apoderado as ""CELULAR-APODERADO"", descuento as ""DESCUENTO"", fin_descuento ""VENCE EL"", anio_registro as ""AÑO DE REGISTRO"" FROM alumnos";
                 if (grado != 0 && seccion != "")
                 {
                     query += " WHERE grado = @grado AND seccion =@seccion";

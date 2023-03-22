@@ -86,7 +86,7 @@ namespace Presentacion
                 SaveFileDialog savefile = new SaveFileDialog();
                 savefile.FileName = string.Format("{0}.pdf", DateTime.Now.ToString("dd-MM-yyyy" + " - " + txbDni.Text + " - " + lblAnio.Text + " - " + lblSeccion.Text));
 
-                string PaginaHTML_Texto = Properties.Resources.KDeterminadoAlumno.ToString();
+                string PaginaHTML_Texto =   CMLP.Properties.Resources.KDeterminadoAlumno.ToString();
 
                 StringBuilder filas = new StringBuilder();
                 foreach (DataGridViewRow row in dgvListar.Rows)

@@ -91,7 +91,7 @@ namespace Presentacion
         }
         string getKardex(string dni)
         {
-            string PaginaHTML_Texto = Properties.Resources.KDeterminadoAlumno.ToString();
+            string PaginaHTML_Texto = CMLP.Properties.Resources.KDeterminadoAlumno.ToString();
 
             StringBuilder filas = new StringBuilder();
 

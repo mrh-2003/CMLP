@@ -96,7 +96,7 @@ namespace Presentacion
         }
         string getKardex()
         {
-            string PaginaHTML_Texto = Properties.Resources.KDeterminadoAlumno.ToString();
+            string PaginaHTML_Texto = CMLP.Properties.Resources.KDeterminadoAlumno.ToString();
 
             StringBuilder filas = new StringBuilder();
 
@@ -418,7 +418,7 @@ namespace Presentacion
                 SaveFileDialog savefile = new SaveFileDialog();
                 savefile.FileName = string.Format("{0}.pdf", valoresCeldasFila[0]+" - "+nombre);
 
-                string PaginaHTML_Texto = Properties.Resources.DBoleta.ToString();
+                string PaginaHTML_Texto = CMLP.Properties.Resources.DBoleta.ToString();
               
                
                 // Reemplazar los valores en la cadena HTML
