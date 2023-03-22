@@ -94,7 +94,7 @@ namespace Datos
             {
                 connection.Open();
 
-                using (NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM usuarios", connection))
+                using (NpgsqlCommand command = new NpgsqlCommand(@"SELECT id as ""ID"", usuario as ""USUARIO"", contrasenia ""CONTRASEÑA"", rol as ""ROL"" FROM usuarios", connection))
                 {
                     NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
                     DataTable dt = new DataTable();
