@@ -457,9 +457,9 @@ namespace Presentacion
                     {
                         filas.Append("<td style=\"text-align:center;\"> </td>");
                     }
-                    if (row.Cells["CONCEPTO_CODIGO"].Value != null)
+                    if (row.Cells["CP"].Value != null)
                     {
-                        filas.AppendFormat("<td style=\"text-align:center;\">{0}</td>", row.Cells["CONCEPTO_CODIGO"].Value.ToString());
+                        filas.AppendFormat("<td style=\"text-align:center;\">{0}</td>", row.Cells["CP"].Value.ToString());
                     }
                     else
                     {
