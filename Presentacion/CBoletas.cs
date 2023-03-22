@@ -230,31 +230,36 @@ namespace Presentacion
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
-            string fallo = "";
-            int count = 0;
-            if (Utilidades.VerificarConexionInternet())
+            if (listaBoletas.Count > 0)
             {
-                foreach (EBoleta boleta in listaBoletas)
+                string fallo = "";
+                int count = 0;
+                if (Utilidades.VerificarConexionInternet())
                 {
-                    if (dBoleta.getBoleta(boleta.Codigo) == null)
+                    foreach (EBoleta boleta in listaBoletas)
                     {
-                        dBoleta.Mantenimiento(boleta, "insert");
-                        enviarCorreoAgregar(boleta);
-                        count++;
-                    } 
-                    else 
-                        fallo += "La boleta " + boleta.Codigo + " ya existe\n";
+                        if (dBoleta.getBoleta(boleta.Codigo) == null)
+                        {
+                            dBoleta.Mantenimiento(boleta, "insert");
+                            enviarCorreoAgregar(boleta);
+                            count++;
+                        }
+                        else
+                            fallo += "La boleta " + boleta.Codigo + " ya existe\n";
+                    }
+                    MessageBox.Show("Se cargaron " + count + " boletas");
+                    dgvListar.DataSource = null;
+                    if (fallo.Length > 0)
+                    {
+                        MessageBox.Show("Los errores fueron copiados al portapapeles\n" + fallo);
+                        Clipboard.SetText(fallo);
+                    }
                 }
-                MessageBox.Show("Se cargaron " + count + " boletas");
-                dgvListar.DataSource = null;
-                if(fallo.Length > 0)
-                {
-                    MessageBox.Show("Los errores fueron copiados al portapapeles\n" + fallo);
-                    Clipboard.SetText(fallo);
-                }
+                else
+                    MessageBox.Show("Necesita tener conexion a internet");
             }
             else
-                MessageBox.Show("Necesita tener conexion a internet");
+                MessageBox.Show("Debe cargar almenos una boleta");
         }
     }
 }

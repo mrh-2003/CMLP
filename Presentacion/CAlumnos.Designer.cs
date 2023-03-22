@@ -31,10 +31,11 @@ namespace Presentacion
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label11 = new System.Windows.Forms.Label();
-            this.btnCargar = new System.Windows.Forms.Button();
+            this.btnCargarNuevos = new System.Windows.Forms.Button();
             this.btnAbrir = new System.Windows.Forms.Button();
             this.dgvListar = new System.Windows.Forms.DataGridView();
             this.openFile = new System.Windows.Forms.OpenFileDialog();
+            this.btnCargarActualizacion = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,20 +50,20 @@ namespace Presentacion
             this.label11.TabIndex = 87;
             this.label11.Text = "Alumnos";
             // 
-            // btnCargar
+            // btnCargarNuevos
             // 
-            this.btnCargar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(19)))));
-            this.btnCargar.FlatAppearance.BorderSize = 0;
-            this.btnCargar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCargar.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold);
-            this.btnCargar.ForeColor = System.Drawing.Color.White;
-            this.btnCargar.Location = new System.Drawing.Point(673, 48);
-            this.btnCargar.Name = "btnCargar";
-            this.btnCargar.Size = new System.Drawing.Size(173, 51);
-            this.btnCargar.TabIndex = 2;
-            this.btnCargar.Text = "Cargar";
-            this.btnCargar.UseVisualStyleBackColor = false;
-            this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
+            this.btnCargarNuevos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(19)))));
+            this.btnCargarNuevos.FlatAppearance.BorderSize = 0;
+            this.btnCargarNuevos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCargarNuevos.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold);
+            this.btnCargarNuevos.ForeColor = System.Drawing.Color.White;
+            this.btnCargarNuevos.Location = new System.Drawing.Point(477, 48);
+            this.btnCargarNuevos.Name = "btnCargarNuevos";
+            this.btnCargarNuevos.Size = new System.Drawing.Size(173, 51);
+            this.btnCargarNuevos.TabIndex = 2;
+            this.btnCargarNuevos.Text = "Cargar Nuevos";
+            this.btnCargarNuevos.UseVisualStyleBackColor = false;
+            this.btnCargarNuevos.Click += new System.EventHandler(this.btnCargar_Click);
             // 
             // btnAbrir
             // 
@@ -106,14 +107,30 @@ namespace Presentacion
             // 
             this.openFile.FileName = "openFileDialog1";
             // 
+            // btnCargarActualizacion
+            // 
+            this.btnCargarActualizacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(19)))));
+            this.btnCargarActualizacion.FlatAppearance.BorderSize = 0;
+            this.btnCargarActualizacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCargarActualizacion.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold);
+            this.btnCargarActualizacion.ForeColor = System.Drawing.Color.White;
+            this.btnCargarActualizacion.Location = new System.Drawing.Point(756, 48);
+            this.btnCargarActualizacion.Name = "btnCargarActualizacion";
+            this.btnCargarActualizacion.Size = new System.Drawing.Size(173, 51);
+            this.btnCargarActualizacion.TabIndex = 88;
+            this.btnCargarActualizacion.Text = "Cargar Actualización";
+            this.btnCargarActualizacion.UseVisualStyleBackColor = false;
+            this.btnCargarActualizacion.Click += new System.EventHandler(this.btnCargarActualizacion_Click);
+            // 
             // CAlumnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(65)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(992, 681);
+            this.Controls.Add(this.btnCargarActualizacion);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.btnCargar);
+            this.Controls.Add(this.btnCargarNuevos);
             this.Controls.Add(this.btnAbrir);
             this.Controls.Add(this.dgvListar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -129,9 +146,10 @@ namespace Presentacion
         #endregion
 
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button btnCargar;
+        private System.Windows.Forms.Button btnCargarNuevos;
         private System.Windows.Forms.Button btnAbrir;
         private System.Windows.Forms.DataGridView dgvListar;
         private System.Windows.Forms.OpenFileDialog openFile;
+        private System.Windows.Forms.Button btnCargarActualizacion;
     }
 }

@@ -32,20 +32,25 @@ namespace Presentacion
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
-            string fallo = "";
-            foreach (EAlumno item in listaAlumnos)
-                if (dAlumno.getAlumno(item.Dni) == null)
-                    dAlumno.Mantenimiento(item, "insert");
-                else
-                    fallo += item.Dni + " - " + item.ApellidosNombres + "\n";
-            if (fallo.Length > 0)
+            if(dgvListar.Rows.Count > 0)
             {
-                MessageBox.Show("Estos alumnos ya fueron registrados antes :\n" + fallo);
-                Clipboard.SetText(fallo);
-                MessageBox.Show("Los alumnos existentes fueron copiados al portapapeles");
+                string fallo = "";
+                foreach (EAlumno item in listaAlumnos)
+                    if (dAlumno.getAlumno(item.Dni) == null)
+                        dAlumno.Mantenimiento(item, "insert");
+                    else
+                        fallo += item.Dni + " - " + item.ApellidosNombres + "\n";
+                if (fallo.Length > 0)
+                {
+                    MessageBox.Show("Estos alumnos ya fueron registrados antes :\n" + fallo);
+                    Clipboard.SetText(fallo);
+                    MessageBox.Show("Los alumnos existentes fueron copiados al portapapeles");
+                }
+                MessageBox.Show("Tarea realizada exitosamente");
+                dgvListar.DataSource = null;
             }
-            MessageBox.Show("Tarea realizada exitosamente");
-            dgvListar.DataSource = null;
+            else
+                MessageBox.Show("Primero debe cargar datos");
         }
 
         private void btnAbrir_Click(object sender, EventArgs e)
@@ -106,5 +111,27 @@ namespace Presentacion
             }
         }
 
+        private void btnCargarActualizacion_Click(object sender, EventArgs e)
+        {
+            if (dgvListar.Rows.Count > 0)
+            {
+                string fallo = "";
+                foreach (EAlumno item in listaAlumnos)
+                    if (dAlumno.getAlumno(item.Dni) != null)
+                        dAlumno.Mantenimiento(item, "update");
+                    else
+                        fallo += item.Dni + " - " + item.ApellidosNombres + "\n";
+                if (fallo.Length > 0)
+                {
+                    MessageBox.Show("Estos alumnos no existen, por lo que no se les puede actualizar :\n" + fallo);
+                    Clipboard.SetText(fallo);
+                    MessageBox.Show("Los alumnos que no existen fueron copiados al portapapeles");
+                }
+                MessageBox.Show("Tarea realizada exitosamente");
+                dgvListar.DataSource = null;
+            }
+            else
+                MessageBox.Show("Primero debe cargar datos");
+        }
     }
 }

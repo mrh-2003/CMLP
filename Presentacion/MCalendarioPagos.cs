@@ -110,11 +110,15 @@ namespace Presentacion
         {
             if(txtId.Text != "")
                 mantenimiento("update");
+            else 
+                MessageBox.Show("Seleccione un registro");
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (txtId.Text != "")
                 mantenimiento("delete");
+            else
+                MessageBox.Show("Seleccione un registro");
         }
         private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
         {

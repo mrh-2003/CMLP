@@ -32,11 +32,15 @@ namespace Presentacion
            .Where(row => Convert.ToBoolean(row.Cells["cbxEliminar"].Value))
            .Select(row => row.DataBoundItem as EBancoDTO)
            .ToList();
-            foreach (EBancoDTO banco in pagos)
-                dBancoDTO.Mantenimiento(banco, "delete");
-            dgvListar.DataSource = dBancoDTO.ListarConCalendario();
-            dgvListar.ClearSelection();
-            MessageBox.Show("Pagos eliminados");
+            if(pagos.Count > 0)
+            {
+                foreach (EBancoDTO banco in pagos)
+                    dBancoDTO.Mantenimiento(banco, "delete");
+                dgvListar.DataSource = dBancoDTO.ListarConCalendario();
+                dgvListar.ClearSelection();
+                MessageBox.Show("Pagos eliminados");
+            } else
+                MessageBox.Show("Debe seleccionar al menos un pago");
         }
     }
 }

@@ -91,12 +91,16 @@ namespace Presentacion
         {
             if (txtId.Text != "")
                 mantenimiento("update");
+            else
+                MessageBox.Show("Seleccione un registro");
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (txtId.Text != "")
                 mantenimiento("delete");
+            else
+                MessageBox.Show("Seleccione un registro");
         }
 
         private void cbxConcepto_SelectedIndexChanged(object sender, EventArgs e)
@@ -112,37 +116,55 @@ namespace Presentacion
             .Where(row => Convert.ToBoolean(row.Cells["cbxAgregar"].Value))
             .Select(row => row.DataBoundItem as EPago)
             .ToList();
-            List<EAlumno> listaAlumnos = null;
-            if(cbxSeccion.Text == "TODOS" && cbxGrado.Text == "TODOS")
-                listaAlumnos = dAlumno.ListarLista();
-            else
-                if (cbxSeccion.Text != "TODOS" && cbxGrado.Text != "TODOS")
+            if (pagos.Count > 0)
+            {
+                List<EAlumno> listaAlumnos = null;
+                if (cbxSeccion.Text == "TODOS" && cbxGrado.Text == "TODOS")
+                    listaAlumnos = dAlumno.ListarLista();
+                else
+                    if (cbxSeccion.Text != "TODOS" && cbxGrado.Text != "TODOS")
                     listaAlumnos = dAlumno.ListarGradoSeccion("AND", Convert.ToInt32(cbxGrado.Text), Convert.ToChar(cbxSeccion.Text));
                 else
                     listaAlumnos = dAlumno.ListarGradoSeccion("OR", Convert.ToInt32(cbxGrado.Text == "TODOS" ? "0" : cbxGrado.Text), Convert.ToChar(cbxSeccion.Text == "TODOS" ? "0" : cbxSeccion.Text));
 
-            foreach (EAlumno item in listaAlumnos)
-            {
-                EAlumno alumno = dAlumno.getAlumno(item.Dni);
-                foreach (EPago pago in pagos)
+                foreach (EAlumno item in listaAlumnos)
                 {
-                    ECalendario eCalendario;
-                    if (pago.ConceptoCodigo == 2 && alumno.Descuento != "Ninguna")
+                    EAlumno alumno = dAlumno.getAlumno(item.Dni);
+                    foreach (EPago pago in pagos)
                     {
-                        if (alumno.Descuento == "Beca")
+                        ECalendario eCalendario;
+                        if (pago.ConceptoCodigo == 2 && alumno.Descuento != "Ninguna")
                         {
-                            eCalendario = new ECalendario()
+                            if (alumno.Descuento == "Beca")
                             {
-                                Descripcion = pago.Descripcion,
-                                MontoPagado = 0,
-                                MontoTotal = 0,
-                                Vencimiento = pago.Vencimiento,
-                                AlumnoId = alumno.Id,
-                                ConceptoCodigo = pago.ConceptoCodigo,
-                                Mora = 0,
-                                Cancelacion = DateTime.Now,
-                                Emision = DateTime.Now
-                            };
+                                eCalendario = new ECalendario()
+                                {
+                                    Descripcion = pago.Descripcion,
+                                    MontoPagado = 0,
+                                    MontoTotal = 0,
+                                    Vencimiento = pago.Vencimiento,
+                                    AlumnoId = alumno.Id,
+                                    ConceptoCodigo = pago.ConceptoCodigo,
+                                    Mora = 0,
+                                    Cancelacion = DateTime.Now,
+                                    Emision = DateTime.Now
+                                };
+                            }
+                            else
+                            {
+                                eCalendario = new ECalendario()
+                                {
+                                    Descripcion = pago.Descripcion,
+                                    MontoPagado = 0,
+                                    MontoTotal = pago.Monto / 2,
+                                    Vencimiento = pago.Vencimiento,
+                                    AlumnoId = alumno.Id,
+                                    ConceptoCodigo = pago.ConceptoCodigo,
+                                    Mora = 0,
+                                    Cancelacion = DateTime.Now,
+                                    Emision = DateTime.Now
+                                };
+                            }
                         }
                         else
                         {
@@ -150,7 +172,7 @@ namespace Presentacion
                             {
                                 Descripcion = pago.Descripcion,
                                 MontoPagado = 0,
-                                MontoTotal = pago.Monto / 2,
+                                MontoTotal = pago.Monto,
                                 Vencimiento = pago.Vencimiento,
                                 AlumnoId = alumno.Id,
                                 ConceptoCodigo = pago.ConceptoCodigo,
@@ -159,27 +181,14 @@ namespace Presentacion
                                 Emision = DateTime.Now
                             };
                         }
+                        dCalendario.Mantenimiento(eCalendario, "insert");
                     }
-                    else
-                    {
-                        eCalendario = new ECalendario()
-                        {
-                            Descripcion = pago.Descripcion,
-                            MontoPagado = 0,
-                            MontoTotal = pago.Monto,
-                            Vencimiento = pago.Vencimiento,
-                            AlumnoId = alumno.Id,
-                            ConceptoCodigo = pago.ConceptoCodigo,
-                            Mora = 0,
-                            Cancelacion = DateTime.Now,
-                            Emision = DateTime.Now
-                        };
-                    }
-                    dCalendario.Mantenimiento(eCalendario, "insert");
                 }
+                limpiar();
+                MessageBox.Show("Tarea cumplida exitosamente");
             }
-            limpiar();
-            MessageBox.Show("Tarea cumplida exitosamente");
+            else
+                MessageBox.Show("Debe marcar almenos un pago");
         }
 
         private void dgvListar_CellClick(object sender, DataGridViewCellEventArgs e)

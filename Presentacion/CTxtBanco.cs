@@ -123,14 +123,14 @@ namespace Presentacion
             List<ECalendarioDTO> calendarios = dCalendario.ListarListaDTO();
             ECalendarioDTO eCalendarioDTO = calendarios.Find(x =>
             x.Dni == banco.NCredito && x.Vencimiento == banco.FVncmto &&
-            x.ConceptoCodigo == banco.NCuota);
+            x.ConceptoCodigo == banco.NCuota && banco.SImporte + x.MontoPagado <= x.MontoTotal);
             if (eCalendarioDTO != null)
             {
                 ECalendario calendario = dCalendario.getCalendario(eCalendarioDTO.Id);
                 if (calendario != null)
                 {
                     calendario.Cancelacion = banco.FPago;
-                    calendario.Mora = banco.SInterMora;
+                    calendario.Mora += banco.SInterMora;
                     calendario.MontoPagado += banco.SImporte;
                     dCalendario.Mantenimiento(calendario, "update");
                     return true;
@@ -141,11 +141,16 @@ namespace Presentacion
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Está seguro de que desea continuar?\nEsta accion eliminara todos los registros", "Confirmación", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (dgvListar.Rows.Count > 0)
             {
-                dBanco.ActualizarCalendario();
-                mostrar();
+                if (MessageBox.Show("¿Está seguro de que desea continuar?\nEsta accion eliminara todos los registros", "Confirmación", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    dBanco.ActualizarCalendario();
+                    mostrar();
+                }
             }
+            else
+                MessageBox.Show("No hay registros en la tabla");
         }
 
         private void dgvListar_SelectionChanged(object sender, EventArgs e)
@@ -172,22 +177,53 @@ namespace Presentacion
 
         private void btnNombre_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(btnNombre.Text.Split(':')[1].Trim());
+            try
+            {
+                Clipboard.SetText(btnNombre.Text.Split(':')[1].Trim());
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No existe dato para copiar");
+            }
+                
         }
 
         private void btnDNI_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(btnDNI.Text.Split(':')[1].Trim());
+            try
+            {
+                Clipboard.SetText(btnDNI.Text.Split(':')[1].Trim());
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No existe dato para copiar");
+            }
+               
         }
 
         private void btnImp_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(btnImp.Text.Split(':')[1].Trim());
+            try
+            {
+                Clipboard.SetText(btnImp.Text.Split(':')[1].Trim());
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No existe dato para copiar");
+            }
+            
         }
 
         private void btnDesc_Click(object sender, EventArgs e)
-        {   
-            Clipboard.SetText(btnDesc.Text.Split(':')[1].Trim());
+        {
+            try
+            {
+                Clipboard.SetText(btnDesc.Text.Split(':')[1].Trim());
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No existe dato para copiar");
+            }
         }
     }
 }

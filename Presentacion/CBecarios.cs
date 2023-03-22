@@ -89,6 +89,8 @@ namespace Presentacion
                     MessageBox.Show("Becario eliminado con exito");
                 mostrar();
             }
+            else
+                MessageBox.Show("Debe llenar todos los datos");
         }
 
         private void btnCargar_Click(object sender, EventArgs e)
@@ -139,11 +141,17 @@ namespace Presentacion
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            foreach (EAlumno item in listaAlumnos)
-                dAlumno.Mantenimiento(item, "update");
-            MessageBox.Show("Tarea realizada exitosamente");
-            listaAlumnos.Clear();
-            mostrar();
+            if(dgvListar.Rows.Count > 0)
+            {
+                foreach (EAlumno item in listaAlumnos)
+                    dAlumno.Mantenimiento(item, "update");
+                MessageBox.Show("Tarea realizada exitosamente");
+                listaAlumnos.Clear();
+                mostrar();
+            } else
+            {
+                MessageBox.Show("Debe ingresar datos antes de aceptar");
+            }
         }
 
         private void txtDNI_TextChanged(object sender, EventArgs e)
