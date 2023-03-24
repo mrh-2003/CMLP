@@ -316,10 +316,15 @@ namespace Presentacion
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (Utilidades.VerificarConexionInternet())
-                mantenimiento("insert");
-            else 
-                MessageBox.Show("No hay conexion a internet");
+            if (dBoleta.getBoleta(txtCodigo.Text) == null)
+            {
+                if (Utilidades.VerificarConexionInternet())
+                    mantenimiento("insert");
+                else
+                    MessageBox.Show("No hay conexion a internet");
+            }
+            else
+                MessageBox.Show("Ya existe una boleta con este codigo");
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)

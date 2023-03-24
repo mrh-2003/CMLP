@@ -92,7 +92,7 @@ namespace Presentacion
                 montoTotal += calendario.MontoTotal - calendario.MontoPagado;
                 archivo += (getCodigoBanco() + getDNI(calendario) + getConcepto(calendario) + 
                     calendario.Vencimiento.ToString("yyyyMMdd") + "SOL" +
-                    getMonto(calendario) + getNombre(calendario) + "0" + getMora() + getInteresComp()).PadRight(128, ' ') + "\n";
+                    getMonto(calendario) + getNombre(calendario) + "0" + getMora() + getInteresComp()).PadRight(128, '0') + "\n";
             }
             archivo += getRegistroControl(totalCupones, montoTotal);            
         }
