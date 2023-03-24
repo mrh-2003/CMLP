@@ -43,7 +43,7 @@ namespace Presentacion
             SaveFileDialog savefile = new SaveFileDialog();
             savefile.FileName = string.Format("{0}.pdf", DateTime.Now.ToString("dd-MM-yyyy"));
 
-            string PaginaHTML_Texto = CMLP.Properties.Resources.KGeneral.ToString();
+            string PaginaHTML_Texto = Properties.Resources.KGeneral.ToString();
 
             StringBuilder filas = new StringBuilder();
 

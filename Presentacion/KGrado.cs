@@ -71,7 +71,7 @@ namespace Presentacion
                     SaveFileDialog savefile = new SaveFileDialog();
                     savefile.FileName = string.Format("{0}.pdf", DateTime.Now.ToString("dd-MM-yyyy" + " - " + cbxGrado.Text + " - " + cbxSeccion.Text));
 
-                    string PaginaHTML_Texto = CMLP.Properties.Resources.KDeterminadoGrado.ToString();
+                    string PaginaHTML_Texto = Properties.Resources.KDeterminadoGrado.ToString();
 
                     StringBuilder filas = new StringBuilder();
 
