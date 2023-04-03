@@ -43,7 +43,6 @@ namespace Datos
                                     pago.Monto = reader.GetDecimal(2);
                                     pago.Vencimiento = reader.GetDateTime(3);
                                     pago.ConceptoCodigo = reader.GetInt32(4);
-                                    pago.Emision = reader.GetDateTime(5);
                                     lista.Add(pago);
                                 }
                             }
@@ -172,7 +171,6 @@ namespace Datos
                             pago.Monto = reader.GetDecimal(2);
                             pago.Vencimiento = reader.GetDateTime(3);
                             pago.ConceptoCodigo = reader.GetInt32(4);
-                            pago.Emision = reader.GetDateTime(5);
                             return pago;
                         }
                     }

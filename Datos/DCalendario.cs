@@ -20,7 +20,7 @@ namespace Datos
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
-                string query = @"SELECT c.id as ""ID"", c.descripcion as ""DESCRIPCION"", c.concepto_codigo as ""CONCEPTO-CODIGO"", a.dni as ""DNI"", c.monto_pagado as ""MONTO PAGADO"", c.monto_total as ""MONTO TOTAL"", c.vencimiento as ""FECHA DE VENCIMIENTO"" FROM calendarios c inner join alumnos a on a.id = c.alumno_id";
+                string query = @"SELECT c.id as ""ID"", c.descripcion as ""DESCRIPCION"", c.concepto_codigo as ""CP"", a.dni as ""DNI"", c.monto_pagado as ""CANCELADO"", c.monto_total as ""IMPORTE"" , c.vencimiento as ""VENCE EL"", c.emision as ""EMISION"", c.cancelacion as ""CANCELACION"", c.mora as ""MORA"" FROM calendarios c inner join alumnos a on a.id = c.alumno_id";
                 if(anio != "TODOS")
                     query += " WHERE EXTRACT(YEAR FROM c.vencimiento) = @anio ORDER BY c.vencimiento";
                 else
@@ -194,8 +194,8 @@ namespace Datos
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
-                string query = @"SELECT c.id as ""ID"", c.descripcion as ""DESCRIPCION"", c.concepto_codigo as ""CP"", a.dni as ""DNI"", c.monto_pagado as ""CANCELADO"", c.monto_total as ""IMPORTE"" , c.vencimiento as ""VENCE EL""
-                FROM calendarios c inner join alumnos a on a.id = c.alumno_id";
+                string query = @"SELECT c.id as ""ID"", c.descripcion as ""DESCRIPCION"", c.concepto_codigo as ""CP"", a.dni as ""DNI"", c.monto_pagado as ""CANCELADO"", c.monto_total as ""IMPORTE"" , c.vencimiento as ""VENCE EL"", c.emision as ""EMISION"", c.cancelacion as ""CANCELACION"", c.mora as ""MORA"" 
+                                FROM calendarios c inner join alumnos a on a.id = c.alumno_id";
                 if (anio != "TODOS")
                     query += " WHERE EXTRACT(YEAR FROM c.vencimiento) = @anio AND (LOWER(a.dni) LIKE LOWER(@valor_buscado) OR LOWER(c.descripcion) LIKE LOWER(@valor_buscado)) ORDER BY c.vencimiento";
                 else

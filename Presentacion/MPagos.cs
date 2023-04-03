@@ -109,7 +109,15 @@ namespace Presentacion
             if (eConcepto != null)
                 txtMonto.Text = eConcepto.Importe.ToString();
         }
-
+        void comprobarBeca(EAlumno alumno)
+        {
+            if(alumno.FinDescuento <= DateTime.Now)
+            {
+                alumno.Descuento = "Ninguna";
+                alumno.FinDescuento = new DateTime(1900, 1, 1);
+                dAlumno.Mantenimiento(alumno, "update");
+            }
+        }
         private void btnAsignar_Click(object sender, EventArgs e)
         {
             List<EPago> pagos = dgvListar.Rows.Cast<DataGridViewRow>()
@@ -129,6 +137,7 @@ namespace Presentacion
 
                 foreach (EAlumno item in listaAlumnos)
                 {
+                    comprobarBeca(item);
                     EAlumno alumno = dAlumno.getAlumno(item.Dni);
                     foreach (EPago pago in pagos)
                     {
@@ -161,7 +170,7 @@ namespace Presentacion
                                     AlumnoId = alumno.Id,
                                     ConceptoCodigo = pago.ConceptoCodigo,
                                     Mora = 0,
-                                    Cancelacion = DateTime.Now,
+                                    Cancelacion = new DateTime(1900, 1, 1),
                                     Emision = DateTime.Now
                                 };
                             }
@@ -177,7 +186,7 @@ namespace Presentacion
                                 AlumnoId = alumno.Id,
                                 ConceptoCodigo = pago.ConceptoCodigo,
                                 Mora = 0,
-                                Cancelacion = DateTime.Now,
+                                Cancelacion = new DateTime(1900, 1, 1),
                                 Emision = DateTime.Now
                             };
                         }

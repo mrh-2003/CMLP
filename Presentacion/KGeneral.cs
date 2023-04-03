@@ -95,7 +95,10 @@ namespace Presentacion
                 if (row.Cells["CANCELADO"].Value != null && row.Cells["VENCE EL"].Value is DateTime)
                 {
                     DateTime fecha = (DateTime)row.Cells["CANCELADO"].Value;
-                    filas.AppendFormat("<td style=\"text-align:left;\"><pre>{0}</pre></td>", fecha.ToString("d"));
+                    string aux = "";
+                    if (fecha.Year != 1900)
+                        aux = fecha.ToString("d");
+                    filas.AppendFormat("<td style=\"text-align:left;\"><pre>{0}</pre></td>", aux);
                 }
                 else
                 {
