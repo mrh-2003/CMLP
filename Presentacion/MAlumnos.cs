@@ -108,6 +108,8 @@ namespace Presentacion
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            if(cbxDescuento.Text == "Ninguna")
+                dtpVencimiento.Value = new DateTime(1900, 1, 1);
             txtAnio.Text = Utilidades.anio;
             EAlumno eAlumno = dAlumno.getAlumno(txtDni.Text);
             if (eAlumno == null)
