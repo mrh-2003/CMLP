@@ -119,7 +119,7 @@ namespace Datos
                         string query;
                         if (opcion == "insert")
                         {
-                            query = "INSERT INTO pagos (descripcion, monto, vencimiento, concepto_codigo, emision) VALUES (@descripcion, @monto, @vencimiento, @concepto_codigo, @emision)";
+                            query = "INSERT INTO pagos (descripcion, monto, vencimiento, concepto_codigo) VALUES (@descripcion, @monto, @vencimiento, @concepto_codigo)";
                             mensaje = "Se inserto correctamente el Pago con el código " + pago.Id+ " cuyo monto es " + pago.Monto + " y vence el " + pago.Vencimiento.ToString();
                         }
                         else if (opcion == "update")
@@ -139,7 +139,6 @@ namespace Datos
                             cmd.Parameters.AddWithValue("@monto", pago.Monto);
                             cmd.Parameters.AddWithValue("@vencimiento", pago.Vencimiento);
                             cmd.Parameters.AddWithValue("@concepto_codigo", pago.ConceptoCodigo);
-                            cmd.Parameters.AddWithValue("@emision", DateTime.Now);
                             cmd.ExecuteNonQuery();
                         }
                         trans.Commit();
