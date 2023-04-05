@@ -99,7 +99,7 @@ namespace Presentacion
 
         private void btnEscribir_Click(object sender, EventArgs e)
         {
-            string nombreArchivo = "PGCU_083" + DateTime.Now.ToString("yyyyMMdd");
+            string nombreArchivo = "083" + DateTime.Now.ToString("yyyyMMdd");
             if (Utilidades.escribirTxt(nombreArchivo, archivo))
             {
                 MessageBox.Show(dCalendario.ActualizarCalendario());
