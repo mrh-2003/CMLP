@@ -140,7 +140,7 @@ namespace Presentacion
 
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
-            if((new DUsuario()).getUsuario(Login.id).Rol == "Administradors")
+            if((new DUsuario()).getUsuario(Login.id).Rol == "Administrador")
                 abrirFormHija(new MUsuariosAdmin());
             else 
                 abrirFormHija(new MUsuario());
