@@ -131,7 +131,7 @@ namespace Presentacion
                 MessageBox.Show("Debe seleccionar un alumno");
         }
         private void btnEliminar_Click(object sender, EventArgs e)
-        {
+        { 
             if (txtId.Text != "")
                 mantenimiento("delete");
             else
