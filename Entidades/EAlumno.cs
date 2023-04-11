@@ -12,7 +12,7 @@ namespace Entidades
         public string Dni { get; set; }
         public string ApellidosNombres { get; set; }
         public int Grado { get; set; }
-        public char Seccion { get; set; }
+        public int Seccion { get; set; }
         public string Email { get; set; }
         public string EmailApoderado { get; set; }
         public int Celular { get; set; }

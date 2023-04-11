@@ -65,7 +65,7 @@ namespace Presentacion
                     Dni = txtDni.Text,
                     ApellidosNombres = txtApellidosNombres.Text,
                     Grado = Convert.ToInt32(cbxGrado.SelectedItem),
-                    Seccion = Convert.ToChar(cbxSeccion.SelectedItem),
+                    Seccion = Convert.ToInt32(cbxSeccion.SelectedItem),
                     Email = txtEmail.Text,
                     EmailApoderado = txtEmailAp.Text,
                     Celular = Convert.ToInt32(txtCelular.Text),

@@ -52,6 +52,7 @@ namespace Presentacion
             cbxConcepto.SelectedIndex = -1;
             lbNombre.Text = "Nombre: ";
             txtTotal.Text = dBoleta.Total().ToString();
+            cbEnviarCorreo.Checked = true;
             txtCodigo.Focus();
         }
         private void mantenimiento(string opcion)
@@ -79,12 +80,15 @@ namespace Presentacion
                         Fecha = DateTime.Now
                     };
                     dHistorial.Insertar(historial);
-                    if (opcion == "insert")
-                        enviarCorreoAgregar();
-                    else if (opcion == "update")
-                        enviarCorreoActualizar();
-                    else
-                        enviarCorreoEliminar();
+                    if (cbEnviarCorreo.Checked)
+                    {
+                        if (opcion == "insert")
+                            enviarCorreoAgregar();
+                        else if (opcion == "update")
+                            enviarCorreoActualizar();
+                        else
+                            enviarCorreoEliminar();
+                    }
 
                     mostrar();
                 }

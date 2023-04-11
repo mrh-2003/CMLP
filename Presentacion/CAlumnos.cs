@@ -82,7 +82,7 @@ namespace Presentacion
                             Dni = dni,
                             ApellidosNombres = sd.GetCellValueAsString(irow, 2),
                             Grado = sd.GetCellValueAsInt32(irow, 3),
-                            Seccion = Convert.ToChar(sd.GetCellValueAsString(irow, 4)),
+                            Seccion = sd.GetCellValueAsInt32(irow, 4),
                             Email = sd.GetCellValueAsString(irow, 5),
                             EmailApoderado = sd.GetCellValueAsString(irow, 6),
                             Celular = sd.GetCellValueAsInt32(irow, 7),

@@ -244,7 +244,8 @@ namespace Presentacion
                         if (dBoleta.getBoleta(boleta.Codigo) == null)
                         {
                             dBoleta.Mantenimiento(boleta, "insert");
-                            enviarCorreoAgregar(boleta);
+                            if(cbEnviarCorreo.Checked)
+                                enviarCorreoAgregar(boleta);
                             count++;
                         }
                         else
