@@ -65,7 +65,7 @@ namespace Presentacion
                     Dni = txtDni.Text,
                     ApellidosNombres = txtApellidosNombres.Text,
                     Grado = Convert.ToInt32(cbxGrado.SelectedItem),
-                    Seccion = Convert.ToChar(cbxSeccion.SelectedItem),
+                    Seccion = Convert.ToInt32(cbxSeccion.SelectedItem),
                     Email = txtEmail.Text,
                     EmailApoderado = txtEmailAp.Text,
                     Celular = Convert.ToInt32(txtCelular.Text),
@@ -108,6 +108,8 @@ namespace Presentacion
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            if(cbxDescuento.Text == "Ninguna")
+                dtpVencimiento.Value = new DateTime(1900, 1, 1);
             txtAnio.Text = Utilidades.anio;
             EAlumno eAlumno = dAlumno.getAlumno(txtDni.Text);
             if (eAlumno == null)
@@ -129,7 +131,7 @@ namespace Presentacion
                 MessageBox.Show("Debe seleccionar un alumno");
         }
         private void btnEliminar_Click(object sender, EventArgs e)
-        {
+        { 
             if (txtId.Text != "")
                 mantenimiento("delete");
             else

@@ -12,7 +12,6 @@ namespace Entidades
         public string Email { get; set; }
         public string Contrasenia { get; set; }
         public string Numero { get; set; }
-        public string Txtsalida { get; set; }
         public decimal Mora { get; set; }
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls.Primitives;
 using System.Windows.Forms;
 using Datos;
+using DocumentFormat.OpenXml.Bibliography;
 using Entidades;
 
 namespace Presentacion
@@ -41,7 +42,10 @@ namespace Presentacion
             txtMontoPagado.Text = "0";
             txtMontoTotal.Clear();
             dtpVencimiento.Value = DateTime.Now;
+            dtpCancelacion.Value = DateTime.Now;
+            dtpEmision.Value = DateTime.Now;
             txtDni.Clear();
+            txtMora.Clear();
             lbNombre.Text = "Nombre: ";
             txtId.Focus();
         }
@@ -67,7 +71,9 @@ namespace Presentacion
                         Vencimiento = dtpVencimiento.Value,
                         AlumnoId = eAlumno.Id,
                         ConceptoCodigo = Convert.ToInt32(cbxConcepto.Text.Split('-')[0].Trim()),
-                        Emision = DateTime.Now,
+                        Emision = dtpEmision.Value,
+                        Cancelacion = dtpCancelacion.Value,
+                        Mora = Convert.ToDecimal(txtMora.Text),
                     };
                     string mensaje = dCalendario.Mantenimiento(eCalendario, opcion);
                     MessageBox.Show(mensaje);
@@ -100,10 +106,17 @@ namespace Presentacion
                 txtMontoPagado.Text = dgvListar.Rows[e.RowIndex].Cells[4].Value.ToString();
                 txtMontoTotal.Text = dgvListar.Rows[e.RowIndex].Cells[5].Value.ToString();
                 dtpVencimiento.Value = Convert.ToDateTime(dgvListar.Rows[e.RowIndex].Cells[6].Value);
+                dtpEmision.Value = Convert.ToDateTime(dgvListar.Rows[e.RowIndex].Cells[7].Value);
+                dtpCancelacion.Value = Convert.ToDateTime(dgvListar.Rows[e.RowIndex].Cells[8].Value);
+                txtMora.Text = dgvListar.Rows[e.RowIndex].Cells[9].Value.ToString();
             }
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            if(MessageBox.Show("En caso de que este calendario no haya sido cancelado aún, presione 'YES', de lo contrario, precione 'NO'", "Importante", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                dtpCancelacion.Value = new DateTime(1900,1,1);
+            }
             mantenimiento("insert");
         }
         private void btnModificar_Click(object sender, EventArgs e)

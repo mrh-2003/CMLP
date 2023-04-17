@@ -28,7 +28,6 @@ namespace Presentacion
                 txtEmail.Text = colegio.Email;
                 txtContrasenia.Text = colegio.Contrasenia;
                 txtCelular.Text = colegio.Numero;
-                txtSalida.Text = colegio.Txtsalida;
                 txtMora.Text = colegio.Mora.ToString();
                 txtEmail.Focus();
             }
@@ -36,13 +35,12 @@ namespace Presentacion
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            if(txtEmail.Text != "" && txtContrasenia.Text != "" && txtCelular.Text != "" && txtSalida.Text != "" && txtMora.Text != "")
+            if(txtEmail.Text != "" && txtContrasenia.Text != "" && txtCelular.Text != "" && txtMora.Text != "")
             {
                 EColegio colegio = new EColegio();
                 colegio.Email = txtEmail.Text;
                 colegio.Contrasenia = txtContrasenia.Text;
                 colegio.Numero = txtCelular.Text;
-                colegio.Txtsalida = txtSalida.Text;
                 colegio.Mora = Convert.ToDecimal(txtMora.Text);
                 string mensaje = dColegio.Mantenimineto(colegio);
                 MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);

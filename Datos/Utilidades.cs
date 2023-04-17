@@ -18,8 +18,8 @@ namespace Datos
             string line;
             try
             {
-                string downloadsFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents";
-                StreamReader sr = new StreamReader(downloadsFolder + "\\1.txt");
+                string downloadsFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents\\SistemaCMLP";
+                StreamReader sr = new StreamReader(downloadsFolder + "\\cmlp.txt");
                 line = sr.ReadLine();
                 sr.Close();
                 return line;
@@ -43,8 +43,10 @@ namespace Datos
         {
             try
             {
-                string downloadsFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents";
-                StreamWriter sw = new StreamWriter(downloadsFolder + "\\" + nombre + ".txt");
+                string downloadsFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents\\SistemaCMLP\\PGCU";
+                if (!Directory.Exists(downloadsFolder))
+                    Directory.CreateDirectory(downloadsFolder);
+                StreamWriter sw = new StreamWriter(downloadsFolder + "\\" + nombre + ".ING");
                 string contenidoConSaltos = contenido.Replace("\n", "\r\n"); // Agregar saltos de línea para cada '\n'
                 sw.Write(contenidoConSaltos);
                 sw.Close();

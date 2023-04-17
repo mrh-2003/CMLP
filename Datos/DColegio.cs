@@ -22,9 +22,9 @@ namespace Datos
                     {
                         string query;
                         if (getColegio() == null)
-                            query = "INSERT INTO colegio (email, contrasenia, numero, txtsalida, mora) VALUES (@email, @contrasenia, @numero, @txtsalida, @mora)";
+                            query = "INSERT INTO colegio (email, contrasenia, numero, mora) VALUES (@email, @contrasenia, @numero,  @mora)";
                         else
-                            query = "UPDATE colegio SET email = @email, contrasenia = @contrasenia, numero = @numero, txtsalida = @txtsalida, mora = @mora WHERE id = @id";
+                            query = "UPDATE colegio SET email = @email, contrasenia = @contrasenia, numero = @numero,  mora = @mora WHERE id = @id";
                         using (var cmd = new NpgsqlCommand(query, conn, trans))
                         {
                             if(getColegio() != null)
@@ -32,7 +32,6 @@ namespace Datos
                             cmd.Parameters.AddWithValue("@email", colegio.Email);
                             cmd.Parameters.AddWithValue("@contrasenia", colegio.Contrasenia);
                             cmd.Parameters.AddWithValue("@numero", colegio.Numero);
-                            cmd.Parameters.AddWithValue("@txtsalida", colegio.Txtsalida);
                             cmd.Parameters.AddWithValue("@mora", colegio.Mora);
                             cmd.ExecuteNonQuery();
                         }
@@ -62,9 +61,8 @@ namespace Datos
                             eColegio.Id = reader.GetInt32(0);
                             eColegio.Email = reader.GetString(1);
                             eColegio.Numero = reader.GetString(2);
-                            eColegio.Txtsalida = reader.GetString(3);
-                            eColegio.Mora = reader.GetDecimal(4);
-                            eColegio.Contrasenia = reader.GetString(5);
+                            eColegio.Mora = reader.GetDecimal(3);
+                            eColegio.Contrasenia = reader.GetString(4);
                             return eColegio;
                         }
                     }

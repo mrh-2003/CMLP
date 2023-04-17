@@ -140,7 +140,10 @@ namespace Presentacion
 
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
-            abrirFormHija(new MUsuariosAdmin());
+            if((new DUsuario()).getUsuario(Login.id).Rol == "Administrador")
+                abrirFormHija(new MUsuariosAdmin());
+            else 
+                abrirFormHija(new MUsuario());
         }
 
         private void btnRTxtBanco_Click(object sender, EventArgs e)

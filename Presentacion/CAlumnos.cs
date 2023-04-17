@@ -82,16 +82,19 @@ namespace Presentacion
                             Dni = dni,
                             ApellidosNombres = sd.GetCellValueAsString(irow, 2),
                             Grado = sd.GetCellValueAsInt32(irow, 3),
-                            Seccion = Convert.ToChar(sd.GetCellValueAsString(irow, 4)),
+                            Seccion = sd.GetCellValueAsInt32(irow, 4),
                             Email = sd.GetCellValueAsString(irow, 5),
                             EmailApoderado = sd.GetCellValueAsString(irow, 6),
                             Celular = sd.GetCellValueAsInt32(irow, 7),
                             CelularApoderado = sd.GetCellValueAsInt32(irow, 8),
                             Descuento = sd.GetCellValueAsString(irow, 9),
-                            FinDescuento = DateTime.Now.AddMonths(2),
                             //AnioRegistro = DateTime.Now.Year //Esto tambien se podria leer
                             AnioRegistro = sd.GetCellValueAsInt32(irow, 10)
                         };
+                        if (eAlumno.Descuento == "Ninguna")
+                            eAlumno.FinDescuento = new DateTime(1900, 1, 1);
+                        else
+                            eAlumno.FinDescuento = DateTime.Now.AddMonths(2);
                         listaAlumnos.Add(eAlumno);
                     }
                     else

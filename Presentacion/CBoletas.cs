@@ -128,7 +128,10 @@ namespace Presentacion
                 if (row.Cells["CANCELADO"].Value != null && row.Cells["EMISION"].Value is DateTime)
                 {
                     DateTime fecha = (DateTime)row.Cells["CANCELADO"].Value;
-                    filas.AppendFormat("<td style=\"text-align:center;\"><pre>{0}</pre></td>", fecha.ToString("d"));
+                    string aux = "";
+                    if(fecha.Year != 1900)
+                        aux = fecha.ToString("d");
+                    filas.AppendFormat("<td style=\"text-align:center;\"><pre>{0}</pre></td>", aux);
                 }
                 else
                 {
@@ -241,7 +244,8 @@ namespace Presentacion
                         if (dBoleta.getBoleta(boleta.Codigo) == null)
                         {
                             dBoleta.Mantenimiento(boleta, "insert");
-                            enviarCorreoAgregar(boleta);
+                            if(cbEnviarCorreo.Checked)
+                                enviarCorreoAgregar(boleta);
                             count++;
                         }
                         else

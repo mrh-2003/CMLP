@@ -13,7 +13,6 @@ namespace Entidades
         public decimal Monto { get; set; }
         public DateTime Vencimiento { get; set; }
         public int ConceptoCodigo { get; set; }
-        public DateTime Emision { get; set; }
         public override string ToString()
         {
             return Descripcion;

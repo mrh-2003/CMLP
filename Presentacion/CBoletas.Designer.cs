@@ -36,6 +36,8 @@ namespace Presentacion
             this.openFile = new System.Windows.Forms.OpenFileDialog();
             this.label11 = new System.Windows.Forms.Label();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
+            this.cbEnviarCorreo = new System.Windows.Forms.CheckBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.SuspendLayout();
@@ -117,12 +119,37 @@ namespace Presentacion
             this.dgvDatos.TabIndex = 90;
             this.dgvDatos.Visible = false;
             // 
+            // cbEnviarCorreo
+            // 
+            this.cbEnviarCorreo.AutoSize = true;
+            this.cbEnviarCorreo.Checked = true;
+            this.cbEnviarCorreo.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbEnviarCorreo.ForeColor = System.Drawing.Color.White;
+            this.cbEnviarCorreo.Location = new System.Drawing.Point(546, 71);
+            this.cbEnviarCorreo.Name = "cbEnviarCorreo";
+            this.cbEnviarCorreo.Size = new System.Drawing.Size(15, 14);
+            this.cbEnviarCorreo.TabIndex = 92;
+            this.cbEnviarCorreo.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(438, 68);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(112, 17);
+            this.label7.TabIndex = 91;
+            this.label7.Text = "Enviar correo: ";
+            // 
             // CBoletas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(65)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(992, 681);
+            this.Controls.Add(this.cbEnviarCorreo);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.dgvDatos);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.btnCargar);
@@ -146,5 +173,7 @@ namespace Presentacion
         private System.Windows.Forms.OpenFileDialog openFile;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridView dgvDatos;
+        private System.Windows.Forms.CheckBox cbEnviarCorreo;
+        private System.Windows.Forms.Label label7;
     }
 }
