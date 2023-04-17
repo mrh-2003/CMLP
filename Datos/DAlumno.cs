@@ -42,7 +42,7 @@ namespace Datos
                         }
                         using (var cmd = new NpgsqlCommand(query, conn, trans))
                         {
-                            cmd.Parameters.AddWithValue("@id", eAlumno.Id);
+                            cmd.Parameters.AddWithValue("@id", alumno.Id);
                             cmd.Parameters.AddWithValue("@dni", alumno.Dni);
                             cmd.Parameters.AddWithValue("@apellidos_nombres", alumno.ApellidosNombres);
                             cmd.Parameters.AddWithValue("@grado", alumno.Grado);
