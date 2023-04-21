@@ -94,14 +94,6 @@ namespace Presentacion
                 txtImporte.Text = dgvListar.Rows[e.RowIndex].Cells[2].Value.ToString();
             }
         }
-        private void txtConcepto_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsNumber(e.KeyChar))
-            {
-                e.Handled = true;
-                MessageBox.Show("Este campo solo acepta letras. Introduce un nombre válido",TITULO_ALERTA, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-        }
         private void txtImporte_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')

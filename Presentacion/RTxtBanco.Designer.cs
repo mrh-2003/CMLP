@@ -33,14 +33,6 @@
             this.rtxtInfo = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
-            // rtxtInfo
-            // 
-            this.rtxtInfo.Location = new System.Drawing.Point(12, 57);
-            this.rtxtInfo.Name = "rtxtInfo";
-            this.rtxtInfo.Size = new System.Drawing.Size(968, 567);
-            this.rtxtInfo.TabIndex = 0;
-            this.rtxtInfo.Text = "";
-            // 
             // btnEscribir
             // 
             this.btnEscribir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(19)))));
@@ -61,11 +53,11 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(376, 9);
+            this.label11.Location = new System.Drawing.Point(376, 10);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(226, 25);
+            this.label11.Size = new System.Drawing.Size(241, 25);
             this.label11.TabIndex = 89;
-            this.label11.Text = "Cargar txt al Banco";
+            this.label11.Text = "Generar txt al Banco";
             // 
             // rtxtInfo
             // 

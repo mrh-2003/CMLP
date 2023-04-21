@@ -86,7 +86,6 @@ namespace Presentacion
             this.txtConcepto.Name = "txtConcepto";
             this.txtConcepto.Size = new System.Drawing.Size(286, 24);
             this.txtConcepto.TabIndex = 2;
-            this.txtConcepto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtConcepto_KeyPress);
             // 
             // txtImporte
             // 
