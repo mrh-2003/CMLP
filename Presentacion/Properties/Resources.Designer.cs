@@ -89,6 +89,62 @@ namespace Presentacion.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
+        ///&lt;html&gt;
+        ///&lt;head&gt;
+        ///    &lt;title&gt;Web Page Desing &lt;/title&gt;
+        ///    &lt;style&gt;
+        ///            table.border {
+        ///            border-collapse: collapse;
+        ///             }
+        ///
+        ///            table.border th {
+        ///                padding: 5px;
+        ///                border: 1px solid black;
+        ///            }
+        ///
+        ///            table.border td {
+        ///                padding: 5px;
+        ///                border: 1px solid black;
+        ///            }
+        ///            .emoji {
+        ///                font-size: 2em;/*&lt;title&gt;Web Page Desing &lt;span class=&quot;emoji&quot;&gt;&amp;#x1F [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string DBoletaConcepto {
+            get {
+                return ResourceManager.GetString("DBoletaConcepto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
+        ///&lt;html&gt;
+        ///&lt;head&gt;
+        ///    &lt;title&gt;Web Page Desing &lt;/title&gt;
+        ///    &lt;style&gt;
+        ///            table.border {
+        ///            border-collapse: collapse;
+        ///             }
+        ///
+        ///            table.border th {
+        ///                padding: 5px;
+        ///                border: 1px solid black;
+        ///            }
+        ///
+        ///            table.border td {
+        ///                padding: 5px;
+        ///                border: 1px solid black;
+        ///            }
+        ///            .emoji {
+        ///                font-size: 2em;/*&lt;title&gt;Web Page Desing &lt;span class=&quot;emoji&quot;&gt;&amp;#x1F [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string DBoletaFecha {
+            get {
+                return ResourceManager.GetString("DBoletaFecha", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap imagen_del_colegio_MLP {

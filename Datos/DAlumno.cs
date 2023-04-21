@@ -72,7 +72,7 @@ namespace Datos
             {
                 string query = @"SELECT id as ""ID"", dni as ""DNI"", apellidos_nombres as ""APELLIDOS Y NOMBRES"", grado as ""GRADO"", seccion as ""SECCION"", email as ""EMAIL"", email_apoderado as ""EMAIL APODERADO"", celular as ""CELULAR"", celular_apoderado as ""CELULAR APODERADO"", descuento as ""DESCUENTO"", fin_descuento ""VENCE EL"", anio_registro as ""AÑO DE REGISTRO"" FROM alumnos";
                 if(anio != "TODOS")
-                    query += " WHERE anio_registro = @anio";                
+                    query += " WHERE anio_registro = @anio ORDER BY id";                
                 connection.Open();
                 using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
                 {
@@ -328,14 +328,14 @@ namespace Datos
                 }
             }
         }
-        public DataTable FiltrarGradoSeccion(int grado, string seccion)
+        public DataTable FiltrarGradoSeccion(int grado, int seccion)
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
                 connection.Open();
 
                 string query = @"SELECT id as ""ID"", dni as ""DNI"", apellidos_nombres as ""APELLIDOS Y NOMBRES"", grado as ""GRADO"", seccion as ""SECCION"", email as ""EMAIL"", email_apoderado as ""EMAIL-APODERADO"", celular as ""CELULAR"", celular_apoderado as ""CELULAR-APODERADO"", descuento as ""DESCUENTO"", fin_descuento ""VENCE EL"", anio_registro as ""AÑO DE REGISTRO"" FROM alumnos";
-                if (grado != 0 && seccion != "")
+                if (grado != 0 && seccion != 0)
                 {
                     query += " WHERE grado = @grado AND seccion =@seccion";
                     if (anio != "TODOS")
@@ -351,7 +351,7 @@ namespace Datos
                 using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@grado", grado);
-                    command.Parameters.AddWithValue("@seccion", seccion.ToUpper());
+                    command.Parameters.AddWithValue("@seccion", seccion);
                     if(anio != "TODOS")
                         command.Parameters.AddWithValue("@anio_registro", Convert.ToInt32(anio));
                     NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);

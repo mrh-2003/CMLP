@@ -414,6 +414,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="iconoofoofi.ico" />
+    <Content Include="Resources\DBoletaConcepto.html" />
+    <None Include="Resources\DBoletaFecha.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

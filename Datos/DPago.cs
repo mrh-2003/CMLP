@@ -26,9 +26,9 @@ namespace Datos
                     {
                         string query = "SELECT * FROM pagos";
                         if(anio != "TODOS")
-                            query += " WHERE EXTRACT(YEAR FROM vencimiento) = @anio ORDER BY vencimiento";
+                            query += " WHERE EXTRACT(YEAR FROM vencimiento) = @anio ORDER BY id";
                         else
-                            query += " ORDER BY vencimiento";
+                            query += " ORDER BY id";
                         using (var cmd = new NpgsqlCommand(query, conn, trans))
                         {
                             if(anio != "TODOS")

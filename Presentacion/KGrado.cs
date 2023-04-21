@@ -53,9 +53,9 @@ namespace Presentacion
         {
             if (cbxGrado.Text != "" && cbxSeccion.Text != "")
             {
-                dgvListar.DataSource = dCalendario.KardexXGrado(Convert.ToInt32(cbxGrado.Text), Convert.ToChar(cbxSeccion.Text));
-                txbCancelado.Text = dCalendario.PagadoGradoSeccion(Convert.ToInt32(cbxGrado.Text), Convert.ToChar(cbxSeccion.Text)).ToString();
-                txbPendiente.Text = dCalendario.DeudaGradoSeccion(Convert.ToInt32(cbxGrado.Text), Convert.ToChar(cbxSeccion.Text)).ToString();
+                dgvListar.DataSource = dCalendario.KardexXGrado(Convert.ToInt32(cbxGrado.Text), Convert.ToInt32(cbxSeccion.Text));
+                txbCancelado.Text = dCalendario.PagadoGradoSeccion(Convert.ToInt32(cbxGrado.Text), Convert.ToInt32(cbxSeccion.Text)).ToString();
+                txbPendiente.Text = dCalendario.DeudaGradoSeccion(Convert.ToInt32(cbxGrado.Text), Convert.ToInt32(cbxSeccion.Text)).ToString();
                 dgvListar.ClearSelection();
                 imp = true;
             } else

@@ -540,7 +540,7 @@ namespace Datos
                 }
             }
         }
-        public DataTable KardexXGrado(int grado, char seccion)
+        public DataTable KardexXGrado(int grado, int seccion)
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
@@ -693,7 +693,7 @@ namespace Datos
             }
             return total;
         }
-        public decimal PagadoGradoSeccion(int grado, char seccion)
+        public decimal PagadoGradoSeccion(int grado, int seccion)
         {
             decimal total = 0;
 
@@ -726,7 +726,7 @@ namespace Datos
             }
             return total;
         }
-        public decimal DeudaGradoSeccion(int grado, char seccion)
+        public decimal DeudaGradoSeccion(int grado, int seccion)
         {
             decimal total = 0;
 

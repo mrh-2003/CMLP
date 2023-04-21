@@ -92,7 +92,7 @@ namespace Datos
             {
                 connection.Open();
 
-                using (NpgsqlCommand command = new NpgsqlCommand(@"SELECT b.codigo as ""CODIGO"", a.dni as ""DNI"", b.monto as ""MONTO"", b.fecha as ""FECHA"", b.concepto_codigo as ""CP"" FROM boletas b INNER JOIN 
+                using (NpgsqlCommand command = new NpgsqlCommand(@"SELECT b.codigo as ""CODIGO"", a.dni as ""DNI"", a.apellidos_nombres as ""APELLIDOS Y NOMBRES"", b.monto as ""MONTO"", b.fecha as ""FECHA"", b.concepto_codigo as ""CP"" FROM boletas b INNER JOIN 
                     alumnos a ON a.id = b.alumno_id WHERE fecha BETWEEN @fechaInicio AND @fechaFin", connection))
                 {
                     command.Parameters.AddWithValue("fechaInicio", fechaInicio);

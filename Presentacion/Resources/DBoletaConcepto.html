@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Page Desing </title>
+    <style>
+            table.border {
+            border-collapse: collapse;
+             }
+
+            table.border th {
+                padding: 5px;
+                border: 1px solid black;
+            }
+
+            table.border td {
+                padding: 5px;
+                border: 1px solid black;
+            }
+            .emoji {
+                font-size: 2em;/*<title>Web Page Desing <span class="emoji">&#x1F600;</span></title>*/
+             }
+    </style>
+</head>
+<body>
+    <table border-1 style="width:100%">
+        <tr>
+            <td style=" width:100%" aling="center">
+                <table>
+                    <tr><td aling="center" style="font-size:13px;"><strong>COLEGIO ESTATAL</strong></td></tr>
+                    <tr><td aling="center" style="font-size:13px;"><strong>COLEGIO MILITAR LEONCIO PRADO</strong></td></tr>
+                    <tr><td aling="center" style="font-size:13px;">AV. COSTANERA 1541 URB. LA PERLA ALTA</td></tr>
+                    <tr><td aling="center" style="font-size:13px;">LA PERLA - PROV. CONST. DEL CALLAO - PROV. CONST. DEL CALLAO</td></tr>
+                </table>
+            </td>
+        </tr>
+        <tr><td colspan="3" height="20"></td></tr>
+        <tr><td colspan="3" height="20" style="text-align: center"><strong style="font-size: 20px;">REPORTE DE BOLETAS POR CONCEPTO Y FECHA</strong></td></tr>
+        <tr><td colspan="3" height="20"></td></tr>
+        <tr>
+            <td colspan="2">
+                <table style="width:100%">
+                    <tr>
+                        <td colspan="1" style="width: 30%; font-size: 15px; ">Fecha de Inicio</td>
+                        <td colspan="3" style="width: 100%; font-size: 15px; ">:<strong> @FECHA_INICIO</strong></td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" style="width: 30%; font-size: 15px;">Fecha de Fin</td>
+                        <td colspan="3" style="width: 100%; font-size: 15px; ">:<strong> @FECHA_FIN</strong></td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" style="width: 30%; font-size: 15px; ">Concepto</td>
+                        <td colspan="3" style="width: 100%; font-size: 15px; ">:<strong> @CONCEPTO</strong></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr><td colspan="3" height="20"></td></tr>
+        <tr>
+            <td colspan="3">
+                <table class="border" style="width:100%">
+                    <thead style="background-color:#D8D8D8">
+                        <tr>
+                            <th style="text-align: center;font-size: 10px;">CODIGO</th>
+                            <th style="text-align: center;font-size: 10px;">DNI</th>
+                            <th style="text-align: center;font-size: 10px;">NOMBRE</th>
+                            <th style="text-align: center;font-size: 10px;">EMISION</th>
+                            <th style="text-align: center;font-size: 10px;">NONTO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @FILAS
+                        <tr>
+                            <td style="border:0px !important"></td>
+                            <td style="border:0px !important"></td>
+                            <td style="border:0px !important"></td>
+                            <td align="right" style="font-size: 12px; border: 0px !important;"><strong>TOTAL</strong></td>
+                            <td style="font-size: 10px;text-align: center;">S/ @TOTAL</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

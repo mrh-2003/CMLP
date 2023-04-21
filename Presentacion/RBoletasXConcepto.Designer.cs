@@ -41,6 +41,7 @@ namespace Presentacion
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnLimpiar = new System.Windows.Forms.Button();
+            this.btnImp = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,7 +75,7 @@ namespace Presentacion
             this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAceptar.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
             this.btnAceptar.ForeColor = System.Drawing.Color.White;
-            this.btnAceptar.Location = new System.Drawing.Point(268, 169);
+            this.btnAceptar.Location = new System.Drawing.Point(157, 166);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(150, 44);
             this.btnAceptar.TabIndex = 4;
@@ -172,7 +173,7 @@ namespace Presentacion
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiar.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
             this.btnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiar.Location = new System.Drawing.Point(551, 169);
+            this.btnLimpiar.Location = new System.Drawing.Point(409, 166);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(150, 44);
             this.btnLimpiar.TabIndex = 5;
@@ -180,12 +181,28 @@ namespace Presentacion
             this.btnLimpiar.UseVisualStyleBackColor = false;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
+            // btnImp
+            // 
+            this.btnImp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(19)))));
+            this.btnImp.FlatAppearance.BorderSize = 0;
+            this.btnImp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImp.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+            this.btnImp.ForeColor = System.Drawing.Color.White;
+            this.btnImp.Location = new System.Drawing.Point(638, 166);
+            this.btnImp.Name = "btnImp";
+            this.btnImp.Size = new System.Drawing.Size(150, 44);
+            this.btnImp.TabIndex = 86;
+            this.btnImp.Text = "Imprimir";
+            this.btnImp.UseVisualStyleBackColor = false;
+            this.btnImp.Click += new System.EventHandler(this.btnImp_Click);
+            // 
             // RBoletasXConcepto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(65)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(992, 681);
+            this.Controls.Add(this.btnImp);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
@@ -221,5 +238,6 @@ namespace Presentacion
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Button btnImp;
     }
 }

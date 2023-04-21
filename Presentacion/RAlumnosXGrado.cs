@@ -27,14 +27,16 @@ namespace Presentacion
 
         private void cbxGrado_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int value = cbxGrado.Text == "" ? 0 : Convert.ToInt32(cbxGrado.Text);
-            dgvListar.DataSource = dAlumno.FiltrarGradoSeccion(value, cbxSeccion.Text);
+            int grado = cbxGrado.Text == "" ? 0 : Convert.ToInt32(cbxGrado.Text);
+            int seccion = cbxSeccion.Text == "" ? 0 : Convert.ToInt32(cbxSeccion.Text);
+            dgvListar.DataSource = dAlumno.FiltrarGradoSeccion(grado, seccion);
         }
 
         private void cbxSeccion_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int value = cbxGrado.Text == "" ? 0 : Convert.ToInt32(cbxGrado.Text);
-            dgvListar.DataSource = dAlumno.FiltrarGradoSeccion(value, cbxSeccion.Text);
+            int grado = cbxGrado.Text == "" ? 0 : Convert.ToInt32(cbxGrado.Text);
+            int seccion = cbxSeccion.Text == "" ? 0 : Convert.ToInt32(cbxSeccion.Text);
+            dgvListar.DataSource = dAlumno.FiltrarGradoSeccion(grado, seccion);
         }
 
         private void btnClear_Click(object sender, EventArgs e)

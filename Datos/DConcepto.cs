@@ -69,7 +69,7 @@ namespace Datos
                     conn.Open();
                     using (var trans = conn.BeginTransaction())
                     {
-                        string query = "SELECT * FROM conceptos";
+                        string query = "SELECT * FROM conceptos ORDER BY codigo";
                         using (var cmd = new NpgsqlCommand(query, conn, trans))
                         {
                             using (var reader = cmd.ExecuteReader())
