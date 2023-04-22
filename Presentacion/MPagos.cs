@@ -131,9 +131,9 @@ namespace Presentacion
                     listaAlumnos = dAlumno.ListarLista();
                 else
                     if (cbxSeccion.Text != "TODOS" && cbxGrado.Text != "TODOS")
-                    listaAlumnos = dAlumno.ListarGradoSeccion("AND", Convert.ToInt32(cbxGrado.Text), Convert.ToChar(cbxSeccion.Text));
+                    listaAlumnos = dAlumno.ListarGradoSeccion("AND", Convert.ToInt32(cbxGrado.Text), Convert.ToInt32(cbxSeccion.Text));
                 else
-                    listaAlumnos = dAlumno.ListarGradoSeccion("OR", Convert.ToInt32(cbxGrado.Text == "TODOS" ? "0" : cbxGrado.Text), Convert.ToChar(cbxSeccion.Text == "TODOS" ? "0" : cbxSeccion.Text));
+                    listaAlumnos = dAlumno.ListarGradoSeccion("OR", Convert.ToInt32(cbxGrado.Text == "TODOS" ? "0" : cbxGrado.Text), Convert.ToInt32(cbxSeccion.Text == "TODOS" ? "0" : cbxSeccion.Text));
 
                 foreach (EAlumno item in listaAlumnos)
                 {

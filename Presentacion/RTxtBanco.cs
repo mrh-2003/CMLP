@@ -102,7 +102,7 @@ namespace Presentacion
             string nombreArchivo = "083" + DateTime.Now.ToString("yyyyMMdd");
             if (Utilidades.escribirTxt(nombreArchivo, archivo))
             {
-                MessageBox.Show(dCalendario.ActualizarCalendario());
+                MessageBox.Show("Se escribio correctamente");
             }
             else
                 MessageBox.Show("Ocurrio un error, intentelo de nuevo");
