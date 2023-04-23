@@ -138,7 +138,7 @@ namespace Datos
             }
             return lista;
         }
-        public List<EAlumno> ListarGradoSeccion(string param, int grado,char seccion)
+        public List<EAlumno> ListarGradoSeccion(string param, int grado,int seccion)
         {
             List<EAlumno> lista = new List<EAlumno>();
 

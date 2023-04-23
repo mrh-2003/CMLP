@@ -252,12 +252,16 @@ namespace Presentacion
             this.cbxSeccion.FormattingEnabled = true;
             this.cbxSeccion.Items.AddRange(new object[] {
             "TODOS",
-            "A",
-            "B",
-            "C",
-            "D",
-            "E",
-            "F"});
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
             this.cbxSeccion.Location = new System.Drawing.Point(835, 446);
             this.cbxSeccion.Name = "cbxSeccion";
             this.cbxSeccion.Size = new System.Drawing.Size(145, 24);

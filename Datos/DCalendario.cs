@@ -74,7 +74,6 @@ namespace Datos
                                     calendario.Mora = reader.GetDecimal(7);
                                     calendario.Cancelacion = reader.IsDBNull(8) ? default(DateTime) : reader.GetDateTime(8);
                                     calendario.Emision = reader.GetDateTime(9);
-                                    calendario.Txt = reader.GetBoolean(10);
                                     lista.Add(calendario);
                                 }
                             }
@@ -239,8 +238,7 @@ namespace Datos
                             eCalendario.ConceptoCodigo = reader.GetInt32(6);
                             eCalendario.Mora = reader.GetDecimal(7);
                             eCalendario.Cancelacion = reader.GetDateTime(8);
-                            eCalendario.Emision = reader.GetDateTime(9);
-                            eCalendario.Txt = reader.GetBoolean(10);             
+                            eCalendario.Emision = reader.GetDateTime(9);         
                             return eCalendario;
                         }
                     }
@@ -263,19 +261,18 @@ namespace Datos
                     conn.Open();
                     using (var trans = conn.BeginTransaction())
                     {
-                        string query = @"SELECT c.id, c.descripcion, a.dni, c.monto_pagado, c.monto_total, c.vencimiento, c.concepto_codigo, c.txt
+                        string query = @"SELECT c.id, c.descripcion, a.dni, c.monto_pagado, c.monto_total, c.vencimiento, c.concepto_codigo
                             FROM calendarios c inner join alumnos a on a.id = c.alumno_id";
                         if (anio != "TODOS")
-                            query += " WHERE EXTRACT(YEAR FROM c.vencimiento) = @anio and c.monto_total::numeric <> 0 AND c.monto_pagado < c.monto_total AND c.txt = @txt";
+                            query += " WHERE EXTRACT(YEAR FROM c.vencimiento) = @anio and c.monto_total::numeric <> 0 AND c.monto_pagado < c.monto_total";
                         else
-                            query += " WHERE c.monto_total::numeric <> 0 AND c.monto_pagado < c.monto_total AND c.txt = @txt";
+                            query += " WHERE c.monto_total::numeric <> 0 AND c.monto_pagado < c.monto_total";
 
 
                         using (var cmd = new NpgsqlCommand(query, conn, trans))
                         {
                             if (anio != "TODOS")
                                 cmd.Parameters.AddWithValue("@anio", Convert.ToInt32(anio));
-                            cmd.Parameters.AddWithValue("@txt", false);
 
                             using (var reader = cmd.ExecuteReader())
                             {
@@ -289,7 +286,6 @@ namespace Datos
                                     calendario.MontoTotal = reader.GetDecimal(4);
                                     calendario.Vencimiento = reader.GetDateTime(5);
                                     calendario.ConceptoCodigo = reader.GetInt32(6);
-                                    calendario.Txt = reader.GetBoolean(7);
                                     lista.Add(calendario);
                                 }
                             }
@@ -860,27 +856,6 @@ namespace Datos
             }
             return total;
         }
-        public string ActualizarCalendario()
-        {
-            using (var conn = new NpgsqlConnection(connectionString))
-            {
-                try
-                {
-                    conn.Open();
-                    string query = "UPDATE calendarios SET txt = @txt";
-
-                    using (var cmd = new NpgsqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@txt", true);
-                        cmd.ExecuteNonQuery();
-                    }
-                    return "Accion realizada con exito";
-                }
-                catch (Exception ex)
-                {
-                    return ex.Message;
-                }
-            }
-        }
+        
     }
 }

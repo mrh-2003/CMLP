@@ -18,6 +18,5 @@ namespace Entidades
         public decimal Mora { get; set; }
         public DateTime Cancelacion { get; set; }
         public DateTime Emision { get; set; }
-        public bool Txt { get; set; }
     }
 }
