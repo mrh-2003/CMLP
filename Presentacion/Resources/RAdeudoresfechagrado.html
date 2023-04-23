@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Page Desing </title>
+    <style>
+            table.border {
+            border-collapse: collapse;
+             }
+
+            table.border th {
+                padding: 5px;
+                border: 1px solid black;
+            }
+
+            table.border td {
+                padding: 5px;
+                border: 1px solid black;
+            }
+            .emoji {
+                font-size: 2em;/*<title>Web Page Desing <span class="emoji">&#x1F600;</span></title>*/
+             }
+            .encabezado {
+                font-size: 15px;
+            }
+            .encabezadoTabla {
+            font-size: 9px;
+            }
+             pre {
+                font-size: 10px;
+            }
+                
+    </style>
+</head>
+<body>
+    <table border-1 style="width:100%">
+        <tr>
+            <td style=" width:100%" aling="center">
+                <table>
+                    <tr><td aling="center"><pre class="encabezado"><strong>COLEGIO ESTATAL</strong></pre></td></tr>
+                    <tr><td aling="center"><pre class="encabezado"><strong>COLEGIO MILITAR LEONCIO PRADO</strong></pre></td></tr>
+                    <tr><td aling="center"><pre class="encabezado">AV. COSTANERA 1541 URB. LA PERLA ALTA</pre></td></tr>
+                    <tr><td aling="center"><pre class="encabezado">LA PERLA - PROV. CONST. DEL CALLAO - PROV. CONST. DEL CALLAO</pre></td></tr>
+                </table>
+            </td>
+            <!--<td style="width:25%; text-align:center">
+            <table class="border-1">
+                <tr><td aling="right" style="font-size:13px;"><strong>BOLETA DE VENTA ELECTRONICA</strong></td></tr>
+                <tr><td align="right" style="font-size:13px;"><strong>RUC: 20167343652</strong></td></tr>
+                <tr><td align="right" style="font-size:13px;"><strong>12345678934</strong></td></tr>
+            </table>
+        </td>-->
+        </tr>
+        <tr><td colspan="3" height="20"></td></tr>
+        <tr>
+            <td colspan="3">
+                <table style="width:100%">
+                    <tr>
+                        <td colspan="1" style="width: 30%;"></td>
+                        <td colspan="3" style="width: 100%;"><pre class="encabezado"><strong>     REPORTE DE DEUDORES POR FECHA Y GRADO</strong></pre></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" height="20"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" style="width: 30%;"><pre class="encabezado">Fecha</pre></td>
+                        <td colspan="3" style="width: 100%;"><pre class="encabezado">:<strong>@FECHA</strong></pre></td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" style="width: 30%;"><pre class="encabezado">Grado</pre></td>
+                        <td colspan="3" style="width: 100%;"><pre class="encabezado">:<strong> @GRADO</strong></pre></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr><td colspan="3" height="20"></td></tr>
+        <tr>
+            <td colspan="3">
+                <table class="border" style="width:100%">
+                    <thead style="background-color:#D8D8D8">
+                        <tr>
+                            <th style="text-align: center;"><pre class="encabezadoTabla">DNI</pre></th>
+                            <th style="text-align: center;"><pre class="encabezadoTabla">APELLIDOS Y NOMBRES</pre></th>
+                            <th style="text-align: center;"><pre class="encabezadoTabla">EMAIL</pre></th>
+                            <th style="text-align: center;"><pre class="encabezadoTabla">CP</pre></th>
+                            <th style="text-align: center;"><pre class="encabezadoTabla">MOTIVO DE PAGO</pre></th>
+                            <th style="text-align: center;"><pre class="encabezadoTabla">MONTO</pre></th>
+                            <th style="text-align: center;"><pre class="encabezadoTabla">EMISION</pre></th>
+                            <th style="text-align: center;"><pre class="encabezadoTabla">VENCE EL</pre></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @FILAS
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <pre class="encabezado">Total:S/@TOTAL</pre>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -39,6 +39,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnImprimir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,7 +52,7 @@
             "3",
             "4",
             "5"});
-            this.cbxGrado.Location = new System.Drawing.Point(616, 71);
+            this.cbxGrado.Location = new System.Drawing.Point(616, 61);
             this.cbxGrado.Margin = new System.Windows.Forms.Padding(4);
             this.cbxGrado.Name = "cbxGrado";
             this.cbxGrado.Size = new System.Drawing.Size(168, 24);
@@ -72,14 +73,14 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvListar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvListar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListar.Location = new System.Drawing.Point(13, 197);
+            this.dgvListar.Location = new System.Drawing.Point(13, 207);
             this.dgvListar.Margin = new System.Windows.Forms.Padding(4);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.ReadOnly = true;
             this.dgvListar.RowHeadersVisible = false;
             this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListar.Size = new System.Drawing.Size(966, 471);
+            this.dgvListar.Size = new System.Drawing.Size(966, 461);
             this.dgvListar.TabIndex = 12;
             // 
             // cbxMes
@@ -100,7 +101,7 @@
             "10",
             "11",
             "12"});
-            this.cbxMes.Location = new System.Drawing.Point(196, 71);
+            this.cbxMes.Location = new System.Drawing.Point(196, 61);
             this.cbxMes.Margin = new System.Windows.Forms.Padding(4);
             this.cbxMes.Name = "cbxMes";
             this.cbxMes.Size = new System.Drawing.Size(226, 24);
@@ -112,7 +113,7 @@
             this.lb3ro.AutoSize = true;
             this.lb3ro.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb3ro.ForeColor = System.Drawing.Color.White;
-            this.lb3ro.Location = new System.Drawing.Point(194, 160);
+            this.lb3ro.Location = new System.Drawing.Point(194, 132);
             this.lb3ro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb3ro.Name = "lb3ro";
             this.lb3ro.Size = new System.Drawing.Size(70, 17);
@@ -124,7 +125,7 @@
             this.lb4to.AutoSize = true;
             this.lb4to.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb4to.ForeColor = System.Drawing.Color.White;
-            this.lb4to.Location = new System.Drawing.Point(445, 160);
+            this.lb4to.Location = new System.Drawing.Point(444, 132);
             this.lb4to.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb4to.Name = "lb4to";
             this.lb4to.Size = new System.Drawing.Size(62, 17);
@@ -136,7 +137,7 @@
             this.lb5to.AutoSize = true;
             this.lb5to.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb5to.ForeColor = System.Drawing.Color.White;
-            this.lb5to.Location = new System.Drawing.Point(705, 160);
+            this.lb5to.Location = new System.Drawing.Point(705, 132);
             this.lb5to.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb5to.Name = "lb5to";
             this.lb5to.Size = new System.Drawing.Size(66, 17);
@@ -148,7 +149,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(247, 124);
+            this.label4.Location = new System.Drawing.Point(247, 96);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(460, 17);
@@ -171,7 +172,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(152, 74);
+            this.label1.Location = new System.Drawing.Point(152, 64);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 17);
@@ -183,12 +184,27 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(556, 75);
+            this.label2.Location = new System.Drawing.Point(556, 65);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 17);
             this.label2.TabIndex = 14;
             this.label2.Text = "Grado:";
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(19)))));
+            this.btnImprimir.FlatAppearance.BorderSize = 0;
+            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimir.Font = new System.Drawing.Font("Verdana", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimir.ForeColor = System.Drawing.Color.Transparent;
+            this.btnImprimir.Location = new System.Drawing.Point(411, 152);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(170, 48);
+            this.btnImprimir.TabIndex = 102;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.UseVisualStyleBackColor = false;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // RPencionesXMesGrado
             // 
@@ -196,6 +212,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(65)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(992, 681);
+            this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lb5to);
@@ -230,5 +247,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnImprimir;
     }
 }

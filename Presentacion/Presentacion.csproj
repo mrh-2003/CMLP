@@ -415,6 +415,10 @@
   <ItemGroup>
     <Content Include="iconoofoofi.ico" />
     <Content Include="Resources\DBoletaConcepto.html" />
+    <None Include="Resources\RAdeudoresfecha.html" />
+    <None Include="Resources\RAdeudoresfechagrado.html" />
+    <None Include="Resources\RApensionesmesgrado.html" />
+    <None Include="Resources\RAgrado.html" />
     <None Include="Resources\DBoletaFecha.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

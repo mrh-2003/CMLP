@@ -139,4 +139,16 @@
   <data name="KGeneral" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\KGeneral.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="RAdeudoresfecha" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RAdeudoresfecha.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="RAdeudoresfechagrado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RAdeudoresfechagrado.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="RAgrado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RAgrado.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="RApensionesmesgrado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RApensionesmesgrado.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
 </root>
