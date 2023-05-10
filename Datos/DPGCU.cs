@@ -146,5 +146,23 @@ namespace Datos
 
             return total;
         }
+        public DataTable BuscarPorNombreODNI(string valorBuscado)
+        {
+            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+            {
+                string query = @"SELECT id as ""ID"", codigo as ""CODIGO"", nombres as ""APELLIDOS Y NOMBRES"", importe as ""IMPORTE"", mora as ""MORA"", fecha as ""FECHA/PAGO"" FROM public.pgcu WHERE LOWER(codigo) LIKE LOWER(@valor_buscado) OR LOWER(nombres) LIKE LOWER(@valor_buscado)";
+                connection.Open();
+
+                using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@valor_buscado", "%" + valorBuscado.ToLower() + "%");
+                    NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    return dt;
+                }
+            }
+        }
     }
 }

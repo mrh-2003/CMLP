@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvListar = new System.Windows.Forms.DataGridView();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,6 +41,8 @@
             this.txtTotal = new System.Windows.Forms.Label();
             this.txtTotalXFecha = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,16 +51,16 @@
             this.dgvListar.AllowUserToAddRows = false;
             this.dgvListar.AllowUserToResizeRows = false;
             this.dgvListar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvListar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListar.Location = new System.Drawing.Point(28, 157);
+            this.dgvListar.Location = new System.Drawing.Point(26, 177);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.ReadOnly = true;
             this.dgvListar.RowHeadersVisible = false;
@@ -192,12 +194,34 @@
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.Location = new System.Drawing.Point(426, 138);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(337, 24);
+            this.txtBuscar.TabIndex = 71;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(225, 141);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(193, 17);
+            this.label12.TabIndex = 72;
+            this.label12.Text = "Buscar por Nombre o Dni:";
+            // 
             // RPagosBancarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(65)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(990, 585);
+            this.Controls.Add(this.txtBuscar);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.txtTotalXFecha);
             this.Controls.Add(this.txtTotal);
@@ -233,5 +257,7 @@
         private System.Windows.Forms.Label txtTotal;
         private System.Windows.Forms.Label txtTotalXFecha;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.Label label12;
     }
 }

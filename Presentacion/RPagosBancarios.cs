@@ -32,6 +32,7 @@ namespace Presentacion
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            txtBuscar.Text = "";
             dgvListar.DataSource = dpgcu.ListarPorFecha(dtpInicio.Value, dtpFinal.Value);
             txtTotalXFecha.Text = dpgcu.TotalPorFecha(dtpInicio.Value, dtpFinal.Value).ToString();
             txtTotal.Text = dpgcu.Total().ToString();
@@ -66,6 +67,12 @@ namespace Presentacion
                     dgvListar.Rows[e.RowIndex].Cells[5].Value.ToString();
                 id = Convert.ToInt32(dgvListar.Rows[e.RowIndex].Cells[0].Value);
             }
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            txtTotalXFecha.Text = "";
+            dgvListar.DataSource = dpgcu.BuscarPorNombreODNI(txtBuscar.Text);
         }
     }
 }
