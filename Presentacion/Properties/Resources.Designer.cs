@@ -239,7 +239,27 @@ namespace Presentacion.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a .
+        ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
+        ///&lt;html&gt;
+        ///&lt;head&gt;
+        ///    &lt;title&gt;Web Page Desing &lt;/title&gt;
+        ///    &lt;style&gt;
+        ///        table.border {
+        ///            border-collapse: collapse;
+        ///        }
+        ///
+        ///            table.border th {
+        ///                padding: 5px;
+        ///                border: 1px solid black;
+        ///            }
+        ///
+        ///            table.border td {
+        ///                padding: 5px;
+        ///                border: 1px solid black;
+        ///            }
+        ///
+        ///        .emoji {
+        ///            font-size: 2em; /*&lt;title&gt;Web Page Desing &lt;span class=&quot;emoji&quot;&gt;&amp;#x1F600;&lt;/span&gt;&lt;/t [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string RAdeudoresfecha {
             get {
@@ -276,7 +296,27 @@ namespace Presentacion.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a .
+        ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
+        ///&lt;html&gt;
+        ///&lt;head&gt;
+        ///    &lt;title&gt;Web Page Desing &lt;/title&gt;
+        ///    &lt;style&gt;
+        ///        table.border {
+        ///            border-collapse: collapse;
+        ///        }
+        ///
+        ///            table.border th {
+        ///                padding: 5px;
+        ///                border: 1px solid black;
+        ///            }
+        ///
+        ///            table.border td {
+        ///                padding: 5px;
+        ///                border: 1px solid black;
+        ///            }
+        ///
+        ///        .emoji {
+        ///            font-size: 2em; /*&lt;title&gt;Web Page Desing &lt;span class=&quot;emoji&quot;&gt;&amp;#x1F600;&lt;/span&gt;&lt;/t [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string RAgrado {
             get {
@@ -309,6 +349,15 @@ namespace Presentacion.Properties {
         internal static string RApensionesmesgrado {
             get {
                 return ResourceManager.GetString("RApensionesmesgrado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a reporte de pagos.
+        /// </summary>
+        internal static string reportePagos {
+            get {
+                return ResourceManager.GetString("reportePagos", resourceCulture);
             }
         }
     }

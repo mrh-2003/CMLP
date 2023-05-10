@@ -424,6 +424,7 @@
   <ItemGroup>
     <Content Include="iconoofoofi.ico" />
     <Content Include="Resources\DBoletaConcepto.html" />
+    <None Include="Resources\reportePagos.html" />
     <None Include="Resources\RAdeudoresfecha.html" />
     <None Include="Resources\RAdeudoresfechagrado.html" />
     <None Include="Resources\RApensionesmesgrado.html" />

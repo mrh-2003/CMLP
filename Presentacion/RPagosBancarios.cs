@@ -23,5 +23,10 @@ namespace Presentacion
         {
             dgvListar.DataSource = dpgcu.Listar();
         }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
