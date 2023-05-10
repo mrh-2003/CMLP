@@ -113,7 +113,7 @@ namespace Presentacion
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("En caso de que este calendario no haya sido cancelado aún, presione 'YES', de lo contrario, precione 'NO'", "Importante", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if(MessageBox.Show("En caso de que este calendario no haya sido cancelado aún, presione 'SI', de lo contrario, precione 'NO'", "Importante", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 dtpCancelacion.Value = new DateTime(1900,1,1);
             }

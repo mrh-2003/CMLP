@@ -16,6 +16,8 @@ namespace Presentacion
     public partial class CTxtBanco : Form
     {
         public List<EBancoDTO> lista = new List<EBancoDTO>();
+        public List<EPGCU> listaPGCU = new List<EPGCU>();
+        DPGCU dpgcu = new DPGCU();
         DBancoDTO dBanco = new DBancoDTO();
         DCalendario dCalendario = new DCalendario();
         public CTxtBanco()
@@ -59,6 +61,7 @@ namespace Presentacion
                         if (linea.Length >= 194 && linea.Substring(0, 4) != "9999")
                         {
                             EBancoDTO banco = new EBancoDTO();
+                            EPGCU pgcu = new EPGCU();
                             banco.NCredito = linea.Substring(8, 8);
                             banco.NCuota = Convert.ToInt32(linea.Substring(16, 4));
                             string fechaString = linea.Substring(20, 8);
@@ -74,6 +77,12 @@ namespace Presentacion
                             banco.SInterMora = numero;
                             numero = Convert.ToDecimal(Convert.ToInt32(linea.Substring(180, 13)) + (Convert.ToInt32(linea.Substring(193, 2)) / 100.0));
                             banco.SPagado = numero;
+                            pgcu.codigo = banco.NCredito;
+                            pgcu.nombres = banco.ACliente;
+                            pgcu.importe = banco.SImporte;
+                            pgcu.mora = banco.SInterMora;
+                            pgcu.fecha = banco.FPago;
+                            listaPGCU.Add(pgcu);
                             lista.Add(banco);
                         }
                     }
@@ -88,6 +97,8 @@ namespace Presentacion
         {
             foreach (EBancoDTO banco in lista)
                 dBanco.Mantenimiento(banco, "insert");
+            foreach (EPGCU epgcu in listaPGCU)
+                dpgcu.Mantenimiento(epgcu, "insert");
         }
 
         void mostrar()
