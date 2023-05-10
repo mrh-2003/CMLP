@@ -8,11 +8,11 @@ namespace Entidades
 {
     public class EPGCU
     {
-        private int id { get; set; }
-        private string codigo { get; set; }
-        private string nombres { get; set; }
-        private decimal importe { get; set; }
-        private decimal mora { get; set; }
-        private DateTime fecha { get; set; }
+        public int id { get; set; }
+        public string codigo { get; set; }
+        public string nombres { get; set; }
+        public decimal importe { get; set; }
+        public decimal mora { get; set; }
+        public DateTime fecha { get; set; }
     }
 }

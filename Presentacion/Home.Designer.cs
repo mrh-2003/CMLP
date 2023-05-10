@@ -32,6 +32,7 @@ namespace Presentacion
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnReportePagos = new FontAwesome.Sharp.IconButton();
             this.btnPagosSinBoleta = new FontAwesome.Sharp.IconButton();
             this.btnConfig = new FontAwesome.Sharp.IconButton();
             this.btnCTxtBanco = new FontAwesome.Sharp.IconButton();
@@ -52,6 +53,8 @@ namespace Presentacion
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.panelEscritorio = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuKardex = new CustomControls.RJControls.RJDropdownMenu(this.components);
             this.subMenukardexAlumno = new System.Windows.Forms.ToolStripMenuItem();
             this.subMenukardexGrado = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,10 +70,10 @@ namespace Presentacion
             this.submenuDeuFecha = new System.Windows.Forms.ToolStripMenuItem();
             this.submenuDeuGrado = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAlumGrado = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnReportePagos = new FontAwesome.Sharp.IconButton();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.menuKardex.SuspendLayout();
             this.menuCAlumnos.SuspendLayout();
             this.menuRBoleta.SuspendLayout();
@@ -103,8 +106,32 @@ namespace Presentacion
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(192, 701);
+            this.panelMenu.Size = new System.Drawing.Size(192, 711);
             this.panelMenu.TabIndex = 2;
+            // 
+            // btnReportePagos
+            // 
+            this.btnReportePagos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReportePagos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReportePagos.FlatAppearance.BorderSize = 0;
+            this.btnReportePagos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportePagos.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportePagos.ForeColor = System.Drawing.Color.White;
+            this.btnReportePagos.IconChar = FontAwesome.Sharp.IconChar.MoneyBillTrendUp;
+            this.btnReportePagos.IconColor = System.Drawing.Color.White;
+            this.btnReportePagos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReportePagos.IconSize = 35;
+            this.btnReportePagos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReportePagos.Location = new System.Drawing.Point(0, 638);
+            this.btnReportePagos.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnReportePagos.Name = "btnReportePagos";
+            this.btnReportePagos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnReportePagos.Size = new System.Drawing.Size(192, 38);
+            this.btnReportePagos.TabIndex = 46;
+            this.btnReportePagos.Text = "Reporte Pagos";
+            this.btnReportePagos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReportePagos.UseVisualStyleBackColor = true;
+            this.btnReportePagos.Click += new System.EventHandler(this.btnReportePagos_Click);
             // 
             // btnPagosSinBoleta
             // 
@@ -527,8 +554,29 @@ namespace Presentacion
             this.panelEscritorio.Location = new System.Drawing.Point(192, 0);
             this.panelEscritorio.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panelEscritorio.Name = "panelEscritorio";
-            this.panelEscritorio.Size = new System.Drawing.Size(992, 701);
+            this.panelEscritorio.Size = new System.Drawing.Size(992, 711);
             this.panelEscritorio.TabIndex = 4;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(65)))), ((int)(((byte)(45)))));
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(192, 679);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(992, 32);
+            this.panel2.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label1.ForeColor = System.Drawing.Color.Transparent;
+            this.label1.Location = new System.Drawing.Point(298, 2);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(431, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Creditos Jonas Barrientoz 977839158 / Huber Calizaya 957018079";
             // 
             // menuKardex
             // 
@@ -676,35 +724,12 @@ namespace Presentacion
             this.btnAlumGrado.Text = "Alumnos por Grado";
             this.btnAlumGrado.Click += new System.EventHandler(this.btnAlumGrado_Click);
             // 
-            // btnReportePagos
-            // 
-            this.btnReportePagos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReportePagos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReportePagos.FlatAppearance.BorderSize = 0;
-            this.btnReportePagos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReportePagos.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReportePagos.ForeColor = System.Drawing.Color.White;
-            this.btnReportePagos.IconChar = FontAwesome.Sharp.IconChar.MoneyBillTrendUp;
-            this.btnReportePagos.IconColor = System.Drawing.Color.White;
-            this.btnReportePagos.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnReportePagos.IconSize = 35;
-            this.btnReportePagos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportePagos.Location = new System.Drawing.Point(0, 638);
-            this.btnReportePagos.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnReportePagos.Name = "btnReportePagos";
-            this.btnReportePagos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnReportePagos.Size = new System.Drawing.Size(192, 38);
-            this.btnReportePagos.TabIndex = 46;
-            this.btnReportePagos.Text = "Reporte Pagos";
-            this.btnReportePagos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnReportePagos.UseVisualStyleBackColor = true;
-            this.btnReportePagos.Click += new System.EventHandler(this.btnReportePagos_Click);
-            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 701);
+            this.ClientSize = new System.Drawing.Size(1184, 711);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelEscritorio);
             this.Controls.Add(this.panelMenu);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -719,6 +744,8 @@ namespace Presentacion
             this.panelMenu.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.menuKardex.ResumeLayout(false);
             this.menuCAlumnos.ResumeLayout(false);
             this.menuRBoleta.ResumeLayout(false);
@@ -766,6 +793,8 @@ namespace Presentacion
         private System.Windows.Forms.ToolStripMenuItem btnAlumGrado;
         private FontAwesome.Sharp.IconButton btnPagosSinBoleta;
         private FontAwesome.Sharp.IconButton btnReportePagos;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label1;
     }
 }
 
