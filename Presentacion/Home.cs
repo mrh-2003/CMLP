@@ -180,5 +180,10 @@ namespace Presentacion
         {
             abrirFormHija(new MPagosSinBoleta());
         }
+
+        private void btnReportePagos_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new RPagosBancarios());
+        }
     }
 }

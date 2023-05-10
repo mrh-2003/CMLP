@@ -113,6 +113,7 @@
     <Compile Include="DColegio.cs" />
     <Compile Include="DHistorial.cs" />
     <Compile Include="DPago.cs" />
+    <Compile Include="DPGCU.cs" />
     <Compile Include="DUsuario.cs" />
     <Compile Include="Utilidades.cs" />
     <Compile Include="DConcepto.cs" />

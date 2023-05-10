@@ -38,7 +38,7 @@ namespace Presentacion
             this.txtApellidosNombres = new System.Windows.Forms.TextBox();
             this.cbxGrado = new System.Windows.Forms.ComboBox();
             this.cbxSeccion = new System.Windows.Forms.ComboBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtApoderado = new System.Windows.Forms.TextBox();
             this.txtCelular = new System.Windows.Forms.TextBox();
             this.txtCelulcarAp = new System.Windows.Forms.TextBox();
             this.txtEmailAp = new System.Windows.Forms.TextBox();
@@ -187,13 +187,13 @@ namespace Presentacion
             this.cbxSeccion.Size = new System.Drawing.Size(145, 24);
             this.cbxSeccion.TabIndex = 5;
             // 
-            // txtEmail
+            // txtApoderado
             // 
-            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(222, 281);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(234, 23);
-            this.txtEmail.TabIndex = 6;
+            this.txtApoderado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApoderado.Location = new System.Drawing.Point(222, 281);
+            this.txtApoderado.Name = "txtApoderado";
+            this.txtApoderado.Size = new System.Drawing.Size(234, 23);
+            this.txtApoderado.TabIndex = 6;
             // 
             // txtCelular
             // 
@@ -297,9 +297,9 @@ namespace Presentacion
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(59, 283);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 17);
+            this.label5.Size = new System.Drawing.Size(91, 17);
             this.label5.TabIndex = 55;
-            this.label5.Text = "Email:";
+            this.label5.Text = "Apoderado:";
             // 
             // label6
             // 
@@ -457,7 +457,7 @@ namespace Presentacion
             this.Controls.Add(this.txtEmailAp);
             this.Controls.Add(this.txtCelulcarAp);
             this.Controls.Add(this.txtCelular);
-            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.txtApoderado);
             this.Controls.Add(this.cbxSeccion);
             this.Controls.Add(this.cbxGrado);
             this.Controls.Add(this.txtApellidosNombres);
@@ -487,7 +487,7 @@ namespace Presentacion
         private System.Windows.Forms.TextBox txtApellidosNombres;
         private System.Windows.Forms.ComboBox cbxGrado;
         private System.Windows.Forms.ComboBox cbxSeccion;
-        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtApoderado;
         private System.Windows.Forms.TextBox txtCelular;
         private System.Windows.Forms.TextBox txtCelulcarAp;
         private System.Windows.Forms.TextBox txtEmailAp;

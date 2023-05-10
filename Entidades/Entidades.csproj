@@ -67,6 +67,7 @@
     <Compile Include="EConcepto.cs" />
     <Compile Include="EHistorial.cs" />
     <Compile Include="EPago.cs" />
+    <Compile Include="EPGCU.cs" />
     <Compile Include="EUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

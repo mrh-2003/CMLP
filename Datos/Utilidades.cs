@@ -7,6 +7,8 @@ using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace Datos
 {
@@ -38,6 +40,19 @@ namespace Datos
             stream = sha256.ComputeHash(encoding.GetBytes(str));
             for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
             return sb.ToString();
+        }
+        public static string eliminarCaracteresEspeciales(string cadena)
+        {
+            // Normaliza la cadena para eliminar los diacríticos
+            string normalizedString = cadena.Normalize(NormalizationForm.FormD);
+
+            // Crea una expresión regular para eliminar los caracteres que no sean letras ni números
+            Regex regex = new Regex("[^a-zA-Z ]");
+
+            // Elimina los caracteres no deseados de la cadena normalizada
+            string cleanString = regex.Replace(normalizedString, "");
+            return cleanString;
+
         }
         public static bool escribirTxt(string nombre, string contenido)
         {

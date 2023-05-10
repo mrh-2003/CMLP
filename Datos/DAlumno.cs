@@ -11,6 +11,37 @@ namespace Datos
     {
         private readonly string anio = Utilidades.anio;
         private readonly string connectionString = Utilidades.cadena();
+        public string actualizarAlumnos(EAlumno alumno)
+        {
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                        string query = "UPDATE alumnos SET apellidos_nombres = @apellidos_nombres, grado = @grado, seccion = @seccion, email = @email, email_apoderado = @email_apoderado, celular = @celular, celular_apoderado = @celular_apoderado, descuento = @descuento, fin_descuento = @fin_descuento, anio_registro = @anio_registro WHERE dni = @dni";   
+                        using (var cmd = new NpgsqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@dni", alumno.Dni);
+                            cmd.Parameters.AddWithValue("@apellidos_nombres", alumno.ApellidosNombres);
+                            cmd.Parameters.AddWithValue("@grado", alumno.Grado);
+                            cmd.Parameters.AddWithValue("@seccion", alumno.Seccion);
+                            cmd.Parameters.AddWithValue("@email", alumno.Apoderado);
+                            cmd.Parameters.AddWithValue("@email_apoderado", alumno.EmailApoderado);
+                            cmd.Parameters.AddWithValue("@celular", alumno.Celular);
+                            cmd.Parameters.AddWithValue("@celular_apoderado", alumno.CelularApoderado);
+                            cmd.Parameters.AddWithValue("@descuento", alumno.Descuento);
+                            cmd.Parameters.AddWithValue("@fin_descuento", alumno.FinDescuento);
+                            cmd.Parameters.AddWithValue("@anio_registro", alumno.AnioRegistro);
+                            cmd.ExecuteNonQuery();
+                        }
+                    return "Se actualizo correctamente";
+                }
+                catch (Exception ex)
+                {
+                    return ex.Message;
+                }
+            }
+        }
         public string Mantenimiento(EAlumno alumno, string opcion)
         {
             using (var conn = new NpgsqlConnection(connectionString))
@@ -47,7 +78,7 @@ namespace Datos
                             cmd.Parameters.AddWithValue("@apellidos_nombres", alumno.ApellidosNombres);
                             cmd.Parameters.AddWithValue("@grado", alumno.Grado);
                             cmd.Parameters.AddWithValue("@seccion", alumno.Seccion);
-                            cmd.Parameters.AddWithValue("@email", alumno.Email);
+                            cmd.Parameters.AddWithValue("@email", alumno.Apoderado);
                             cmd.Parameters.AddWithValue("@email_apoderado", alumno.EmailApoderado);
                             cmd.Parameters.AddWithValue("@celular", alumno.Celular);
                             cmd.Parameters.AddWithValue("@celular_apoderado", alumno.CelularApoderado);
@@ -70,7 +101,7 @@ namespace Datos
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
-                string query = @"SELECT id as ""ID"", dni as ""DNI"", apellidos_nombres as ""APELLIDOS Y NOMBRES"", grado as ""GRADO"", seccion as ""SECCION"", email as ""EMAIL"", email_apoderado as ""EMAIL APODERADO"", celular as ""CELULAR"", celular_apoderado as ""CELULAR APODERADO"", descuento as ""DESCUENTO"", fin_descuento ""VENCE EL"", anio_registro as ""AÑO DE REGISTRO"" FROM alumnos";
+                string query = @"SELECT id as ""ID"", dni as ""DNI"", apellidos_nombres as ""APELLIDOS Y NOMBRES"", grado as ""GRADO"", seccion as ""SECCION"", email as ""APODERADO"", email_apoderado as ""EMAIL APODERADO"", celular as ""CELULAR"", celular_apoderado as ""CELULAR APODERADO"", descuento as ""DESCUENTO"", fin_descuento ""VENCE EL"", anio_registro as ""AÑO DE REGISTRO"" FROM alumnos";
                 if(anio != "TODOS")
                     query += " WHERE anio_registro = @anio ORDER BY id";                
                 connection.Open();
@@ -115,7 +146,7 @@ namespace Datos
                                         ApellidosNombres = reader.GetString(2),
                                         Grado = reader.GetInt32(3),
                                         Seccion = reader.GetInt32(4),
-                                        Email = reader.GetString(5),
+                                        Apoderado = reader.GetString(5),
                                         EmailApoderado = reader.GetString(6),
                                         Celular = reader.GetInt32(7),
                                         CelularApoderado = reader.GetInt32(8),
@@ -172,7 +203,7 @@ namespace Datos
                                         ApellidosNombres = reader.GetString(2),
                                         Grado = reader.GetInt32(3),
                                         Seccion = reader.GetInt32(4),
-                                        Email = reader.GetString(5),
+                                        Apoderado = reader.GetString(5),
                                         EmailApoderado = reader.GetString(6),
                                         Celular = reader.GetInt32(7),
                                         CelularApoderado = reader.GetInt32(8),
@@ -216,7 +247,7 @@ namespace Datos
                                 ApellidosNombres = reader.GetString(2),
                                 Grado = reader.GetInt32(3),
                                 Seccion = reader.GetInt32(4),
-                                Email = reader.GetString(5),
+                                Apoderado = reader.GetString(5),
                                 EmailApoderado = reader.GetString(6),
                                 Celular = reader.GetInt32(7),
                                 CelularApoderado = reader.GetInt32(8),
@@ -255,7 +286,7 @@ namespace Datos
                                 ApellidosNombres = reader.GetString(2),
                                 Grado = reader.GetInt32(3),
                                 Seccion = reader.GetInt32(4),
-                                Email = reader.GetString(5),
+                                Apoderado = reader.GetString(5),
                                 EmailApoderado = reader.GetString(6),
                                 Celular = reader.GetInt32(7),
                                 CelularApoderado = reader.GetInt32(8),
@@ -309,9 +340,9 @@ namespace Datos
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
-                string query = @"SELECT id as ""ID"", dni as ""DNI"", apellidos_nombres as ""APELLIDOS Y NOMBRES"", grado as ""GRADO"", seccion as ""SECCION"", email as ""EMAIL"", email_apoderado as ""EMAIL-APODERADO"", celular as ""CELULAR"", celular_apoderado as ""CELULAR-APODERADO"", descuento as ""DESCUENTO"", fin_descuento ""VENCE EL"", anio_registro as ""AÑO DE REGISTRO"" FROM alumnos WHERE LOWER(dni) LIKE LOWER(@valor_buscado) OR LOWER(apellidos_nombres) LIKE LOWER(@valor_buscado)";
+                string query = @"SELECT id as ""ID"", dni as ""DNI"", apellidos_nombres as ""APELLIDOS Y NOMBRES"", grado as ""GRADO"", seccion as ""SECCION"", email as ""APODERADO"", email_apoderado as ""EMAIL-APODERADO"", celular as ""CELULAR"", celular_apoderado as ""CELULAR-APODERADO"", descuento as ""DESCUENTO"", fin_descuento ""VENCE EL"", anio_registro as ""AÑO DE REGISTRO"" FROM alumnos WHERE LOWER(dni) LIKE LOWER(@valor_buscado) OR LOWER(apellidos_nombres) LIKE LOWER(@valor_buscado)";
                 if(anio != "TODOS")
-                    query = @"SELECT id as ""ID"", dni as ""DNI"", apellidos_nombres as ""APELLIDOS Y NOMBRES"", grado as ""GRADO"", seccion as ""SECCION"", email as ""EMAIL"", email_apoderado as ""EMAIL-APODERADO"", celular as ""CELULAR"", celular_apoderado as ""CELULAR-APODERADO"", descuento as ""DESCUENTO"", fin_descuento ""VENCE EL"", anio_registro as ""AÑO DE REGISTRO"" FROM alumnos WHERE anio_registro = @anio_registro and (LOWER(dni) LIKE LOWER(@valor_buscado) OR LOWER(apellidos_nombres) LIKE LOWER(@valor_buscado))";
+                    query = @"SELECT id as ""ID"", dni as ""DNI"", apellidos_nombres as ""APELLIDOS Y NOMBRES"", grado as ""GRADO"", seccion as ""SECCION"", email as ""APODERADO"", email_apoderado as ""EMAIL-APODERADO"", celular as ""CELULAR"", celular_apoderado as ""CELULAR-APODERADO"", descuento as ""DESCUENTO"", fin_descuento ""VENCE EL"", anio_registro as ""AÑO DE REGISTRO"" FROM alumnos WHERE anio_registro = @anio_registro and (LOWER(dni) LIKE LOWER(@valor_buscado) OR LOWER(apellidos_nombres) LIKE LOWER(@valor_buscado))";
 
                 connection.Open();
 
@@ -334,7 +365,7 @@ namespace Datos
             {
                 connection.Open();
 
-                string query = @"SELECT id as ""ID"", dni as ""DNI"", apellidos_nombres as ""APELLIDOS Y NOMBRES"", grado as ""GRADO"", seccion as ""SECCION"", email as ""EMAIL"", email_apoderado as ""EMAIL-APODERADO"", celular as ""CELULAR"", celular_apoderado as ""CELULAR-APODERADO"", descuento as ""DESCUENTO"", fin_descuento ""VENCE EL"", anio_registro as ""AÑO DE REGISTRO"" FROM alumnos";
+                string query = @"SELECT id as ""ID"", dni as ""DNI"", apellidos_nombres as ""APELLIDOS Y NOMBRES"", grado as ""GRADO"", seccion as ""SECCION"", email as ""APODERADO"", email_apoderado as ""EMAIL-APODERADO"", celular as ""CELULAR"", celular_apoderado as ""CELULAR-APODERADO"", descuento as ""DESCUENTO"", fin_descuento ""VENCE EL"", anio_registro as ""AÑO DE REGISTRO"" FROM alumnos";
                 if (grado != 0 && seccion != 0)
                 {
                     query += " WHERE grado = @grado AND seccion =@seccion";

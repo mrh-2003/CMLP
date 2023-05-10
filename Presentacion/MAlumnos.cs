@@ -43,7 +43,7 @@ namespace Presentacion
             txtApellidosNombres.Clear();
             cbxGrado.SelectedIndex = -1;
             cbxSeccion.SelectedIndex = -1;
-            txtEmail.Clear();
+            txtApoderado.Clear();
             txtCelular.Clear();
             txtCelulcarAp.Clear();
             txtEmailAp.Clear();
@@ -55,7 +55,7 @@ namespace Presentacion
         private void mantenimiento(string opcion)
         {
             if (txtDni.Text != "" && txtApellidosNombres.Text != "" && cbxGrado.SelectedIndex != -1 && 
-                cbxSeccion.SelectedIndex != -1 && txtEmail.Text != "" && txtCelular.Text != "" && 
+                cbxSeccion.SelectedIndex != -1 && txtApoderado.Text != "" && txtCelular.Text != "" && 
                 txtCelulcarAp.Text != "" && txtEmailAp.Text != "" && cbxDescuento.SelectedIndex != -1 && 
                 dtpVencimiento.Value != null && txtAnio.Text != "")
             {
@@ -63,10 +63,10 @@ namespace Presentacion
                 {
                     Id = txtId.Text != "" ? Convert.ToInt32(txtId.Text) : 0,
                     Dni = txtDni.Text,
-                    ApellidosNombres = txtApellidosNombres.Text,
+                    ApellidosNombres = Utilidades.eliminarCaracteresEspeciales(txtApellidosNombres.Text),
                     Grado = Convert.ToInt32(cbxGrado.SelectedItem),
                     Seccion = Convert.ToInt32(cbxSeccion.SelectedItem),
-                    Email = txtEmail.Text,
+                    Apoderado = txtApoderado.Text,
                     EmailApoderado = txtEmailAp.Text,
                     Celular = Convert.ToInt32(txtCelular.Text),
                     CelularApoderado = Convert.ToInt32(txtCelulcarAp.Text),
@@ -97,7 +97,7 @@ namespace Presentacion
                 txtApellidosNombres.Text = dgvListar.Rows[e.RowIndex].Cells[2].Value.ToString();
                 cbxGrado.Text = dgvListar.Rows[e.RowIndex].Cells[3].Value.ToString();
                 cbxSeccion.Text = dgvListar.Rows[e.RowIndex].Cells[4].Value.ToString();
-                txtEmail.Text = dgvListar.Rows[e.RowIndex].Cells[5].Value.ToString();
+                txtApoderado.Text = dgvListar.Rows[e.RowIndex].Cells[5].Value.ToString();
                 txtEmailAp.Text = dgvListar.Rows[e.RowIndex].Cells[6].Value.ToString();
                 txtCelular.Text = dgvListar.Rows[e.RowIndex].Cells[7].Value.ToString();
                 txtCelulcarAp.Text = dgvListar.Rows[e.RowIndex].Cells[8].Value.ToString();

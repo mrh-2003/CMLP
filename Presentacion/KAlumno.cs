@@ -51,7 +51,7 @@ namespace Presentacion
                 {
                     lbNombre.Text = eAlumno.ApellidosNombres;
                     lbTelefono.Text = eAlumno.Celular.ToString();
-                    lbEmail.Text = eAlumno.Email.ToString();
+                    lbEmail.Text = eAlumno.EmailApoderado.ToString();
                     lblAnio.Text = eAlumno.Grado.ToString();
                     lblSeccion.Text = eAlumno.Seccion.ToString();
                     txbCancelado.Text = dCalendario.PagadoPorAlumno(txbDni.Text).ToString();

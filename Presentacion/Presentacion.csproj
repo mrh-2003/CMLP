@@ -23,7 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>8</ApplicationRevision>
+    <ApplicationRevision>10</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -261,6 +261,12 @@
     <Compile Include="RJControls\RJDropdownMenu.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="RPagosBancarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RPagosBancarios.Designer.cs">
+      <DependentUpon>RPagosBancarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="RPencionesXMesGrado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -354,6 +360,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RDeudoresXFechaXGrado.resx">
       <DependentUpon>RDeudoresXFechaXGrado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPagosBancarios.resx">
+      <DependentUpon>RPagosBancarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RPencionesXMesGrado.resx">
       <DependentUpon>RPencionesXMesGrado.cs</DependentUpon>

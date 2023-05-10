@@ -80,10 +80,10 @@ namespace Presentacion
                         EAlumno eAlumno = new EAlumno()
                         {
                             Dni = dni,
-                            ApellidosNombres = sd.GetCellValueAsString(irow, 2),
+                            ApellidosNombres = Utilidades.eliminarCaracteresEspeciales(sd.GetCellValueAsString(irow, 2)),
                             Grado = sd.GetCellValueAsInt32(irow, 3),
                             Seccion = sd.GetCellValueAsInt32(irow, 4),
-                            Email = sd.GetCellValueAsString(irow, 5),
+                            Apoderado = sd.GetCellValueAsString(irow, 5),
                             EmailApoderado = sd.GetCellValueAsString(irow, 6),
                             Celular = sd.GetCellValueAsInt32(irow, 7),
                             CelularApoderado = sd.GetCellValueAsInt32(irow, 8),
@@ -121,7 +121,7 @@ namespace Presentacion
                 string fallo = "";
                 foreach (EAlumno item in listaAlumnos)
                     if (dAlumno.getAlumno(item.Dni) != null)
-                        dAlumno.Mantenimiento(item, "update");
+                        dAlumno.actualizarAlumnos(item);
                     else
                         fallo += item.Dni + " - " + item.ApellidosNombres + "\n";
                 if (fallo.Length > 0)
@@ -130,8 +130,11 @@ namespace Presentacion
                     Clipboard.SetText(fallo);
                     MessageBox.Show("Los alumnos que no existen fueron copiados al portapapeles");
                 }
-                MessageBox.Show("Tarea realizada exitosamente");
-                dgvListar.DataSource = null;
+                else
+                {
+                    MessageBox.Show("Tarea realizada exitosamente");
+                    dgvListar.DataSource = null;
+                }
             }
             else
                 MessageBox.Show("Primero debe cargar datos");

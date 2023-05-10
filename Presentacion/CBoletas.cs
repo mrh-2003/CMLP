@@ -16,6 +16,7 @@ namespace Presentacion
     public partial class CBoletas : Form
     {
         private List<EBoleta> listaBoletas = new List<EBoleta>();
+        private List<EBancoDTO> listaEBanco = new List<EBancoDTO>();
         DAlumno dAlumno = new DAlumno();
         DBoleta dBoleta = new DBoleta();
         DBancoDTO dBancoDTO = new DBancoDTO();
@@ -50,7 +51,7 @@ namespace Presentacion
             if (eBancoDTO != null)
             {
                 int concepto = eBancoDTO.NCuota;
-                dBancoDTO.Mantenimiento(eBancoDTO, "delete");
+                listaEBanco.Add(eBancoDTO);
                 return concepto;
             }
             return -1;
@@ -239,6 +240,10 @@ namespace Presentacion
                 int count = 0;
                 if (Utilidades.VerificarConexionInternet())
                 {
+                    foreach (EBancoDTO item in listaEBanco)
+                    {
+                        dBancoDTO.Mantenimiento(item, "delete");
+                    }
                     foreach (EBoleta boleta in listaBoletas)
                     {
                         if (dBoleta.getBoleta(boleta.Codigo) == null)

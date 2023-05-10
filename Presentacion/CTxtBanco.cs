@@ -27,7 +27,7 @@ namespace Presentacion
             lista.Clear();
             string downloadsFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Downloads";
             openFile.InitialDirectory = downloadsFolder;
-            openFile.Filter = "txt (*.txt)|*.txt";
+            openFile.Filter = "PAGOS (*.PAGOS)|*.PAGOS";
             if (openFile.ShowDialog() == DialogResult.OK)
             {
                 if (dBanco.InsertarArchivos(openFile.FileName))
