@@ -1,5 +1,4 @@
-﻿using Datos;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Datos;
+using Entidades;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
+using iTextSharp.tool.xml;
 
 namespace Presentacion
 {
@@ -76,6 +80,7 @@ namespace Presentacion
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
+            int contador = 1;
             SaveFileDialog savefile = new SaveFileDialog();
             savefile.FileName = string.Format("{0}.pdf", DateTime.Now.ToString("dd-MM-yyyy" + "-" ));
 
@@ -86,6 +91,8 @@ namespace Presentacion
             foreach (DataGridViewRow row in dgvListar.Rows)
             {
                 filas.Append("<tr>");
+                filas.Append("<tr>");
+                filas.AppendFormat("<td style=\"text-align:left;\"><pre>{0}</pre></td>", contador);
                 if (row.Cells["CODIGO"].Value != null)
                 {
                     filas.AppendFormat("<td style=\"text-align:left;\"><pre>{0}</pre></td>", row.Cells["CODIGO"].Value.ToString());
@@ -128,12 +135,16 @@ namespace Presentacion
                     filas.Append("<td style=\"text-align:left;\"> </td>");
                 }
                 filas.Append("</tr>");
+                contador++;
             }
 
             // Reemplazar la etiqueta @FILAS con todas las filas del DataGridView
             PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FILAS", filas.ToString());
-            //PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FECHA", dtpFecha.Text);
-            //PaginaHTML_Texto = PaginaHTML_Texto.Replace("@TOTAL", txtTotal.Text);
+            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FECHA", DateTime.Now.ToShortDateString());
+            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FECHA1", dtpInicio.Text);
+            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FECHA2", dtpFinal.Text);
+            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@TOTALFECHA", txtTotalXFecha.Text);
+            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@TOTAL", txtTotal.Text);
 
             if (savefile.ShowDialog() == DialogResult.OK)
             {

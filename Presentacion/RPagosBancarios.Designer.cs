@@ -143,40 +143,44 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(166, 520);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(345, 25);
+            this.label2.Size = new System.Drawing.Size(280, 18);
             this.label2.TabIndex = 66;
-            this.label2.Text = "TOTAL PAGADO EN ESTA FECHA: ";
+            this.label2.Text = "TOTAL PAGADO EN ESTA FECHA: S/ ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(166, 551);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(281, 25);
+            this.label3.Size = new System.Drawing.Size(235, 18);
             this.label3.TabIndex = 67;
-            this.label3.Text = "TOTAL GENERAL O ANUAL: ";
+            this.label3.Text = "TOTAL GENERAL O ANUAL:  S/";
             // 
             // txtTotal
             // 
             this.txtTotal.AutoSize = true;
-            this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(542, 551);
+            this.txtTotal.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.ForeColor = System.Drawing.Color.White;
+            this.txtTotal.Location = new System.Drawing.Point(452, 551);
             this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(23, 25);
+            this.txtTotal.Size = new System.Drawing.Size(18, 18);
             this.txtTotal.TabIndex = 68;
             this.txtTotal.Text = "0";
             // 
             // txtTotalXFecha
             // 
             this.txtTotalXFecha.AutoSize = true;
-            this.txtTotalXFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalXFecha.Location = new System.Drawing.Point(542, 520);
+            this.txtTotalXFecha.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalXFecha.ForeColor = System.Drawing.Color.White;
+            this.txtTotalXFecha.Location = new System.Drawing.Point(452, 520);
             this.txtTotalXFecha.Name = "txtTotalXFecha";
-            this.txtTotalXFecha.Size = new System.Drawing.Size(23, 25);
+            this.txtTotalXFecha.Size = new System.Drawing.Size(18, 18);
             this.txtTotalXFecha.TabIndex = 69;
             this.txtTotalXFecha.Text = "0";
             // 
