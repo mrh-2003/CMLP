@@ -40,7 +40,7 @@
             this.btnEscribir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEscribir.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEscribir.ForeColor = System.Drawing.Color.White;
-            this.btnEscribir.Location = new System.Drawing.Point(400, 635);
+            this.btnEscribir.Location = new System.Drawing.Point(400, 629);
             this.btnEscribir.Name = "btnEscribir";
             this.btnEscribir.Size = new System.Drawing.Size(202, 40);
             this.btnEscribir.TabIndex = 1;
