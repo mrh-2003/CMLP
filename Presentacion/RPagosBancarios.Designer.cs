@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvListar = new System.Windows.Forms.DataGridView();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,14 +51,14 @@
             this.dgvListar.AllowUserToAddRows = false;
             this.dgvListar.AllowUserToResizeRows = false;
             this.dgvListar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvListar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListar.Location = new System.Drawing.Point(26, 177);
             this.dgvListar.Name = "dgvListar";
@@ -83,6 +83,7 @@
             this.btnImprimir.TabIndex = 62;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = false;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // label1
             // 
@@ -142,40 +143,44 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(166, 520);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(345, 25);
+            this.label2.Size = new System.Drawing.Size(280, 18);
             this.label2.TabIndex = 66;
-            this.label2.Text = "TOTAL PAGADO EN ESTA FECHA: ";
+            this.label2.Text = "TOTAL PAGADO EN ESTA FECHA: S/ ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(166, 551);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(281, 25);
+            this.label3.Size = new System.Drawing.Size(235, 18);
             this.label3.TabIndex = 67;
-            this.label3.Text = "TOTAL GENERAL O ANUAL: ";
+            this.label3.Text = "TOTAL GENERAL O ANUAL:  S/";
             // 
             // txtTotal
             // 
             this.txtTotal.AutoSize = true;
-            this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(542, 551);
+            this.txtTotal.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.ForeColor = System.Drawing.Color.White;
+            this.txtTotal.Location = new System.Drawing.Point(452, 551);
             this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(23, 25);
+            this.txtTotal.Size = new System.Drawing.Size(18, 18);
             this.txtTotal.TabIndex = 68;
             this.txtTotal.Text = "0";
             // 
             // txtTotalXFecha
             // 
             this.txtTotalXFecha.AutoSize = true;
-            this.txtTotalXFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalXFecha.Location = new System.Drawing.Point(542, 520);
+            this.txtTotalXFecha.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalXFecha.ForeColor = System.Drawing.Color.White;
+            this.txtTotalXFecha.Location = new System.Drawing.Point(452, 520);
             this.txtTotalXFecha.Name = "txtTotalXFecha";
-            this.txtTotalXFecha.Size = new System.Drawing.Size(23, 25);
+            this.txtTotalXFecha.Size = new System.Drawing.Size(18, 18);
             this.txtTotalXFecha.TabIndex = 69;
             this.txtTotalXFecha.Text = "0";
             // 
@@ -234,6 +239,7 @@
             this.Controls.Add(this.dtpFinal);
             this.Controls.Add(this.dtpInicio);
             this.Controls.Add(this.dgvListar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RPagosBancarios";
             this.Text = "RPagosBancarios";
             this.Load += new System.EventHandler(this.RPagosBancarios_Load);
