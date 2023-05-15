@@ -66,7 +66,7 @@
             this.dgvListar.RowHeadersVisible = false;
             this.dgvListar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListar.Size = new System.Drawing.Size(923, 329);
+            this.dgvListar.Size = new System.Drawing.Size(941, 409);
             this.dgvListar.TabIndex = 4;
             this.dgvListar.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListar_CellContentClick);
             // 
@@ -145,7 +145,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(166, 520);
+            this.label2.Location = new System.Drawing.Point(371, 600);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(280, 18);
             this.label2.TabIndex = 66;
@@ -156,7 +156,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(166, 551);
+            this.label3.Location = new System.Drawing.Point(371, 631);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(235, 18);
             this.label3.TabIndex = 67;
@@ -167,7 +167,7 @@
             this.txtTotal.AutoSize = true;
             this.txtTotal.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotal.ForeColor = System.Drawing.Color.White;
-            this.txtTotal.Location = new System.Drawing.Point(452, 551);
+            this.txtTotal.Location = new System.Drawing.Point(657, 631);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(18, 18);
             this.txtTotal.TabIndex = 68;
@@ -178,7 +178,7 @@
             this.txtTotalXFecha.AutoSize = true;
             this.txtTotalXFecha.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalXFecha.ForeColor = System.Drawing.Color.White;
-            this.txtTotalXFecha.Location = new System.Drawing.Point(452, 520);
+            this.txtTotalXFecha.Location = new System.Drawing.Point(657, 600);
             this.txtTotalXFecha.Name = "txtTotalXFecha";
             this.txtTotalXFecha.Size = new System.Drawing.Size(18, 18);
             this.txtTotalXFecha.TabIndex = 69;
@@ -224,7 +224,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(65)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(990, 585);
+            this.ClientSize = new System.Drawing.Size(992, 681);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.btnEliminar);

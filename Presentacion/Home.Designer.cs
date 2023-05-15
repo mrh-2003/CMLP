@@ -117,7 +117,7 @@ namespace Presentacion
             this.btnReportePagos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReportePagos.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReportePagos.ForeColor = System.Drawing.Color.White;
-            this.btnReportePagos.IconChar = FontAwesome.Sharp.IconChar.MoneyBillTrendUp;
+            this.btnReportePagos.IconChar = FontAwesome.Sharp.IconChar.MoneyBillTransfer;
             this.btnReportePagos.IconColor = System.Drawing.Color.White;
             this.btnReportePagos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnReportePagos.IconSize = 35;
