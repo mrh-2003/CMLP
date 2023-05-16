@@ -33,8 +33,8 @@ namespace Presentacion
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            dgvListar.DataSource = dBoleta.ListarPorFecha(dtpInicio.Value, dtpFinal.Value);
-            txtTotal.Text = "Total: " + dBoleta.TotalPorFecha(dtpInicio.Value, dtpFinal.Value);
+            dgvListar.DataSource = dBoleta.ListarPorFecha(dtpInicio.Value.AddDays(-1), dtpFinal.Value);
+            txtTotal.Text = "Total: " + dBoleta.TotalPorFecha(dtpInicio.Value.AddDays(-1), dtpFinal.Value);
             imprimir = true;
         }
 

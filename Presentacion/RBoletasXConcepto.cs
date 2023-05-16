@@ -34,8 +34,8 @@ namespace Presentacion
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             EConcepto eConcepto = cbxConcepto.SelectedItem as EConcepto;
-            dgvListar.DataSource = dBoleta.ListarPorConceptos(dtpInicio.Value, dtpFinal.Value, eConcepto.Codigo);
-            txtTotal.Text = "Total: " + dBoleta.TotalPorConceptos(dtpInicio.Value, dtpFinal.Value, eConcepto.Codigo);
+            dgvListar.DataSource = dBoleta.ListarPorConceptos(dtpInicio.Value.AddDays(-1), dtpFinal.Value, eConcepto.Codigo);
+            txtTotal.Text = "Total: " + dBoleta.TotalPorConceptos(dtpInicio.Value.AddDays(-1), dtpFinal.Value, eConcepto.Codigo);
             imprimir = true;
         }
 
