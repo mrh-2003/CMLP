@@ -74,6 +74,7 @@ namespace Datos
         }
         public static async Task<string> EnviarCorreo(string remitente, string password, string destinatario, string asunto, string cuerpo)
         {
+            remitente = "no.responder.cmlp@gmail.com";
             if (string.IsNullOrEmpty(remitente))
                 throw new ArgumentException("El remitente no puede ser nulo ni vacío.", nameof(remitente));
 
