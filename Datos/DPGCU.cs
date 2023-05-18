@@ -40,7 +40,7 @@ namespace Datos
                         string query;
                         if (opcion == "insert")
                         {
-                            query = "INSERT INTO pgcu (codigo, nombre, importe, mora, fecha) VALUES (@codigo, @nombre, @importe, @mora, @fecha)";
+                            query = "INSERT INTO pgcu (codigo, nombres, importe, mora, fecha) VALUES (@codigo, @nombres, @importe, @mora, @fecha)";
                         }
                         else
                         {
@@ -52,7 +52,7 @@ namespace Datos
                             if(opcion == "insert")
                             {
                                 cmd.Parameters.AddWithValue("@codigo", epgcu.codigo);
-                                cmd.Parameters.AddWithValue("@nombre", epgcu.nombres);
+                                cmd.Parameters.AddWithValue("@nombres", epgcu.nombres);
                                 cmd.Parameters.AddWithValue("@importe", epgcu.importe);
                                 cmd.Parameters.AddWithValue("@mora", epgcu.mora);
                                 cmd.Parameters.AddWithValue("@fecha", epgcu.fecha);
