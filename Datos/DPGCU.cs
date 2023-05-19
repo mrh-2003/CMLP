@@ -96,7 +96,7 @@ namespace Datos
             {
                 connection.Open();
 
-                using (NpgsqlCommand command = new NpgsqlCommand("SELECT SUM(importe) FROM public.pgcu WHERE fecha BETWEEN @fechaInicio AND @fechaFin;", connection))
+                using (NpgsqlCommand command = new NpgsqlCommand("SELECT SUM(importe + mora) FROM public.pgcu WHERE fecha BETWEEN @fechaInicio AND @fechaFin;", connection))
                 {
                     command.Parameters.AddWithValue("fechaInicio", fechaInicio);
                     command.Parameters.AddWithValue("fechaFin", fechaFin);
@@ -122,7 +122,7 @@ namespace Datos
 
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
-                string query = "SELECT SUM(importe) FROM public.pgcu";
+                string query = "SELECT SUM(importe + mora) FROM public.pgcu";
                 if (anio != "TODOS")
                     query += " WHERE EXTRACT(YEAR FROM fecha) = @anio";
                 connection.Open();
